@@ -3,6 +3,9 @@ import { MdCall } from "react-icons/md";
 import Socials from "../../components/Shared/Socials";
 import member from "../../Assets/joinus/Team/team.jpg"
 
+import './joinus.css'
+
+
 const JoinUs = () => {
   return (
     <div className="bg-[#fff9f1] min-h-screen">
@@ -12,8 +15,7 @@ const JoinUs = () => {
       <div>
 
         {/*TODO: bg picture in this div*/}
-        <div className='bg-[#785F54] min-h-96'>
-          <img src="" alt="" />
+        <div className='hands min-h-[480px]'>
 
         </div>
 
@@ -27,12 +29,12 @@ const JoinUs = () => {
           {/* contact through email section */}
           <div className='max-w-screen-xl w-[94%] -mt-44 bg-gray-300 mx-auto grid md:grid-cols-2 p-6 md:p-8 rounded-lg '>
 
-            <div className='my-auto md:ml-8'>
+            <div className='my-auto lg:ml-8'>
 
               <h2 className='text-3xl md:text-4xl font-bold'>Contact Us</h2>
               <p className="w-[78%] my-3">Want to be part of something exciting? Whether you're looking to join our team, partner with us, or collaborate on events, we'd love to hear from you!</p>
-              <div className='my-4 text-lg flex gap-4'>
-                <p className='flex items-center gap-2'><MdCall className="text-[#785F54]" /> +01799886655</p>
+              <div className='my-4 text-lg md:flex gap-3'>
+                <p className='flex items-center gap-1'><MdCall className="text-[#785F54]" /> +01799886655</p>
                 <p className='flex items-center gap-1'><IoIosMail className="text-[#785F54]" /> TickBook@gmail.com</p>
               </div>
               <Socials />
