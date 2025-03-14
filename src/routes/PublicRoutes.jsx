@@ -5,11 +5,8 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/home/Home";
 import AboutUs from "../pages/about-us/AboutUs";
 import JoinUs from "../pages/join-us/JoinUs";
-<<<<<<< HEAD
 import TermsAndConditions from "../pages/terms-and-conditions/TermsAndConditions";
-=======
 import ErrorPage from "../pages/error-page/ErrorPage";
->>>>>>> development
 
 const PublicRoutes = () => {
   return (
