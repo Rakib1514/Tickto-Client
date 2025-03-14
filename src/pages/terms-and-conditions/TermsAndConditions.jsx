@@ -18,7 +18,29 @@ const TermsAndConditions = () => {
           <h1 className="text-3xl font-bold text-[#317371]">TERMS OF SERVICE</h1>
         </div>
 
-        
+        {/* Account Security */}
+		<div className="text-center space-y-2">
+          <motion.div className="bg-[#317371] text-white px-4 py-1 rounded-md inline-block text-sm">
+            Keeping Your Account Safe
+          </motion.div>
+          <h1 className="text-2xl font-semibold text-[#317371]">ACCOUNT SECURITY</h1>
+        </div>
+        <motion.div whileHover={{ scale: 1.03 }} className="p-6 bg-white border border-[#D9D9D9] shadow-md rounded-xl">
+          <ul className="space-y-2 text-gray-700">
+            {[
+              "You are responsible for maintaining the confidentiality of your account credentials.",
+              "Any activity that occurs under your account is your responsibility.",
+              "Notify us immediately if you suspect unauthorized access to your account.",
+              "Using strong passwords and enabling two-factor authentication is highly recommended.",
+              "We reserve the right to suspend accounts with suspicious activities."
+            ].map((point, index) => (
+              <li key={index} className="flex items-start space-x-2">
+                <FaCheckCircle className="text-[#785F54] mt-1" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
 
         {/* Accept Button */}
         <div className="mt-8 text-center">
