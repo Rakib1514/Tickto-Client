@@ -28,7 +28,7 @@ const MainLayout = () => {
           <p className="font-semibold">Home sections</p>
           <li>Banner -- Musfika</li>
           <li>Recently Viewed</li>
-          <li>Features</li>
+          <li>Features</li>  -- Arif
           <li>Keeping your data safe</li>
           <li>Popular now</li>
           <li>Theater shows</li>
