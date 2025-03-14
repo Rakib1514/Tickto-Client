@@ -1,11 +1,9 @@
 import About_Executive_team from "./About_Executive_team";
-import About_Join_us_sectioin from "./About_Join_us_section";
-import AboutFromCustomer from "./AboutFromCustomer";
-import OurTeam from "./OurTeam";
 import Lottie from "lottie-react";
 import aboutUsLottie from "../../assets/lotties/aboutUs.json";
 import { motion } from "framer-motion";
 import AboutUsSection from "./AboutUsSection";
+import StatsSection from "./StatsSection";
 
 const AboutUs = () => {
   const containerVariants = {
@@ -103,9 +101,7 @@ const AboutUs = () => {
         </div>
       </section>
       <AboutUsSection />
-      <AboutFromCustomer />
-      <OurTeam />
-      <About_Join_us_sectioin />
+      <StatsSection />
       <About_Executive_team />
     </div>
   );
