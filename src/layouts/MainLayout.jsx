@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 import Navbar from "../components/Shared/Navbar";
 import Footer from "../components/Shared/Footer";
 
@@ -20,8 +20,10 @@ const MainLayout = () => {
         <li>About Us page -- Arif</li>
         <li>Join Us page -- Fariya</li>
         <li>Error page -- Nure Alam</li>
+        <li>Terms and condition -- Akash</li>
+          <Link className="btn mx-5" to='/terms-and-condition'>Terms and Conditions</Link>
         <li>Navbar</li>
-        <li>Footer</li>
+        <li>Footer -- Akash</li>
         <ol className="ml-3">
           <p className="font-semibold">Home sections</p>
           <li>Banner -- Musfika</li>

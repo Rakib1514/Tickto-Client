@@ -5,7 +5,11 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/home/Home";
 import AboutUs from "../pages/about-us/AboutUs";
 import JoinUs from "../pages/join-us/JoinUs";
+<<<<<<< HEAD
+import TermsAndConditions from "../pages/terms-and-conditions/TermsAndConditions";
+=======
 import ErrorPage from "../pages/error-page/ErrorPage";
+>>>>>>> development
 
 const PublicRoutes = () => {
   return (
@@ -14,6 +18,7 @@ const PublicRoutes = () => {
         <Route index element={<Home/>} />
         <Route path="/about-us" element={<AboutUs/>} />
         <Route path="/join-us" element={<JoinUs/>} />
+        <Route path="/terms-and-condition" element={<TermsAndConditions/>} />
       </Route>
       <Route path="*" element={<ErrorPage/>}></Route>
     </Routes>
