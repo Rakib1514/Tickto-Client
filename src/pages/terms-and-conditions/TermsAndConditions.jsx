@@ -18,7 +18,7 @@ const TermsAndConditions = () => {
           <h1 className="text-3xl font-bold text-[#317371]">TERMS OF SERVICE</h1>
         </div>
 
-        {/* Account Security */}
+        {/* Keeping Your Account Safe section  */}
 		<div className="text-center space-y-2">
           <motion.div className="bg-[#317371] text-white px-4 py-1 rounded-md inline-block text-sm">
             Keeping Your Account Safe
@@ -33,6 +33,30 @@ const TermsAndConditions = () => {
               "Notify us immediately if you suspect unauthorized access to your account.",
               "Using strong passwords and enabling two-factor authentication is highly recommended.",
               "We reserve the right to suspend accounts with suspicious activities."
+            ].map((point, index) => (
+              <li key={index} className="flex items-start space-x-2">
+                <FaCheckCircle className="text-[#785F54] mt-1" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
+	   {/* Fair Usage Policy section */}
+	   <div className="text-center space-y-2">
+          <motion.div className="bg-[#317371] text-white px-4 py-1 rounded-md inline-block text-sm">
+            Fair Usage Policy
+          </motion.div>
+          <h1 className="text-2xl font-semibold text-[#317371]">PROHIBITED ACTIVITIES</h1>
+        </div>
+        <motion.div whileHover={{ scale: 1.03 }} className="p-6 bg-white border border-[#D9D9D9] shadow-md rounded-xl">
+          <ul className="space-y-2 text-gray-700">
+            {[
+              "Unauthorized access, hacking, or any malicious activity is strictly forbidden.",
+              "Scraping, data mining, or any form of automated data extraction is prohibited.",
+              "Harassment, abusive behavior, or spamming other users is not allowed.",
+              "You may not use our platform for illegal or fraudulent purposes.",
+              "Attempts to interfere with platform security will lead to legal actions."
             ].map((point, index) => (
               <li key={index} className="flex items-start space-x-2">
                 <FaCheckCircle className="text-[#785F54] mt-1" />
