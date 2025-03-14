@@ -5,6 +5,7 @@ import member2 from "../../Assets/joinus/Team/member.jpg"
 import rakibul from '../../Assets/joinus/Team/rakib.png'
 import sana from '../../Assets/joinus/Team/sana.jpeg'
 import akash from '../../Assets/joinus/Team/akash.jpg'
+import arif from '../../Assets/joinus/Team/arif.jpg'
 
 import './joinus.css'
 
@@ -15,7 +16,7 @@ const JoinUs = () => {
     { name: "Mst. Musfika Naznin Oni", email: "musfikanoni@gmail.com", img: member2 },
     { name: "Md Rakibul Islam", email: "rkrakib1514@outlook.com", img: rakibul },
     { name: "Fariya Khan Sana", email: "fariya.webdev@gmail.com", img: sana },
-    { name: "Minhaj Uddin Arif", email: "arifk62901@gmail.com", img: member2 },
+    { name: "Minhaj Uddin Arif", email: "arifk62901@gmail.com", img: arif },
     { name: "Md. Nure Alam", email: "nurealam151068@gmail.com", img: member2 },
     { name: "Abdul Mazid Akash", email: "akashabdulmazid@gmail.com", img: akash },
   ]
@@ -38,7 +39,8 @@ const JoinUs = () => {
         <div>
 
           {/* contact through email section */}
-          <div className='max-w-screen-xl w-[94%] -mt-64 md:-mt-48 border-3 border-[#8a6e62] mx-auto rounded-lg p-2'>
+          <div className='max-w-screen-xl w-[94%] -mt-64 md:-mt-48 mx-auto'>
+            {/*  border-3 border-[#8a6e62] rounded-lg p-2 */}
 
             <div className="grid md:grid-cols-2 p-6 md:p-8 bg-gray-300 rounded-lg  ">
 
@@ -97,7 +99,7 @@ const JoinUs = () => {
                   <div key={index} className="relative rounded-lg overflow-hidden group max-h-80 bg-[#8a6e62] w-fit max-w-[440px] mx-auto">
                     {/* Image with dark overlay on hover */}
                     <img
-                      className="rounded-lg transition-all h-full duration-300 ease-in-out group-hover:brightness-50"
+                      className="rounded-lg transition-all h-full w-full duration-300 ease-in-out group-hover:brightness-50"
                       src={member.img}
                       alt={member.name}
                     />
