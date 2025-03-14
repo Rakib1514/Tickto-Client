@@ -2,6 +2,9 @@ import { IoIosMail } from "react-icons/io";
 import { MdCall } from "react-icons/md";
 import Socials from "../../components/Shared/Socials";
 import member2 from "../../Assets/joinus/Team/member.jpg"
+import rakibul from '../../Assets/joinus/Team/rakib.png'
+import sana from '../../Assets/joinus/Team/sana.jpeg'
+import akash from '../../Assets/joinus/Team/akash.jpg'
 
 import './joinus.css'
 
@@ -9,12 +12,12 @@ import './joinus.css'
 const JoinUs = () => {
 
   const team = [
-    { name: "Mst. Musfika Naznin Oni", email: "mushfika@example.com", img: member2 },
-    { name: "Md Rakibul Islam", email: "rkrakib1514@outlook.com", img: member2 },
-    { name: "Fariya Khan Sana", email: "fariya.webdev@gmail.com", img: member2 },
+    { name: "Mst. Musfika Naznin Oni", email: "musfikanoni@gmail.com", img: member2 },
+    { name: "Md Rakibul Islam", email: "rkrakib1514@outlook.com", img: rakibul },
+    { name: "Fariya Khan Sana", email: "fariya.webdev@gmail.com", img: sana },
     { name: "Minhaj Uddin Arif", email: "arifk62901@gmail.com", img: member2 },
     { name: "Md. Nure Alam", email: "nurealam151068@gmail.com", img: member2 },
-    { name: "Abdul Mazid Akash", email: "akashabdulmazid@gmail.com", img: member2 },
+    { name: "Abdul Mazid Akash", email: "akashabdulmazid@gmail.com", img: akash },
   ]
 
   return (
@@ -73,8 +76,13 @@ const JoinUs = () => {
 
 
           {/* map/location section*/}
-          <div className="max-w-screen-xl w-[94%] mx-auto bg-gray-300 min-h-96 my-20 rounded-lg">
-
+          <div className="max-w-screen-xl w-[94%] mx-auto bg-gray-300 min-h-96 my-20 rounded-lg relative overflow-hidden">
+            <iframe
+              className="w-full h-full absolute inset-0"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.476727509522!2d90.39052097519573!3d23.763933778667314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf58e31de36b%3A0xd61b34a16cfecb77!2sFarmgate%2C%20Dhaka%201215!5e0!3m2!1sen!2sbd!4v1710012345678!5m2!1sen!2sbd"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
           </div>
 
 
@@ -86,10 +94,10 @@ const JoinUs = () => {
 
               {
                 team.map((member, index) => (
-                  <div key={index} className="relative rounded-lg overflow-hidden group">
+                  <div key={index} className="relative rounded-lg overflow-hidden group max-h-80 bg-[#8a6e62] w-fit max-w-[440px] mx-auto">
                     {/* Image with dark overlay on hover */}
                     <img
-                      className="rounded-lg transition-all duration-300 ease-in-out group-hover:brightness-50"
+                      className="rounded-lg transition-all h-full duration-300 ease-in-out group-hover:brightness-50"
                       src={member.img}
                       alt={member.name}
                     />
