@@ -66,6 +66,30 @@ const TermsAndConditions = () => {
           </ul>
         </motion.div>
 
+		{/* Protecting Our Content section  */}
+		<div className="text-center space-y-2">
+          <motion.div className="bg-[#317371] text-white px-4 py-1 rounded-md inline-block text-sm">
+            Protecting Our Content
+          </motion.div>
+          <h1 className="text-2xl font-semibold text-[#317371]">INTELLECTUAL PROPERTY</h1>
+        </div>
+        <motion.div whileHover={{ scale: 1.03 }} className="p-6 bg-white border border-[#D9D9D9] shadow-md rounded-xl">
+          <ul className="space-y-2 text-gray-700">
+            {[
+              "All trademarks, logos, and content on this platform are owned by us.",
+              "You may not copy, reproduce, or distribute any material without permission.",
+              "User-generated content remains the property of the respective users.",
+              "Any unauthorized use of our intellectual property is strictly prohibited.",
+              "We reserve the right to remove content that violates copyrights."
+            ].map((point, index) => (
+              <li key={index} className="flex items-start space-x-2">
+                <FaCheckCircle className="text-[#785F54] mt-1" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
         {/* Accept Button */}
         <div className="mt-8 text-center">
           <motion.button 
