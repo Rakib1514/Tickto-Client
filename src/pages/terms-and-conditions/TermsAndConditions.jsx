@@ -89,7 +89,6 @@ const TermsAndConditions = () => {
             ))}
           </ul>
         </motion.div>
-
         {/* Accept Button */}
         <div className="mt-8 text-center">
           <motion.button 
