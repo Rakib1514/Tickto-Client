@@ -89,6 +89,32 @@ const TermsAndConditions = () => {
             ))}
           </ul>
         </motion.div>
+
+		 {/* External Website Disclaimer section */}
+		 <div className="text-center space-y-2">
+          <motion.div className="bg-[#317371] text-white px-4 py-1 rounded-md inline-block text-sm">
+            External Website Disclaimer
+          </motion.div>
+          <h1 className="text-2xl font-semibold text-[#317371]">THIRD-PARTY LINKS</h1>
+        </div>
+        <motion.div whileHover={{ scale: 1.03 }} className="p-6 bg-white border border-[#D9D9D9] shadow-md rounded-xl">
+          <ul className="space-y-2 text-gray-700">
+            {[
+              "Our platform may contain links to third-party websites.",
+              "We do not control or endorse the content of external sites.",
+              "Users should review third-party privacy policies before using them.",
+              "We are not responsible for damages arising from external site usage.",
+              "Third-party sites may have different terms and policies than ours."
+            ].map((point, index) => (
+              <li key={index} className="flex items-start space-x-2">
+                <FaCheckCircle className="text-[#785F54] mt-1" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
+
         {/* Accept Button */}
         <div className="mt-8 text-center">
           <motion.button 
