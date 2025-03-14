@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import errorLottie from "../../assets/lotties/errorPage.json";
+import errorLottie from "/src/assets/lotties/errorPage.json";
 import { useNavigate } from "react-router";
 
 const ErrorPage = () => {
