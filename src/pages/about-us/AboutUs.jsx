@@ -1,4 +1,3 @@
-import About_Executive_team from "./About_Executive_team";
 import Lottie from "lottie-react";
 import aboutUsLottie from "../../assets/lotties/aboutUs.json";
 import { motion } from "framer-motion";
@@ -102,7 +101,6 @@ const AboutUs = () => {
       </section>
       <AboutUsSection />
       <StatsSection />
-      <About_Executive_team />
     </div>
   );
 };
