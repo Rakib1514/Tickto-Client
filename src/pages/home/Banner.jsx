@@ -38,20 +38,20 @@ const Banner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
     const [background, setBackground] = useState(images[0]);
 
-    // Fixed nextSlide function
+
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => {
             const newIndex = (prevIndex + 1) % images.length;
-            setBackground(images[newIndex]); // Sync background with slider
+            setBackground(images[newIndex]); 
             return newIndex;
         });
     };
 
-    // Fixed prevSlide function
+    
     const prevSlide = () => {
         setCurrentIndex((prevIndex) => {
             const newIndex = (prevIndex - 1 + images.length) % images.length;
-            setBackground(images[newIndex]); // Sync background with slider
+            setBackground(images[newIndex]); 
             return newIndex;
         });
     };
@@ -69,7 +69,7 @@ const Banner = () => {
                 {images.map((img, index) => (
                     <div className={`item ${index === currentIndex ? "active" : ""}`} key={index}>
                         <img src={img} alt={content[index].title} />
-                        {index === currentIndex && ( // Only render content for the active slide
+                        {index === currentIndex && ( 
                             <div className="content">
                                 <div className="author">{content[index].author}</div>
                                 <div className="title">{content[index].title}</div>
