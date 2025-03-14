@@ -114,6 +114,29 @@ const TermsAndConditions = () => {
           </ul>
         </motion.div>
 
+		 {/* Service Availability Notice section  */}
+		 <div className="text-center space-y-2">
+          <motion.div className="bg-[#317371] text-white px-4 py-1 rounded-md inline-block text-sm">
+            Service Availability Notice
+          </motion.div>
+          <h1 className="text-2xl font-semibold text-[#317371]">SERVICE INTERRUPTIONS</h1>
+        </div>
+        <motion.div whileHover={{ scale: 1.03 }} className="p-6 bg-white border border-[#D9D9D9] shadow-md rounded-xl">
+          <ul className="space-y-2 text-gray-700">
+            {[
+              "We do not guarantee uninterrupted or error-free services at all times.",
+              "Maintenance and technical issues may cause temporary downtime.",
+              "We are not liable for any loss caused by service interruptions.",
+              "Users will be notified of planned maintenance whenever possible.",
+              "By using our platform, you accept the risks of potential disruptions."
+            ].map((point, index) => (
+              <li key={index} className="flex items-start space-x-2">
+                <FaCheckCircle className="text-[#785F54] mt-1" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
 
         {/* Accept Button */}
         <div className="mt-8 text-center">
