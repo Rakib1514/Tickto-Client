@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { FaStar } from 'react-icons/fa';
+
 // import { Pagination, Navigation } from 'swiper/modules';
 import '../../styles.css';
 import 'swiper/css';
@@ -47,75 +49,173 @@ const Reviews = () => {
                         },
                         //small desktops
                         1024: {
-                            slidesPerView: 5,
+                            slidesPerView: 4,
                             spaceBetween: 25,
                         },
                     }}
                 >
                     <SwiperSlide className='rounded-lg'>
-                        <div className="flex flex-col justify-center my-10 items-center">
-                            <img className="h-18 w-auto" src={r1} alt="" />
+                        <div className="flex flex-col justify-center my-7 items-center">
+                            <img className="h-20 border-2 rounded-full border-gray-300 w-auto" src={r1} alt="" />
                             <p className="text-xl mt-3 text-black font-bold">Miska</p>
+                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
+                            <div className="flex justify-center gap-2">
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                            </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-10 items-center">
-                            <img className="h-18" src={r2} alt="" />
+                        <div className="flex flex-col justify-center my-7 items-center">
+                            <img className="h-20 border-2 rounded-full border-gray-300" src={r2} alt="" />
                             <p className="text-xl mt-3 text-black font-bold">Ainnan</p>
+                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
+                            <div className="flex justify-center gap-2">
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                            </div>
+                            
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-10 items-center">
-                            <img className="h-14" src={r3} alt="" />
+                        <div className="flex flex-col justify-center my-7 items-center">
+                            <img className="h-20 border-2 rounded-full border-gray-300" src={r3} alt="" />
                             <p className="text-xl mt-3 text-black font-bold">Raisa</p>
+                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
+                            <div className="flex justify-center gap-2">
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                            </div>
+                           
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-10 items-center">
-                            <img className="h-18" src={r4} alt="" />
+                        <div className="flex flex-col justify-center my-7 items-center">
+                            <img className="h-20 border-2 rounded-full border-gray-300" src={r4} alt="" />
                             <p className="text-xl mt-3 text-black font-bold">Jenni</p>
+                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
+                            <div className="flex justify-center gap-2">
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                            </div>
+                            
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-10 items-center">
-                            <img className="h-18" src={r2} alt="" />
+                        <div className="flex flex-col justify-center my-7 items-center">
+                            <img className="h-20 border-2 rounded-full border-gray-300" src={r2} alt="" />
                             <p className="text-xl mt-3 text-black font-bold">Zayan</p>
+                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
+                            <div className="flex justify-center gap-2">
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                            </div>
+                            
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-10 items-center">
-                            <img className="h-20" src={r3} alt="" />
+                        <div className="flex flex-col justify-center my-7 items-center">
+                            <img className="h-20 border-2 rounded-full border-gray-300" src={r3} alt="" />
                             <p className="text-xl mt-3 text-black font-bold">Salena</p>
+                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
+                            <div className="flex justify-center gap-2">
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                            </div>
+                            
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-10 items-center">
-                            <img className="h-18" src={r4} alt="" />
+                        <div className="flex flex-col justify-center my-7 items-center">
+                            <img className="h-20 border-2 rounded-full border-gray-300" src={r4} alt="" />
                             <p className="text-xl mt-3 text-black font-bold">Maddie</p>
+                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
+                            <div className="flex justify-center gap-2">
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                            </div>
+                            
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-10 items-center">
-                            <img className="h-18" src={r3} alt="" />
+                        <div className="flex flex-col justify-center my-7 items-center">
+                            <img className="h-20 border-2 rounded-full border-gray-300" src={r3} alt="" />
                             <p className="text-xl mt-3 text-black font-bold">Lorissa</p>
+                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
+                            <div className="flex justify-center gap-2">
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                            </div>
+                            
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-10 items-center">
-                            <img className="h-18" src={r2} alt="" />
+                        <div className="flex flex-col justify-center my-7 items-center">
+                            <img className="h-20 border-2 rounded-full border-gray-300" src={r2} alt="" />
                             <p className="text-xl mt-3 text-black font-bold">Dainel</p>
+                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
+                            <div className="flex justify-center gap-2">
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                            </div>
+                            
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-10 items-center">
-                            <img className="h-18" src={r1} alt="" />
+                        <div className="flex flex-col justify-center my-7 items-center">
+                            <img className="h-20 border-2 rounded-full border-gray-300" src={r1} alt="" />
                             <p className="text-xl mt-3 text-black font-bold">Sofia</p>
+                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
+                            <div className="flex justify-center gap-2">
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                            </div>
+                            
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-10 items-center">
-                            <img className="h-18" src={r4} alt="" />
+                        <div className="flex flex-col justify-center my-7 items-center">
+                            <img className="h-20 border-2 rounded-full border-gray-300" src={r4} alt="" />
                             <p className="text-xl mt-3 text-black font-bold">Suzen Caika</p>
+                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
+                            <div className="flex justify-center gap-2">
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                                <FaStar className='text-xl text-amber-500' />
+                            </div>
+                            
                         </div>
                     </SwiperSlide>
                 </Swiper>
