@@ -6,6 +6,7 @@ import rakibul from '../../Assets/joinus/Team/rakib.png'
 import sana from '../../Assets/joinus/Team/sana.jpeg'
 import akash from '../../Assets/joinus/Team/akash.jpg'
 import arif from '../../Assets/joinus/Team/arif.jpg'
+import oni from '../../Assets/joinus/Team/Oni.jpg'
 
 import './joinus.css'
 
@@ -13,7 +14,7 @@ import './joinus.css'
 const JoinUs = () => {
 
   const team = [
-    { name: "Mst. Musfika Naznin Oni", email: "musfikanoni@gmail.com", img: member2 },
+    { name: "Mst. Musfika Naznin Oni", email: "musfikanoni@gmail.com", img: oni },
     { name: "Md Rakibul Islam", email: "rkrakib1514@outlook.com", img: rakibul },
     { name: "Fariya Khan Sana", email: "fariya.webdev@gmail.com", img: sana },
     { name: "Minhaj Uddin Arif", email: "arifk62901@gmail.com", img: arif },
