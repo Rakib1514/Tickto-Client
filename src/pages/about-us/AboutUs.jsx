@@ -1,11 +1,11 @@
 import About_Executive_team from "./About_Executive_team";
 import About_Join_us_sectioin from "./About_Join_us_section";
 import AboutFromCustomer from "./AboutFromCustomer";
-import AboutUs_first_section from "./AboutUs_first_section";
 import OurTeam from "./OurTeam";
-
-
-import { motion } from 'framer-motion';
+import Lottie from "lottie-react";
+import aboutUsLottie from "../../assets/lotties/aboutUs.json";
+import { motion } from "framer-motion";
+import AboutUsSection from "./AboutUsSection";
 
 const AboutUs = () => {
   const containerVariants = {
@@ -25,78 +25,84 @@ const AboutUs = () => {
   };
   return (
     <div>
-       <section className="bg-gray-50 py-16 ">
-      <div className="container mx-auto px-6">
-        {/* Section Title */}
-        <motion.h2
-          className="text-4xl font-bold text-center text-black  mb-8"
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          About Us
-        </motion.h2>
+      <section>
+        <div>
+          {/* Section Title */}
+          <div className="bg-[#317371] h-[250px] flex flex-col justify-center items-center px-4">
+            <motion.h2
+              className="text-[30px] md:text-4xl lg:text-5xl font-bold text-center text-gray-200"
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              About Project Name
+            </motion.h2>
+            <motion.p
+              className="text-gray-300 font-medium text-[18px] md:text-[20px] text-center mt-4"
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              Online Ticketing System – Fast, secure, hassle-free ticket
+              booking.
+            </motion.p>
+          </div>
 
-        {/* Content Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {/* Left Side: Image */}
+          {/* Content Grid */}
           <motion.div
-            className="flex justify-center"
-            variants={itemVariants}
-          >
-            <img
-              src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-              alt="About Us"
-              className="rounded-lg shadow-lg w-full max-w-md"
-            />
-          </motion.div>
-
-          {/* Right Side: Text Content */}
-          <motion.div
-            className="space-y-6"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-between items-center pb-20 container mx-auto px-4 md:px-6"
             variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
           >
-            <motion.h3
-              className="text-3xl font-semibold text-gray-800"
-              variants={itemVariants}
-            >
-              Who We Are
-            </motion.h3>
-            <motion.p
-              className="text-black  leading-relaxed"
-              variants={itemVariants}
-            >
-              We are a leading online booking platform dedicated to making your travel and event experiences seamless. Whether you're booking flights, events, or concerts, we provide a hassle-free way to plan your journey.
-            </motion.p>
-            <motion.p
-              className="text-black  leading-relaxed"
-              variants={itemVariants}
-            >
-              Our mission is to connect people with unforgettable experiences. With a user-friendly interface and secure payment options, we ensure that your booking process is smooth and enjoyable.
-            </motion.p>
+            {/* Left Side: Image */}
             <motion.div
-              className="flex space-x-4"
+              className="flex md:justify-center lg:justify-between md:h-[600px]"
               variants={itemVariants}
             >
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
-                Learn More
-              </button>
-              <button className="bg-transparent border border-blue-600 text-blue-600 px-6 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300">
-                Contact Us
-              </button>
+              <Lottie
+                animationData={aboutUsLottie}
+                style={{ width: "100" }}
+              ></Lottie>
+            </motion.div>
+            {/* Right Side: Text Content */}
+            <motion.div className="space-y-6" variants={containerVariants}>
+              <motion.h3 className="text-3xl font-bold" variants={itemVariants}>
+                Who We Are
+              </motion.h3>
+              <motion.p
+                className="text-gray-500 font-medium md:text-[18px] leading-relaxed"
+                variants={itemVariants}
+              >
+                We are a leading online booking platform dedicated to making
+                your travel and event experiences seamless. Whether you're
+                booking flights, events, or concerts, we provide a hassle-free
+                way to plan your journey.
+              </motion.p>
+              <motion.p
+                className="text-gray-500 font-medium md:text-[18px] leading-relaxed"
+                variants={itemVariants}
+              >
+                Our mission is to connect people with unforgettable experiences.
+                With a user-friendly interface and secure payment options, we
+                ensure that your booking process is smooth and enjoyable.
+              </motion.p>
+              <motion.div className="flex space-x-4" variants={itemVariants}>
+                <button className="bg-[#317371] text-white font-medium px-6 py-2 rounded-lg hover:bg-[#396968] transition duration-300">
+                  Learn More
+                </button>
+                <button className="bg-transparent border border-[#317371] text-[#317371] px-6 py-2 rounded-lg hover:bg-[#317371] hover:text-white font-medium transition duration-300">
+                  Contact Us
+                </button>
+              </motion.div>
             </motion.div>
           </motion.div>
-        </motion.div>
-      </div>
-    </section>
-      <AboutUs_first_section />
+        </div>
+      </section>
+      <AboutUsSection />
       <AboutFromCustomer />
       <OurTeam />
       <About_Join_us_sectioin />
