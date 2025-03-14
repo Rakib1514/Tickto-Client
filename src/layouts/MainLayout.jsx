@@ -23,7 +23,7 @@ const MainLayout = () => {
         <li>Terms and condition -- Akash</li>
           <Link className="btn mx-5" to='/terms-and-condition'>Terms and Conditions</Link>
         <li>Navbar</li>
-        <li>Footer</li>
+        <li>Footer -- Akash</li>
         <ol className="ml-3">
           <p className="font-semibold">Home sections</p>
           <li>Banner -- Musfika</li>
