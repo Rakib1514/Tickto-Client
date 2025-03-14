@@ -1,8 +1,9 @@
+import OurTeam from "./OurTeam";
 
 const AboutUs = () => {
   return (
     <div>
-      Please build about us page here /src/pages/about-us/AboutUs.jsx
+      <OurTeam />
     </div>
   );
 };
