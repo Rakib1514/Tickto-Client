@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
+import ExecutiveTeam from "./ExecutiveTeam";
 
 const stats = [
   { value: 5000, label: "Happy Customers" },
@@ -37,7 +38,7 @@ export default function StatsSection() {
       <div className="container mx-auto px-6 text-center">
         {/* Section Header */}
         <motion.h1
-          className="text-3xl font-extrabold text-gray-900"
+          className="text-3xl font-bold text-gray-900 capitalize"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -83,6 +84,7 @@ export default function StatsSection() {
           ))}
         </motion.div>
       </div>
+      <ExecutiveTeam />
     </div>
   );
 }
