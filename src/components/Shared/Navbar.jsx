@@ -1,10 +1,11 @@
-import { Handshake, Home, Mail, Moon, Sun, User } from "lucide-react";
-import React, { useState } from "react";
+import { Handshake, Home, Mail, Menu, Moon, Sun, User } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 
 const Navbar = () => {
   const location = useLocation();
   const [theme, setTheme] = useState("light");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { path: "/", label: "Home", icon: Home },
@@ -20,6 +21,23 @@ const Navbar = () => {
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const closeDropdowns = (e) => {
+      if (!e.target.closest(".mobile-menu")) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", closeDropdowns);
+    return () => document.removeEventListener("click", closeDropdowns);
+  }, []);
+
+  // Close dropdowns on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
 
   return (
     <>
@@ -72,7 +90,7 @@ const Navbar = () => {
                 <div className="flex items-center space-x-3">
                   <Link
                     to="/login"
-                    className="px-4 py-2 text-sm font-medium text-[#20b6b1] hover:bg-[#c2eeec] rounded-md transition-colors duration-200 hidden xl:flex"
+                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-[#c2eeec] rounded-md transition-colors duration-200 hidden xl:flex"
                   >
                     Login
                   </Link>
@@ -83,9 +101,39 @@ const Navbar = () => {
                     Register
                   </Link>
                 </div>
+                {/* Mobile menu button */}
+                <div className="flex items-center lg:hidden mobile-menu">
+                  <button
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 transition-colors duration-200"
+                  >
+                    <Menu className="h-6 w-6" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+          {/* Mobile menu */}
+          {isMenuOpen && (
+            <div className="lg:hidden">
+              <div className="pt-2 pb-3 space-y-1">
+                {navLinks.map(({ path, label, icon: Icon }) => (
+                  <NavLink
+                    key={Icon}
+                    to={path}
+                    className={`flex items-center px-3 py-2 text-base font-medium rounded-md transition-colors duration-150 ${
+                      isActivePath(path)
+                        ? "text-teal-600 bg-teal-50"
+                        : "text-gray-600 hover:text-teal-600 hover:bg-gray-50"
+                    }`}
+                  >
+                    <Icon className="w-5 h-5 mr-3" />
+                    {label}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </nav>
       <div className="h-14"></div>
