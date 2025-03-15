@@ -9,6 +9,7 @@ import arif from '../../Assets/joinus/Team/arif.jpg'
 import oni from '../../Assets/joinus/Team/Oni.jpg'
 
 import './joinus.css'
+import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 
 const JoinUs = () => {
@@ -109,6 +110,11 @@ const JoinUs = () => {
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <h3 className="text-lg font-bold">{member.name}</h3>
                       <p className="text-sm">{member.email}</p>
+                      <div className="flex gap-2 text-xl my-3">
+                        <a href=""><FaLinkedin className="hover:text-[#317371]"/></a>
+                        <a href=""><FaFacebookF className="hover:text-[#317371]"/></a>
+                        <a href=""><FaInstagram className="hover:text-[#317371]"/></a>
+                      </div>
                     </div>
                   </div>
                 ))
