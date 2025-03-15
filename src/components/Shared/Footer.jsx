@@ -1,7 +1,8 @@
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
-{/* Please build Footer here /src/components/Footer */}
+import { motion } from "framer-motion";
+import { Link } from "react-router";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <footer className="bg-[#D9D9D9] text-black py-10 px-5 lg:px-20">
@@ -23,10 +24,18 @@ const Footer = () => {
             transition={{ delay: 0.3 }}
             className="flex space-x-4"
           >
-            <FaFacebookF className="text-[#785F54] text-xl cursor-pointer hover:text-[#317371] transition duration-300" />
-            <FaTwitter className="text-[#785F54] text-xl cursor-pointer hover:text-[#317371] transition duration-300" />
-            <FaInstagram className="text-[#785F54] text-xl cursor-pointer hover:text-[#317371] transition duration-300" />
-            <FaLinkedinIn className="text-[#785F54] text-xl cursor-pointer hover:text-[#317371] transition duration-300" />
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <FaFacebookF className="text-[#785F54] text-xl cursor-pointer hover:text-[#317371] transition duration-300" />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <FaTwitter className="text-[#785F54] text-xl cursor-pointer hover:text-[#317371] transition duration-300" />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <FaInstagram className="text-[#785F54] text-xl cursor-pointer hover:text-[#317371] transition duration-300" />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <FaLinkedinIn className="text-[#785F54] text-xl cursor-pointer hover:text-[#317371] transition duration-300" />
+            </a>
           </motion.div>
         </div>
 
@@ -34,9 +43,14 @@ const Footer = () => {
         <div>
           <h3 className="font-bold text-lg">Services</h3>
           <ul className="space-y-2 text-gray-700 mt-3">
-            {['Booking', 'Event Management', 'Customer Support', 'Refund Policy'].map((service, index) => (
+            {[
+              { name: "Booking", link: "/services/booking" },
+              { name: "Event Management", link: "/services/event-management" },
+              { name: "Customer Support", link: "/services/customer-support" },
+              { name: "Refund Policy", link: "/services/refund-policy" },
+            ].map((service, index) => (
               <motion.li key={index} whileHover={{ scale: 1.05 }} className="cursor-pointer hover:text-[#317371] transition duration-300">
-                {service}
+                <Link to={service.link}>{service.name}</Link>
               </motion.li>
             ))}
           </ul>
@@ -46,9 +60,14 @@ const Footer = () => {
         <div>
           <h3 className="font-bold text-lg">Legal</h3>
           <ul className="space-y-2 text-gray-700 mt-3">
-            {['Terms of Use', 'Privacy Policy', 'Cookie Policy', 'Security'].map((legal, index) => (
+            {[
+              { name: "Terms of Use", link: "/terms-and-condition" },
+              { name: "Privacy Policy", link: "/legal/privacy" },
+              { name: "Cookie Policy", link: "/legal/cookies" },
+              { name: "Security", link: "/legal/security" },
+            ].map((legal, index) => (
               <motion.li key={index} whileHover={{ scale: 1.05 }} className="cursor-pointer hover:text-[#317371] transition duration-300">
-                {legal}
+                <Link to={legal.link}>{legal.name}</Link>
               </motion.li>
             ))}
           </ul>
@@ -63,9 +82,9 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="mt-3"
           >
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
+            <input
+              type="email"
+              placeholder="Enter your email"
               className="w-full p-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#317371]"
             />
             <motion.button
