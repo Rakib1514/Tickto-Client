@@ -12,7 +12,7 @@ import { Autoplay } from 'swiper/modules';
 
 const Reviews = () => {
 
-    const [swiperRef, setSwiperRef] = useState(null);
+    const [ setSwiperRef] = useState(null);
     const [reviews, setReviews] = useState()
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const Reviews = () => {
         <div>
             <div id='#reviewsection' className='bg-[#317371]/50 py-20 rounded-t-4xl'>
                 <h2 className='text-center py-3 text-5xl font-bold text-white'>Our Best Reviews</h2>
-                <p className='text-white py-3 text-lg text-center w-[60%] mx-auto'> Our customers speak for us! From effortless booking to real-time seat selection and secure check-ins, our platform ensures a smooth experience every time. See why users trust us for their ticketing needs!</p>
+                <p className='text-white py-3 md:text-lg text-center w-[96%] lg:w-[60%] mx-auto'> Our customers speak for us! From effortless booking to real-time seat selection and secure check-ins, our platform ensures a smooth experience every time. See why users trust us for their ticketing needs!</p>
 
 
                 <section className='px-4 py-7 lg:px-0 mx-auto'>
@@ -44,17 +44,21 @@ const Reviews = () => {
                         className="mySwiper"
                         breakpoints={{
                             //mobile devices
-                            390: {
+                            90: {
                                 slidesPerView: 1,
                                 spaceBetween: 10,
                             },
                             //tablets
                             768: {
-                                slidesPerView: 3,
+                                slidesPerView: 2,
                                 spaceBetween: 20,
                             },
-                            //small desktops
+                            // desktops
                             1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 25,
+                            },
+                            1400: {
                                 slidesPerView: 4,
                                 spaceBetween: 25,
                             },
@@ -63,20 +67,23 @@ const Reviews = () => {
                         {
                             reviews?.map(review => (
                                 <SwiperSlide className='rounded-lg'>
-                                    <div className='p-4'>
-                                        <div className='flex justify-between'>
-                                            <div className='flex gap-1'>
-                                                <img className='rounded-full w-16 h-16 border-2 border-[#317371] p-1' src={review.user_image} alt="" />
-                                                <div className='text-start my-auto'>
-                                                    <h3 className='font-semibold'>{review.user_name}</h3>
-                                                    <p>{review.user_email}</p>
-                                                </div>
+                                    <div className='p-4 flex flex-col'>
+
+                                        <div className='flex gap-1'>
+                                            <img className='rounded-full w-16 h-16 border-2 border-[#317371] p-1' src={review.user_image} alt="" />
+                                            <div className='text-start my-auto'>
+                                                <h3 className='font-semibold'>{review.user_name}</h3>
+                                                <p>{review.user_email}</p>
                                             </div>
-                                            <div className='py-1.5'> {review.date} </div>
                                         </div>
-                                        <div className='my-8 text-start'>
+
+
+                                        <div className='mt-4 text-start flex-grow'>
                                             {review.testimonial}
                                         </div>
+
+                                        <div className='py-1.5 text-end '> -{review.date} </div>
+
                                         {/* <div className="flex justify-center gap-2 mt-4">
                                                 <FaStar className='text-2xl text-amber-500' />
                                                 <FaStar className='text-2xl text-amber-500' />
