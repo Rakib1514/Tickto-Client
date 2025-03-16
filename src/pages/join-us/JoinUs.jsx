@@ -8,10 +8,14 @@ import akash from '../../Assets/joinus/Team/akash.jpg'
 import arif from '../../Assets/joinus/Team/arif.jpg'
 import oni from '../../Assets/joinus/Team/Oni.jpg'
 import { motion } from "framer-motion";
-
+import { ScrollTrigger } from "gsap/all";
 import './joinus.css'
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
+gsap.registerPlugin(ScrollTrigger)
 
 const JoinUs = () => {
 
@@ -20,7 +24,7 @@ const JoinUs = () => {
       name: "Mst. Musfika Naznin Oni",
       email: "musfikanoni@gmail.com",
       img: oni,
-      linkedIn: 'www.linkedin.com/in/musfikaoni',
+      linkedIn: 'https://www.linkedin.com/in/musfikaoni',
       github: 'https://github.com/musfikanoni',
       facebook: 'https://www.facebook.com/fariyakhansana'
     },
@@ -36,7 +40,7 @@ const JoinUs = () => {
       name: "Fariya Khan Sana",
       email: "fariya.webdev@gmail.com",
       img: sana,
-      linkedIn: 'www.linkedin.com/in/fariya-khan-sana',
+      linkedIn: 'https://www.linkedin.com/in/fariya-khan-sana',
       github: 'https://github.com/Fariya-Khan-Web',
       facebook: 'https://www.facebook.com/fariyakhansana'
     },
@@ -66,10 +70,35 @@ const JoinUs = () => {
     },
   ]
 
+  const scrollRef = useRef()
+
+
+  useGSAP(() => {
+    gsap.from(".stagger-box", {
+      opacity: 0,
+      y: 50,
+      stagger: 0.6, // Each card appears with 0.3s delay
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".team-section",
+        start: "top 98%",
+        end: "top 30%",
+        toggleActions: "play none none none",
+        scrub: true
+      },
+    }),
+
+    gsap.from('.fade-up',{
+      opacity:0,
+      y: 50,
+      duration: 1,
+    });
+  }, []);
+
   return (
     <div className="bg-[#fff9f1] min-h-screen">
 
-      {/* </NavBar> */}
 
       <div>
 
@@ -84,18 +113,18 @@ const JoinUs = () => {
         <div>
 
           {/* contact through email section */}
-          <div className='max-w-screen-xl w-[94%] -mt-64 md:-mt-48 mx-auto bg-white rounded-lg text-white'>
+          <div className='max-w-screen-xl w-[94%] -mt-64 md:-mt-48 mx-auto bg-white rounded-lg text-white fade-up'>
             {/*  border-3 border-[#8a6e62] rounded-lg p-2 */}
 
-            <div className="grid md:grid-cols-2 p-6 md:p-8 bg-gradient-to-r from-[#317371]/50 to-[#a2b9a7]/50 rounded-lg  ">
+            <div className="grid md:grid-cols-2 p-6 md:p-8 bg-[#5a5a5a]/55 rounded-lg  ">
 
               <div className='my-auto lg:ml-8 '>
 
                 <h2 className='text-3xl md:text-4xl font-bold'>Contact Us</h2>
                 <p className="md:w-[78%] my-3">Want to be part of something exciting? Whether you're looking to join our team, partner with us, or collaborate on events, we'd love to hear from you!</p>
                 <div className='my-4 text-lg md:flex gap-3'>
-                  <p className='flex items-center gap-1'><MdCall className="text-[#5a5a5a]" /> +01799886655</p>
-                  <p className='flex items-center gap-1'><IoIosMail className="text-[#5a5a5a]" /> TickBook@gmail.com</p>
+                  <p className='flex items-center gap-1'><MdCall className="text-[#317371]" /> +01799886655</p>
+                  <p className='flex items-center gap-1'><IoIosMail className="text-[#317371]" /> TickBook@gmail.com</p>
                 </div>
                 <Socials textcolor={'text-[#5a5a5a]'} />
 
@@ -111,7 +140,7 @@ const JoinUs = () => {
 
                   <input type="text" className="textarea w-full rounded-md" placeholder="Enter Your Message" />
 
-                  <button className="btn border-none bg-gradient-to-br from-[#5a5a5a]/60 to-[#5a5a5a]/80 text-white mt-4 rounded-md">Send Email</button>
+                  <button className="btn border-none bg-gradient-to-br from-[#a2b9a7]/90 to-[#317371]/90 text-white mt-4 rounded-md">Send Email</button>
                 </fieldset>
 
               </div>
@@ -123,7 +152,7 @@ const JoinUs = () => {
 
 
           {/* map/location section*/}
-          <div className="max-w-screen-xl w-[94%] mx-auto bg-gray-300 min-h-96 my-20 rounded-lg relative overflow-hidden">
+          <div className="max-w-screen-xl w-[94%] mx-auto bg-gray-300 min-h-96 my-20 rounded-lg relative overflow-hidden fade-up">
             <iframe
               className="w-full h-full absolute inset-0"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.476727509522!2d90.39052097519573!3d23.763933778667314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf58e31de36b%3A0xd61b34a16cfecb77!2sFarmgate%2C%20Dhaka%201215!5e0!3m2!1sen!2sbd!4v1710012345678!5m2!1sen!2sbd"
@@ -137,7 +166,7 @@ const JoinUs = () => {
           <div className="max-w-screen-xl w-[94%] mt-24 pb-28 mx-auto">
             <h2 className="text-4xl font-bold">Our Technical Team</h2>
             <p className="md:w-[80%] text-lg py-7">Behind every great experience is a team of passionate individuals dedicated to making your life easy. At Tickto, our experts in technology, customer support, and event management work together to deliver a seamless platform for you. We believe in innovation, collaboration, and creating unforgettable experiences—one ticket at a time!</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4" ref={scrollRef}>
 
               {
                 team.map((member, index) => (
@@ -145,7 +174,7 @@ const JoinUs = () => {
                     key={index}
                     whileHover={{ scale: 1.03 }}
                     transition={{ type: "spring", stiffness: 200 }}
-                    className="relative rounded-lg overflow-hidden group max-h-80 bg-[#5a5a5a] w-fit max-w-[440px] mx-auto">
+                    className="relative rounded-lg overflow-hidden group max-h-80 bg-[#5a5a5a]/80 w-fit max-w-[440px] mx-auto stagger-box team-section">
                     {/* Image with dark overlay on hover */}
                     <img
                       className="rounded-lg transition-all h-full w-full duration-300 ease-in-out group-hover:brightness-50"
