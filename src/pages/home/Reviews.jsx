@@ -24,7 +24,7 @@ const Reviews = () => {
             // width: '70%',
             scale: 0.1,
             scrollTrigger: {
-                start: 'top bottom',
+                start: 'top 10%',
                 scrub: true
             }
         })
