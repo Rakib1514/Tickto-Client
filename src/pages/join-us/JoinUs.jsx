@@ -15,12 +15,54 @@ import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 const JoinUs = () => {
 
   const team = [
-    { name: "Mst. Musfika Naznin Oni", email: "musfikanoni@gmail.com", img: oni },
-    { name: "Md Rakibul Islam", email: "rkrakib1514@outlook.com", img: rakibul },
-    { name: "Fariya Khan Sana", email: "fariya.webdev@gmail.com", img: sana },
-    { name: "Minhaj Uddin Arif", email: "arifk62901@gmail.com", img: arif },
-    { name: "Md. Nure Alam", email: "nurealam151068@gmail.com", img: member2 },
-    { name: "Abdul Mazid Akash", email: "akashabdulmazid@gmail.com", img: akash },
+    { 
+      name: "Mst. Musfika Naznin Oni", 
+      email: "musfikanoni@gmail.com", 
+      img: oni ,
+      linkedIn: 'www.linkedin.com/in/musfikaoni',
+      github: 'https://github.com/musfikanoni',
+      facebook: 'https://www.facebook.com/fariyakhansana'
+    },
+    { 
+      name: "Md Rakibul Islam", 
+      email: "rkrakib1514@outlook.com", 
+      img: rakibul ,
+      linkedIn: 'https://www.linkedin.com/in/rakib1514/',
+      github: 'https://github.com/Rakib1514',
+      facebook: 'https://www.facebook.com/rakib1413/'
+    },
+    { 
+      name: "Fariya Khan Sana", 
+      email: "fariya.webdev@gmail.com", 
+      img: sana ,
+      linkedIn: 'www.linkedin.com/in/fariya-khan-sana',
+      github: 'https://github.com/Fariya-Khan-Web',
+      facebook: 'https://www.facebook.com/fariyakhansana' 
+    },
+    { 
+      name: "Minhaj Uddin Arif", 
+      email: "arifk62901@gmail.com", 
+      img: arif ,
+      linkedIn: 'https://www.linkedin.com/in/minhaj-uddin-arif-4321b0258/',
+      github: 'https://github.com/minhaj-uddin-arif-23',
+      facebook: 'https://www.facebook.com/fariyakhansana'
+    },
+    { 
+      name: "Md. Nure Alam", 
+      email: "nurealam151068@gmail.com", 
+      img: member2 ,
+      linkedIn: 'https://www.linkedin.com/in/md-nure-alam-444887266/',
+      github: 'https://github.com/NureAlam68',
+      facebook: 'https://www.facebook.com/profile.php?id=100019022316999'
+    },
+    { 
+      name: "Abdul Mazid Akash", 
+      email: "akashabdulmazid@gmail.com", 
+      img: akash ,
+      linkedIn: 'https://www.linkedin.com/in/abdulmazidakash/',
+      github: 'https://github.com/abdulmazidakash',
+      facebook: 'https://www.facebook.com/akashabdulmazid/'
+    },
   ]
 
   return (
@@ -111,9 +153,9 @@ const JoinUs = () => {
                       <h3 className="text-lg font-bold">{member.name}</h3>
                       <p className="text-sm">{member.email}</p>
                       <div className="flex gap-2 text-xl my-3">
-                        <a href=""><FaLinkedin className="hover:text-[#317371]"/></a>
-                        <a href=""><FaFacebookF className="hover:text-[#317371]"/></a>
-                        <a href=""><FaInstagram className="hover:text-[#317371]"/></a>
+                        <a href={member.linkedIn}><FaLinkedin className="hover:text-[#317371]"/></a>
+                        <a href={member.facebook}><FaFacebookF className="hover:text-[#317371]"/></a>
+                        <a href={member.github}><FaInstagram className="hover:text-[#317371]"/></a>
                       </div>
                     </div>
                   </div>

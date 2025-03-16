@@ -8,10 +8,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay } from 'swiper/modules';
-import r1 from '../../Assets/Review/re-1.png';
-import r2 from '../../Assets/Review/re-2.png';
-import r3 from '../../Assets/Review/re-3.png';
-import r4 from '../../Assets/Review/re-4.png';
+
 
 const Reviews = () => {
 
@@ -26,9 +23,9 @@ const Reviews = () => {
 
     return (
         <div>
-            <div className='bg-[#317371]/50 py-20 rounded-t-4xl'>
-                <h2 className='text-center pb-12 text-5xl font-bold text-white'>Our Best Reviews</h2>
-                <p className='text-white'> With top-notch security and excellent customer support, we've earned the trust of thousands. See what our happy customers have to say about their smooth and stress-free ticketing journeys!</p>
+            <div id='#reviewsection' className='bg-[#317371]/50 py-20 rounded-t-4xl'>
+                <h2 className='text-center py-3 text-5xl font-bold text-white'>Our Best Reviews</h2>
+                <p className='text-white py-3 text-lg text-center w-[60%] mx-auto'> Our customers speak for us! From effortless booking to real-time seat selection and secure check-ins, our platform ensures a smooth experience every time. See why users trust us for their ticketing needs!</p>
 
 
                 <section className='px-4 py-7 lg:px-0 mx-auto'>
