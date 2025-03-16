@@ -8,12 +8,27 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay } from 'swiper/modules';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+import gsap from 'gsap';
 
+gsap.registerPlugin(ScrollTrigger)
 
 const Reviews = () => {
 
     const [ setSwiperRef] = useState(null);
     const [reviews, setReviews] = useState()
+
+    useGSAP(()=>{
+        gsap.from('#reviewsection', {
+            // width: '70%',
+            scale: 0.3,
+            scrollTrigger: {
+                start: 'top bottom',
+                scrub: true
+            }
+        })
+    },[])
 
     useEffect(() => {
         fetch('./review.json')
@@ -23,7 +38,7 @@ const Reviews = () => {
 
     return (
         <div>
-            <div id='#reviewsection' className='bg-[#317371]/50 py-20 rounded-t-4xl'>
+            <div id='reviewsection' className='bg-[#317371]/50 py-20 rounded-t-[10%]'>
                 <h2 className='text-center py-3 text-5xl font-bold text-white'>Our Best Reviews</h2>
                 <p className='text-white py-3 md:text-lg text-center w-[96%] lg:w-[60%] mx-auto'> Our customers speak for us! From effortless booking to real-time seat selection and secure check-ins, our platform ensures a smooth experience every time. See why users trust us for their ticketing needs!</p>
 
