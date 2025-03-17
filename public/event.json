@@ -8,18 +8,8 @@
       "available_ticket": 50,
       "ticket_sold": 40,
       "uid": "user_001",
-      "rating": 9.2
-    },
-    {
-      "id": 2,
-      "title": "Train from Chicago to LA",
-      "image_url": "https://images.pexels.com/photos/1605384/pexels-photo-1605384.jpeg",
-      "category": "Train",
-      "date": "2025-07-20",
-      "available_ticket": 120,
-      "ticket_sold": 90,
-      "uid": "user_002",
-      "rating": 8.7
+      "rating": 9.2,
+      "description": "Enjoy a comfortable flight to the bustling city of New York with top-notch amenities and services."
     },
     {
       "id": 3,
@@ -30,7 +20,8 @@
       "available_ticket": 40,
       "ticket_sold": 35,
       "uid": "user_003",
-      "rating": 8.5
+      "rating": 8.5,
+      "description": "Relax on a scenic bus journey from Toronto to Ottawa, featuring comfortable seating and free Wi-Fi."
     },
     {
       "id": 4,
@@ -41,7 +32,8 @@
       "available_ticket": 100,
       "ticket_sold": 85,
       "uid": "user_004",
-      "rating": 9.3
+      "rating": 9.3,
+      "description": "Experience the magic of Broadway with this legendary musical, featuring mesmerizing performances and music."
     },
     {
       "id": 5,
@@ -52,7 +44,8 @@
       "available_ticket": 200,
       "ticket_sold": 180,
       "uid": "user_005",
-      "rating": 9.8
+      "rating": 9.8,
+      "description": "Relive the epic conclusion of the Avengers saga with this special screening on the big screen."
     },
     {
       "id": 6,
@@ -63,29 +56,8 @@
       "available_ticket": 500,
       "ticket_sold": 450,
       "uid": "user_006",
-      "rating": 9.5
-    },
-    {
-      "id": 7,
-      "title": "Flight to London",
-      "image_url": "https://images.pexels.com/photos/161956/aircraft-jet-landing-cloud-161956.jpeg",
-      "category": "Flight",
-      "date": "2025-11-15",
-      "available_ticket": 80,
-      "ticket_sold": 60,
-      "uid": "user_007",
-      "rating": 8.9
-    },
-    {
-      "id": 8,
-      "title": "Bullet Train Tokyo to Kyoto",
-      "image_url": "https://images.pexels.com/photos/965056/pexels-photo-965056.jpeg",
-      "category": "Train",
-      "date": "2025-12-02",
-      "available_ticket": 250,
-      "ticket_sold": 200,
-      "uid": "user_008",
-      "rating": 9.1
+      "rating": 9.5,
+      "description": "Join thousands of fans for a breathtaking live performance by The Weeknd, featuring all his top hits."
     },
     {
       "id": 9,
@@ -96,29 +68,8 @@
       "available_ticket": 50,
       "ticket_sold": 45,
       "uid": "user_009",
-      "rating": 8.4
-    },
-    {
-      "id": 10,
-      "title": "Hamilton Musical Show",
-      "image_url": "https://images.pexels.com/photos/1122161/pexels-photo-1122161.jpeg",
-      "category": "Theater Show",
-      "date": "2026-01-05",
-      "available_ticket": 150,
-      "ticket_sold": 140,
-      "uid": "user_010",
-      "rating": 9.7
-    },
-    {
-      "id": 11,
-      "title": "Movie Premiere: Fast & Furious 11",
-      "image_url": "https://images.pexels.com/photos/1049739/pexels-photo-1049739.jpeg",
-      "category": "Movie",
-      "date": "2026-02-01",
-      "available_ticket": 300,
-      "ticket_sold": 290,
-      "uid": "user_011",
-      "rating": 9.0
+      "rating": 8.4,
+      "description": "A convenient and comfortable bus ride from New York City to Boston, with multiple rest stops along the way."
     },
     {
       "id": 12,
@@ -129,18 +80,8 @@
       "available_ticket": 1000,
       "ticket_sold": 950,
       "uid": "user_012",
-      "rating": 9.9
-    },
-    {
-      "id": 13,
-      "title": "Opera: La Traviata",
-      "image_url": "https://images.pexels.com/photos/290598/pexels-photo-290598.jpeg",
-      "category": "Theater Show",
-      "date": "2026-06-10",
-      "available_ticket": 100,
-      "ticket_sold": 95,
-      "uid": "user_016",
-      "rating": 9.4
+      "rating": 9.9,
+      "description": "Get ready for an electrifying experience at Tomorrowland 2026, featuring the world's top DJs and artists."
     },
     {
       "id": 14,
@@ -151,7 +92,8 @@
       "available_ticket": 250,
       "ticket_sold": 240,
       "uid": "user_017",
-      "rating": 9.2
+      "rating": 9.2,
+      "description": "Watch the highly anticipated sequel of The Batman in an immersive cinematic experience."
     },
     {
       "id": 15,
@@ -162,7 +104,8 @@
       "available_ticket": 700,
       "ticket_sold": 680,
       "uid": "user_018",
-      "rating": 9.8
+      "rating": 9.8,
+      "description": "Celebrate the summer with an unforgettable lineup of artists, food, and music at this spectacular festival."
     }
   ]
   
