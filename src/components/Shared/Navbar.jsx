@@ -49,7 +49,7 @@ const Navbar = () => {
               <div className="flex-shrink-0 flex items-center">
                 <Link to="/" className="flex items-center">
                   <span className="text-xl font-bold">
-                    <span className="text-[#20b6b1]">Tick</span>
+                    <span className="text-[#317371]">Tick</span>
                     <span className="text-gray-600">To</span>
                   </span>
                 </Link>
