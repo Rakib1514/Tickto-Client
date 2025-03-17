@@ -22,9 +22,11 @@ const Reviews = () => {
     useGSAP(()=>{
         gsap.from('#reviewsection', {
             // width: '70%',
-            scale: 0.1,
+            scale: 0.06,
+            borderRadius: '700%',
             scrollTrigger: {
-                start: 'top 10%',
+                start: 'top 20%',
+                
                 scrub: true
             }
         })
