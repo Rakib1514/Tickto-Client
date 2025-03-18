@@ -90,7 +90,7 @@ const Navbar = () => {
                 <div className="flex items-center space-x-3">
                   
                   <Link
-                    to="/auth"
+                    to="/auth/login"
                     className="px-4 py-2 text-sm font-medium text-white bg-[#317371] hover:bg-[#4f8886] rounded-md shadow-sm transition-colors duration-200"
                   >
                     Login
