@@ -39,7 +39,7 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn border-none bg-purple-600 shadow-none w-full">Login</button>
+                                <button className="btn border-none bg-[#562a83] shadow-none w-full">Login</button>
                             </div>
                         </form>
                     </div>
