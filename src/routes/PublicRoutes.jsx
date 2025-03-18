@@ -7,6 +7,7 @@ import AboutUs from "../pages/about-us/AboutUs";
 import JoinUs from "../pages/join-us/JoinUs";
 import TermsAndConditions from "../pages/terms-and-conditions/TermsAndConditions";
 import ErrorPage from "../pages/error-page/ErrorPage";
+import Auth from "../pages/Auth/Auth";
 
 const PublicRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const PublicRoutes = () => {
         <Route path="/about-us" element={<AboutUs/>} />
         <Route path="/join-us" element={<JoinUs/>} />
         <Route path="/terms" element={<TermsAndConditions/>} />
+        <Route path="/auth" element={<Auth/>} />
       </Route>
       <Route path="*" element={<ErrorPage/>}></Route>
     </Routes>

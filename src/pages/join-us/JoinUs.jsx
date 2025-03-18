@@ -10,7 +10,7 @@ import oni from '../../Assets/joinus/Team/Oni.jpg'
 import { motion } from "framer-motion";
 import { ScrollTrigger } from "gsap/all";
 import './joinus.css'
-import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebookF, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
@@ -189,7 +189,7 @@ const JoinUs = () => {
                       <div className="flex gap-2 text-xl my-3">
                         <a href={member.linkedIn}><FaLinkedin className="hover:text-[#5a5a5a]" /></a>
                         <a href={member.facebook}><FaFacebookF className="hover:text-[#5a5a5a]" /></a>
-                        <a href={member.github}><FaInstagram className="hover:text-[#5a5a5a]" /></a>
+                        <a href={member.github}><FaGithub className="hover:text-[#5a5a5a]" /></a>
                       </div>
                     </div>
                   </motion.div>
