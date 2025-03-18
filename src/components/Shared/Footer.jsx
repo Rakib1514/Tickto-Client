@@ -71,7 +71,7 @@ const Footer = () => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="mt-2 w-full bg-[#F67E04] text-white py-2 rounded-md hover:bg-orange-600 transition duration-300"
+              className="mt-2 w-full bg-[#A989B0] text-white py-2 rounded-md hover:bg-orange-600 transition duration-300"
             >
               Submit
             </motion.button>
