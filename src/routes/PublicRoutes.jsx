@@ -15,7 +15,7 @@ const PublicRoutes = () => {
         <Route index element={<Home/>} />
         <Route path="/about-us" element={<AboutUs/>} />
         <Route path="/join-us" element={<JoinUs/>} />
-        <Route path="/terms-and-condition" element={<TermsAndConditions/>} />
+        <Route path="/terms" element={<TermsAndConditions/>} />
       </Route>
       <Route path="*" element={<ErrorPage/>}></Route>
     </Routes>

@@ -1,0 +1,123 @@
+[
+    {
+      "user_name": "Sophia Reynolds",
+      "user_email": "sophia@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/women/1.jpg",
+      "testimonial": "Booking tickets has never been easier! The seat selection and real-time availability features are fantastic. I love how seamless the entire process is, from choosing a seat to completing the payment.",
+      "date": "2025-03-08",
+      "rating": 5
+    },
+    {
+      "user_name": "Ethan Parker",
+      "user_email": "ethanP@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/men/2.jpg",
+      "testimonial": "A seamless experience. The QR-based check-in saved so much time, and I didn’t have to worry about carrying physical tickets. I appreciate the attention to detail in the platform’s design.",
+      "date": "2025-03-07",
+      "rating": 5
+    },
+    {
+      "user_name": "Ava Mitchell",
+      "user_email": "mitchell@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/women/3.jpg",
+      "testimonial": "User-friendly interface and smooth booking process. I’ve tried multiple ticketing platforms, but this one stands out due to its efficiency and real-time updates. I could even select my preferred seats without any hassle!",
+      "date": "2025-03-06",
+      "rating": 4.5
+    },
+    {
+      "user_name": "Liam Anderson",
+      "user_email": "landerson@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/men/4.jpg",
+      "testimonial": "Love the real-time seat availability! No more last-minute surprises like other platforms. The experience was smooth, and the interface is clean and easy to navigate!",
+      "date": "2025-03-05",
+      "rating": 5
+    },
+    {
+      "user_name": "Emma Carter",
+      "user_email": "carter@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/women/5.jpg",
+      "testimonial": "Great customer support! I had an issue with my booking, but their team responded within minutes and resolved it effortlessly. It’s rare to see such excellent service in the industry. I’m very impressed!",
+      "date": "2025-03-04",
+      "rating": 4
+    },
+    {
+      "user_name": "Noah Robinson",
+      "user_email": "noah@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/men/6.jpg",
+      "testimonial": "Fast and secure payment process. This platform gave me confidence with its multiple payment options and security measures. I'll use this for all my future bookings.",
+      "date": "2025-03-03",
+      "rating": 5
+    },
+    {
+      "user_name": "Olivia Scott",
+      "user_email": "olivia@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/women/7.jpg",
+      "testimonial": "I love how organized everything is! Finding and booking tickets is a breeze, and the layout is so intuitive. It feels like the platform was designed with users in mind.",
+      "date": "2025-03-02",
+      "rating": 4.5
+    },
+    {
+      "user_name": "Mason Hall",
+      "user_email": "mason@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/men/8.jpg",
+      "testimonial": "This platform is a game-changer. The QR check-in is super convenient, and I no longer have to worry about losing printed tickets. It makes everything so much easier!",
+      "date": "2025-03-01",
+      "rating": 5
+    },
+    {
+      "user_name": "Isabella Lewis",
+      "user_email": "i.lewis@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/women/9.jpg",
+      "testimonial": "I noticed that the loading time can be improved. Other than that, everything was great, and I appreciate the transparency in ticket availability.",
+      "date": "2025-02-29",
+      "rating": 4
+    },
+    {
+      "user_name": "James Walker",
+      "user_email": "james@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/men/10.jpg",
+      "testimonial": "Love the UI and ease of use. The best ticket booking platform I’ve used so far! The color scheme and design make it enjoyable to navigate, and I never feel lost during the process.",
+      "date": "2025-02-28",
+      "rating": 5
+    },
+    {
+      "user_name": "Charlotte Young",
+      "user_email": "c.young@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/women/11.jpg",
+      "testimonial": "The confirmation process was quick and hassle-free. I received my ticket details instantly, and the email notification was a nice touch. Great service all around!",
+      "date": "2025-02-27",
+      "rating": 4.5
+    },
+    {
+      "user_name": "Benjamin Green",
+      "user_email": "benjamin@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/men/12.jpg",
+      "testimonial": "Had an issue with my ticket, but customer support was excellent! They handled my request quickly and professionally, which is something I really value in an online service.",
+      "date": "2025-02-26",
+      "rating": 4.5
+    },
+    {
+      "user_name": "Amelia Adams",
+      "user_email": "adams@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/women/13.jpg",
+      "testimonial": "Super easy to use. I usually find online ticket booking stressful, but this platform made everything smooth and straightforward. Will recommend it to my friends!",
+      "date": "2025-02-25",
+      "rating": 5
+    },
+    {
+      "user_name": "Henry Baker",
+      "user_email": "henry@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/men/14.jpg",
+      "testimonial": "I like the seat selection feature. It makes the process much better compared to other ticketing platforms where you don’t get to choose properly. I’m happy with the experience!",
+      "date": "2025-02-24",
+      "rating": 4
+    },
+    {
+      "user_name": "Mia Nelson",
+      "user_email": "nelson@gmail.com",
+      "user_image": "https://randomuser.me/api/portraits/women/15.jpg",
+      "testimonial": "A smooth and efficient booking experience. Everything worked perfectly, and I appreciate the transparency in ticket pricing with no hidden fees. Highly satisfied!",
+      "date": "2025-02-23",
+      "rating": 5
+    }
+  ]
+  

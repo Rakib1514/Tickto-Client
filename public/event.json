@@ -1,0 +1,111 @@
+[
+    {
+      "id": 1,
+      "title": "Flight to New York",
+      "image_url": "https://images.pexels.com/photos/326700/pexels-photo-326700.jpeg",
+      "category": "Flight",
+      "date": "2025-06-15",
+      "available_ticket": 50,
+      "ticket_sold": 40,
+      "uid": "user_001",
+      "rating": 9.2,
+      "description": "Enjoy a comfortable flight to the bustling city of New York with top-notch amenities and services."
+    },
+    {
+      "id": 3,
+      "title": "Bus from Toronto to Ottawa",
+      "image_url": "https://images.pexels.com/photos/4662570/pexels-photo-4662570.jpeg",
+      "category": "Bus",
+      "date": "2025-08-05",
+      "available_ticket": 40,
+      "ticket_sold": 35,
+      "uid": "user_003",
+      "rating": 8.5,
+      "description": "Relax on a scenic bus journey from Toronto to Ottawa, featuring comfortable seating and free Wi-Fi."
+    },
+    {
+      "id": 4,
+      "title": "Broadway Theater: Phantom of the Opera",
+      "image_url": "https://images.pexels.com/photos/1420917/pexels-photo-1420917.jpeg",
+      "category": "Theater Show",
+      "date": "2025-09-10",
+      "available_ticket": 100,
+      "ticket_sold": 85,
+      "uid": "user_004",
+      "rating": 9.3,
+      "description": "Experience the magic of Broadway with this legendary musical, featuring mesmerizing performances and music."
+    },
+    {
+      "id": 5,
+      "title": "Movie: Avengers Endgame Special Screening",
+      "image_url": "https://images.pexels.com/photos/432059/pexels-photo-432059.jpeg",
+      "category": "Movie",
+      "date": "2025-10-01",
+      "available_ticket": 200,
+      "ticket_sold": 180,
+      "uid": "user_005",
+      "rating": 9.8,
+      "description": "Relive the epic conclusion of the Avengers saga with this special screening on the big screen."
+    },
+    {
+      "id": 6,
+      "title": "Music Concert: The Weekend Live",
+      "image_url": "https://images.pexels.com/photos/1763066/pexels-photo-1763066.jpeg",
+      "category": "Events",
+      "date": "2025-10-22",
+      "available_ticket": 500,
+      "ticket_sold": 450,
+      "uid": "user_006",
+      "rating": 9.5,
+      "description": "Join thousands of fans for a breathtaking live performance by The Weeknd, featuring all his top hits."
+    },
+    {
+      "id": 9,
+      "title": "Bus Trip: NYC to Boston",
+      "image_url": "https://images.pexels.com/photos/3311576/pexels-photo-3311576.jpeg",
+      "category": "Bus",
+      "date": "2025-12-15",
+      "available_ticket": 50,
+      "ticket_sold": 45,
+      "uid": "user_009",
+      "rating": 8.4,
+      "description": "A convenient and comfortable bus ride from New York City to Boston, with multiple rest stops along the way."
+    },
+    {
+      "id": 12,
+      "title": "Festival: Tomorrowland 2026",
+      "image_url": "https://images.pexels.com/photos/1047442/pexels-photo-1047442.jpeg",
+      "category": "Events",
+      "date": "2026-07-25",
+      "available_ticket": 1000,
+      "ticket_sold": 950,
+      "uid": "user_012",
+      "rating": 9.9,
+      "description": "Get ready for an electrifying experience at Tomorrowland 2026, featuring the world's top DJs and artists."
+    },
+    {
+      "id": 14,
+      "title": "Movie Night: The Batman 2",
+      "image_url": "https://images.pexels.com/photos/1552243/pexels-photo-1552243.jpeg",
+      "category": "Movie",
+      "date": "2026-07-07",
+      "available_ticket": 250,
+      "ticket_sold": 240,
+      "uid": "user_017",
+      "rating": 9.2,
+      "description": "Watch the highly anticipated sequel of The Batman in an immersive cinematic experience."
+    },
+    {
+      "id": 15,
+      "title": "Summer Music Festival",
+      "image_url": "https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg",
+      "category": "Events",
+      "date": "2026-08-15",
+      "available_ticket": 700,
+      "ticket_sold": 680,
+      "uid": "user_018",
+      "rating": 9.8,
+      "description": "Celebrate the summer with an unforgettable lineup of artists, food, and music at this spectacular festival."
+    }
+  ]
+  
