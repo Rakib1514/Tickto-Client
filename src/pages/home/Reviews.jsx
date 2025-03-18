@@ -22,8 +22,8 @@ const Reviews = () => {
     useGSAP(()=>{
         gsap.from('#reviewsection', {
             // width: '70%',
-            scale: 0.05,
-            borderRadius: '1300%',
+            scale: 0.03,
+            borderRadius: '1900%',
             scrollTrigger: {
                 start: 'top 10%',
                 
