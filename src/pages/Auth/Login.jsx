@@ -23,9 +23,9 @@ const login = () => {
                 <div className='md:p-10 py-10 md:py-20 flex justify-center items-center text-center md:bg-black/30 rounded-l-2xl'>
 
                     <div >
-                        <h1 className='font-bold text-3xl'>Wellcome to TickTo</h1>
+                        <h1 className='font-bold text-2xl md:text-3xl'>Wellcome to TickTo</h1>
                         <p className='py-6 w-[80%] mx-auto text-sm'>Discover trending events and personalized recommendations. From local gatherings to global spectacles, find experiences that match your interests.Book with confidence using our secure payment system. Enjoy a hassle-free ticketing experience with instant confirmation and digital access.</p>
-                        <p>Do not have an account? <Link to={'/auth/register'} className='text-[#67B293] link'> Register </Link> First</p>
+                        <p className='w-[90%] mx-auto'>Do not have an account? <Link to={'/auth/register'} className='text-[#67B293] link'> Register </Link> First</p>
 
                     </div>
 

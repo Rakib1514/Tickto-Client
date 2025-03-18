@@ -23,9 +23,9 @@ const Register = () => {
                 <div className='md:hidden md:p-10 py-10 md:py-20 flex justify-center items-center text-center md:bg-black/30 rounded-r-2xl'>
 
                     <div >
-                        <h1 className='font-bold text-3xl'>Wellcome to TickTo</h1>
+                        <h1 className='font-bold text-2xl'>Wellcome to TickTo</h1>
                         <p className='py-6 w-[80%] mx-auto text-sm'>Discover trending events and personalized recommendations. From local gatherings to global spectacles, find experiences that match your interests.Book with confidence using our secure payment system. Enjoy a hassle-free ticketing experience with instant confirmation and digital access.</p>
-                        <p>Already have an account? <Link to={'/auth/login'} className='text-[#67B293] link'> Login </Link> Now</p>
+                        <p className='w-[90%] mx-auto'>Already have an account? <Link to={'/auth/login'} className='text-[#67B293] link'> Login </Link> Now</p>
 
                     </div>
 
