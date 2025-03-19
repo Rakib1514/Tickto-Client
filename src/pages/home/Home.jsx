@@ -3,9 +3,11 @@ import RecentView from "./RecentView";
 import DataSafe from "./DataSafe";
 import PopularNow from "./PopularNow";
 import Feature from "./Feature";
-import TheaterShow from "./TheaterShow";
+
 import Reviews from "./Reviews";
-import Flight from "./Flight";
+
+import Events from "./Events";
+import Travel from "./Travel";
 
 const Home = () => {
   return (
@@ -15,8 +17,8 @@ const Home = () => {
       <Feature />
       <DataSafe />
       <PopularNow />
-      <TheaterShow />
-      <Flight />
+      <Events />
+      <Travel/>
       <Reviews />
     </>
   );

@@ -106,6 +106,54 @@
       "uid": "user_018",
       "rating": 9.8,
       "description": "Celebrate the summer with an unforgettable lineup of artists, food, and music at this spectacular festival."
+    },
+    {
+      "id": 1,
+      "title": "Flight to New York",
+      "image_url": "https://images.pexels.com/photos/326700/pexels-photo-326700.jpeg",
+      "category": "Flight",
+      "date": "2025-06-15",
+      "available_ticket": 50,
+      "ticket_sold": 40,
+      "uid": "user_001",
+      "rating": 9.2,
+      "description": "Enjoy a comfortable flight to the bustling city of New York with top-notch amenities and services."
+    },
+    {
+      "id": 3,
+      "title": "Bus from Toronto to Ottawa",
+      "image_url": "https://images.pexels.com/photos/4662570/pexels-photo-4662570.jpeg",
+      "category": "Bus",
+      "date": "2025-08-05",
+      "available_ticket": 40,
+      "ticket_sold": 35,
+      "uid": "user_003",
+      "rating": 8.5,
+      "description": "Relax on a scenic bus journey from Toronto to Ottawa, featuring comfortable seating and free Wi-Fi."
+    },
+    {
+      "id": 9,
+      "title": "Bus Trip: NYC to Boston",
+      "image_url": "https://images.pexels.com/photos/3311576/pexels-photo-3311576.jpeg",
+      "category": "Bus",
+      "date": "2025-12-15",
+      "available_ticket": 50,
+      "ticket_sold": 45,
+      "uid": "user_009",
+      "rating": 8.4,
+      "description": "A convenient and comfortable bus ride from New York City to Boston, with multiple rest stops along the way."
+    },
+    {
+      "id": 12,
+      "title": "Festival: Tomorrowland 2026",
+      "image_url": "https://images.pexels.com/photos/1047442/pexels-photo-1047442.jpeg",
+      "category": "Events",
+      "date": "2026-07-25",
+      "available_ticket": 1000,
+      "ticket_sold": 950,
+      "uid": "user_012",
+      "rating": 9.9,
+      "description": "Get ready for an electrifying experience at Tomorrowland 2026, featuring the world's top DJs and artists."
     }
   ]
   
