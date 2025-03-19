@@ -4,7 +4,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/f
 {/* Please build Footer here /src/components/Footer */}
 const Footer = () => {
   return (
-    <footer className="bg-[#D9D9D9] text-black py-10 px-2">
+    <footer className="bg-[#317371]/30 text-white bordr-2 boder-t  py-10 px-2">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Logo & Social Icons */}
         <div className="flex flex-col items-center md:items-start space-y-4">
@@ -71,7 +71,7 @@ const Footer = () => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="mt-2 w-full bg-[#F67E04] text-white py-2 rounded-md hover:bg-orange-600 transition duration-300"
+              className="mt-2 w-full bg-[#A989B0] text-white py-2 rounded-md hover:bg-orange-600 transition duration-300"
             >
               Submit
             </motion.button>
