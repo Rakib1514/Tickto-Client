@@ -42,7 +42,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 border-gray-200 backdrop-blur-sm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-2">
           <div className="flex justify-between h-16">
             {/* logo and primary navigation */}
             <div className="flex">
@@ -58,9 +58,9 @@ const Navbar = () => {
             <div className="flex">
               {/* desktop navigation */}
               <div className="hidden lg:ml-8 lg:flex sm:space-x-4">
-                {navLinks.map(({ path, label, icon: Icon }) => (
+                {navLinks.map(({ path, label, icon: Icon }, index) => (
                   <NavLink
-                    key={Icon}
+                    key={index}
                     to={path}
                     className={`inline-flex items-center px-3 py-2 text-sm font-medium transition-colors duration-150 ${
                       isActivePath(path)
@@ -88,17 +88,12 @@ const Navbar = () => {
                   )}
                 </button>
                 <div className="flex items-center space-x-3">
+                  
                   <Link
-                    to="/login"
-                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-[#c2eeec] rounded-md transition-colors duration-200 hidden xl:flex"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/register"
+                    to="/auth/login"
                     className="px-4 py-2 text-sm font-medium text-white bg-[#317371] hover:bg-[#4f8886] rounded-md shadow-sm transition-colors duration-200"
                   >
-                    Register
+                    Login
                   </Link>
                 </div>
                 {/* Mobile menu button */}
@@ -117,9 +112,9 @@ const Navbar = () => {
           {isMenuOpen && (
             <div className="lg:hidden">
               <div className="pt-2 pb-3 space-y-1">
-                {navLinks.map(({ path, label, icon: Icon }) => (
+                {navLinks.map(({ path, label, icon: Icon }, index) => (
                   <NavLink
-                    key={Icon}
+                    key={index}
                     to={path}
                     className={`flex items-center px-3 py-2 text-base font-medium rounded-md transition-colors duration-150 ${
                       isActivePath(path)
