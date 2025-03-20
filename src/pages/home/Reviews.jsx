@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaStar } from 'react-icons/fa';
 
@@ -7,224 +7,120 @@ import '../../styles.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Autoplay } from 'swiper/modules'; 
-import r1 from '../../Assets/Review/re-1.png';
-import r2 from '../../Assets/Review/re-2.png';
-import r3 from '../../Assets/Review/re-3.png';
-import r4 from '../../Assets/Review/re-4.png';
+import { Autoplay } from 'swiper/modules';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+import gsap from 'gsap';
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Reviews = () => {
 
-  const [swiperRef, setSwiperRef] = useState(null);
+    const [ setSwiperRef] = useState(null);
+    const [reviews, setReviews] = useState()
 
-  return (
-    <div>
-      <div><h2 className='text-center pb-12 text-5xl font-bold'>Our Best Reviews</h2>
-            <div id="skills" className='bg-gray-600/10 backdrop-blur' >
+    useGSAP(()=>{
+        gsap.from('#reviewsection', {
+            // width: '70%',
+            scale: 0.06,
+            borderRadius: '700%',
+            scrollTrigger: {
+                start: 'top 20%',
+                
+                scrub: true
+            }
+        })
+    },[])
 
-                <section className='px-4 py-7 lg:px-0 max-w-7xl mx-auto'>
+    useEffect(() => {
+        fetch('./review.json')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
 
-                <Swiper
-                    onSwiper={setSwiperRef}
-                    slidesPerView={3}
-                    autoplay={{
-                        delay: 1500,
-                        disableOnInteraction: false, 
-                    }}
-                    loop={true}
-                    speed={1000}
-                    modules={[Autoplay]}
-                    spaceBetween={40}
-                    className="mySwiper"
-                    breakpoints={{
-                        //mobile devices
-                        390: {
-                            slidesPerView: 2,
-                            spaceBetween: 10,
-                        },
-                        //tablets
-                        768: {
-                            slidesPerView: 3,
-                            spaceBetween: 20,
-                        },
-                        //small desktops
-                        1024: {
-                            slidesPerView: 4,
-                            spaceBetween: 25,
-                        },
-                    }}
-                >
-                    <SwiperSlide className='rounded-lg'>
-                        <div className="flex flex-col justify-center my-7 items-center">
-                            <img className="h-20 border-2 rounded-full border-gray-300 w-auto" src={r1} alt="" />
-                            <p className="text-xl mt-3 text-black font-bold">Miska</p>
-                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
-                            <div className="flex justify-center gap-2">
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-7 items-center">
-                            <img className="h-20 border-2 rounded-full border-gray-300" src={r2} alt="" />
-                            <p className="text-xl mt-3 text-black font-bold">Ainnan</p>
-                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
-                            <div className="flex justify-center gap-2">
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                            </div>
-                            
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-7 items-center">
-                            <img className="h-20 border-2 rounded-full border-gray-300" src={r3} alt="" />
-                            <p className="text-xl mt-3 text-black font-bold">Raisa</p>
-                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
-                            <div className="flex justify-center gap-2">
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                            </div>
-                           
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-7 items-center">
-                            <img className="h-20 border-2 rounded-full border-gray-300" src={r4} alt="" />
-                            <p className="text-xl mt-3 text-black font-bold">Jenni</p>
-                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
-                            <div className="flex justify-center gap-2">
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                            </div>
-                            
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-7 items-center">
-                            <img className="h-20 border-2 rounded-full border-gray-300" src={r2} alt="" />
-                            <p className="text-xl mt-3 text-black font-bold">Zayan</p>
-                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
-                            <div className="flex justify-center gap-2">
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                            </div>
-                            
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-7 items-center">
-                            <img className="h-20 border-2 rounded-full border-gray-300" src={r3} alt="" />
-                            <p className="text-xl mt-3 text-black font-bold">Salena</p>
-                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
-                            <div className="flex justify-center gap-2">
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                            </div>
-                            
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-7 items-center">
-                            <img className="h-20 border-2 rounded-full border-gray-300" src={r4} alt="" />
-                            <p className="text-xl mt-3 text-black font-bold">Maddie</p>
-                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
-                            <div className="flex justify-center gap-2">
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                            </div>
-                            
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-7 items-center">
-                            <img className="h-20 border-2 rounded-full border-gray-300" src={r3} alt="" />
-                            <p className="text-xl mt-3 text-black font-bold">Lorissa</p>
-                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
-                            <div className="flex justify-center gap-2">
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                            </div>
-                            
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-7 items-center">
-                            <img className="h-20 border-2 rounded-full border-gray-300" src={r2} alt="" />
-                            <p className="text-xl mt-3 text-black font-bold">Dainel</p>
-                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
-                            <div className="flex justify-center gap-2">
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                            </div>
-                            
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-7 items-center">
-                            <img className="h-20 border-2 rounded-full border-gray-300" src={r1} alt="" />
-                            <p className="text-xl mt-3 text-black font-bold">Sofia</p>
-                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
-                            <div className="flex justify-center gap-2">
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                            </div>
-                            
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className=' rounded-lg'>
-                        <div className="flex flex-col justify-center my-7 items-center">
-                            <img className="h-20 border-2 rounded-full border-gray-300" src={r4} alt="" />
-                            <p className="text-xl mt-3 text-black font-bold">Suzen Caika</p>
-                            <p className='text-gray-500 text-sm py-3 px-3'>The global guide to Airline customer reviews and ratings for Airlines across the world, featuring passenger reviews, opinions and trip experiences.</p>
-                            <div className="flex justify-center gap-2">
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                                <FaStar className='text-xl text-amber-500' />
-                            </div>
-                            
-                        </div>
-                    </SwiperSlide>
-                </Swiper>
+    return (
+        <div>
+            <div id='reviewsection' className='bg-[#317371]/50 py-20 rounded-t-[10%]'>
+                <h2 className='text-center py-3 text-5xl font-bold text-white'>Our Best Reviews</h2>
+                <p className='text-white py-3 md:text-lg text-center w-[96%] lg:w-[60%] mx-auto'> Our customers speak for us! From effortless booking to real-time seat selection and secure check-ins, our platform ensures a smooth experience every time. See why users trust us for their ticketing needs!</p>
+
+
+                <section className='px-4 py-7 lg:px-0 mx-auto'>
+
+                    <Swiper
+                        onSwiper={setSwiperRef}
+                        slidesPerView={3}
+                        autoplay={{
+                            delay: 1500,
+                            disableOnInteraction: false,
+                        }}
+                        loop={true}
+                        speed={1000}
+                        modules={[Autoplay]}
+                        spaceBetween={40}
+                        className="mySwiper"
+                        breakpoints={{
+                            //mobile devices
+                            90: {
+                                slidesPerView: 1,
+                                spaceBetween: 10,
+                            },
+                            //tablets
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 20,
+                            },
+                            // desktops
+                            1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 25,
+                            },
+                            1400: {
+                                slidesPerView: 4,
+                                spaceBetween: 25,
+                            },
+                        }}
+                    >
+                        {
+                            reviews?.map(review => (
+                                <SwiperSlide className='rounded-lg'>
+                                    <div className='p-4 flex flex-col'>
+
+                                        <div className='flex gap-1'>
+                                            <img className='rounded-full w-16 h-16 border-2 border-[#317371] p-1' src={review.user_image} alt="" />
+                                            <div className='text-start my-auto'>
+                                                <h3 className='font-semibold'>{review.user_name}</h3>
+                                                <p>{review.user_email}</p>
+                                            </div>
+                                        </div>
+
+
+                                        <div className='mt-4 text-start flex-grow'>
+                                            {review.testimonial}
+                                        </div>
+
+                                        <div className='py-1.5 text-end '> -{review.date} </div>
+
+                                        {/* <div className="flex justify-center gap-2 mt-4">
+                                                <FaStar className='text-2xl text-amber-500' />
+                                                <FaStar className='text-2xl text-amber-500' />
+                                                <FaStar className='text-2xl text-amber-500' />
+                                                <FaStar className='text-2xl text-amber-500' />
+                                                <FaStar className='text-2xl text-amber-500' />
+                                            </div> */}
+                                    </div>
+
+                                </SwiperSlide>
+                            ))
+                        }
+
+                    </Swiper>
 
                 </section>
+
             </div>
         </div>
-    </div>
-  );
+    );
 };
 
 export default Reviews;
