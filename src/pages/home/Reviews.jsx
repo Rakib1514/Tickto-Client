@@ -22,10 +22,10 @@ const Reviews = () => {
     useGSAP(()=>{
         gsap.from('#reviewsection', {
             // width: '70%',
-            scale: 0.06,
-            borderRadius: '700%',
+            scale: 0.03,
+            borderRadius: '1900%',
             scrollTrigger: {
-                start: 'top 20%',
+                start: 'top 10%',
                 
                 scrub: true
             }
@@ -40,7 +40,7 @@ const Reviews = () => {
 
     return (
         <div>
-            <div id='reviewsection' className='bg-[#317371]/50 py-20 rounded-t-[10%]'>
+            <div id='reviewsection' className='bg-[#317371]/50 py-20 rounded-t-[3%] mt-32'>
                 <h2 className='text-center py-3 text-5xl font-bold text-white'>Our Best Reviews</h2>
                 <p className='text-white py-3 md:text-lg text-center w-[96%] lg:w-[60%] mx-auto'> Our customers speak for us! From effortless booking to real-time seat selection and secure check-ins, our platform ensures a smooth experience every time. See why users trust us for their ticketing needs!</p>
 
@@ -82,8 +82,8 @@ const Reviews = () => {
                         }}
                     >
                         {
-                            reviews?.map(review => (
-                                <SwiperSlide className='rounded-lg'>
+                            reviews?.map((review, index) => (
+                                <SwiperSlide key={index} className='rounded-lg'>
                                     <div className='p-4 flex flex-col'>
 
                                         <div className='flex gap-1'>

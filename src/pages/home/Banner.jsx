@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import b1 from '../../Assets/Banner/img1.jpg';
-import b2 from '../../Assets/Banner/img2.jpg';
+import b1 from '../../Assets/Banner/img1.jpeg';
+import b2 from '../../Assets/Banner/img2.jpeg';
 import b3 from '../../Assets/Banner/img3.jpg';
-import b4 from '../../Assets/Banner/img4.jpg';
+import b4 from '../../Assets/Banner/img4.jpeg';
 import '../../carousel.css';
 
 const images = [b1, b2, b3, b4];
@@ -11,25 +11,25 @@ const content = [
         author: 'LUNDEV',
         title: 'DESIGN SLIDER',
         topic: 'ANIMAL',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit...'
+        // description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit...'
     },
     {
         author: 'LUNDEV',
         title: 'DESIGN SLIDER',
         topic: 'NATURE',
-        description: 'Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque...'
+        // description: 'Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque...'
     },
     {
         author: 'LUNDEV',
         title: 'DESIGN SLIDER',
         topic: 'WILDLIFE',
-        description: 'Eaque optio ratione aliquid assumenda facere ab et quasi ducimus...'
+        // description: 'Eaque optio ratione aliquid assumenda facere ab et quasi ducimus...'
     },
     {
         author: 'LUNDEV',
         title: 'DESIGN SLIDER',
         topic: 'OCEAN',
-        description: 'Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde...'
+        // description: 'Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde...'
     }
 ];
 
@@ -62,10 +62,10 @@ const Banner = () => {
     }, []);
 
   return (
-    <div>
+    <div className='mt-10'>
       <div className="carousel" style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="list">
-            <div className="slider-wrapper" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+            <div className="slider-wrapper ml-5 mt-10" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {images.map((img, index) => (
                     <div className={`item ${index === currentIndex ? "active" : ""}`} key={index}>
                         <img src={img} alt={content[index].title} />
