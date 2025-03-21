@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './auth.css'
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 const login = () => {
 
     const { user, setuser, loading, setLoading, loginWithGoogle, } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -43,6 +44,7 @@ const login = () => {
                     icon: "success",
                     title: "Signed in successfully"
                 });
+                navigate('/')
 
             })
             .catch(err => {
@@ -58,12 +60,12 @@ const login = () => {
                     }
                 });
                 Toast.fire({
-                    icon: "success",
+                    icon: "error",
                     title: "Something went wrong"
                 });
             })
     }
-    
+
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
