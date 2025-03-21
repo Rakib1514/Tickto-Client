@@ -9,9 +9,9 @@ const Navbar = () => {
 
   const navLinks = [
     { path: "/", label: "Home", icon: Home },
+    { path: "/events", label: "Events", icon: Handshake },
     { path: "/about-us", label: "About Us", icon: User },
     { path: "/join-us", label: "Join Us", icon: Mail },
-    { path: "/terms", label: "Terms", icon: Handshake },
   ];
 
   const isActivePath = (path) => {
