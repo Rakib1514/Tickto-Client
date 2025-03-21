@@ -10,9 +10,6 @@ const EventSwiper = ({ category }) => {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
-
-  
-  
   return (
     <div className="relative">
       <Link to={`/events/${category?.subCategory}`}>
@@ -26,6 +23,7 @@ const EventSwiper = ({ category }) => {
           </div>
         </button>
       </Link>
+      <div className="h-4 lg:bg-black md:bg-green-500 sm:bg-red-600 bg-amber-500"></div>
 
       {/* Navigation Buttons */}
       {!isBeginning && (
@@ -46,7 +44,14 @@ const EventSwiper = ({ category }) => {
       )}
 
       <Swiper
-        slidesPerView={4}
+        breakpoints={{
+          320: { slidesPerView: 2 },
+          640: { slidesPerView: 3 },
+          768: { slidesPerView: 4 },
+          1024: { slidesPerView: 5 },
+          1280: { slidesPerView: 6 },
+          1536: { slidesPerView: 7 },
+        }}
         spaceBetween={15}
         onSwiper={(swiper) => {
           setSwiperInstance(swiper);
