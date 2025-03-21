@@ -12,8 +12,6 @@ import Auth from "../pages/Auth/Auth";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 
-
-
 const PublicRoutes = () => {
   return (
     <Routes>
