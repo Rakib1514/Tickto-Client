@@ -7,7 +7,7 @@ const EventDetails = () => {
   
   return (
     <div>
-      
+      This is the event details page
     </div>
   );
 };

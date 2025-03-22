@@ -30,7 +30,7 @@ const MainLayout = () => {
     <>
       <Navbar />
       {/* Categories under navbar */}
-      <div className="container mx-auto flex gap-4 w-full sticky top-16 z-10 bg-base-100 backdrop-blur-2xl opacity-80">
+      <div className="container mx-auto flex gap-4 w-full sticky top-16 z-10 bg-base-100 backdrop-blur-2xl opacity-80 flex-wrap">
         {data?.map((category, idx) => (
           <Link to={`/events/${category.subCategory}`}>
           <button key={idx} className="top__category__btn">
