@@ -27,6 +27,17 @@ export const loginUser = createAsyncThunk('auth/login', async ({ email, password
     }
 })
 
+// login with google
+export const loginWithGoogle = createAsyncThunk('auth/loginWithGoogle', async (_, { rejectWithValue }) => {
+    const provider = new GoogleAuthProvider();
+    try {
+        const userCredential = await signInWithPopup(auth, provider);
+        return userCredential.user;
+    } catch (err) {
+        return rejectWithValue(err);
+    }
+});
+
 // Logout User
 export const logoutUser = createAsyncThunk("auth/logout", async (_, { rejectWithValue }) => {
     try {
@@ -76,6 +87,18 @@ const authSlice = createSlice({
 
             .addCase(logoutUser.fulfilled, (state) => {
                 state.user = null;
+            })
+            .addCase(loginWithGoogle.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(loginWithGoogle.fulfilled, (state, action) => {
+                state.loading = false;
+                state.user = action.payload;
+            })
+            .addCase(loginWithGoogle.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
             });
     }
 });
