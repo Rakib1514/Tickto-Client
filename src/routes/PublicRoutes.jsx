@@ -11,6 +11,7 @@ import Auth from "../pages/Auth/Auth";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import CategoryWiseEvents from "../pages/all-events/CategoryWiseEvents";
+import EventDetails from "../pages/event-details/EventDetails";
 
 const PublicRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const PublicRoutes = () => {
 
         <Route path="/events" element={<AllEvents />} />
         <Route path="/events/:category" element={<CategoryWiseEvents />} />
+        <Route path="/event/:id" element={<EventDetails />} />
 
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/about-us" element={<AboutUs />} />
