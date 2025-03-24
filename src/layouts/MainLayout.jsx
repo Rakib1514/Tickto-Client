@@ -11,10 +11,10 @@ const MainLayout = () => {
     isLoading,
     error
   } = useQuery({
-    queryKey: "categories",
+    queryKey: ["categories"],
     queryFn: async () => {
       const response = await axios.get("/api/categories");
-      return response.data.data;
+      return response.data.data || [];
     },
   });
 

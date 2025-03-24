@@ -10,10 +10,10 @@ const AllEvents = () => {
     isLoading: eventsIsLoading,
     error: eventsError,
   } = useQuery({
-    queryKey: "events",
+    queryKey: ["events"],
     queryFn: async () => {
       const response = await axios.get("/api/events");
-      return response.data.data;
+      return response.data.data || [];
     },
   });
 
