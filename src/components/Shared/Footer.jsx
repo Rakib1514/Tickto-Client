@@ -61,7 +61,7 @@ const Footer = () => {
           <h3 className="font-bold text-lg">Legal</h3>
           <ul className="space-y-2 text-gray-700 mt-3">
             {[
-              { name: "Terms of Use", link: "/terms-and-condition" },
+              { name: "Terms of Use", link: "/terms" },
               { name: "Privacy Policy", link: "/legal/privacy" },
               { name: "Cookie Policy", link: "/legal/cookies" },
               { name: "Security", link: "/legal/security" },
