@@ -38,7 +38,7 @@ const SmallCard = ({ event , height, titletext, space }) => {
     }, []);
 
     return (
-        <div ref={cardRef} className="relative rounded-2xl overflow-hidden group cursor-pointer">
+        <div ref={cardRef} className="relative rounded-xl overflow-hidden group cursor-pointer">
             {/* Image with hover dark effect */}
             <div className={`w-full relative ${height} text-start`}>
                 <img
@@ -63,7 +63,7 @@ const SmallCard = ({ event , height, titletext, space }) => {
                 {/* Description & Date (Initially Hidden) */}
                 <div ref={contentRef} className={`absolute bottom-3 left-2 ${space}  text-white`}>
                     <p className="text-sm py-1">{description || 'description here description here description here description here description here'}</p>
-                    <p className="text-sm">Tickets available till <span className="text-green-400">{date || '30-2-2026'}</span></p>
+                    <p className="text-base ">Tickets available till <span className="text-green-400">{date || '30-2-2026'}</span></p>
                 </div>
             </div>
         </div>
