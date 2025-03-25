@@ -76,7 +76,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#a2b9a7]/40 text-white border-gray-200 backdrop-blur-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#a2b9a7]/65 text-white border-gray-200 backdrop-blur-sm">
         <div className="container mx-auto px-2">
           <div className="flex justify-between h-16">
             {/* logo and primary navigation */}

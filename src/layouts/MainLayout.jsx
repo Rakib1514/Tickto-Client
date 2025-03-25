@@ -13,7 +13,7 @@ const MainLayout = () => {
   } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const response = await axios.get("/api/categories");
+      const response = await axios.get("http://localhost:5000/api/categories");
       return response.data.data || [];
     },
   });
@@ -30,13 +30,17 @@ const MainLayout = () => {
     <>
       <Navbar />
       {/* Categories under navbar */}
-      <div className="container mx-auto flex gap-4 w-full sticky top-16 z-10 bg-base-100 backdrop-blur-2xl opacity-80 flex-wrap">
-        {data?.map((category, idx) => (
-          <Link to={`/events/${category.subCategory}`}>
-          <button key={idx} className="top__category__btn">
-            {category.subCategory}
-          </button></Link>
-        ))}
+      <div className="sticky top-16 z-10 bg-base-100 backdrop-blur-2xl opacity-80 flex-wrap">
+
+        <div className="container mx-auto flex gap-4 w-full">
+          {data?.map((category, idx) => (
+            <Link to={`/events/${category.subCategory}`}>
+              <button key={idx} className="top__category__btn">
+                {category.subCategory}
+              </button></Link>
+          ))}
+        </div>
+
       </div>
       <main>
         <Outlet />
