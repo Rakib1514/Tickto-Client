@@ -15,7 +15,7 @@ const EventSwiper = ({ category }) => {
     <div className="relative my-10">
       <Link to={`/events/${category?.subCategory}`}>
         <button className="flex items-center category__title__container group cursor-pointer">
-          <span className="capitalize ml-36 text-3xl font-bold mb-4 category_title">
+          <span className="capitalize text-3xl font-bold mb-4 category_title">
             {category?.subCategory}
           </span>
           <div className="icon__right__arrow relative flex mb-6 items-center">
@@ -26,9 +26,9 @@ const EventSwiper = ({ category }) => {
       </Link>
 
       {/* Navigation Buttons */}
-      {/* {!isBeginning && (
+      {!isBeginning && (
         <button
-          className="absolute top-28 -left-11 border border-gray-600 translate-y-20 text-gray-600 p-3 bg-white/30 rounded-full z-10"
+          className="absolute top-[72px] -left-12 border border-gray-600 translate-y-20 text-gray-600 p-3 bg-white/30 rounded-full z-10"
           onClick={() => swiperInstance?.slidePrev()}
         >
           <FaArrowLeft />
@@ -36,12 +36,12 @@ const EventSwiper = ({ category }) => {
       )}
       {!isEnd && (
         <button
-          className="absolute top-28 -right-11 border border-gray-600 translate-y-20 bg-white/30 text-gray-600 p-3 rounded-full z-10"
+          className="absolute top-[72px] -right-12 border border-gray-600 translate-y-20 bg-white/30 text-gray-600 p-3 rounded-full z-10"
           onClick={() => swiperInstance?.slideNext()}
         >
           <FaArrowRight />
         </button>
-      )} */}
+      )}
 
       <Swiper
         breakpoints={{

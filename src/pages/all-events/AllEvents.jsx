@@ -28,7 +28,7 @@ const AllEvents = () => {
   if (eventsError) return <div className="min-h-screen flex justify-center items-center text-3xl">Error fetching events</div>;
 
   return (
-    <div className="ml-8 px-2 relative">
+    <div className="container mx-auto px-2 relative">
       {/* Events */}
       <div className="mt-8">
         {events?.map((category, idx) => (
