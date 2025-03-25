@@ -65,7 +65,7 @@ const Banner = () => {
     <div className='mt-10'>
       <div className="carousel" style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="list">
-            <div className="slider-wrapper ml-5 mt-10" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+            <div className="slider-wrapper ml-5 mt-12" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {images.map((img, index) => (
                     <div className={`item ${index === currentIndex ? "active" : ""}`} key={index}>
                         <img src={img} alt={content[index].title} />

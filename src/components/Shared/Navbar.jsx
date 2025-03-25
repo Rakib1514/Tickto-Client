@@ -125,7 +125,7 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-[#41a5a2]/70  backdrop-blur-3xl font-bold rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <li className="text-center">{user.displayName}</li>
-                        <li><a>Update Profile</a></li>
+                        <li><Link to="/updateprofile">Update Profile</Link></li>
                         <li onClick={handleLogout}><a>Logout</a></li>
                       </ul>
                     </div>

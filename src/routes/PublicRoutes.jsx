@@ -12,6 +12,7 @@ import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import CategoryWiseEvents from "../pages/all-events/CategoryWiseEvents";
 import EventDetails from "../pages/event-details/EventDetails";
+import UpdateProfile from "../pages/update-profile/UpdateProfile";
 
 const PublicRoutes = () => {
   return (
@@ -30,6 +31,8 @@ const PublicRoutes = () => {
       </Route>
 
       <Route path="*" element={<ErrorPage />}></Route>
+
+      <Route path="/updateprofile" element={<UpdateProfile />}></Route>
 
       {/* Auth Layout Routes */}
       <Route path="/auth" element={<Auth />}>
