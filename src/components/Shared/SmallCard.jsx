@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { FaStar } from "react-icons/fa";
+import theater from "../../Assets/Banner/img4.jpeg"
 
 const SmallCard = ({ event }) => {
     const { title, image_url, description, category, rating, date } = event;
@@ -39,15 +40,15 @@ const SmallCard = ({ event }) => {
     return (
         <div ref={cardRef} className="relative rounded-2xl overflow-hidden group cursor-pointer">
             {/* Image with hover dark effect */}
-            <div className="w-full h-80 relative">
+            <div className="w-full h-72 relative">
                 <img
                     className="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:brightness-50"
-                    src={image_url}
+                    src={image_url || theater}
                     alt={title}
                 />
 
-                <div className="absolute top-2 right-2">
-                    <FaStar className='text-lg mx-auto text-amber-300' />
+                <div className="absolute top-3 right-3">
+                    <FaStar className='text-lg mx-auto text-amber-200' />
                     <span className="text-white font-medium">{rating}</span>
                 </div>
 
