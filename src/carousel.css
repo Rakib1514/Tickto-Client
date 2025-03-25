@@ -20,7 +20,7 @@
 .carousel .list .item .content{
     position: absolute;
     top: 20%;
-    width: 1140px;
+    width: 2140px;
     max-width: 80%;
     left: 50%;
     transform: translateX(-50%);

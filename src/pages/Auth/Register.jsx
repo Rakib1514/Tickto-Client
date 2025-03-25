@@ -3,14 +3,18 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../Redux/auth/authSlice';
 
 const Register = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const dispatch = useDispatch()
 
     const onSubmit = async (data) => {
 
         console.log(data)
+        dispatch(registerUser(data))
 
     };
 
@@ -18,7 +22,7 @@ const Register = () => {
     return (
         <div className='min-h-screen flex justify-center items-center'>
             <div className='blur-bg min-h-screen md:min-h-fit grid md:grid-cols-2 border border-gray-400 text-white rounded-2xl max-w-screen-xl md:w-[96%]'>
-                
+
                 {/* second part */}
                 <div className='md:hidden md:p-10 py-10 md:py-20 flex justify-center items-center text-center md:bg-black/30 rounded-r-2xl'>
 
@@ -48,11 +52,11 @@ const Register = () => {
                                 <input
                                     type="text"
                                     placeholder="Your Name"
-                                    {...register("user_name")}
+                                    {...register("name")}
                                     className="input input-bordered w-full bg-gray-200 text-gray-900" required />
 
                             </div>
-                            
+
                             {/* email */}
                             <div className="form-control">
                                 <label className="label">
@@ -63,11 +67,11 @@ const Register = () => {
                                 <input
                                     type="email"
                                     placeholder="Your Email"
-                                    {...register("user_email")}
+                                    {...register("email")}
                                     className="input input-bordered w-full bg-gray-200 text-gray-900" required />
 
                             </div>
-                            
+
                             {/* photo */}
                             <div className="form-control">
                                 <label className="label">
@@ -78,7 +82,7 @@ const Register = () => {
                                 <input
                                     type="file"
                                     placeholder="Your Email"
-                                    {...register("user_image")}
+                                    {...register("image")}
                                     className='file-input file-input-ghost file-input-bordered w-full bg-gray-200 text-gray-500 mx-auto' required />
 
                             </div>
@@ -126,17 +130,17 @@ const Register = () => {
 
                 {/* second part */}
                 <div className='hidden md:block '>
-                
-                <div className='md:p-10 py-10 h-full md:py-20 flex justify-center items-center text-center md:bg-black/30 rounded-r-2xl'>
 
-                    <div >
-                        <h1 className='font-bold text-3xl'>Wellcome to TickTo</h1>
-                        <p className='py-6 w-[80%] mx-auto text-sm'>Discover trending events and personalized recommendations. From local gatherings to global spectacles, find experiences that match your interests.Book with confidence using our secure payment system. Enjoy a hassle-free ticketing experience with instant confirmation and digital access.</p>
-                        <p>Already have an account? <Link to={'/auth/login'} className='text-[#67B293] link'> Login </Link> Now</p>
+                    <div className='md:p-10 py-10 h-full md:py-20 flex justify-center items-center text-center md:bg-black/30 rounded-r-2xl'>
+
+                        <div >
+                            <h1 className='font-bold text-3xl'>Wellcome to TickTo</h1>
+                            <p className='py-6 w-[80%] mx-auto text-sm'>Discover trending events and personalized recommendations. From local gatherings to global spectacles, find experiences that match your interests.Book with confidence using our secure payment system. Enjoy a hassle-free ticketing experience with instant confirmation and digital access.</p>
+                            <p>Already have an account? <Link to={'/auth/login'} className='text-[#67B293] link'> Login </Link> Now</p>
+
+                        </div>
 
                     </div>
-
-                </div>
 
                 </div>
 

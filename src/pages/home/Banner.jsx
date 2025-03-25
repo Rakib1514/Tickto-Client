@@ -57,7 +57,7 @@ const Banner = () => {
     };
 
     useEffect(() => {
-        const autoSlide = setInterval(nextSlide, 7000);
+        const autoSlide = setInterval(nextSlide, 5000);
         return () => clearInterval(autoSlide);
     }, []);
 
@@ -65,12 +65,12 @@ const Banner = () => {
     <div className='mt-10'>
       <div className="carousel" style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="list">
-            <div className="slider-wrapper ml-5 mt-12" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+            <div className="slider-wrapper mt-12" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {images.map((img, index) => (
                     <div className={`item ${index === currentIndex ? "active" : ""}`} key={index}>
                         <img src={img} alt={content[index].title} />
                         {index === currentIndex && ( 
-                            <div className="content">
+                            <div className="content ">
                                 <div className="author">{content[index].author}</div>
                                 <div className="title">{content[index].title}</div>
                                 <div className="topic">{content[index].topic}</div>

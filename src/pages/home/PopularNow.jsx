@@ -23,7 +23,7 @@ const PopularNow = () => {
       <p className="py-6 md:w-[90%] lg:w-[70%]">Discover the hottest events that everyone is talking about! These top-selling experiences have captured the attention of thousands, selling out fast. Whether it's a thrilling concert, an electrifying sports match, or an unforgettable theater show, these events are in high demand.</p>
       <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-3'>
         {
-          events?.map(event => <SmallCard key={event.id} event={event} />)
+          events?.map(event => <SmallCard key={event.id} event={event} height={'h-72'} titletext={'text-2xl font-bold'} space={'bottom-4 left-3'}/>)
         }
       </div>
     </div>

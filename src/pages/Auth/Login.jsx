@@ -6,64 +6,71 @@ import { motion } from 'framer-motion';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser, loginWithGoogle } from '../../Redux/auth/authSlice';
 
-const login = () => {
+const Login = () => {
 
-    const { user, setuser, loading, setLoading, loginWithGoogle, } = useContext(AuthContext)
+    // const { setuser, loginWithGoogle, } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
+    const dispatch = useDispatch()
+    // const { user, loading, error } = useSelector(state => state.auth)
+
     const onSubmit = async (data) => {
 
         console.log(data)
+        dispatch(loginUser(data));
+
 
     };
 
-     // google login as worker
-     const handleGoogle = () => {
-        loginWithGoogle()
-            .then(res => {
+    // google login as worker
+    const handleGoogle = () => {
+        dispatch(loginWithGoogle());
+            // .then(res => {
 
-                setuser(res.user)
+            //     setuser(res.user)
 
-                console.log(res.user)
+            //     console.log(res.user)
 
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                });
-                Toast.fire({
-                    icon: "success",
-                    title: "Signed in successfully"
-                });
-                navigate('/')
+            //     const Toast = Swal.mixin({
+            //         toast: true,
+            //         position: "top-end",
+            //         showConfirmButton: false,
+            //         timer: 3000,
+            //         timerProgressBar: true,
+            //         didOpen: (toast) => {
+            //             toast.onmouseenter = Swal.stopTimer;
+            //             toast.onmouseleave = Swal.resumeTimer;
+            //         }
+            //     });
+            //     Toast.fire({
+            //         icon: "success",
+            //         title: "Signed in successfully"
+            //     });
+            //     navigate('/')
 
-            })
-            .catch(err => {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                });
-                Toast.fire({
-                    icon: "error",
-                    title: "Something went wrong"
-                });
-            })
+            // })
+            // .catch(err => {
+            //     const Toast = Swal.mixin({
+            //         toast: true,
+            //         position: "top-end",
+            //         showConfirmButton: false,
+            //         timer: 3000,
+            //         timerProgressBar: true,
+            //         didOpen: (toast) => {
+            //             toast.onmouseenter = Swal.stopTimer;
+            //             toast.onmouseleave = Swal.resumeTimer;
+            //         }
+            //     });
+            //     Toast.fire({
+            //         icon: "error",
+            //         title: "Something went wrong"
+            //     });
+            // })
     }
 
 
@@ -100,7 +107,7 @@ const login = () => {
                                 <input
                                     type="email"
                                     placeholder="Your Email"
-                                    {...register("user_email")}
+                                    {...register("email")}
                                     className="input input-bordered w-full bg-gray-200 text-gray-900" required />
 
                             </div>
@@ -152,4 +159,4 @@ const login = () => {
     );
 };
 
-export default login;
+export default Login;
