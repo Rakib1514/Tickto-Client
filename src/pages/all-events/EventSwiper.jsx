@@ -5,6 +5,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { useState } from "react";
 import { Link } from "react-router";
 import EventSwiperSlide from "./SwiperSlide";
+import SmallCard from "../../components/Shared/SmallCard";
 
 const EventSwiper = ({ category }) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -68,7 +69,9 @@ const EventSwiper = ({ category }) => {
       >
         {category.data?.map((item, index) => (
           <SwiperSlide key={index}>
-            <EventSwiperSlide item={item} />
+            
+              <SmallCard event={item} height={'h-48'} titletext={'text-xl font-semibold'} />
+            
           </SwiperSlide>
         ))}
       </Swiper>

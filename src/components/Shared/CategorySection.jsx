@@ -12,7 +12,7 @@ const CategorySection = ({ events, Title, featured }) => {
                     <Link className='flex items-center gap-1 text-lg'>Explore more <GrLinkNext /></Link>
                 </div>
 
-                <p className={`py-4 hidden ${featured && 'block'} pb-8 md:w-[90%] lg:w-[70%]`}>These top-rated tickets are selling fast! Whether it’s an exclusive conference, a must-watch movie, or the perfect travel route, we’ve got the best picks right here. From inspiring business summits to blockbuster premieres and seamless travel options, these are the experiences people love the most. Book now and see why they’re a favorite!</p>
+                <p className={`py-4 ${featured ?'block': 'hidden'} pb-8 md:w-[90%] lg:w-[70%]`}>These top-rated tickets are selling fast! Whether it’s an exclusive conference, a must-watch movie, or the perfect travel route, we’ve got the best picks right here. From inspiring business summits to blockbuster premieres and seamless travel options, these are the experiences people love the most. Book now and see why they’re a favorite!</p>
                 
                 <div className='grid md:grid-cols-3 lg:grid-cols-3 gap-3'>
                     {
