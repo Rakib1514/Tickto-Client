@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import "./styleAllEvents.css";
+
 import axios from "axios";
 import EventSwiper from "./EventSwiper";
 
