@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import SmallCard from '../../components/Shared/smallCard';
+import CategorySection from '../../components/Shared/CategorySection';
 
 const Feature = () => {
 
@@ -215,7 +216,9 @@ const Feature = () => {
           }
         </div>
       </div>
+      {/* <CategorySection events={events} featured={true}/> */}
     </div>
+    
   );
 };
 
