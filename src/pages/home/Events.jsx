@@ -23,7 +23,7 @@ const Events = () => {
         </div>
         <div className='grid md:grid-cols-3 lg:grid-cols-3 gap-3'>
           {
-            events?.map(event => <SmallCard key={event.id} event={event} />)
+            events?.map(event => <SmallCard key={event.id} event={event} height={'h-72'} titletext={'text-2xl font-bold'} space={'bottom-4 left-3'}/>)
           }
         </div>
       </div>

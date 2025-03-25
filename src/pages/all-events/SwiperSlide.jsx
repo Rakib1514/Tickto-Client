@@ -46,7 +46,7 @@ const EventSwiperSlide = ({ item }) => {
     //     </div>
     //   </motion.div>
     // </Link>
-    <SmallCard event={item} height={'h-48'} titletext={'text-xl font-semibold'}/>
+    <SmallCard event={item} height={'h-48'} titletext={'text-xl font-semibold'} />
   );
 };
 

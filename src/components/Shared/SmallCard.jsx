@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { FaStar } from "react-icons/fa";
 import theater from "../../Assets/Banner/img3.jpg"
 
-const SmallCard = ({ event , height, titletext }) => {
+const SmallCard = ({ event , height, titletext, space }) => {
     const { title, image_url, description, category, rating, date } = event;
     const cardRef = useRef(null);
     const titleRef = useRef(null);
@@ -56,12 +56,12 @@ const SmallCard = ({ event , height, titletext }) => {
                 <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-b from-black/0 to-black/90"></div>
 
                 {/* Title (Always Visible) */}
-                <div ref={titleRef} className={`absolute bottom-3 left-2 right-[2px] text-white ${titletext}`}>
+                <div ref={titleRef} className={`absolute bottom-3 left-2 ${space} right-[2px] text-white ${titletext}`}>
                     {title}
                 </div>
 
                 {/* Description & Date (Initially Hidden) */}
-                <div ref={contentRef} className="absolute bottom-3 left-2 text-white">
+                <div ref={contentRef} className={`absolute bottom-3 left-2 ${space}  text-white`}>
                     <p className="text-sm py-1">{description || 'description here description here description here description here description here'}</p>
                     <p className="text-sm">Tickets available till <span className="text-green-400">{date || '30-2-2026'}</span></p>
                 </div>
