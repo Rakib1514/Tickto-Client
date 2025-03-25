@@ -7,7 +7,7 @@ const CategoryWiseEvents = () => {
   const { category } = useParams();
 
   const { data, isLoading, refetch } = useQuery({
-    queryKey: "category-wise-events",
+    queryKey: ["category-wise-events"],
     queryFn: async () => {
       const response = await axios.get(`/api/events/${category}`);
       return response.data.data;
