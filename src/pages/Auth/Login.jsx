@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './auth.css'
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const login = () => {
+
+    const { user, setuser, loading, setLoading, loginWithGoogle, } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -14,6 +19,53 @@ const login = () => {
         console.log(data)
 
     };
+
+     // google login as worker
+     const handleGoogle = () => {
+        loginWithGoogle()
+            .then(res => {
+
+                setuser(res.user)
+
+                console.log(res.user)
+
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "Signed in successfully"
+                });
+                navigate('/')
+
+            })
+            .catch(err => {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "error",
+                    title: "Something went wrong"
+                });
+            })
+    }
+
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
@@ -82,7 +134,9 @@ const login = () => {
                                 <FaFacebook className='text-xl text-[#A989B0] hover:text-[#67B293]' />
                             </div>
 
-                            <div className='border border-[#67B293] rounded-full p-1 '>
+                            <div
+                                onClick={handleGoogle}
+                                className='border border-[#67B293] rounded-full p-1 '>
                                 <FaGoogle className='text-xl text-[#A989B0] hover:text-[#67B293]' />
                             </div>
 
