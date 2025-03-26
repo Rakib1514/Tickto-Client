@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { FaStar } from "react-icons/fa";
+import theater from "../../Assets/Banner/img3.jpg"
 
-const SmallCard = ({ event }) => {
+const SmallCard = ({ event , height, titletext, space }) => {
     const { title, image_url, description, category, rating, date } = event;
     const cardRef = useRef(null);
     const titleRef = useRef(null);
@@ -37,17 +38,17 @@ const SmallCard = ({ event }) => {
     }, []);
 
     return (
-        <div ref={cardRef} className="relative rounded-2xl overflow-hidden group cursor-pointer">
+        <div ref={cardRef} className="relative rounded-xl overflow-hidden group cursor-pointer">
             {/* Image with hover dark effect */}
-            <div className="w-full h-80 relative">
+            <div className={`w-full relative ${height} text-start`}>
                 <img
                     className="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:brightness-50"
-                    src={image_url}
+                    src={image_url || theater}
                     alt={title}
                 />
 
-                <div className="absolute top-2 right-2">
-                    <FaStar className='text-lg mx-auto text-amber-300' />
+                <div className="absolute top-3 right-3">
+                    <FaStar className='text-lg mx-auto text-amber-200' />
                     <span className="text-white font-medium">{rating}</span>
                 </div>
 
@@ -55,14 +56,14 @@ const SmallCard = ({ event }) => {
                 <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-b from-black/0 to-black/90"></div>
 
                 {/* Title (Always Visible) */}
-                <div ref={titleRef} className="absolute bottom-5 left-3 text-white text-2xl font-bold">
-                    {title} <span className="text-sm font-medium">({category})</span>
+                <div ref={titleRef} className={`absolute bottom-3 left-2 ${space} right-[2px] text-white ${titletext}`}>
+                    {title}
                 </div>
 
                 {/* Description & Date (Initially Hidden) */}
-                <div ref={contentRef} className="absolute bottom-3 left-3 text-white">
-                    <p className="text-sm py-1">{description}</p>
-                    <p>Tickets available till <span className="text-green-400">{date}</span></p>
+                <div ref={contentRef} className={`absolute bottom-3 left-2 ${space}  text-white`}>
+                    <p className="text-sm py-1">{description || 'description here description here description here description here description here'}</p>
+                    <p className="text-base ">Tickets available till <span className="text-green-400">{date || '30-2-2026'}</span></p>
                 </div>
             </div>
         </div>

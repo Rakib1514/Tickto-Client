@@ -10,12 +10,14 @@ const AllEvents = () => {
     isLoading: eventsIsLoading,
     error: eventsError,
   } = useQuery({
-    queryKey: "events",
+    queryKey: ["events"],
     queryFn: async () => {
-      const response = await axios.get("/api/events");
-      return response.data.data;
+      const response = await axios.get("http://localhost:5000/api/events");
+      return response.data.data || [];
     },
   });
+
+  console.log(events)
 
   if (eventsIsLoading)
     return (
@@ -23,7 +25,7 @@ const AllEvents = () => {
         <span>Loading...</span>
       </div>
     );
-  if (eventsError) return <h1>Error fetching events</h1>;
+  if (eventsError) return <div className="min-h-screen flex justify-center items-center text-3xl">Error fetching events</div>;
 
   return (
     <div className="container mx-auto px-2 relative">
