@@ -16,7 +16,13 @@ const Footer = () => {
             className="flex items-center space-x-2"
           >
             <div className="bg-white p-2 rounded-md shadow-md">logo</div>
-            <h2 className="text-2xl font-bold">TickBook</h2>
+            {/* <h2 className="text-2xl font-bold">TickBook</h2> */}
+            <Link to="/" className="flex items-center">
+              <span className="text-3xl font-bold">
+                <span className="text-[#317371]">Tick</span>
+                <span className="">To</span>
+              </span>
+            </Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
