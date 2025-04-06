@@ -18,6 +18,11 @@ import Dashboard_layout from "../dashboard/Dashboard_layout";
 import My_profile from "../dashboard/user/My_profile";
 import Add_event from "../dashboard/admin/Add_event";
 import Admin_dashboard from "../dashboard/admin/Admin_dashboard";
+import Setting from "../dashboard/admin/Setting";
+import Payment_reports from "../dashboard/admin/Payment_reports";
+import Manage_user from "../dashboard/admin/Manage_user";
+import Manage_tickets from "../dashboard/admin/Manage_tickets";
+import Booking_reports from "../dashboard/admin/Booking_reports";
 
 const PublicRoutes = () => {
   return (
@@ -34,18 +39,30 @@ const PublicRoutes = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/join-us" element={<JoinUs />} />
       </Route>
-      {/* Dashboard layout */}
+
+      {/*-------------------------------- Dashboard layout ------------------------------------- */}
         <Route path="/dashboard" element={<Dashboard_layout />} >
 
-    {/* user  */}
+        <Route index  element={< Navigate to="/dashboard/admin-dashboard" replace />} />
+        <Route path="/dashboard/admin-dashboard" element={<Admin_dashboard />} />
+        <Route path="/dashboard/admin/add-event" element={<Add_event />} />
+        <Route path="/dashboard/admin/booking-reports" element={<Booking_reports />} />
+        <Route path="/dashboard/admin/manage-tickets" element={<Manage_tickets />} />
+        <Route path="/dashboard/admin/manage-user" element={<Manage_user />} />
+        <Route path="/dashboard/admin/payment-reports" element={<Payment_reports />} />
+        <Route path="/dashboard/admin/setting" element={<Setting />} />
 
-    <Route index  element={< Navigate to="/dashboard/admin-dashboard" replace />} />
-    <Route path="/dashboard/admin-dashboard" element={<Admin_dashboard />} />
-    <Route path="/dashboard/admin/add-event" element={<Add_event />} />
-    <Route path="/dashboard/my-profile" element={<My_profile />} />
+        <Route path="/dashboard/my-profile" element={<My_profile />} />
   
 
+   
+
       </Route>
+
+      {/*-------------------------------- Dashboard layout ------------------------------------- */}
+
+
+
       
       <Route path="*" element={<ErrorPage />}></Route>
 

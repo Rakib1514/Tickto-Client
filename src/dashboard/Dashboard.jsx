@@ -75,7 +75,7 @@ export default function Dashboard() {
                 </li>
                 <li>
                   <Link
-                    to="/dashboard/admin/manage-users"
+                    to="/dashboard/admin/manage-user"
                     className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
                   >
                     <MdSettings className="text-lg" />
@@ -100,18 +100,10 @@ export default function Dashboard() {
                     Add  Event
                   </Link>
                 </li>
+             
                 <li>
                   <Link
-                    to="/admin/tickets"
-                    className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
-                  >
-                    <BsCardChecklist className="text-lg" />
-                    Manage Tickets
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/admin/bookings"
+                    to="/dashboard/admin/booking-reports"
                     className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
                   >
                     <MdLocalActivity className="text-lg" />
@@ -120,7 +112,7 @@ export default function Dashboard() {
                 </li>
                 <li>
                   <Link
-                    to="/admin/payments"
+                    to="/dashboard/admin/payment-reports"
                     className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
                   >
                     <FaCreditCard className="text-lg" />
@@ -129,7 +121,7 @@ export default function Dashboard() {
                 </li>
                 <li>
                   <Link
-                    to="/admin/settings"
+                    to="/dashboard/admin/setting"
                     className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
                   >
                     <MdSettings className="text-lg" />
