@@ -9,7 +9,7 @@ const CategoryWiseEvents = () => {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["category-wise-events"],
     queryFn: async () => {
-      const response = await axios.get(`http://localhost:5000/api/events/${category}`);
+      const response = await axios.get(`/api/events/${category}`);
       return response.data.data || [];
     },
   });

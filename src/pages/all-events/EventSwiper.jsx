@@ -4,7 +4,6 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useState } from "react";
 import { Link } from "react-router";
-import EventSwiperSlide from "./SwiperSlide";
 import SmallCard from "../../components/Shared/SmallCard";
 
 const EventSwiper = ({ category }) => {
