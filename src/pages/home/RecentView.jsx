@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SmallCard from '../../components/Shared/smallCard';
+import SmallCard from '../../components/Shared/SmallCard.jsx';
 
 const RecentView = () => {
 

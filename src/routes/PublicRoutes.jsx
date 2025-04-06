@@ -13,6 +13,9 @@ import Register from "../pages/Auth/Register";
 import CategoryWiseEvents from "../pages/all-events/CategoryWiseEvents";
 import EventDetails from "../pages/event-details/EventDetails";
 import UpdateProfile from "../pages/update-profile/UpdateProfile";
+import Dashboard from "../dashboard/Dashboard";
+import Dashboard_layout from "../dashboard/Dashboard_layout";
+import My_profile from "../dashboard/user/My_profile";
 
 const PublicRoutes = () => {
   return (
@@ -29,7 +32,14 @@ const PublicRoutes = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/join-us" element={<JoinUs />} />
       </Route>
+      {/* Dashboard layout */}
+        <Route path="/dashboard" element={<Dashboard_layout />} >
 
+    {/* user  */}
+    <Route path="/dashboard/my-profile" element={<My_profile />} />
+
+      </Route>
+      
       <Route path="*" element={<ErrorPage />}></Route>
 
       <Route path="/updateprofile" element={<UpdateProfile />}></Route>

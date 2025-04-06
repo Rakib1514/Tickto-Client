@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import SmallCard from '../../components/Shared/smallCard';
+import SmallCard from '../../components/Shared/SmallCard.jsx';
 import CategorySection from '../../components/Shared/CategorySection';
 
 const Feature = () => {
