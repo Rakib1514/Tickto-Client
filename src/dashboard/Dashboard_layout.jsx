@@ -11,7 +11,7 @@ export default function Dashboard_layout() {
 
     </div>
     <div>
-      <Outlet />
+    
     </div>
 </div>
   )

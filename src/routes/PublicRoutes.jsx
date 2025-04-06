@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/home/Home";
 import AboutUs from "../pages/about-us/AboutUs";
@@ -16,6 +16,8 @@ import UpdateProfile from "../pages/update-profile/UpdateProfile";
 import Dashboard from "../dashboard/Dashboard";
 import Dashboard_layout from "../dashboard/Dashboard_layout";
 import My_profile from "../dashboard/user/My_profile";
+import Add_event from "../dashboard/admin/Add_event";
+import Admin_dashboard from "../dashboard/admin/Admin_dashboard";
 
 const PublicRoutes = () => {
   return (
@@ -36,7 +38,12 @@ const PublicRoutes = () => {
         <Route path="/dashboard" element={<Dashboard_layout />} >
 
     {/* user  */}
+
+    <Route index  element={< Navigate to="/dashboard/admin-dashboard" replace />} />
+    <Route path="/dashboard/admin-dashboard" element={<Admin_dashboard />} />
+    <Route path="/dashboard/admin/add-event" element={<Add_event />} />
     <Route path="/dashboard/my-profile" element={<My_profile />} />
+  
 
       </Route>
       
