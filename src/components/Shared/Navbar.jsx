@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { GrDashboard } from "react-icons/gr";
 
 const Navbar = () => {
 
@@ -17,6 +18,7 @@ const Navbar = () => {
     { path: "/events", label: "Events", icon: Handshake },
     { path: "/about-us", label: "About Us", icon: User },
     { path: "/join-us", label: "Join Us", icon: Mail },
+    {path:"/dashboard",label:'Dashboard',icon: GrDashboard}
   ];
 
   const handleLogout = () => {
@@ -84,7 +86,7 @@ const Navbar = () => {
               <div className="flex-shrink-0 flex items-center">
                 <Link to="/" className="flex items-center">
                   <span className="text-3xl font-bold">
-                    <span className="text-[#317371]">Tick</span>
+                    <span className="text-[#317371]"> 🎟 Tick</span>
                     <span className="">To</span>
                   </span>
                 </Link>
