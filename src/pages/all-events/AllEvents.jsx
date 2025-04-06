@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import "./styleAllEvents.css";
+
 import axios from "axios";
 import EventSwiper from "./EventSwiper";
 
@@ -12,7 +12,7 @@ const AllEvents = () => {
   } = useQuery({
     queryKey: ["events"],
     queryFn: async () => {
-      const response = await axios.get("http://localhost:5000/api/events");
+      const response = await axios.get("/api/events");
       return response.data.data || [];
     },
   });
