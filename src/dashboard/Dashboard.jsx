@@ -6,15 +6,15 @@ import { FaMoneyBillAlt, FaTicketAlt, FaRegCalendarAlt, FaHistory } from 'react-
 import { FaUserCircle, FaSignOutAlt, FaCreditCard } from 'react-icons/fa';
 import { MdDashboard, MdLocalActivity, MdSettings } from 'react-icons/md';
 import { AiOutlineProfile } from 'react-icons/ai';
-import { RiSecurePaymentLine } from 'react-icons/ri';
+import { RiSecurePaymentLine, RiUserSettingsLine } from 'react-icons/ri';
 import { HiOutlineShieldCheck } from 'react-icons/hi'; // For admin icon
 import { IoTicketOutline } from 'react-icons/io5'; 
-import { BsCardChecklist } from 'react-icons/bs';
+import { BsBookmarkCheck, BsCardChecklist } from 'react-icons/bs';
 import Chart from './Chart';
 import TotalRevenue from './TotalRevenue';
 
 export default function Dashboard() {
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   // Conditionally render admin routes if the user is an admin
   const isAdmin = user?.role === 'user';
@@ -47,7 +47,7 @@ export default function Dashboard() {
               src={user?.photoURL || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtnvAOajH9gS4C30cRF7rD_voaTAKly2Ntaw&s"}
               alt="User Avatar"
             />
-            <div className="text-sm font-medium text-gray-900 text-gray-900">
+            <div className="text-sm font-medium text-gray-900">
               {user?.displayName || 'Anonymous'}
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function Dashboard() {
                 <li>
                   <Link
                     to="/dashboard/admin-dashboard"
-                    className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
+                    className="flex items-center gap-2 py-2 px-3 text-gray-800 rounded  hover:bg-[#C2D1C6]"
                   >
                     <HiOutlineShieldCheck className="text-lg" />
                     Admin Dashboard
@@ -76,16 +76,16 @@ export default function Dashboard() {
                 <li>
                   <Link
                     to="/dashboard/admin/manage-user"
-                    className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
+                    className="flex items-center gap-2 py-2 px-3 text-gray-800 rounded  hover:bg-[#C2D1C6]"
                   >
-                    <MdSettings className="text-lg" />
+                    <RiUserSettingsLine className="text-lg" />
                     Manage Users
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/dashboard/admin/manage-tickets"
-                    className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
+                    className="flex items-center gap-2 py-2 px-3 text-gray-800 rounded  hover:bg-[#C2D1C6]"
                   >
                     <MdSettings className="text-lg" />
                     Manage Tickets
@@ -94,7 +94,7 @@ export default function Dashboard() {
                 <li>
                   <Link
                     to="/dashboard/admin/add-event"
-                    className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
+                    className="flex items-center gap-2 py-2 px-3 text-gray-800 rounded  hover:bg-[#C2D1C6]"
                   >
                     <IoTicketOutline className="text-lg" />
                     Add  Event
@@ -104,7 +104,7 @@ export default function Dashboard() {
                 <li>
                   <Link
                     to="/dashboard/admin/booking-reports"
-                    className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
+                    className="flex items-center gap-2 py-2 px-3 text-gray-800 rounded  hover:bg-[#C2D1C6]"
                   >
                     <MdLocalActivity className="text-lg" />
                     Booking Reports
@@ -113,7 +113,7 @@ export default function Dashboard() {
                 <li>
                   <Link
                     to="/dashboard/admin/payment-reports"
-                    className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
+                    className="flex items-center gap-2 py-2 px-3 text-gray-800 rounded  hover:bg-[#C2D1C6]"
                   >
                     <FaCreditCard className="text-lg" />
                     Payment Reports
@@ -122,7 +122,7 @@ export default function Dashboard() {
                 <li>
                   <Link
                     to="/dashboard/admin/setting"
-                    className="flex items-center gap-2 py-2 px-3 text-gray-800 text-gray-900 rounded  hover:bg-[#C2D1C6]"
+                    className="flex items-center gap-2 py-2 px-3 text-gray-800 rounded  hover:bg-[#C2D1C6]"
                   >
                     <MdSettings className="text-lg" />
                     Settings
@@ -160,7 +160,7 @@ export default function Dashboard() {
                 to="/dashboard/bookings"
                 className="flex items-center gap-2 py-2 px-3 text-gray-800 rounded hover:bg-[#C2D1C6] "
               >
-                <MdLocalActivity className="text-lg" />
+                <BsBookmarkCheck className="text-lg" />
                 My Bookings
               </Link>
             </li>
