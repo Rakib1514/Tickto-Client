@@ -17,7 +17,8 @@ export default function Dashboard() {
   const { user } = useContext(AuthContext);
 
   // Conditionally render admin routes if the user is an admin
-  const isAdmin = user?.role === 'user';
+  // const isAdmin = user?.role === 'user';
+  const isAdmin = true;
 
   return (
     <div className="min-h-screen flex">
@@ -63,8 +64,9 @@ export default function Dashboard() {
         <nav className="p-4 overflow-y-auto">
           <ul className="space-y-2">
             {/* User Routes */}
-            <>
-                <li>
+            {
+              isAdmin ? <>
+                                <li>
                   <Link
                     to="/dashboard/admin-dashboard"
                     className="flex items-center gap-2 py-2 px-3 text-gray-800 rounded  hover:bg-[#C2D1C6]"
@@ -128,6 +130,7 @@ export default function Dashboard() {
                     Settings
                   </Link>
                 </li>
+                
                 <li>
               <Link
                 to="/"
@@ -137,16 +140,10 @@ export default function Dashboard() {
                 Back to home
               </Link>
             </li>
-              </>
-
-
-           
             
-
-            {/* Admin Routes (conditional) */}
-            {user && (
-             <>
-               <li>
+              </> : <>
+              
+              <li>
               <Link
                 to="/dashboard"
                 className="flex items-center gap-2 py-2 px-3 text-gray-800 rounded  hover:bg-[#C2D1C6] font-semibold  "
@@ -209,6 +206,23 @@ export default function Dashboard() {
                 Back to home
               </Link>
             </li>
+              
+              </>
+            }
+
+
+            <>
+
+              </>
+
+
+           
+            
+
+            {/* Admin Routes (conditional) */}
+            {user && (
+             <>
+
              </>
             )}
           </ul>

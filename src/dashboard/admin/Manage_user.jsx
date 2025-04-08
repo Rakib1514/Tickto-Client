@@ -1,7 +1,20 @@
-import React from 'react'
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
-export default function Manage_user() {
+const Manage_user = () => {
+  const axiosSecure = useAxiosSecure();
+  const {data: users = []} = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
+      const res =  await axiosSecure.get('/api/users');
+      return res.data;
+    }
+  })
   return (
-    <div>Manage_user</div>
-  )
-}
+    <div>
+      {/* total users: {users.length} */}
+    </div>
+  );
+};
+
+export default Manage_user;

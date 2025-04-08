@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+// import React, { useContext } from 'react';
 import './auth.css'
 import { Link, useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { loginUser, loginWithGoogle } from '../../Redux/auth/authSlice';
 
 const Login = () => {
@@ -14,7 +14,7 @@ const Login = () => {
     // const { setuser, loginWithGoogle, } = useContext(AuthContext)
     const navigate = useNavigate()
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const dispatch = useDispatch()
     // const { user, loading, error } = useSelector(state => state.auth)

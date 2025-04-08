@@ -1,22 +1,89 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { registerUser } from '../../Redux/auth/authSlice';
+import Swal from 'sweetalert2';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
+import useAuth from '../../hooks/useAuth';
+
+const userImage_hosting_key = import.meta.env.VITE_USERIMAGE_KEY;
+const userImage_hosting_api = `https://api.imgbb.com/1/upload?key=${userImage_hosting_key}`;
 
 const Register = () => {
-
+    const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate();
+    const {updateUserProfile, createUser} = useAuth();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const dispatch = useDispatch()
+
+    // const dispatch = useDispatch()
 
     const onSubmit = async (data) => {
 
         console.log(data)
-        dispatch(registerUser(data))
+        // dispatch(registerUser(data))
+
+        const imageFile = { image: data.image[0] }
+
+        const res = await axiosPublic.post(userImage_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        })
+    
+        createUser(data.email, data.password)
+        .then(result => {
+            const loggedUser = result.user;
+            const imageURL = res.data.data.display_url;
+            const currentDateTime = new Date().toUTCString();
+            console.log(loggedUser);
+            updateUserProfile(data.name, data.number, imageURL)
+            .then(() => {
+                const userInfo = {
+                    name: data?.name,
+                    email: data.email,
+                    number: data.number,
+                    created_at: currentDateTime,
+                    photoURL: imageURL
+                }
+                axiosPublic.post('/api/users', userInfo)
+                .then(res =>{
+                    if(res.data.insertedId){
+                        console.log('user added')
+                        reset();
+                        Swal.fire({
+                            title: "Sign Up Successful",
+                            icon: "success",
+                            showClass: {
+                                popup: `
+                                animate__animated
+                                animate__fadeInUp
+                                animate__faster
+                                `
+                            },
+                            hideClass: {
+                                popup: `
+                                animate__animated
+                                animate__fadeOutDown
+                                animate__faster
+                                `
+                            }
+                        });
+                    }
+                    navigate('/');
+                })
+                
+            })
+            .catch(error => console.log(error));
+        })
 
     };
+
+
+
+
 
 
     return (
