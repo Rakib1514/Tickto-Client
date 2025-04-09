@@ -35,7 +35,7 @@ const MainLayout = () => {
         <div className="container mx-auto flex gap-4 w-full">
           {data?.map((category, idx) => (
             <Link to={`/events/${category.subCategory}`}>
-              <button key={idx} className="top__category__btn">
+              <button key={idx} className="top__category__btn capitalize">
                 {category.subCategory}
               </button></Link>
           ))}
