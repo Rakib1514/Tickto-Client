@@ -1,12 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { Link, useParams } from "react-router";
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { Link, useParams } from 'react-router';
 
 const EventDetails = () => {
   const { id } = useParams();
 
   const { data: eventData, isLoading } = useQuery({
-    queryKey: ["Event", id],
+    queryKey: ['Event', id],
     queryFn: async () => {
       // Fetch event details from API
       const res = await axios.get(`/api/event/${id}`);
@@ -16,7 +16,7 @@ const EventDetails = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex justify-center items-center">
+      <div className="flex min-h-screen items-center justify-center">
         <h2 className="text-center text-xl">Loading Event Details...</h2>
       </div>
     );
@@ -24,7 +24,7 @@ const EventDetails = () => {
 
   if (!eventData.success) {
     return (
-      <div className="min-h-screen flex justify-center items-center">
+      <div className="flex min-h-screen items-center justify-center">
         <h1 className="text-2xl text-red-500">{eventData.message}</h1>
       </div>
     );
@@ -36,51 +36,47 @@ const EventDetails = () => {
     thumbnail,
     category,
     subCategory,
-    Date = "2025-08-15",
-    time = "7:00 PM - 10:00 PM",
-    duration = "3 hours",
-    ageLimit = "18+",
+    Date = '2025-08-15',
+    time = '7:00 PM - 10:00 PM',
+    duration = '3 hours',
+    ageLimit = '18+',
     vanue = {
-      locationName: "FunLand Park",
-      fullAddress: "456 Adventure Road, Playtown",
-      googlemapsLink: "https://maps.google.com/?q=456+Adventure+Road+Playtown",
+      locationName: 'FunLand Park',
+      fullAddress: '456 Adventure Road, Playtown',
+      googlemapsLink: 'https://maps.google.com/?q=456+Adventure+Road+Playtown',
     },
-    description = "Experience the thrill at FunLand Park with exhilarating rides, vibrant attractions, and magical entertainment all night long.",
+    description = 'Experience the thrill at FunLand Park with exhilarating rides, vibrant attractions, and magical entertainment all night long.',
     ticketInfo = {
-      ticketPrice: "$50",
-      availableSeat: "120 seats available",
-      ticketType: "General admission",
-      refundPolicy: "Refundable within 24 hrs",
+      ticketPrice: '$50',
+      availableSeat: '120 seats available',
+      ticketType: 'General admission',
+      refundPolicy: 'Refundable within 24 hrs',
     },
     Organizer = {
-      name: "EventMaster Ltd",
-      contactInfo: "contact@rmail.com",
+      name: 'EventMaster Ltd',
+      contactInfo: 'contact@rmail.com',
     },
     specialFeatures = [
-      "Live Performances",
-      "Interactive Games",
-      "Parade Shows",
-      "Firework Display",
-      "Food Stalls",
+      'Live Performances',
+      'Interactive Games',
+      'Parade Shows',
+      'Firework Display',
+      'Food Stalls',
     ],
     imageGallery = [
-      "https://i.ibb.co.com/k2j56Z0G/prop-image.jpg",
-      "https://i.ibb.co.com/k2j56Z0G/prop-image.jpg",
-      "https://i.ibb.co.com/k2j56Z0G/prop-image.jpg",
+      'https://i.ibb.co.com/k2j56Z0G/prop-image.jpg',
+      'https://i.ibb.co.com/k2j56Z0G/prop-image.jpg',
+      'https://i.ibb.co.com/k2j56Z0G/prop-image.jpg',
     ],
-    Celebrity = ["Alice Star", "Bob Fame", "Charlie Vision"],
+    Celebrity = ['Alice Star', 'Bob Fame', 'Charlie Vision'],
   } = eventData.data;
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="mx-auto max-w-6xl p-4">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* Left Side: Event Image */}
         <div>
-          <img
-            src={thumbnail}
-            alt={title}
-            className="w-full h-80 object-cover rounded-lg shadow"
-          />
+          <img src={thumbnail} alt={title} className="h-80 w-full rounded-lg object-cover shadow" />
         </div>
 
         {/* Right Side: Main Event Data */}
@@ -93,14 +89,14 @@ const EventDetails = () => {
             </p>
 
             {/* Call-to-Action Buttons */}
-            <div className="mt-4 flex flex-col sm:flex-row gap-4">
-              <Link to={"/"}>
-                <button className="bg-primary text-white py-2 px-6 rounded hover:opacity-90 cursor-pointer">
+            <div className="mt-4 flex flex-col gap-4 sm:flex-row">
+              <Link to={'/'}>
+                <button className="bg-primary cursor-pointer rounded px-6 py-2 text-white hover:opacity-90">
                   Buy Ticket Now
                 </button>
               </Link>
               <Link to={'/'}>
-                <button className="border border-primary text-primary py-2 px-6 rounded hover:bg-primary hover:text-white cursor-pointer">
+                <button className="border-primary text-primary hover:bg-primary cursor-pointer rounded border px-6 py-2 hover:text-white">
                   Share Event
                 </button>
               </Link>
@@ -108,7 +104,7 @@ const EventDetails = () => {
           </div>
 
           {/* Date, Time, Duration & Age Limit */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <p>
                 <span className="font-semibold">Date: </span>
@@ -132,7 +128,7 @@ const EventDetails = () => {
           </div>
 
           {/* Ticket & Organizer Information */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <p>
                 <span className="font-semibold">Ticket Price: </span>
@@ -164,8 +160,8 @@ const EventDetails = () => {
           </div>
 
           {/* Venue Details */}
-          <div className="border p-4 rounded-lg">
-            <h2 className="text-xl font-semibold mb-2">Venue Details</h2>
+          <div className="rounded-lg border p-4">
+            <h2 className="mb-2 text-xl font-semibold">Venue Details</h2>
             <p>
               <span className="font-semibold">Location Name: </span>
               {vanue.locationName}
@@ -188,7 +184,7 @@ const EventDetails = () => {
 
           {/* Event Description */}
           <div>
-            <h2 className="text-xl font-semibold mb-2">About the Event</h2>
+            <h2 className="mb-2 text-xl font-semibold">About the Event</h2>
             <p className="text-gray-700">{description}</p>
           </div>
         </div>
@@ -198,7 +194,7 @@ const EventDetails = () => {
       <div className="mt-8 space-y-8">
         {specialFeatures && specialFeatures.length > 0 && (
           <div>
-            <h2 className="text-xl font-semibold mb-2">Special Features</h2>
+            <h2 className="mb-2 text-xl font-semibold">Special Features</h2>
             <ul className="list-disc pl-5 text-gray-700">
               {specialFeatures.map((feature, index) => (
                 <li key={index}>{feature}</li>
@@ -209,14 +205,14 @@ const EventDetails = () => {
 
         {imageGallery && imageGallery.length > 0 && (
           <div>
-            <h2 className="text-xl font-semibold mb-2">Image Gallery</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <h2 className="mb-2 text-xl font-semibold">Image Gallery</h2>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {imageGallery.map((img, index) => (
                 <img
                   key={index}
                   src={img}
                   alt={`${title} gallery ${index + 1}`}
-                  className="w-full h-32 object-cover rounded-md shadow"
+                  className="h-32 w-full rounded-md object-cover shadow"
                 />
               ))}
             </div>
@@ -225,7 +221,7 @@ const EventDetails = () => {
 
         {Celebrity && Celebrity.length > 0 && (
           <div>
-            <h2 className="text-xl font-semibold mb-2">Celebrity Lineup</h2>
+            <h2 className="mb-2 text-xl font-semibold">Celebrity Lineup</h2>
             <ul className="list-disc pl-5 text-gray-700">
               {Celebrity.map((name, index) => (
                 <li key={index}>{name}</li>

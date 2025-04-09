@@ -1,75 +1,74 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword,  GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import auth from '../firebase/firebase.init'
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from 'firebase/auth';
+import auth from '../firebase/firebase.init';
 
-export const AuthContext = createContext()
+export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState();
+  const [loading, setLoading] = useState();
 
-    const [user, setUser] = useState()
-    const [loading, setLoading] = useState()
+  // const auth = getAuth(app)
+  const provider = new GoogleAuthProvider();
 
+  const loginWithGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, provider);
+  };
 
-    // const auth = getAuth(app)
-    const provider = new GoogleAuthProvider()
+  const createUser = (email, password) => {
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
-    const loginWithGoogle = () => {
-        setLoading(true)
-        return signInWithPopup(auth, provider)
-    }
+  const updateUserProfile = (name, photo) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
 
-    const createUser = (email, password) => {
-        setLoading(true)
-        return createUserWithEmailAndPassword(auth, email, password)
-    }
+  const loginWithEmailPass = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
-    const updateUserProfile = (name, photo) => {
-        setLoading(true)
-        return updateProfile(auth.currentUser, {
-            displayName: name,
-            photoURL: photo
-        })
-    }
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
 
-    const loginWithEmailPass = (email, password) => {
-        setLoading(true)
-        return signInWithEmailAndPassword(auth, email, password)
-    }
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+      console.log(currentUser);
+    });
+    return () => unSubscribe();
+  }, [auth]);
 
+  const authInfo = {
+    user,
+    setUser,
+    loading,
+    setLoading,
+    loginWithGoogle,
+    loginWithEmailPass,
+    createUser,
+    updateUserProfile,
+    logOut,
+  };
 
-    const logOut = () => {
-        setLoading(true)
-        return signOut(auth)
-    }
-
-
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser)
-            setLoading(false)
-            console.log(currentUser)
-        })
-        return () => unSubscribe()
-    }, [ auth ])
-
-
-    const authInfo = {
-        user,
-        setUser,
-        loading,
-        setLoading,
-        loginWithGoogle,
-        loginWithEmailPass,
-        createUser,
-        updateUserProfile,
-        logOut
-    }
-
-    return (
-        <AuthContext.Provider value={authInfo}>
-            {children}
-        </AuthContext.Provider>
-    );
+  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;

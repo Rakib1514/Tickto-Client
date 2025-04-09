@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function Manage_tickets() {
-  return (
-    <div>Manage_tickets</div>
-  )
+  return <div>Manage_tickets</div>;
 }

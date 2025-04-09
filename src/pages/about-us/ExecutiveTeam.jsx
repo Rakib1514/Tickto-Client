@@ -1,74 +1,84 @@
 import React from 'react';
 
-// Team member data 
+// Team member data
 const teamMembers = [
   {
     name: 'Arthur Melo',
     role: 'Design Director',
-    image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80',
+    image:
+      'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80',
   },
   {
     name: 'Amelia Anderson',
     role: 'Lead Developer',
-    image: 'https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80',
+    image:
+      'https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80',
   },
   {
     name: 'Olivia Wathan',
     role: 'Lead Designer',
-    image: 'https://images.unsplash.com/photo-1488508872907-592763824245?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
+    image:
+      'https://images.unsplash.com/photo-1488508872907-592763824245?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
   },
   {
     name: 'John Doe',
     role: 'Full Stack Developer',
-    image: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80',
+    image:
+      'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80',
   },
   {
     name: 'Mia',
     role: 'Graphic Designer',
-    image: 'https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
+    image:
+      'https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
   },
   {
     name: 'Junior Reis',
     role: 'Product Manager',
-    image: 'https://images.unsplash.com/photo-1608174386344-80898cec6beb?ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80',
+    image:
+      'https://images.unsplash.com/photo-1608174386344-80898cec6beb?ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80',
   },
   {
     name: 'Joseph Gonzalez',
     role: 'Software Engineer',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80',
+    image:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80',
   },
   {
     name: 'Emma Doe',
     role: 'Content Writer',
-    image: 'https://images.unsplash.com/photo-1521488741203-dcc320950ce5?ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80',
+    image:
+      'https://images.unsplash.com/photo-1521488741203-dcc320950ce5?ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80',
   },
 ];
 
 // Reusable Team Member Card Component
 const TeamMemberCard = ({ name, role, image }) => (
-  <div
-    className="flex flex-col items-center p-6 bg-white rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group"
-  >
+  <div className="group flex transform flex-col items-center rounded-xl bg-white p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
     <img
-      className="object-cover w-32 h-32 rounded-full border-4 border-gray-200 transition-all duration-300 group-hover:border-[#317371]"
+      className="h-32 w-32 rounded-full border-4 border-gray-200 object-cover transition-all duration-300 group-hover:border-[#317371]"
       src={image}
       alt={`${name}'s profile`}
     />
-    <h2 className="mt-4 text-xl font-semibold text-gray-800 capitalize group-hover:text-[#317371] transition-colors duration-300">
+    <h2 className="mt-4 text-xl font-semibold text-gray-800 capitalize transition-colors duration-300 group-hover:text-[#317371]">
       {name}
     </h2>
-    <p className="mt-2 text-gray-600 capitalize group-hover:text-gray-500 transition-colors duration-300">
+    <p className="mt-2 text-gray-600 capitalize transition-colors duration-300 group-hover:text-gray-500">
       {role}
     </p>
-    <div className="flex mt-4 space-x-4">
+    <div className="mt-4 flex space-x-4">
       {['Reddit', 'Facebook', 'Github'].map((platform) => (
         <a
           key={platform}
           href="#"
-          className="text-gray-600 hover:text-[#317371] transition-colors duration-300 group-hover:text-[#317371]"
+          className="text-gray-600 transition-colors duration-300 group-hover:text-[#317371] hover:text-[#317371]"
           aria-label={`${platform} profile of ${name}`}
         >
-          <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            className="h-6 w-6 fill-current"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             {/* Simplified SVG paths for each platform */}
             {platform === 'Reddit' && (
               <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-5.193-11.457c.598 0 1.136.366 1.357.923s.08 1.192-.356 1.602c-.115.109-.248.198-.392.264.013.146.013.293 0 .44 0 2.24 2.615 4.062 5.829 4.062s5.829-1.822 5.829-4.062c.012-.147.012-.294 0-.44.607.294.928.971.773 1.628s-1.146 1.118-1.82 1.109h-.053c-.359.013-.7.158-.958.407-1.138.773-2.475 1.201-3.85 1.23l.65-3.12 2.138.45c.055.507.483.891.993.892.036 0 .072-.002.108-.006.53-.053.925-.513.899-1.045s-.469-.949-1.001-.949c-.038.001-.075.004-.113.009-.317.034-.599.217-.759.493l-2.448-.492c-.022-.005-.044-.007-.066-.007-.145.002-.269.103-.3.244l-.748 3.473c-1.392-.029-2.749-.457-3.9-1.23-.27-.255-.611-.4-.97-.407h-.053c-.674-.009-1.265-.47-1.42-1.127s.166-1.333.773-1.628c.179-.195.429-.31.694-.32h.035zM12.18 16.524c-.056 0-.113 0-.169 0s-.113 0-.169 0c-.83-.003-1.637-.274-2.3-.773-.046-.055-.068-.126-.061-.197s.042-.137.098-.182c.048-.04.108-.061.17-.061s.123.021.171.061c.561.411 1.238.631 1.933.629.049 0 .098 0 .147 0s.098 0 .147 0c.686.001 1.355-.215 1.912-.615.052-.038.113-.058.175-.058s.122.021.17.061c.056.045.091.111.098.182s-.015.142-.061.197c-.663.499-1.47.77-2.3.773v.001zm2.127-2.444h-.016l.008-.039c-.44-.03-.8-.362-.865-.798s.182-.859.594-1.016c.412-.158.878-.007 1.12.361s.195.855-.113 1.171c-.179.195-.429.31-.694.32h-.035zM9.67 14c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z" />
@@ -89,17 +99,17 @@ const TeamMemberCard = ({ name, role, image }) => (
 export default function ExecutiveTeam() {
   return (
     <section className="pt-20">
-      <div className="container px-6 mx-auto">
+      <div className="container mx-auto px-6">
         {/* Header */}
-        <h1 className="text-3xl font-bold text-center text-gray-800 capitalize">
+        <h1 className="text-center text-3xl font-bold text-gray-800 capitalize">
           Our Executive Team
         </h1>
-        <p className="text-center text-gray-500 font-medium md:text-[18px] mt-4">
-        Our executive team, with diverse expertise and innovation passion, drives excellence.
+        <p className="mt-4 text-center font-medium text-gray-500 md:text-[18px]">
+          Our executive team, with diverse expertise and innovation passion, drives excellence.
         </p>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {teamMembers.map((member, index) => (
             <TeamMemberCard
               key={index}

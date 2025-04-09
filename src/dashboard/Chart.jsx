@@ -1,9 +1,28 @@
 import React from 'react';
 import { Line, Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 
 // Register the components for Chart.js
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+);
 
 export default function Chart() {
   // Example Data for Booking Statistics
@@ -35,18 +54,30 @@ export default function Chart() {
   };
 
   return (
-    <div className=" mb-20 bg-gray-50">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="mb-20 bg-gray-50">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Booking Statistics Graph */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-xl font-semibold mb-4">Booking Statistics</h3>
-          <Line data={bookingData} options={{ responsive: true, plugins: { title: { display: true, text: 'Monthly Bookings' } } }} />
+        <div className="rounded-lg bg-white p-6 shadow-md">
+          <h3 className="mb-4 text-xl font-semibold">Booking Statistics</h3>
+          <Line
+            data={bookingData}
+            options={{
+              responsive: true,
+              plugins: { title: { display: true, text: 'Monthly Bookings' } },
+            }}
+          />
         </div>
 
         {/* Payment Trends Graph */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-xl font-semibold mb-4">Payment Trends</h3>
-          <Bar data={paymentData} options={{ responsive: true, plugins: { title: { display: true, text: 'Monthly Payments' } } }} />
+        <div className="rounded-lg bg-white p-6 shadow-md">
+          <h3 className="mb-4 text-xl font-semibold">Payment Trends</h3>
+          <Bar
+            data={paymentData}
+            options={{
+              responsive: true,
+              plugins: { title: { display: true, text: 'Monthly Payments' } },
+            }}
+          />
         </div>
       </div>
     </div>
