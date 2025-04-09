@@ -84,7 +84,7 @@ const Navbar = () => {
               <div className="flex flex-shrink-0 items-center">
                 <Link to="/" className="flex gap-2 items-center">
                   <Logo/>
-                  <div className="text-3xl font-bold">
+                  <div className="text-2xl md:text-3xl font-bold">
                     <span className="text-[#317371]">Tick</span>
                     <span className="">To</span>
                   </div>

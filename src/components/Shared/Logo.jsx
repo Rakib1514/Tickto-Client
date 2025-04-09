@@ -4,7 +4,7 @@ import logo from '../../Assets/icons/ticket.png'
 const Logo = () => {
     return (
         <div>
-           <img src={logo} className='w-12'  alt="logo" /> 
+           <img src={logo} className='w-10 md:w-12'  alt="logo" /> 
         </div>
     );
 };
