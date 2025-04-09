@@ -152,6 +152,7 @@ const Navbar = () => {
                     <Moon className="h-7 w-7 " />
                   )}
                 </button>
+                
                 {/* Mobile menu button */}
                 <div className="flex items-center lg:hidden mobile-menu">
                   <button
@@ -161,6 +162,7 @@ const Navbar = () => {
                     <Menu className="h-6 w-6" />
                   </button>
                 </div>
+              
               </div>
             </div>
           </div>
