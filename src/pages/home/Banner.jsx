@@ -1,36 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import b1 from '../../Assets/Banner/img1.jpeg';
+// import b1 from '../../Assets/Banner/img1.jpeg';
+
+import b1 from '../../Assets/Banner/plane1.jpeg';
 import b2 from '../../Assets/Banner/img2.jpeg';
 import b3 from '../../Assets/Banner/img3.jpg';
 import b4 from '../../Assets/Banner/img4.jpeg';
 import '../../carousel.css';
 
-const images = [b1, b2, b3, b4];
+const images = [b1, b2, b3, b4,];
 const content = [
   {
-    author: 'LUNDEV',
-    title: 'DESIGN SLIDER',
-    topic: 'ANIMAL',
+    site_name: 'TICKTO',
+    title: 'BEST SERVICES FOR',
+    topic: 'FLIGHT TICKETS',
     // description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit...'
   },
   {
-    author: 'LUNDEV',
-    title: 'DESIGN SLIDER',
+    site_name: 'TICKTO',
+    title: 'BEST SERVICE FOR',
     topic: 'NATURE',
     // description: 'Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque...'
   },
   {
-    author: 'LUNDEV',
-    title: 'DESIGN SLIDER',
+    site_name: 'TICKTO',
+    title: 'BEST SERVICES FOR',
     topic: 'WILDLIFE',
     // description: 'Eaque optio ratione aliquid assumenda facere ab et quasi ducimus...'
   },
   {
-    author: 'LUNDEV',
-    title: 'DESIGN SLIDER',
+    site_name: 'TICKTO',
+    title: 'BEST SERVICES FOR',
     topic: 'OCEAN',
     // description: 'Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde...'
   },
+  // {
+  //   site_name: 'TICKTO',
+  //   title: 'DESIGN SLIDER',
+  //   topic: 'PLANE',
+  //   // description: 'Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde...'
+  // },
 ];
 
 const Banner = () => {
@@ -59,7 +67,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="mt-10">
+    <div className="">
       <div
         className="carousel"
         style={{
@@ -70,7 +78,7 @@ const Banner = () => {
       >
         <div className="list">
           <div
-            className="slider-wrapper mt-12"
+            className="slider-wrapper"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {images.map((img, index) => (
@@ -78,13 +86,13 @@ const Banner = () => {
                 <img src={img} alt={content[index].title} />
                 {index === currentIndex && (
                   <div className="content">
-                    <div className="author">{content[index].author}</div>
+                    <div className="site_name">{content[index].site_name}</div>
                     <div className="title">{content[index].title}</div>
                     <div className="topic">{content[index].topic}</div>
                     <div className="des">{content[index].description}</div>
                     <div className="buttons">
-                      <button>SEE MORE</button>
-                      <button>SUBSCRIBE</button>
+                      <button className='btn text-white shadow-none font-bold'>SEE MORE</button>
+                      <button className='btn shadow-none font-bold'>SUBSCRIBE</button>
                     </div>
                   </div>
                 )}

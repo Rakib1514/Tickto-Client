@@ -4,6 +4,7 @@ import { Link, NavLink, useLocation } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { GrDashboard } from 'react-icons/gr';
+import Logo from './Logo';
 
 const Navbar = () => {
   const { user, logOut, setLoading } = useContext(AuthContext);
@@ -81,11 +82,12 @@ const Navbar = () => {
             {/* logo and primary navigation */}
             <div className="flex">
               <div className="flex flex-shrink-0 items-center">
-                <Link to="/" className="flex items-center">
-                  <span className="text-3xl font-bold">
-                    <span className="text-[#317371]"> 🎟 Tick</span>
+                <Link to="/" className="flex gap-2 items-center">
+                  <Logo/>
+                  <div className="text-3xl font-bold">
+                    <span className="text-[#317371]">Tick</span>
                     <span className="">To</span>
-                  </span>
+                  </div>
                 </Link>
               </div>
             </div>
