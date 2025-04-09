@@ -1,26 +1,22 @@
-import { Link, Outlet } from "react-router";
-import Navbar from "../components/Shared/Navbar";
-import Footer from "../components/Shared/Footer";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import { Link, Outlet } from 'react-router';
+import Navbar from '../components/Shared/Navbar';
+import Footer from '../components/Shared/Footer';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 const MainLayout = () => {
   // Fetch all categories
-  const {
-    data,
-    isLoading,
-    error
-  } = useQuery({
-    queryKey: ["categories"],
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['categories'],
     queryFn: async () => {
-      const response = await axios.get("/api/categories");
+      const response = await axios.get('/api/categories');
       return response.data.data || [];
     },
   });
 
   if (isLoading)
     return (
-      <div className="min-h-screen flex justify-center items-center text-3xl">
+      <div className="flex min-h-screen items-center justify-center text-3xl">
         <span>Loading...</span>
       </div>
     );
@@ -30,17 +26,16 @@ const MainLayout = () => {
     <>
       <Navbar />
       {/* Categories under navbar */}
-      <div className="sticky top-16 z-10 bg-base-100 backdrop-blur-2xl opacity-80 flex-wrap">
-
-        <div className="container mx-auto flex gap-4 w-full">
+      <div className="bg-base-100 sticky top-16 z-10 flex-wrap opacity-80 backdrop-blur-2xl">
+        <div className="container mx-auto flex w-full gap-4">
           {data?.map((category, idx) => (
-            <Link to={`/events/${category.subCategory}`}>
-              <button key={idx} className="top__category__btn capitalize">
+            <Link to={`/events/${category.subCategory}`} key={idx}>
+              <button className="after:bg-primary relative px-4 py-2 capitalize after:absolute after:bottom-0 after:left-0 after:block after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full">
                 {category.subCategory}
-              </button></Link>
+              </button>
+            </Link>
           ))}
         </div>
-
       </div>
       <main>
         <Outlet />

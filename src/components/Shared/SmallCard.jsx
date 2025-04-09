@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { FaStar } from "react-icons/fa";
-import theater from "../../Assets/Banner/img3.jpg";
-import { Link } from "react-router";
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { FaStar } from 'react-icons/fa';
+import theater from '../../Assets/Banner/img3.jpg';
+import { Link } from 'react-router';
 
 const SmallCard = ({ event, height, titletext, space }) => {
   const { title, image_url, description, rating, date, _id } = event;
@@ -20,42 +20,39 @@ const SmallCard = ({ event, height, titletext, space }) => {
     gsap.set(titleEl, { y: 0 });
 
     // Hover Animation
-    card.addEventListener("mouseenter", () => {
-      gsap.to(titleEl, { y: -80, duration: 0.3, ease: "power2.out" }); // Move title up
+    card.addEventListener('mouseenter', () => {
+      gsap.to(titleEl, { y: -80, duration: 0.3, ease: 'power2.out' }); // Move title up
       gsap.to(contentEl, {
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "power2.out",
+        ease: 'power2.out',
       }); // Show description & date
     });
 
     // Mouse Leave Animation
-    card.addEventListener("mouseleave", () => {
-      gsap.to(titleEl, { y: 0, duration: 0.3, ease: "power2.inOut" }); // Move title back
+    card.addEventListener('mouseleave', () => {
+      gsap.to(titleEl, { y: 0, duration: 0.3, ease: 'power2.inOut' }); // Move title back
       gsap.to(contentEl, {
         opacity: 0,
         y: 40,
         duration: 0.5,
-        ease: "power2.inOut",
+        ease: 'power2.inOut',
       }); // Hide description & date
     });
 
     // Cleanup event listeners
     return () => {
-      card.removeEventListener("mouseenter", () => {});
-      card.removeEventListener("mouseleave", () => {});
+      card.removeEventListener('mouseenter', () => {});
+      card.removeEventListener('mouseleave', () => {});
     };
   }, []);
 
   return (
-    <div
-      ref={cardRef}
-      className="relative rounded-xl overflow-hidden group cursor-pointer"
-    >
+    <div ref={cardRef} className="group relative cursor-pointer overflow-hidden rounded-xl">
       {/* Image with hover dark effect */}
       <Link to={`/event/${_id}`}>
-        <div className={`w-full relative ${height} text-start`}>
+        <div className={`relative w-full ${height} text-start`}>
           <img
             className="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:brightness-50"
             src={image_url || theater}
@@ -63,12 +60,12 @@ const SmallCard = ({ event, height, titletext, space }) => {
           />
 
           <div className="absolute top-3 right-3">
-            <FaStar className="text-lg mx-auto text-amber-200" />
-            <span className="text-white font-medium">{rating}</span>
+            <FaStar className="mx-auto text-lg text-amber-200" />
+            <span className="font-medium text-white">{rating}</span>
           </div>
 
           {/* Dark Gradient Overlay at Bottom */}
-          <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-b from-black/0 to-black/90"></div>
+          <div className="absolute bottom-0 h-1/3 w-full bg-gradient-to-b from-black/0 to-black/90"></div>
 
           {/* Title (Always Visible) */}
           <div
@@ -79,17 +76,13 @@ const SmallCard = ({ event, height, titletext, space }) => {
           </div>
 
           {/* Description & Date (Initially Hidden) */}
-          <div
-            ref={contentRef}
-            className={`absolute bottom-3 left-2 ${space}  text-white`}
-          >
-            <p className="text-sm py-1">
+          <div ref={contentRef} className={`absolute bottom-3 left-2 ${space} text-white`}>
+            <p className="py-1 text-sm">
               {description ||
-                "description here description here description here description here description here"}
+                'description here description here description here description here description here'}
             </p>
-            <p className="text-base ">
-              Tickets available till{" "}
-              <span className="text-green-400">{date || "30-2-2026"}</span>
+            <p className="text-base">
+              Tickets available till <span className="text-green-400">{date || '30-2-2026'}</span>
             </p>
           </div>
         </div>
