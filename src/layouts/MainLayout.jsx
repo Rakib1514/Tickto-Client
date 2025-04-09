@@ -1,26 +1,22 @@
-import { Link, Outlet } from "react-router";
-import Navbar from "../components/Shared/Navbar";
-import Footer from "../components/Shared/Footer";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import { Link, Outlet } from 'react-router';
+import Navbar from '../components/Shared/Navbar';
+import Footer from '../components/Shared/Footer';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 const MainLayout = () => {
   // Fetch all categories
-  const {
-    data,
-    isLoading,
-    error
-  } = useQuery({
-    queryKey: ["categories"],
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['categories'],
     queryFn: async () => {
-      const response = await axios.get("http://localhost:5000/api/categories");
+      const response = await axios.get('/api/categories');
       return response.data.data || [];
     },
   });
 
   if (isLoading)
     return (
-      <div className="min-h-screen flex justify-center items-center text-3xl">
+      <div className="flex min-h-screen items-center justify-center text-3xl">
         <span>Loading...</span>
       </div>
     );
@@ -37,10 +33,10 @@ const MainLayout = () => {
             <Link to={`/events/${category.subCategory}`}>
               <button key={idx} className="top__category__btn underline underline-offset-1 underline-gray-400">
                 {category.subCategory}
-              </button></Link>
+              </button>
+            </Link>
           ))}
         </div>
-
       </div>
       <main>
         <Outlet />

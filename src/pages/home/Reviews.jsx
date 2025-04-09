@@ -83,7 +83,7 @@ const Reviews = () => {
                     >
                         {
                             reviews?.map((review, index) => (
-                                <SwiperSlide key={index} className='rounded-lg'>
+                                <SwiperSlide key={index} className='rounded-lg max-sm:min-h-96'>
                                     <div className='p-4 flex flex-col'>
 
                                         <div className='flex gap-1'>
@@ -95,9 +95,10 @@ const Reviews = () => {
                                         </div>
 
 
-                                        <div className='mt-4 text-start flex-grow'>
-                                            {review.testimonial}
+                                        <div className=' mt-4 text-start flex-grow'>
+                                            {review.testimonial.substring(0, 160)}...
                                         </div>
+
 
                                         <div className='py-1.5 text-end '> -{review.date} </div>
 

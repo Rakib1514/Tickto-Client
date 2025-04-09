@@ -9,9 +9,9 @@ const CategoryWiseEvents = () => {
   const { category } = useParams();
 
   const { data, isLoading, refetch } = useQuery({
-    queryKey: ["category-wise-events"],
+    queryKey: ['category-wise-events'],
     queryFn: async () => {
-      const response = await axios.get(`http://localhost:5000/api/events/${category}`);
+      const response = await axios.get(`/api/events/${category}`);
       return response.data.data || [];
     },
   });
@@ -22,7 +22,7 @@ const CategoryWiseEvents = () => {
 
   if (isLoading)
     return (
-      <div className="min-h-screen flex justify-center items-center text-3xl">
+      <div className="flex min-h-screen items-center justify-center text-3xl">
         <span>Loading...</span>
       </div>
     );
@@ -59,7 +59,7 @@ const CategoryWiseEvents = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-10">
           {data?.map((event, idx) => (
 
-            <SmallCard event={event} height={'h-52'} titletext={'text-xl font-semibold'} />
+            <SmallCard key={idx} event={event} height={'h-52'} titletext={'text-xl font-semibold'} />
           ))}
         </div>
 
