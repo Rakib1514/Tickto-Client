@@ -101,13 +101,6 @@ const Reviews = () => {
 
                                         <div className='py-1.5 text-end '> -{review.date} </div>
 
-                                        {/* <div className="flex justify-center gap-2 mt-4">
-                                                <FaStar className='text-2xl text-amber-500' />
-                                                <FaStar className='text-2xl text-amber-500' />
-                                                <FaStar className='text-2xl text-amber-500' />
-                                                <FaStar className='text-2xl text-amber-500' />
-                                                <FaStar className='text-2xl text-amber-500' />
-                                            </div> */}
                                     </div>
 
                                 </SwiperSlide>
