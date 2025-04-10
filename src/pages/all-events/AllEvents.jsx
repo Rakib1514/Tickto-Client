@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import "./styleAllEvents.css";
+// import "./styleAllEvents.css";
 import axios from "axios";
-import EventSwiper from "./EventSwiper";
+// import EventSwiper from "./EentSwiper";
 
 const AllEvents = () => {
   // Fetch all events

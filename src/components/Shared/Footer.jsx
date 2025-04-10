@@ -53,7 +53,7 @@ const Footer = () => {
               { name: "Booking", link: "/services/booking" },
               { name: "Event Management", link: "/services/event-management" },
               { name: "Customer Support", link: "/services/customer-support" },
-              { name: "Refund Policy", link: "/services/refund-policy" },
+              { name: "Refund Policy", link: "/payment-history" },
             ].map((service, index) => (
               <motion.li key={index} whileHover={{ scale: 1.05 }} className="cursor-pointer hover:text-[#317371] transition duration-300">
                 <Link to={service.link}>{service.name}</Link>
@@ -70,7 +70,7 @@ const Footer = () => {
               { name: "Terms of Use", link: "/terms" },
               { name: "Privacy Policy", link: "/legal/privacy" },
               { name: "Cookie Policy", link: "/legal/cookies" },
-              { name: "Security", link: "/legal/security" },
+              { name: "Security", link: "/payment" },
             ].map((legal, index) => (
               <motion.li key={index} whileHover={{ scale: 1.05 }} className="cursor-pointer hover:text-[#317371] transition duration-300">
                 <Link to={legal.link}>{legal.name}</Link>

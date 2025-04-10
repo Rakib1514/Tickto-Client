@@ -13,6 +13,8 @@ import Register from "../pages/Auth/Register";
 import CategoryWiseEvents from "../pages/all-events/CategoryWiseEvents";
 import EventDetails from "../pages/event-details/EventDetails";
 import UpdateProfile from "../pages/update-profile/UpdateProfile";
+import Payment from "../pages/payment/Payment";
+import PaymentHistory from "../pages/payment/PaymentHistory";
 
 const PublicRoutes = () => {
   return (
@@ -28,6 +30,8 @@ const PublicRoutes = () => {
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/join-us" element={<JoinUs />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/payment-history" element={<PaymentHistory />} />
       </Route>
 
       <Route path="*" element={<ErrorPage />}></Route>
