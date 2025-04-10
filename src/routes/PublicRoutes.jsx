@@ -41,7 +41,6 @@ const PublicRoutes = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/join-us" element={<JoinUs />} />
         <Route path="/payment" element={<Payment />} />
-        <Route path="/payment-history" element={<PaymentHistory />} />
       </Route>
 
       {/*-------------------------------- Dashboard layout ------------------------------------- */}
@@ -52,7 +51,7 @@ const PublicRoutes = () => {
         <Route path="/dashboard/admin/booking-reports" element={<Booking_reports />} />
         <Route path="/dashboard/admin/manage-tickets" element={<Manage_tickets />} />
         <Route path="/dashboard/admin/manage-user" element={<Manage_user />} />
-        <Route path="/dashboard/admin/payment-reports" element={<Payment_reports />} />
+        <Route path="/dashboard/admin/payment-reports" element={<PaymentHistory />} />
         <Route path="/dashboard/admin/setting" element={<Setting />} />
 
         <Route path="/dashboard/my-profile" element={<My_profile />} />
