@@ -1,11 +1,10 @@
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import { MdKeyboardArrowRight } from "react-icons/md";
-import { useState } from "react";
-import { Link } from "react-router";
-import EventSwiperSlide from "./SwiperSlide";
-import SmallCard from "../../components/Shared/SmallCard";
+import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import { MdKeyboardArrowRight } from 'react-icons/md';
+import { useState } from 'react';
+import { Link } from 'react-router';
+import SmallCard from '../../components/Shared/SmallCard';
 
 const EventSwiper = ({ category }) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -15,11 +14,11 @@ const EventSwiper = ({ category }) => {
   return (
     <div className="relative my-10">
       <Link to={`/events/${category?.subCategory}`}>
-        <button className="flex items-center category__title__container group cursor-pointer">
-          <span className="capitalize text-3xl font-bold mb-4 category_title">
+        <button className="category__title__container group flex cursor-pointer items-center">
+          <span className="category_title mb-4 text-3xl font-bold capitalize">
             {category?.subCategory}
           </span>
-          <div className="icon__right__arrow relative flex mb-6 items-center">
+          <div className="icon__right__arrow relative mb-6 flex items-center">
             <span className="ml-2 hidden group-hover:block">explore</span>
             <MdKeyboardArrowRight className="text-2xl" />
           </div>
@@ -29,7 +28,7 @@ const EventSwiper = ({ category }) => {
       {/* Navigation Buttons */}
       {!isBeginning && (
         <button
-          className="absolute top-[72px] -left-12 border border-gray-600 translate-y-20 text-gray-600 p-3 bg-white/30 rounded-full z-10"
+          className="absolute top-[72px] -left-12 z-10 translate-y-20 rounded-full border border-gray-600 bg-white/30 p-3 text-gray-600"
           onClick={() => swiperInstance?.slidePrev()}
         >
           <FaArrowLeft />
@@ -37,7 +36,7 @@ const EventSwiper = ({ category }) => {
       )}
       {!isEnd && (
         <button
-          className="absolute top-[72px] -right-12 border border-gray-600 translate-y-20 bg-white/30 text-gray-600 p-3 rounded-full z-10"
+          className="absolute top-[72px] -right-12 z-10 translate-y-20 rounded-full border border-gray-600 bg-white/30 p-3 text-gray-600"
           onClick={() => swiperInstance?.slideNext()}
         >
           <FaArrowRight />
@@ -65,13 +64,11 @@ const EventSwiper = ({ category }) => {
         }}
         modules={[Navigation]}
         className="mySwiper"
-        style={{ height: "fit-content" }}
+        style={{ height: 'fit-content' }}
       >
         {category.data?.map((item, index) => (
           <SwiperSlide key={index}>
-            
-              <SmallCard event={item} height={'h-48'} titletext={'text-xl font-semibold'} />
-            
+            <SmallCard event={item} height={'h-48'} titletext={'text-xl font-semibold'} />
           </SwiperSlide>
         ))}
       </Swiper>

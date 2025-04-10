@@ -1,13 +1,9 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes } from 'react-router';
 
 const AdminRoutes = () => {
-  
-  
   return (
     <Routes>
-      <Route>
-        
-      </Route>
+      <Route></Route>
     </Routes>
   );
 };
