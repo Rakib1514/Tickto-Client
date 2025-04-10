@@ -69,7 +69,8 @@ export default function Dashboard() {
         <nav className="overflow-y-auto p-4">
           <ul className="space-y-2">
             {/* User Routes */}
-            {isAdmin ? (
+            {
+            isAdmin ? (
               <>
                 <li>
                   <Link
@@ -212,7 +213,8 @@ export default function Dashboard() {
                   </Link>
                 </li>
               </>
-            )}
+            )
+            }
 
             <></>
 
