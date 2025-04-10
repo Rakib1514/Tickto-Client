@@ -90,7 +90,7 @@ const EventDetails = () => {
 
             {/* Call-to-Action Buttons */}
             <div className="mt-4 flex flex-col gap-4 sm:flex-row">
-              <Link to={'/'}>
+              <Link to={'/payment'}>
                 <button className="bg-primary cursor-pointer rounded px-6 py-2 text-white hover:opacity-90">
                   Buy Ticket Now
                 </button>

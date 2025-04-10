@@ -15,8 +15,17 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center space-x-2"
           >
-            <div className="rounded-md bg-white p-2 shadow-md">logo</div>
-            <h2 className="text-2xl font-bold">TickBook</h2>
+            {/* logo and primary navigation */}
+            <div className="flex">
+              <div className="flex flex-shrink-0 items-center">
+                <Link to="/" className="flex items-center">
+                  <span className="text-3xl font-bold">
+                    <span className="text-[#317371]"> 🎟 Tick</span>
+                    <span className="">To</span>
+                  </span>
+                </Link>
+              </div>
+            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
@@ -68,7 +77,7 @@ const Footer = () => {
               { name: 'Terms of Use', link: '/terms' },
               { name: 'Privacy Policy', link: '/legal/privacy' },
               { name: 'Cookie Policy', link: '/legal/cookies' },
-              { name: 'Security', link: '/legal/security' },
+              { name: 'Security', link: '/payment' },
             ].map((legal, index) => (
               <motion.li
                 key={index}
