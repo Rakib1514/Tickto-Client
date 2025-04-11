@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 /* @import "./node_modules/preline/variants.css"; */
+
+
 @plugin "daisyui/theme" {
   name: 'light';
   default: false;
@@ -42,3 +44,5 @@
   --color-primaryClr: #317371;
   ...
 } */
+
+

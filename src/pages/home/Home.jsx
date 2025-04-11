@@ -8,6 +8,7 @@ import Reviews from './Reviews';
 
 import Events from './Events';
 import Travel from './Travel';
+import EidFeature from './EidFeature';
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Events />
       <Travel />
       <Reviews />
+      <EidFeature />
     </>
   );
 };
