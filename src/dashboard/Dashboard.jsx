@@ -13,13 +13,14 @@ import { BsBookmarkCheck, BsCardChecklist } from 'react-icons/bs';
 import Chart from './Chart';
 import TotalRevenue from './TotalRevenue';
 import Logo from '../components/Shared/Logo';
+import useAdmin from '../hooks/useAdmin';
 
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
 
   // Conditionally render admin routes if the user is an admin
   // const isAdmin = user?.role === 'user';
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="flex min-h-screen">
