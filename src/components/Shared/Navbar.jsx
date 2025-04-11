@@ -18,7 +18,7 @@ const Navbar = () => {
     { path: '/events', label: 'Events', icon: Handshake },
     { path: '/about-us', label: 'About Us', icon: User },
     { path: '/join-us', label: 'Join Us', icon: Mail },
-    { path: '/dashboard', label: 'Dashboard', icon: GrDashboard },
+    // { path: '/dashboard', label: 'Dashboard', icon: GrDashboard },
   ];
 
   const handleLogout = () => {
@@ -132,6 +132,9 @@ const Navbar = () => {
                         <li className="text-center">{user.displayName}</li>
                         <li>
                           <Link to="/updateprofile">Update Profile</Link>
+                        </li>
+                        <li>
+                          <Link to="/dashboard">Dashboard</Link>
                         </li>
                         <li onClick={handleLogout}>
                           <a>Logout</a>
