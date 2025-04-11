@@ -83,7 +83,7 @@ const Navbar = () => {
         <div>
 
           <div className="container mx-auto px-2">
-            <div className="flex py-3 justify-between">
+            <div className="flex py-2 justify-between">
               {/* logo and primary navigation */}
               <div className="flex">
                 <div className="flex flex-shrink-0 items-center">
