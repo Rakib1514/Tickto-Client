@@ -23,7 +23,7 @@ const MainLayout = () => {
   if (error) return <h1>Error fetching categories</h1>;
 
   return (
-    <div className=''>
+    <>
       <Navbar />
 
 
@@ -46,7 +46,7 @@ const MainLayout = () => {
         <Outlet />
       </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

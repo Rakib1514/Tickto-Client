@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import b1 from '../../Assets/Banner/plane1.jpeg';
+// import b1 from '../../Assets/Banner/plane1.jpeg';
+import b1 from '../../Assets/Banner/plane-coffee.jpg';
 // import b2 from '../../Assets/Banner/train.jpeg';
 // import b2 from '../../Assets/Banner/Train-2.jpeg';
 // import b2 from '../../Assets/Banner/train3.jpg';
@@ -107,10 +108,10 @@ export default function Banner() {
           <div key={index} className="item absolute inset-0">
             <img src={slide.image} alt="slide" className="w-full h-full object-cover" />
 
-            <div className="content absolute top-[20%] md:top-[26%] w-[1140px] max-w-[80%] left-[200px] md:left-[500px] lg:left-[760px] -translate-x-1/2 pr-[24%] text-white text-shadow-md">
+            <div className="content absolute top-[18%] md:top-[26%] w-[1140px] max-w-[80%] left-[200px] md:left-[500px] lg:left-[760px] -translate-x-1/2 md:pr-[24%] text-white text-shadow-md">
               <div className="author font-bold tracking-[10px] text-xl"><span className='text-[#317371]'>TICK</span>TO</div>
               <div className="title text-3xl md:text-5xl font-bold leading-tight mt-4 my-3 text-yellow-400">{slide.title}</div>
-              <div className="des md:text-lg leading-tight mb-8">{slide.description}</div>
+              <div className="des text-sm md:text-lg leading-tight mb-4 md:mb-8">{slide.description}</div>
 
               <div className="buttons flex gap-2 mt-5">
                 <button className="btn shadow-none px-6 bg-[#317371] text-white border-none tracking-wider">SEE MORE</button>
@@ -133,7 +134,7 @@ export default function Banner() {
           </div>
         ))}
       </div>
-      <div className="arrows absolute top-[80%] md:left-[16%] lg:left-[34%] w-[300px] max-w-[30%] z-[100] flex gap-2 items-center">
+      <div className="arrows absolute top-[65%] md:top-[80%] md:left-[16%] lg:left-[34%] w-[300px] max-w-[30%] z-[100] flex gap-2 items-center">
         <button onClick={handlePrev} >{'<'}</button>
         <button onClick={handleNext} >{'>'}</button>
       </div>

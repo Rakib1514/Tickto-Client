@@ -6,7 +6,7 @@ import rakibul from '../../Assets/joinus/Team/rakib.png';
 import sana from '../../Assets/joinus/Team/sana.jpeg';
 import akash from '../../Assets/joinus/Team/akash.jpg';
 import arif from '../../Assets/joinus/Team/arif.jpg';
-import oni from '../../Assets/joinus/Team/Oni.jpg';
+import oni from '../../Assets/joinus/Team/mushfika.jpg';
 import { motion } from 'framer-motion';
 import { ScrollTrigger } from 'gsap/all';
 import './joinus.css';
@@ -46,19 +46,12 @@ const JoinUs = () => {
     {
       name: 'Minhaj Uddin Arif',
       email: 'arifk62901@gmail.com',
-      img: arif,
+      img: member2,
       linkedIn: 'https://www.linkedin.com/in/minhaj-uddin-arif-4321b0258/',
       github: 'https://github.com/minhaj-uddin-arif-23',
       facebook: 'https://www.facebook.com/fariyakhansana',
     },
-    {
-      name: 'Md. Nure Alam',
-      email: 'nurealam151068@gmail.com',
-      img: member2,
-      linkedIn: 'https://www.linkedin.com/in/md-nure-alam-444887266/',
-      github: 'https://github.com/NureAlam68',
-      facebook: 'https://www.facebook.com/profile.php?id=100019022316999',
-    },
+
     {
       name: 'Abdul Mazid Akash',
       email: 'akashabdulmazid@gmail.com',
@@ -173,13 +166,13 @@ const JoinUs = () => {
               innovation, collaboration, and creating unforgettable experiences—one ticket at a
               time!
             </p>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3" ref={scrollRef}>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-6 lg:justify-center" ref={scrollRef}>
               {team.map((member, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.03 }}
                   transition={{ type: 'spring', stiffness: 200 }}
-                  className="group stagger-box team-section relative mx-auto max-h-80 w-fit max-w-[440px] overflow-hidden rounded-lg bg-[#5a5a5a]/80"
+                  className={`group stagger-box team-section relative mx-auto max-h-80 w-fit max-w-[440px] overflow-hidden rounded-lg bg-[#5a5a5a]/80 lg:col-span-2 `}
                 >
                   {/* Image with dark overlay on hover */}
                   <img

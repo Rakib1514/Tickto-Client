@@ -11,7 +11,7 @@ import Travel from './Travel';
 
 const Home = () => {
   return (
-    <>
+    <div className=''>
       <Banner />
       <RecentView />
       <Feature />
@@ -20,7 +20,7 @@ const Home = () => {
       <Events />
       <Travel />
       <Reviews />
-    </>
+    </div>
   );
 };
 
