@@ -25,18 +25,23 @@ const MainLayout = () => {
   return (
     <>
       <Navbar />
+
+
       {/* Categories under navbar */}
-      <div className="bg-base-100 sticky top-16 z-10 flex-wrap opacity-80 backdrop-blur-2xl">
-        <div className="container mx-auto flex w-full gap-4">
+      <div className="sticky top-16 py-[6px] font-semibold text-base z-10 bg-base-100 backdrop-blur-2xl opacity-80 flex-wrap">
+
+        <div className="container mx-auto flex flex-wrap gap-3 md:gap-5 w-full">
           {data?.map((category, idx) => (
-            <Link to={`/events/${category.subCategory}`} key={idx}>
-              <button className="after:bg-primary relative px-4 py-2 capitalize after:absolute after:bottom-0 after:left-0 after:block after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full">
+            <Link to={`/events/${category.subCategory}`}>
+              <button key={idx} className="top__category__btn underline underline-offset-1 underline-gray-400">
                 {category.subCategory}
               </button>
             </Link>
           ))}
         </div>
       </div>
+
+
       <main>
         <Outlet />
       </main>
