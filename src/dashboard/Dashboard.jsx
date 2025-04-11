@@ -12,6 +12,7 @@ import { IoTicketOutline } from 'react-icons/io5';
 import { BsBookmarkCheck, BsCardChecklist } from 'react-icons/bs';
 import Chart from './Chart';
 import TotalRevenue from './TotalRevenue';
+import Logo from '../components/Shared/Logo';
 
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
@@ -30,7 +31,13 @@ export default function Dashboard() {
         {/* Sidebar Header */}
         <header className="flex items-center justify-between p-4">
           <span className="w-full border-b-2 border-gray-300 pb-2 text-xl font-bold text-gray-900">
-            🎟 TickTo
+            <Link to="/" className="flex gap-2 items-center">
+              <Logo />
+              <div className="text-2xl md:text-3xl font-bold">
+                <span className="text-[#317371]">Tick</span>
+                <span className="">To</span>
+              </div>
+            </Link>
           </span>
 
           <button
@@ -69,7 +76,8 @@ export default function Dashboard() {
         <nav className="overflow-y-auto p-4">
           <ul className="space-y-2">
             {/* User Routes */}
-            {isAdmin ? (
+            {
+            isAdmin ? (
               <>
                 <li>
                   <Link
@@ -212,7 +220,8 @@ export default function Dashboard() {
                   </Link>
                 </li>
               </>
-            )}
+            )
+            }
 
             <></>
 

@@ -2,6 +2,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import Logo from './Logo';
+import Socials from './Socials';
 
 const Footer = () => {
   return (
@@ -33,18 +35,7 @@ const Footer = () => {
             transition={{ delay: 0.3 }}
             className="flex space-x-4"
           >
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <FaFacebookF className="cursor-pointer text-xl text-[#785F54] transition duration-300 hover:text-[#317371]" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <FaTwitter className="cursor-pointer text-xl text-[#785F54] transition duration-300 hover:text-[#317371]" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <FaInstagram className="cursor-pointer text-xl text-[#785F54] transition duration-300 hover:text-[#317371]" />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-              <FaLinkedinIn className="cursor-pointer text-xl text-[#785F54] transition duration-300 hover:text-[#317371]" />
-            </a>
+            <Socials/>
           </motion.div>
         </div>
 
@@ -109,7 +100,7 @@ const Footer = () => {
               whileTap={{ scale: 0.9 }}
               className="mt-2 w-full rounded-md bg-[#A989B0] py-2 text-white transition duration-300 hover:bg-orange-600"
             >
-              Submit
+              Subscribe
             </motion.button>
           </motion.div>
         </div>
