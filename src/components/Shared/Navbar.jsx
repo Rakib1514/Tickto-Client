@@ -76,7 +76,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full top-0 z-[500] text-white backdrop-blur-sm">
+      <nav className="fixed w-full top-0 z-[500] text-white bg-black/20 backdrop-blur-sm">
       <div>
 
         <div className="container mx-auto px-2">
