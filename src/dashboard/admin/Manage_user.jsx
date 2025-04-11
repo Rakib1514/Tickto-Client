@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
-import { FaDeleteLeft } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa6";
 import Swal from 'sweetalert2';
-import { RefrigeratorIcon } from 'lucide-react';
+import { FiDelete } from "react-icons/fi";
 
 const Manage_user = () => {
   const axiosSecure = useAxiosSecure();
@@ -14,31 +14,24 @@ const Manage_user = () => {
     },
   });
 
-  const handleDelete = user => {
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          axiosSecure.delete(`/api/user/${user._id}`).then((res) => {
-            if (res.data.deletedCount > 0) {
-              refetch();
-              Swal.fire({
-                title: "Deleted!", 
-                text: "Your pet has been removed.",
-                icon: "success"
-              });
 
-            }
-          });
-        }
-      });
+  const handleMakeAdmin = user => {
+     axiosSecure.patch(`/api/users/admin/${user._id}`)
+     .then(res => {
+     if(res.data.modifiedCount > 0){
+      refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${user.name} is an Admin Now!`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    })
   }
+
+
 
   return <div>
     <div className="overflow-x-auto">
@@ -58,7 +51,7 @@ const Manage_user = () => {
           {
             users.map( (user, index) => <tr key={user._id}>
               <td>{index + 1}</td>
-              <td>{user?.displayName}</td>
+              <td>{user.name}</td>
               <td>{user.email}</td>
               <td>
               <div className="avatar">
@@ -67,13 +60,16 @@ const Manage_user = () => {
                   </div>
               </div>
               </td>
-              <td></td>
+ 
               <td>
+                { user.role === 'admin' ? 'Admin' : 
                 <button className='btn btn-ghost'
-                onClick={() => handleDelete(user)}>
-                  <FaDeleteLeft className='text-red-400 text-3xl' />
-                </button>
+                onClick={() => handleMakeAdmin (user)}>
+                  <FaUser className='text-green-500 text-3xl' />
+                </button>}
+                
               </td>
+
             </tr>)
           }
         </tbody>
