@@ -4,7 +4,7 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useState } from "react";
 import { Link } from "react-router";
-import EventSwiperSlide from "./SwiperSlide";
+import SmallCard from "../../components/Shared/SmallCard";
 
 const EventSwiper = ({ category }) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -12,13 +12,13 @@ const EventSwiper = ({ category }) => {
   const [isEnd, setIsEnd] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative my-10">
       <Link to={`/events/${category?.subCategory}`}>
-        <button className="flex items-center category__title__container group cursor-pointer">
-          <span className="capitalize text-2xl font-semibold category_title">
+        <button className="category__title__container group flex cursor-pointer items-center">
+          <span className="category_title mb-4 text-3xl font-bold capitalize">
             {category?.subCategory}
           </span>
-          <div className="icon__right__arrow relative flex items-center">
+          <div className="icon__right__arrow relative mb-6 flex items-center">
             <span className="ml-2 hidden group-hover:block">explore</span>
             <MdKeyboardArrowRight className="text-2xl" />
           </div>
@@ -28,7 +28,7 @@ const EventSwiper = ({ category }) => {
       {/* Navigation Buttons */}
       {!isBeginning && (
         <button
-          className="absolute left-0 translate-y-20 bg-black text-white p-2 rounded-full z-10"
+          className="absolute top-[72px] -left-12 z-10 translate-y-20 rounded-full border border-gray-600 bg-white/30 p-3 text-gray-600"
           onClick={() => swiperInstance?.slidePrev()}
         >
           <FaArrowLeft />
@@ -36,7 +36,7 @@ const EventSwiper = ({ category }) => {
       )}
       {!isEnd && (
         <button
-          className="absolute right-0 translate-y-20 bg-black text-white p-2 rounded-full z-10"
+          className="absolute top-[72px] -right-12 z-10 translate-y-20 rounded-full border border-gray-600 bg-white/30 p-3 text-gray-600"
           onClick={() => swiperInstance?.slideNext()}
         >
           <FaArrowRight />
@@ -46,13 +46,13 @@ const EventSwiper = ({ category }) => {
       <Swiper
         breakpoints={{
           320: { slidesPerView: 2 },
-          640: { slidesPerView: 3 },
-          768: { slidesPerView: 4 },
-          1024: { slidesPerView: 5 },
-          1280: { slidesPerView: 6 },
-          1536: { slidesPerView: 7 },
+          740: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+          1536: { slidesPerView: 5 },
+          // 1024: { slidesPerView: 5 },
+          // 1280: { slidesPerView: 6 },
         }}
-        spaceBetween={15}
+        spaceBetween={12}
         onSwiper={(swiper) => {
           setSwiperInstance(swiper);
           setIsBeginning(swiper.isBeginning);
@@ -64,11 +64,11 @@ const EventSwiper = ({ category }) => {
         }}
         modules={[Navigation]}
         className="mySwiper"
-        style={{ height: "fit-content" }}
+        style={{ height: 'fit-content' }}
       >
         {category.data?.map((item, index) => (
           <SwiperSlide key={index}>
-            <EventSwiperSlide item={item} />
+            <SmallCard event={item} height={'h-48'} titletext={'text-xl font-semibold'} />
           </SwiperSlide>
         ))}
       </Swiper>
