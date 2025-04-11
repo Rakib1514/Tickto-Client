@@ -76,7 +76,9 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 border-gray-200 bg-[#a2b9a7]/65 text-white backdrop-blur-sm">
+      <nav className="fixed w-full top-0 z-[500] text-white backdrop-blur-sm">
+      <div>
+
         <div className="container mx-auto px-2">
           <div className="flex py-3 justify-between">
             {/* logo and primary navigation */}
@@ -100,8 +102,8 @@ const Navbar = () => {
                     to={path}
                     className={`inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
                       isActivePath(path)
-                        ? 'bg-teal-50 text-[#20b6b1]'
-                        : 'text-gray-600 hover:bg-gray-50 hover:text-[#41a5a2]'
+                        ? 'border-b-2 border-[#317371] text-[#317371] rounded-none'
+                        : ' hover:border-b hover:border-[#317371] hover:text-[#317371] transition rounded-none'
                     }`}
                   >
                     <Icon className="mr-2 h-4 w-4" />
@@ -139,7 +141,7 @@ const Navbar = () => {
                   ) : (
                     <Link
                       to="/auth/login"
-                      className="rounded-md bg-[#317371] px-2 py-1 md:px-4 md:py-2 text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#4f8886]"
+                      className="rounded-sm border border-[#317371] px-2 py-1 md:px-4 md:py-[6px] text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#4f8886]"
                     >
                       Login
                     </Link>
@@ -148,7 +150,7 @@ const Navbar = () => {
                 {/* theme toggle */}
                 <button
                   onClick={toggleTheme}
-                  className="p-1 rounded-full transition-colors duration-200 hover:bg-gray-100"
+                  className="p-1 rounded-full transition-colors duration-200 hover:text-[#317371]"
                   aria-label="Toggle theme"
                 >
                   {theme === 'dark' ? <Sun className="h-7 w-7" /> : <Moon className="h-7 w-7" />}
@@ -189,6 +191,8 @@ const Navbar = () => {
             </div>
           )}
         </div>
+
+      </div>
       </nav>
     </>
   );

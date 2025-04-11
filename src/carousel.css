@@ -1,4 +1,5 @@
 /* carousel */
+
 .carousel {
   height: 88vh;
   width: 100%;
@@ -41,7 +42,7 @@
   line-height: 1.1em;
 }
 .carousel .list .item .title {
-  width: 50%; /* 👈 Added padding to move title right */
+  /* width: 50%; 👈 Added padding to move title right */
   padding-top: 20px;
 }
 .carousel .list .item .topic {
@@ -69,7 +70,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 8px;
 }
 .thumbnail .item .content {
   color: #fff;
@@ -186,6 +187,24 @@
 
 }
 
+@media screen and (max-width: 580px) {
+  .carousel .list .item {
+    padding-top: 800px;
+    padding-left: 400px;
+  }
+
+  .carousel {
+    height: 80vh;
+  }
+  .carousel .list .item .title {
+    font-size: 2.5rem;
+  }
+  .carousel .list .item .topic {
+    font-size: 2.5rem;
+  }
+
+}
+
 @media screen and (max-width: 450px) {
   .carousel .list .item {
     padding-top: 800px;
@@ -209,7 +228,4 @@
     padding-top: 800px;
     padding-left: 300px;
   }
-
-
-
 }
