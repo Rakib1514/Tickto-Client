@@ -9,7 +9,11 @@ const Manage_user = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await axiosSecure.get('/api/users');
+      const res = await axiosSecure.get('/api/users', {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('access-token')}`
+        }
+      });
       return res.data.data;
     },
   });
@@ -60,10 +64,10 @@ const Manage_user = () => {
 
   return <div>
     <div className="overflow-x-auto">
-      <table className="table">
+      <table className="table my-7 max-w-6xl mx-auto">
         {/* head */}
         <thead>
-          <tr className="bg-[#317371] text-white">
+          <tr className="bg-[#317371] rounded text-white">
             <th></th>
             <th>Name</th>
             <th>Email</th>
