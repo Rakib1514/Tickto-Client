@@ -49,7 +49,7 @@ const EidFeature = () => {
       {showModal && (
         <div className="fixed -mt-40 inset-0  flex justify-center items-center z-10">
           <div
-            className="p-6 rounded-xl shadow-lg w-96 relative text-emerald-800"
+            className="p-6 rounded-xl shadow-lg w-96 relative"
             style={{
               backgroundImage: `url(${bgImage})`,
               backgroundSize: 'cover',
@@ -59,10 +59,14 @@ const EidFeature = () => {
               overflow: 'hidden'
             }}
           >
-            <p className="mb-4 font-bold text-2xl text-center">Countdown to 14th April 2025:</p>
+            <p className="mb-4 font-bold text-2xl text-center text-lime-500">Happy Bangla New Year</p>
             <div className="text-center font-mono text-3xl font-extrabold  space-y-1">
-              <div>🗓 {countdown.days} days</div>
-              <div>⏰ {countdown.hours}h {countdown.minutes}m {countdown.seconds}s</div>
+              <div><span className="text-gray-400">🗓 </span>
+              <span className="text-white px-2 py-1 rounded bg-red-600">{countdown.days} days</span></div>
+              <div className="flex mt-5 gap-3 items-center justify-center">⏰
+                <span className="bg-red-600 text-white rounded px-2 py-1">{countdown.hours}h</span> 
+                <span className="bg-red-600 text-white rounded px-2 py-1">{countdown.minutes}m</span> 
+                <span className="bg-red-600 text-white rounded px-2 py-1">{countdown.seconds}s</span></div>
             </div>
       
             <button
