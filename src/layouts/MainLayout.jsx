@@ -4,7 +4,8 @@ import Footer from '../components/Shared/Footer';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import Lottie from 'lottie-react';
-import loadingAnimation from '../Assets/lotties/loading_ani.json'
+import loadingAnimation from '../Assets/lotties/loading_ani_light.json'
+import loadingAnimationdark from '../Assets/lotties/loading_ani.json'
 
 const MainLayout = () => {
   // Fetch all categories
@@ -18,10 +19,10 @@ const MainLayout = () => {
 
   if (isLoading)
     return (
-      <div className="flex min-h-screen items-center justify-center text-3xl bg-black">
+      <div className="flex min-h-screen items-center justify-center text-3xl ">
         <div className='w-96'>
-
         <Lottie animationData={loadingAnimation} ></Lottie>
+        {/* <Lottie animationData={loadingAnimationdark} ></Lottie> */}
         </div>
       </div>
     );
