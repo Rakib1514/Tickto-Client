@@ -1,4 +1,5 @@
 .hands {
-  background-image: url('../../Assets/joinus/handshake.png');
+  background-image: url('../../Assets/joinus/team-cover.png');
   background-size: cover;
+  background-position: center;
 }
