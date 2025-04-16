@@ -30,7 +30,7 @@ const AboutUs = () => {
             <div className='h-[480px] w-full bg-black/45 flex items-center justify-center'>
               <div className='text-center text-white space-y-5 md:w-1/2 mx-auto'>
                 <h1 className='text-4xl lg:text-6xl font-bold '>More About Us</h1>
-                <p className='w-[96%] mx-auto'>We're always looking for passionate, creative, and driven individuals to join our growing team. Whether you're a developer, designer, marketer, or customer support superstar, there's a place for you here. Come be a part of something meaningful and help us shape the future together</p>
+                <p className='w-[96%] mx-auto'>Our mission is to make everyday tasks easier, faster, and more accessible through innovative technology. With a focus on quality and user satisfaction, we strive to deliver solutions that create real value. We've grown from a small idea to a platform that serves thousands of users. </p>
               </div>
             </div>
           </div>
