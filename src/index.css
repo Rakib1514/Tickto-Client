@@ -18,6 +18,20 @@
   font-style : normal;
 }
 
+.hands {
+  background-image: url('./Assets/joinus/team-cover.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.about-info {
+  background-image: url('./Assets/about/about-cover3.png');
+  background-size: cover;
+  background-position: center;
+}
+
+
+
 
 @plugin "daisyui/theme" {
   name                     : 'light';

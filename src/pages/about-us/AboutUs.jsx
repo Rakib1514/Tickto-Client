@@ -25,25 +25,14 @@ const AboutUs = () => {
       <section>
         <div>
           {/* Section Title */}
-          <div className="flex h-[250px] flex-col items-center justify-center bg-[#317371] px-4">
-            <motion.h2
-              className="text-center text-[30px] font-bold text-gray-200 md:text-4xl lg:text-5xl"
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              About Project Name
-            </motion.h2>
-            <motion.p
-              className="mt-4 text-center text-[18px] font-medium text-gray-300 md:text-[20px]"
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              Online Ticketing System – Fast, secure, hassle-free ticket booking.
-            </motion.p>
+          {/* bg-image */}
+          <div className="about-info min-h-[480px]">
+            <div className='h-[480px] w-full bg-black/45 flex items-center justify-center'>
+              <div className='text-center text-white space-y-5 md:w-1/2 mx-auto'>
+                <h1 className='text-4xl lg:text-6xl font-bold '>More About Us</h1>
+                <p className='w-[96%] mx-auto'>We're always looking for passionate, creative, and driven individuals to join our growing team. Whether you're a developer, designer, marketer, or customer support superstar, there's a place for you here. Come be a part of something meaningful and help us shape the future together</p>
+              </div>
+            </div>
           </div>
 
           {/* Content Grid */}
@@ -94,8 +83,7 @@ const AboutUs = () => {
           </motion.div>
         </div>
       </section>
-      <AboutUsSection />
-      <StatsSection />
+    
     </div>
   );
 };

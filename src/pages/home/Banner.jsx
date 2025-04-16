@@ -108,9 +108,9 @@ export default function Banner() {
           <div key={index} className="item absolute inset-0">
             <img src={slide.image} alt="slide" className="w-full h-full object-cover" />
 
-            <div className="content absolute top-[20%] md:top-[26%] w-[1200px] max-w-[80%] left-[200px] md:left-[500px] lg:left-[760px] -translate-x-1/2 pr-[24%] text-white text-shadow-md">
+            <div className="content absolute top-[32%] w-[1200px] max-w-[80%] left-[200px] md:left-[500px] lg:left-[760px] -translate-x-1/2 pr-[24%] text-white text-shadow-md">
               <div className="author font-bold tracking-[10px] text-xl"><span className='text-[#317371]'>TICK</span>TO</div>
-              <div className="title text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mt-3 my-3 text-yellow-400">{slide.title}</div>
+              <div className="title text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mt-3 my-3 text-yellow-600">{slide.title}</div>
               <div className="des md:text-lg leading-tight mb-8">{slide.description}</div>
 
               <div className="buttons flex gap-2 mt-5">

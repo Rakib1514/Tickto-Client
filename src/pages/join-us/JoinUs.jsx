@@ -11,7 +11,6 @@ import arif from '../../Assets/joinus/Team/arif2.png';
 import oni from '../../Assets/joinus/Team/mushfika.jpg';
 import { motion } from 'framer-motion';
 import { ScrollTrigger } from 'gsap/all';
-import './joinus.css';
 import { FaFacebookF, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';

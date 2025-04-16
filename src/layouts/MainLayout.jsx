@@ -35,7 +35,7 @@ const MainLayout = () => {
 
 
       {/* Categories under navbar */}
-      <div className="sticky top-16 py-[6px] font-semibold text-white z-[500]  bg-black/20 backdrop-blur-sm flex-wrap">
+      {/* <div className="sticky top-16 py-[6px] font-semibold text-white z-[500]  bg-black/20 backdrop-blur-sm flex-wrap">
 
         <div className="container mx-auto flex flex-wrap gap-3 md:gap-5 w-full">
           {data?.map((category, idx) => (
@@ -46,7 +46,7 @@ const MainLayout = () => {
             </Link>
           ))}
         </div>
-      </div>
+      </div> */}
 
 
       <main className='-mt-18 md:-mt-9'>
