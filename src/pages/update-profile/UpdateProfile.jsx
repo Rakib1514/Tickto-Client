@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import loadingAnimation from '../../Assets/lotties/loading_ani.json'
 
 const UpdateProfile = () => {
   const { user } = useContext(AuthContext);
@@ -44,7 +45,12 @@ const UpdateProfile = () => {
   };
 
   if (!user) {
-    return <div>Loading...</div>;
+    return <div className="flex min-h-screen items-center justify-center text-3xl bg-black">
+      <div className='w-96'>
+
+        <Lottie animationData={loadingAnimation} ></Lottie>
+      </div>
+    </div>
   }
 
   return (

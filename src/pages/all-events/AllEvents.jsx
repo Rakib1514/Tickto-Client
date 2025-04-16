@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-
+import loadingAnimation from '../../Assets/lotties/loading_ani.json'
 import axios from "axios";
 import EventSwiper from "./EventSwiper";
+import Lottie from "lottie-react";
 
 const AllEvents = () => {
   // Fetch all events
@@ -21,10 +22,13 @@ const AllEvents = () => {
 
   if (eventsIsLoading)
     return (
-      <div className="flex min-h-screen items-center justify-center text-3xl">
-        <span>Loading...</span>
+      <div className="flex min-h-screen items-center justify-center text-3xl bg-black">
+        <div className='w-96'>
+          <Lottie animationData={loadingAnimation} ></Lottie>
+        </div>
       </div>
     );
+
   if (eventsError)
     return (
       <div className="flex min-h-screen items-center justify-center text-3xl">
@@ -35,7 +39,7 @@ const AllEvents = () => {
   return (
     <div className="relative container mx-auto px-2">
       {/* Events */}
-      <div className="mt-8">
+      <div className="pt-22">
         {events?.map((category, idx) => (
           <EventSwiper key={idx} category={category} />
         ))}
