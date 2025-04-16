@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import b1 from '../../Assets/Banner/plane1.jpeg';
+// import b1 from '../../Assets/Banner/plane1.jpeg';
+import b1 from '../../Assets/Banner/plane-coffee.jpg';
 // import b2 from '../../Assets/Banner/train.jpeg';
 // import b2 from '../../Assets/Banner/Train-2.jpeg';
 // import b2 from '../../Assets/Banner/train3.jpg';
@@ -99,7 +100,7 @@ export default function Banner() {
   const handlePrev = () => handleSlider('prev');
 
   return (
-    <div ref={carouselRef} className="carousel bg-black relative overflow-hidden w-screen min-h-screen">
+    <div ref={carouselRef} className="carousel bg-black relative overflow-hidden w-screen h-fit md:min-h-screen">
   
       <div ref={sliderRef} className="list absolute inset-0">
 
@@ -133,7 +134,7 @@ export default function Banner() {
           </div>
         ))}
       </div>
-      <div className="arrows absolute top-[80%] md:left-[16%] lg:left-[34%] w-[300px] max-w-[30%] z-[100] flex gap-2 items-center">
+      <div className="arrows absolute top-[65%] md:top-[80%] md:left-[16%] lg:left-[34%] w-[300px] max-w-[30%] z-[100] flex gap-2 items-center">
         <button onClick={handlePrev} >{'<'}</button>
         <button onClick={handleNext} >{'>'}</button>
       </div>

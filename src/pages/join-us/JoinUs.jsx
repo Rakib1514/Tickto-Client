@@ -58,14 +58,7 @@ const JoinUs = () => {
       github: 'https://github.com/minhaj-uddin-arif-23',
       facebook: 'https://www.facebook.com/fariyakhansana',
     },
-    {
-      name: 'Md. Nure Alam',
-      email: 'nurealam151068@gmail.com',
-      img: member2,
-      linkedIn: 'https://www.linkedin.com/in/md-nure-alam-444887266/',
-      github: 'https://github.com/NureAlam68',
-      facebook: 'https://www.facebook.com/profile.php?id=100019022316999',
-    },
+
     {
       name: 'Abdul Mazid Akash',
       email: 'akashabdulmazid@gmail.com',

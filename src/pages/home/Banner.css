@@ -236,7 +236,7 @@
 }
 @media screen and (max-width: 680px) {
     .carousel .list .item .content{
-        left: 380px
+        left: 320px
     }
     .carousel .list .item .content .title{
         font-size: 30px;
@@ -244,7 +244,7 @@
 }
 @media screen and (max-width: 500px) {
     .carousel .list .item .content{
-        left: 280px
+        left: 220px
     }
     .carousel .list .item .content .title{
         font-size: 30px;
@@ -252,9 +252,18 @@
 }
 @media screen and (max-width: 400px) {
     .carousel .list .item .content{
-        left: 140px
+        left: 150px;
+        top: 14%;
+        
     }
     .carousel .list .item .content .title{
         font-size: 30px;
     }
+    .carousel .list .item .content .buttons button{
+        /* display: flex; */
+        padding-left: 8px;
+        padding-right: 8px;
+        /* flex-direction: column; */
+    }
+
 }
