@@ -13,7 +13,7 @@ const EventSwiper = ({ category }) => {
 
   return (
     <div className="relative py-6">
-      <Link to={`/events/${category?.subCategory}`}>
+      <Link to={`http://localhost:5000/events/${category?.subCategory}`}>
         <button className="category__title__container group flex cursor-pointer items-center">
           <span className="category_title mb-4 text-3xl font-bold capitalize">
             {category?.subCategory}
