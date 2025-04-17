@@ -164,7 +164,7 @@ const JoinUs = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#fff9f1]">
+    <div className="min-h-screen ">
 
 
       {/* bg-image */}

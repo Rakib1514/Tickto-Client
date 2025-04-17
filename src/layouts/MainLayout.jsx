@@ -49,7 +49,7 @@ const MainLayout = () => {
       </div> */}
 
 
-      <main className='-mt-18 md:-mt-9'>
+      <main className='-mt-18 md:-mt-9 bg-[#fff9f1]'>
         <Outlet />
       </main>
       <Footer />

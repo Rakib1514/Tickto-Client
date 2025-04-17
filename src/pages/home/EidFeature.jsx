@@ -40,7 +40,7 @@ const EidFeature = () => {
     <div className="">
       {/* Modal Open Button */}
       <button
-        className="bg-blue-500 text-white px-4 py-2 rounded"
+        className="bg-blue-500 hidden text-white px-4 py-2 rounded"
         onClick={() => setShowModal(true)}
       >
         Modal
