@@ -30,6 +30,12 @@
   background-position: center;
 }
 
+.event-bg {
+  background-image: url('./Assets/covers/event-bg2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 
 
 

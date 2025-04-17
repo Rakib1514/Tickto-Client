@@ -14,7 +14,7 @@ const AllEvents = () => {
   } = useQuery({
     queryKey: ['events'],
     queryFn: async () => {
-      const response = await axios.get('https://tickto-server.vercel.app/api/events');
+      const response = await axios.get('http://localhost:5000/api/events');
       return response.data.data || [];
     },
   });
@@ -39,9 +39,18 @@ const AllEvents = () => {
     );
 
   return (
-    <div className="relative container mx-auto px-2">
+    <div className="">
+      {/* bg-image */}
+      <div className="event-bg min-h-[470px]">
+        <div className='h-[470px] w-full bg-black/45 flex items-center justify-center'>
+          <div className='text-center text-white space-y-5 md:w-1/2 mx-auto'>
+            <h1 className='text-4xl lg:text-6xl font-bold '>All Events at a Glance</h1>
+            <p className='w-[96%] mx-auto'>Explore a diverse range of events happening across all categories — from electrifying music concerts and the latest movie premieres to unforgettable travel experiences, thrilling sports matches, engaging theater performances, and so much more — all conveniently gathered in one place for you to discover, enjoy, and book with ease.</p>
+          </div>
+        </div>
+      </div>
       {/* Events */}
-      <div className="pt-22">
+      <div className="pt-8 max-w-screen-2xl mx-auto">
         {events?.map((category, idx) => (
           <EventSwiper key={idx} category={category} />
         ))}
