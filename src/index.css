@@ -1,11 +1,13 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "daisyui";
+/* @import "./node_modules/preline/variants.css"; */
+
 
 @plugin "daisyui/theme" {
-  name: "light";
+  name: 'light';
   default: false;
   prefersdark: false;
-  color-scheme: "light";
+  color-scheme: 'light';
   --color-base-100: oklch(100% 0 0);
   --color-base-200: oklch(98% 0 0);
   --color-base-300: oklch(95% 0 0);
@@ -36,11 +38,11 @@
   --noise: 0;
 }
 
-
-
 /* @theme {
   --font-display: "Satoshi", "sans-serif";
   
   --color-primaryClr: #317371;
   ...
 } */
+
+

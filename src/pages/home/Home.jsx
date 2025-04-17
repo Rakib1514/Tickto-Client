@@ -1,13 +1,14 @@
-import Banner from "./Banner";
-import RecentView from "./RecentView";
-import DataSafe from "./DataSafe";
-import PopularNow from "./PopularNow";
-import Feature from "./Feature";
+import Banner from './Banner';
+import RecentView from './RecentView';
+import DataSafe from './DataSafe';
+import PopularNow from './PopularNow';
+import Feature from './Feature';
 
-import Reviews from "./Reviews";
+import Reviews from './Reviews';
 
-import Events from "./Events";
-import Travel from "./Travel";
+import Events from './Events';
+import Travel from './Travel';
+import EidFeature from './EidFeature';
 
 const Home = () => {
   return (
@@ -18,8 +19,9 @@ const Home = () => {
       <DataSafe />
       <PopularNow />
       <Events />
-      <Travel/>
+      <Travel />
       <Reviews />
+      <EidFeature />
     </>
   );
 };
