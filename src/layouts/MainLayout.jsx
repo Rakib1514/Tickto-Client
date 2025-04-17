@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import Lottie from 'lottie-react';
 import loadingAnimation from '../Assets/lotties/loading_ani_light.json'
 import loadingAnimationdark from '../Assets/lotties/loading_ani.json'
+import EidFeature from '../pages/home/EidFeature';
 
 const MainLayout = () => {
   // Fetch all categories
@@ -21,8 +22,8 @@ const MainLayout = () => {
     return (
       <div className="flex min-h-screen items-center justify-center text-3xl ">
         <div className='w-96'>
-        <Lottie animationData={loadingAnimation} ></Lottie>
-        {/* <Lottie animationData={loadingAnimationdark} ></Lottie> */}
+          <Lottie animationData={loadingAnimation} ></Lottie>
+          {/* <Lottie animationData={loadingAnimationdark} ></Lottie> */}
         </div>
       </div>
     );
@@ -31,6 +32,7 @@ const MainLayout = () => {
 
   return (
     <>
+      <EidFeature />
       <Navbar />
 
 

@@ -49,7 +49,7 @@ const SmallCard = ({ event, height, titletext, space }) => {
   }, []);
 
   return (
-    <div ref={cardRef} className="group relative cursor-pointer overflow-hidden rounded-xl">
+    <div ref={cardRef} className="group relative cursor-pointer overflow-hidden rounded-lg">
       {/* Image with hover dark effect */}
       <Link to={`/event/${_id}`}>
         <div className={`relative w-full ${height} text-start`}>
