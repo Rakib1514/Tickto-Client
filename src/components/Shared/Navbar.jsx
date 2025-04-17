@@ -129,7 +129,7 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 bg-[#41a5a2]/70 p-2 font-bold shadow backdrop-blur-3xl"
                       >
-                        <li className="text-center">{user.displayName}</li>
+                        <li className="text-center">{user?.displayName}</li>
                         <li>
                           <Link to="/updateprofile">Update Profile</Link>
                         </li>

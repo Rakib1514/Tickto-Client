@@ -12,7 +12,7 @@ const AllEvents = () => {
   } = useQuery({
     queryKey: ['events'],
     queryFn: async () => {
-      const response = await axios.get('https://tickto-server.vercel.app/api/events');
+      const response = await axios.get('http://localhost:5000/api/events');
       return response.data.data || [];
     },
   });
