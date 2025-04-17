@@ -9,7 +9,7 @@ const EventDetails = () => {
     queryKey: ['Event', id],
     queryFn: async () => {
       // Fetch event details from API
-      const res = await axios.get(`/api/event/${id}`);
+      const res = await axios.get(`https://tickto-server.vercel.app/api/event/${id}`);
       return res.data;
     },
   });
@@ -72,7 +72,7 @@ const EventDetails = () => {
   } = eventData.data;
 
   return (
-    <div className="mx-auto max-w-6xl p-4">
+    <div className="mx-auto pt-42 max-w-6xl p-4">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* Left Side: Event Image */}
         <div>
