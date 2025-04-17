@@ -145,8 +145,8 @@ const JoinUs = () => {
     gsap.from('.stagger-box', {
       opacity: 0,
       y: 50,
-      stagger: 0.6, // Each card appears with 0.6s delay
-      duration: 1,
+      stagger: 0.8, // Each card appears with 0.6s delay
+      duration: 3,
       ease: 'power2.out',
       scrollTrigger: {
         trigger: '.team-section',
@@ -159,7 +159,7 @@ const JoinUs = () => {
       gsap.from('.fade-up', {
         opacity: 0,
         y: 50,
-        duration: 1,
+        duration: 5,
       });
   }, []);
 
