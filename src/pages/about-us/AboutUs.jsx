@@ -1,8 +1,7 @@
 import Lottie from 'lottie-react';
 import aboutUsLottie from '../../Assets/lotties/aboutUs.json';
 import { motion } from 'framer-motion';
-import AboutUsSection from './AboutUsSection';
-import StatsSection from './StatsSection';
+
 
 const AboutUs = () => {
   const containerVariants = {

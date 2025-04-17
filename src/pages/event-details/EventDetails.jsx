@@ -72,7 +72,7 @@ const EventDetails = () => {
   } = eventData.data;
 
   return (
-    <div className="mx-auto pt-42 max-w-6xl p-4">
+    <div className="mx-auto py-42 max-w-6xl p-4">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* Left Side: Event Image */}
         <div>
