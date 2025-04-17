@@ -3,7 +3,6 @@ import { MdCall } from 'react-icons/md';
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdTime } from "react-icons/io";
 import Socials from '../../components/Shared/Socials';
-import member2 from '../../Assets/joinus/Team/member.jpg';
 import rakibul from '../../Assets/joinus/Team/rakib.png';
 import sana from '../../Assets/joinus/Team/sana.jpeg';
 import akash from '../../Assets/joinus/Team/akash.jpg';
