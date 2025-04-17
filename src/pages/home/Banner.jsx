@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import b1 from '../../Assets/Banner/plane1.jpeg';
+// import b1 from '../../Assets/Banner/plane1.jpeg';
+import b1 from '../../Assets/Banner/plane-coffee.jpg';
 // import b2 from '../../Assets/Banner/train.jpeg';
 // import b2 from '../../Assets/Banner/Train-2.jpeg';
 // import b2 from '../../Assets/Banner/train3.jpg';
@@ -99,7 +100,7 @@ export default function Banner() {
   const handlePrev = () => handleSlider('prev');
 
   return (
-    <div ref={carouselRef} className="carousel bg-black relative overflow-hidden w-screen min-h-screen">
+    <div ref={carouselRef} className="carousel bg-black relative overflow-hidden w-screen h-fit md:min-h-screen">
   
       <div ref={sliderRef} className="list absolute inset-0">
 
@@ -107,14 +108,14 @@ export default function Banner() {
           <div key={index} className="item absolute inset-0">
             <img src={slide.image} alt="slide" className="w-full h-full object-cover" />
 
-            <div className="content absolute top-[20%] md:top-[26%] w-[1140px] max-w-[80%] left-[200px] md:left-[500px] lg:left-[760px] -translate-x-1/2 pr-[24%] text-white text-shadow-md">
+            <div className="content absolute top-[32%] w-[1200px] max-w-[80%] left-[200px] md:left-[500px] lg:left-[760px] -translate-x-1/2 pt-8 md:pt-0 pr-1 md:pr-[16%] text-white text-shadow-md">
               <div className="author font-bold tracking-[10px] text-xl"><span className='text-[#317371]'>TICK</span>TO</div>
-              <div className="title text-3xl md:text-5xl font-bold leading-tight mt-4 my-3 text-yellow-400">{slide.title}</div>
+              <div className="title text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mt-3 my-3 text-yellow-600">{slide.title}</div>
               <div className="des md:text-lg leading-tight mb-8">{slide.description}</div>
 
               <div className="buttons flex gap-2 mt-5">
                 <button className="btn shadow-none px-6 bg-[#317371] text-white border-none tracking-wider">SEE MORE</button>
-                <button className="btn shadow-none px-6 border border-[#317371] text-white bg-transparent tracking-wider">SUBSCRIBE</button>
+                <button className="btn shadow-none px-6 border border-[#317371] text-[#317371] bg-transparent tracking-wider">SUBSCRIBE</button>
               </div>
             </div>
 
@@ -133,7 +134,7 @@ export default function Banner() {
           </div>
         ))}
       </div>
-      <div className="arrows absolute top-[80%] md:left-[16%] lg:left-[34%] w-[300px] max-w-[30%] z-[100] flex gap-2 items-center">
+      <div className="arrows absolute top-[65%] md:top-[80%] md:left-[16%] lg:left-[34%] w-[300px] max-w-[30%] z-[100] flex gap-2 items-center">
         <button onClick={handlePrev} >{'<'}</button>
         <button onClick={handleNext} >{'>'}</button>
       </div>

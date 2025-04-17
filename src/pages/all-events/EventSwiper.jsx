@@ -12,7 +12,7 @@ const EventSwiper = ({ category }) => {
   const [isEnd, setIsEnd] = useState(false);
 
   return (
-    <div className="relative my-10">
+    <div className="relative py-6">
       <Link to={`/events/${category?.subCategory}`}>
         <button className="category__title__container group flex cursor-pointer items-center">
           <span className="category_title mb-4 text-3xl font-bold capitalize">
