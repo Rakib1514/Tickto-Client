@@ -15,7 +15,7 @@ import { FaFacebookF, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 
 

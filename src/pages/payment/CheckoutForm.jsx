@@ -11,6 +11,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { FaCcVisa } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const CheckoutForm = () => {
   const [error, setError] = useState('');
@@ -20,6 +21,7 @@ const CheckoutForm = () => {
   const elements = useElements();
   const totalPrice = 10; // dynamic
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (totalPrice > 0) {
@@ -145,6 +147,7 @@ const CheckoutForm = () => {
             timerProgressBar: true,
           }).then(() => {
             resetForm();
+            navigate('/dashboard/admin/payment-reports')
           });
         }
       } catch (err) {
