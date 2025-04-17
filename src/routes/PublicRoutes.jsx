@@ -23,6 +23,8 @@ import Payment_reports from '../dashboard/admin/Payment_reports';
 import Manage_user from '../dashboard/admin/Manage_user';
 import Manage_tickets from '../dashboard/admin/Manage_tickets';
 import Booking_reports from '../dashboard/admin/Booking_reports';
+import Payment from '../pages/payment/Payment';
+import PaymentHistory from '../pages/payment/PaymentHistory';
 
 const PublicRoutes = () => {
   return (
@@ -38,6 +40,7 @@ const PublicRoutes = () => {
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/join-us" element={<JoinUs />} />
+        <Route path="/payment" element={<Payment />} />
       </Route>
 
       {/*-------------------------------- Dashboard layout ------------------------------------- */}
@@ -48,7 +51,7 @@ const PublicRoutes = () => {
         <Route path="/dashboard/admin/booking-reports" element={<Booking_reports />} />
         <Route path="/dashboard/admin/manage-tickets" element={<Manage_tickets />} />
         <Route path="/dashboard/admin/manage-user" element={<Manage_user />} />
-        <Route path="/dashboard/admin/payment-reports" element={<Payment_reports />} />
+        <Route path="/dashboard/admin/payment-reports" element={<PaymentHistory />} />
         <Route path="/dashboard/admin/setting" element={<Setting />} />
 
         <Route path="/dashboard/my-profile" element={<My_profile />} />
