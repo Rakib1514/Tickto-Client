@@ -17,17 +17,18 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center space-x-2"
           >
-            {/* logo and primary navigation */}
-            <div className="flex">
-              <div className="flex flex-shrink-0 items-center">
-                <Link to="/" className="flex items-center">
-                  <span className="text-3xl font-bold">
-                    <span className="text-[#317371]"> 🎟 Tick</span>
-                    <span className="">To</span>
-                  </span>
-                </Link>
-              </div>
-            </div>
+             {/* logo and primary navigation */}
+                        <div className="flex">
+                          <div className="flex flex-shrink-0 items-center">
+                            <Link to="/" className="flex gap-2 items-center">
+                              <Logo/>
+                              <div className="text-2xl md:text-3xl font-bold">
+                                <span className="text-[#317371]">Tick</span>
+                                <span className="">To</span>
+                              </div>
+                            </Link>
+                          </div>
+                        </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
