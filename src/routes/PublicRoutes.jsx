@@ -25,7 +25,9 @@ import Manage_tickets from '../dashboard/admin/Manage_tickets';
 import Booking_reports from '../dashboard/admin/Booking_reports';
 import Payment from '../pages/payment/Payment';
 import PaymentHistory from '../pages/payment/PaymentHistory';
+import { createBrowserRouter } from "react-router";
 
+const router = createBrowserRouter([])
 const PublicRoutes = () => {
   return (
     <Routes>
