@@ -1,6 +1,6 @@
 // import React, { useContext } from 'react';
 import './auth.css';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
@@ -11,7 +11,10 @@ import { loginUser, loginWithGoogle } from '../../Redux/auth/authSlice';
 
 const Login = () => {
   // const { setuser, loginWithGoogle, } = useContext(AuthContext)
+  
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const {
     register,
@@ -30,6 +33,9 @@ const Login = () => {
   // google login as worker
   const handleGoogle = () => {
     dispatch(loginWithGoogle());
+    
+    //login with google redirect
+    navigate(from, { replace: true });
     // .then(res => {
 
     //     setuser(res.user)

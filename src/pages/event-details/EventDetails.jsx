@@ -9,7 +9,7 @@ const EventDetails = () => {
     queryKey: ['Event', id],
     queryFn: async () => {
       // Fetch event details from API
-      const res = await axios.get(`http://localhost:5000/api/event/${id}`);
+      const res = await axios.get(`https://tickto-server.vercel.app/api/event/${id}`);
       return res.data;
     },
   });
@@ -90,7 +90,7 @@ const EventDetails = () => {
 
             {/* Call-to-Action Buttons */}
             <div className="mt-4 flex flex-col gap-4 sm:flex-row">
-              <Link to={'/'}>
+              <Link to={'/payment'}>
                 <button className="bg-primary cursor-pointer rounded px-6 py-2 text-white hover:opacity-90">
                   Buy Ticket Now
                 </button>

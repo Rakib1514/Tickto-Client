@@ -1,3 +1,4 @@
+
 import { useQuery } from "@tanstack/react-query";
 import loadingAnimation from '../../Assets/lotties/loading_ani_light.json'
 import loadingAnimationdark from '../../Assets/lotties/loading_ani.json'
@@ -14,7 +15,7 @@ const AllEvents = () => {
   } = useQuery({
     queryKey: ['events'],
     queryFn: async () => {
-      const response = await axios.get('http://localhost:5000/api/events');
+      const response = await axios.get('https://tickto-server.vercel.app/api/events');
       return response.data.data || [];
     },
   });
