@@ -100,6 +100,15 @@ export default function Dashboard() {
                 </li>
                 <li>
                   <Link
+                    to="/dashboard/admin/qr-scanner"
+                    className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                  >
+                    <RiUserSettingsLine className="text-lg" />
+                    QrScanner
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/dashboard/admin/manage-tickets"
                     className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
                   >

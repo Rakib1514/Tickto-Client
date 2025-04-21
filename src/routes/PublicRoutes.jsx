@@ -23,6 +23,7 @@ import Payment_reports from '../dashboard/admin/Payment_reports';
 import Manage_user from '../dashboard/admin/Manage_user';
 import Manage_tickets from '../dashboard/admin/Manage_tickets';
 import Booking_reports from '../dashboard/admin/Booking_reports';
+import QrCode_scanner from '../dashboard/admin/QrCode_scanner';
 
 const PublicRoutes = () => {
   return (
@@ -44,6 +45,7 @@ const PublicRoutes = () => {
       <Route path="/dashboard" element={<Dashboard_layout />}>
         <Route index element={<Navigate to="/dashboard/admin-dashboard" replace />} />
         <Route path="/dashboard/admin-dashboard" element={<Admin_dashboard />} />
+        <Route path="/dashboard/admin/qr-scanner" element={<QrCode_scanner />} />
         <Route path="/dashboard/admin/add-event" element={<Add_event />} />
         <Route path="/dashboard/admin/booking-reports" element={<Booking_reports />} />
         <Route path="/dashboard/admin/manage-tickets" element={<Manage_tickets />} />

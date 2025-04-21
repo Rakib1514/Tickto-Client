@@ -46,13 +46,14 @@ const Register = () => {
         .then(() => {
           const userInfo = {
             name: data?.name,
-            email: data.email,
+            email: data?.email,
             number: data.number,
             created_at: currentDateTime,
             photoURL: imageURL,
           };
+          console.log( " photo is ", photoURL);
           axiosPublic.post('/api/users', userInfo).then((res) => {
-            if (res.data.insertedId) {
+            if (res?.data?.insertedId) {
               console.log('user added');
               reset();
               Swal.fire({
