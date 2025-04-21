@@ -4,8 +4,9 @@ import SmallCard from '../../components/Shared/SmallCard.jsx';
 const RecentView = () => {
   const [events, setEvents] = useState([]);
 
-  //
-  // fetch data from recently viewed collection with /:uid
+  // const [events, setEvents] = useState([])
+
+  // fetch data from recently viewed collection with /:uid 
   // data limit - 4
 
   useEffect(() => {

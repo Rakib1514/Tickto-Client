@@ -9,6 +9,7 @@ import Reviews from './Reviews';
 import Events from './Events';
 import Travel from './Travel';
 
+
 const Home = () => {
   return (
     <>
@@ -20,6 +21,7 @@ const Home = () => {
       <Events />
       <Travel />
       <Reviews />
+      
     </>
   );
 };

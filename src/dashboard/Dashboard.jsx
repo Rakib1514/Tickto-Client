@@ -12,13 +12,15 @@ import { IoTicketOutline } from 'react-icons/io5';
 import { BsBookmarkCheck, BsCardChecklist } from 'react-icons/bs';
 import Chart from './Chart';
 import TotalRevenue from './TotalRevenue';
+import Logo from '../components/Shared/Logo';
+import useAdmin from '../hooks/useAdmin';
 
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
 
   // Conditionally render admin routes if the user is an admin
   // const isAdmin = user?.role === 'user';
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="flex min-h-screen">
@@ -30,7 +32,13 @@ export default function Dashboard() {
         {/* Sidebar Header */}
         <header className="flex items-center justify-between p-4">
           <span className="w-full border-b-2 border-gray-300 pb-2 text-xl font-bold text-gray-900">
-            🎟 TickTo
+            <Link to="/" className="flex gap-2 items-center">
+              <Logo />
+              <div className="text-2xl md:text-3xl font-bold">
+                <span className="text-[#317371]">Tick</span>
+                <span className="">To</span>
+              </div>
+            </Link>
           </span>
 
           <button
@@ -69,7 +77,8 @@ export default function Dashboard() {
         <nav className="overflow-y-auto p-4">
           <ul className="space-y-2">
             {/* User Routes */}
-            {isAdmin ? (
+            {
+            isAdmin ? (
               <>
                 <li>
                   <Link
@@ -212,7 +221,8 @@ export default function Dashboard() {
                   </Link>
                 </li>
               </>
-            )}
+            )
+            }
 
             <></>
 

@@ -2,6 +2,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import Logo from './Logo';
+import Socials from './Socials';
 
 const Footer = () => {
   return (
@@ -15,8 +17,18 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center space-x-2"
           >
-            <div className="rounded-md bg-white p-2 shadow-md">logo</div>
-            <h2 className="text-2xl font-bold">TickBook</h2>
+             {/* logo and primary navigation */}
+                        <div className="flex">
+                          <div className="flex flex-shrink-0 items-center">
+                            <Link to="/" className="flex gap-2 items-center">
+                              <Logo/>
+                              <div className="text-2xl md:text-3xl font-bold">
+                                <span className="text-[#317371]">Tick</span>
+                                <span className="">To</span>
+                              </div>
+                            </Link>
+                          </div>
+                        </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
@@ -24,18 +36,7 @@ const Footer = () => {
             transition={{ delay: 0.3 }}
             className="flex space-x-4"
           >
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <FaFacebookF className="cursor-pointer text-xl text-[#785F54] transition duration-300 hover:text-[#317371]" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <FaTwitter className="cursor-pointer text-xl text-[#785F54] transition duration-300 hover:text-[#317371]" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <FaInstagram className="cursor-pointer text-xl text-[#785F54] transition duration-300 hover:text-[#317371]" />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-              <FaLinkedinIn className="cursor-pointer text-xl text-[#785F54] transition duration-300 hover:text-[#317371]" />
-            </a>
+            <Socials/>
           </motion.div>
         </div>
 
@@ -68,7 +69,7 @@ const Footer = () => {
               { name: 'Terms of Use', link: '/terms' },
               { name: 'Privacy Policy', link: '/legal/privacy' },
               { name: 'Cookie Policy', link: '/legal/cookies' },
-              { name: 'Security', link: '/legal/security' },
+              { name: 'Security', link: '/payment' },
             ].map((legal, index) => (
               <motion.li
                 key={index}
@@ -100,7 +101,7 @@ const Footer = () => {
               whileTap={{ scale: 0.9 }}
               className="mt-2 w-full rounded-md bg-[#A989B0] py-2 text-white transition duration-300 hover:bg-orange-600"
             >
-              Submit
+              Subscribe
             </motion.button>
           </motion.div>
         </div>

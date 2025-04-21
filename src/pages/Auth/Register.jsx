@@ -60,17 +60,17 @@ const Register = () => {
                 icon: 'success',
                 showClass: {
                   popup: `
-                                animate__animated
-                                animate__fadeInUp
-                                animate__faster
-                                `,
+                      animate__animated
+                      animate__fadeInUp
+                      animate__faster
+                      `,
                 },
                 hideClass: {
                   popup: `
-                                animate__animated
-                                animate__fadeOutDown
-                                animate__faster
-                                `,
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                    `,
                 },
               });
             }
