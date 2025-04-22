@@ -41,7 +41,6 @@ const UpdateProfile = () => {
     } catch (err) {
       setError('Failed to update profile. Please try again.');
       setSuccess('');
-      console.log(err);
     }
   };
 

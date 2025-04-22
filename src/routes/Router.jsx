@@ -28,6 +28,8 @@ import PaymentHistory from "../pages/payment/PaymentHistory";
 import Auth from "../pages/Auth/Auth";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
+import AddBus from "../dashboard/organizer/AddBus";
+import CreateTrip from "../dashboard/organizer/CreateTrip";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +71,8 @@ const router = createBrowserRouter([
           { path: "admin/setting", Component: Setting },
           { path: "my-profile", Component: MyProfile },
           { path: "payments", Component: PaymentHistory },
+          { path: "add-bus", Component: AddBus },
+          { path: "create-trip", Component: CreateTrip },
         ],
       },
 

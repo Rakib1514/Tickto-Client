@@ -84,7 +84,6 @@ const CheckoutForm = () => {
     });
 
     if (error) {
-      console.log('payment error', error);
       setError(error.message);
       Swal.fire({
         icon: 'error',
@@ -93,7 +92,6 @@ const CheckoutForm = () => {
       });
       return;
     } else {
-      console.log('payment method--->', paymentMethod);
       setError('');
     }
 
@@ -109,7 +107,6 @@ const CheckoutForm = () => {
     });
 
     if (confirmError) {
-      console.log('confirm error', confirmError);
       setError(confirmError.message);
       Swal.fire({
         icon: 'error',
@@ -132,7 +129,7 @@ const CheckoutForm = () => {
 
       try {
         const res = await axios.post('/payments', payment);
-        console.log('response check--->', res);
+       
         if (res.data?.insertedId) {
           Swal.fire({
             icon: 'success',

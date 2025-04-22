@@ -116,6 +116,24 @@ export default function Dashboard() {
                     Add Event
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/dashboard/add-bus"
+                    className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                  >
+                    <IoTicketOutline className="text-lg" />
+                    Add Bus
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/create-trip"
+                    className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                  >
+                    <IoTicketOutline className="text-lg" />
+                    Create Trip
+                  </Link>
+                </li>
 
                 <li>
                   <Link

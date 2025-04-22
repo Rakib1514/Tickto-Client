@@ -24,7 +24,7 @@ const Navbar = () => {
   const handleLogout = () => {
     logOut()
       .then((res) => {
-        console.log(res);
+       
 
         const Toast = Swal.mixin({
           toast: true,

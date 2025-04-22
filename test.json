@@ -1,4 +1,7 @@
 {
+  "_id": {
+    "$oid": "68077f9d332e1b5080046727"
+  },
   "busId": "BUS_001",
   "name": "Green Line Express",
   "registrationNumber": "GL-1234",
@@ -20,20 +23,16 @@
       "row": 1,
       "seats": [
         {
-          "seatNumber": "1A",
-          "position": "left-window"
+          "seatNumber": "1A"
         },
         {
-          "seatNumber": "1B",
-          "position": "left-aisle"
+          "seatNumber": "1B"
         },
         {
-          "seatNumber": "1C",
-          "position": "right-aisle"
+          "seatNumber": "1C"
         },
         {
-          "seatNumber": "1D",
-          "position": "right-window"
+          "seatNumber": "1D"
         }
       ]
     },
@@ -41,20 +40,16 @@
       "row": 2,
       "seats": [
         {
-          "seatNumber": "2A",
-          "position": "left-window"
+          "seatNumber": "2A"
         },
         {
-          "seatNumber": "2B",
-          "position": "left-aisle"
+          "seatNumber": "2B"
         },
         {
-          "seatNumber": "2C",
-          "position": "right-aisle"
+          "seatNumber": "2C"
         },
         {
-          "seatNumber": "2D",
-          "position": "right-window"
+          "seatNumber": "2D"
         }
       ]
     },
@@ -62,20 +57,16 @@
       "row": 3,
       "seats": [
         {
-          "seatNumber": "3A",
-          "position": "left-window"
+          "seatNumber": "3A"
         },
         {
-          "seatNumber": "3B",
-          "position": "left-aisle"
+          "seatNumber": "3B"
         },
         {
-          "seatNumber": "3C",
-          "position": "right-aisle"
+          "seatNumber": "3C"
         },
         {
-          "seatNumber": "3D",
-          "position": "right-window"
+          "seatNumber": "3D"
         }
       ]
     },
@@ -83,20 +74,16 @@
       "row": 4,
       "seats": [
         {
-          "seatNumber": "4A",
-          "position": "left-window"
+          "seatNumber": "4A"
         },
         {
-          "seatNumber": "4B",
-          "position": "left-aisle"
+          "seatNumber": "4B"
         },
         {
-          "seatNumber": "4C",
-          "position": "right-aisle"
+          "seatNumber": "4C"
         },
         {
-          "seatNumber": "4D",
-          "position": "right-window"
+          "seatNumber": "4D"
         }
       ]
     },
@@ -104,20 +91,16 @@
       "row": 5,
       "seats": [
         {
-          "seatNumber": "5A",
-          "position": "left-window"
+          "seatNumber": "5A"
         },
         {
-          "seatNumber": "5B",
-          "position": "left-aisle"
+          "seatNumber": "5B"
         },
         {
-          "seatNumber": "5C",
-          "position": "right-aisle"
+          "seatNumber": "5C"
         },
         {
-          "seatNumber": "5D",
-          "position": "right-window"
+          "seatNumber": "5D"
         }
       ]
     },
@@ -125,20 +108,16 @@
       "row": 6,
       "seats": [
         {
-          "seatNumber": "6A",
-          "position": "left-window"
+          "seatNumber": "6A"
         },
         {
-          "seatNumber": "6B",
-          "position": "left-aisle"
+          "seatNumber": "6B"
         },
         {
-          "seatNumber": "6C",
-          "position": "right-aisle"
+          "seatNumber": "6C"
         },
         {
-          "seatNumber": "6D",
-          "position": "right-window"
+          "seatNumber": "6D"
         }
       ]
     },
@@ -146,20 +125,16 @@
       "row": 7,
       "seats": [
         {
-          "seatNumber": "7A",
-          "position": "left-window"
+          "seatNumber": "7A"
         },
         {
-          "seatNumber": "7B",
-          "position": "left-aisle"
+          "seatNumber": "7B"
         },
         {
-          "seatNumber": "7C",
-          "position": "right-aisle"
+          "seatNumber": "7C"
         },
         {
-          "seatNumber": "7D",
-          "position": "right-window"
+          "seatNumber": "7D"
         }
       ]
     },
@@ -167,20 +142,16 @@
       "row": 8,
       "seats": [
         {
-          "seatNumber": "8A",
-          "position": "left-window"
+          "seatNumber": "8A"
         },
         {
-          "seatNumber": "8B",
-          "position": "left-aisle"
+          "seatNumber": "8B"
         },
         {
-          "seatNumber": "8C",
-          "position": "right-aisle"
+          "seatNumber": "8C"
         },
         {
-          "seatNumber": "8D",
-          "position": "right-window"
+          "seatNumber": "8D"
         }
       ]
     },
@@ -188,20 +159,16 @@
       "row": 9,
       "seats": [
         {
-          "seatNumber": "9A",
-          "position": "left-window"
+          "seatNumber": "9A"
         },
         {
-          "seatNumber": "9B",
-          "position": "left-aisle"
+          "seatNumber": "9B"
         },
         {
-          "seatNumber": "9C",
-          "position": "right-aisle"
+          "seatNumber": "9C"
         },
         {
-          "seatNumber": "9D",
-          "position": "right-window"
+          "seatNumber": "9D"
         }
       ]
     },
@@ -209,20 +176,16 @@
       "row": 10,
       "seats": [
         {
-          "seatNumber": "10A",
-          "position": "left-window"
+          "seatNumber": "10A"
         },
         {
-          "seatNumber": "10B",
-          "position": "left-aisle"
+          "seatNumber": "10B"
         },
         {
-          "seatNumber": "10C",
-          "position": "right-aisle"
+          "seatNumber": "10C"
         },
         {
-          "seatNumber": "10D",
-          "position": "right-window"
+          "seatNumber": "10D"
         }
       ]
     }

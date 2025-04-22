@@ -12,7 +12,7 @@ const MainLayout = () => {
     queryKey: ["categories"],
     queryFn: async () => {
       const response = await axios.get(
-        "https://tickto-server.vercel.app/api/categories"
+        "/api/categories"
       );
       return response.data.data || [];
     },
