@@ -11,9 +11,7 @@ const MainLayout = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const response = await axios.get(
-        "/api/categories"
-      );
+      const response = await axios.get("/api/categories");
       return response.data.data || [];
     },
   });
@@ -38,11 +36,8 @@ const MainLayout = () => {
       <div className="sticky top-16 py-1  text-black z-[500]  bg-white ">
         <div className="container pb-2 mx-auto flex flex-wrap gap-3 md:gap-5 w-full">
           {data?.map((category, idx) => (
-            <Link to={`/events/${category.subCategory}`}>
-              <button
-                key={idx}
-                className="top__category__btn capitalize cursor-pointer"
-              >
+            <Link key={idx} to={`/events/${category.subCategory}`}>
+              <button className="top__category__btn capitalize cursor-pointer">
                 {category.subCategory}
               </button>
             </Link>
