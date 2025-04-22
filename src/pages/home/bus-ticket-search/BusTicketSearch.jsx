@@ -1,19 +1,50 @@
 import React, { useState } from "react";
-import {
-  Form,
-  Input,
-  DatePicker,
-  Radio,
-  Button,
-  Row,
-  Col,
-  Typography,
-} from "antd";
+import { useQuery } from "@tanstack/react-query";
+import { Form, Input, DatePicker, Button, Row, Col, Typography, AutoComplete } from "antd";
 import { EnvironmentOutlined, CalendarOutlined } from "@ant-design/icons";
 import moment from "moment";
+import axios from "axios";
+import debounce from "lodash.debounce";
 
 const BusTicketSearch = () => {
   const [form] = Form.useForm();
+  const [originSearchTerm, setOriginSearchTerm] = useState("");
+  const [destinationSearchTerm, setDestinationSearchTerm] = useState("");
+  const [originOptions, setOriginOptions] = useState([]);
+  const [destinationOptions, setDestinationOptions] = useState([]);
+
+  // Fetch origin suggestions
+  const { isFetching: isFetchingOrigins } = useQuery({
+    queryKey: ["origins", originSearchTerm],
+    queryFn: async () => {
+      if (!originSearchTerm || originSearchTerm.length < 2) return [];
+      const { data } = await axios.get(`/api/location?from=${originSearchTerm}`);
+      setOriginOptions(data.map(origin => ({ value: origin })));
+      return data;
+    },
+    staleTime: 600000,
+  });
+
+  // Fetch destination suggestions
+  const { isFetching: isFetchingDestinations } = useQuery({
+    queryKey: ["destinations", destinationSearchTerm],
+    queryFn: async () => {
+      if (!destinationSearchTerm || destinationSearchTerm.length < 2) return [];
+      const { data } = await axios.get(`/api/location?to=${destinationSearchTerm}`);
+      setDestinationOptions(data.map(destination => ({ value: destination })));
+      return data;
+    },
+    staleTime: 600000,
+  });
+
+  // Debounced search handlers
+  const handleOriginSearch = debounce((value) => {
+    setOriginSearchTerm(value);
+  }, 300);
+
+  const handleDestinationSearch = debounce((value) => {
+    setDestinationSearchTerm(value);
+  }, 300);
 
   const onFinish = (values) => {
     console.log("Search values:", values);
@@ -21,13 +52,7 @@ const BusTicketSearch = () => {
   };
 
   return (
-    <div
-      style={{
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      className="py-12 px-4"
-    >
+    <div className="py-12 px-4" style={{ backgroundSize: "cover", backgroundPosition: "center" }}>
       {/* Title Section */}
       <div className="flex justify-center items-center flex-col mb-8">
         <Typography.Title level={2} className="text-white">
@@ -59,7 +84,14 @@ const BusTicketSearch = () => {
               label="From"
               rules={[{ required: true, message: "Please enter origin" }]}
             >
-              <Input placeholder="From" prefix={<EnvironmentOutlined />} />
+              <AutoComplete
+                options={originOptions}
+                onSearch={handleOriginSearch}
+                placeholder="From"
+                notFoundContent={isFetchingOrigins ? "Searching..." : "No suggestions found"}
+              >
+                <Input prefix={<EnvironmentOutlined />} />
+              </AutoComplete>
             </Form.Item>
           </Col>
 
@@ -69,10 +101,14 @@ const BusTicketSearch = () => {
               label="To"
               rules={[{ required: true, message: "Please enter destination" }]}
             >
-              <Input
+              <AutoComplete
+                options={destinationOptions}
+                onSearch={handleDestinationSearch}
                 placeholder="To"
-                prefix={<EnvironmentOutlined rotate={180} />}
-              />
+                notFoundContent={isFetchingDestinations ? "Searching..." : "No suggestions found"}
+              >
+                <Input prefix={<EnvironmentOutlined rotate={180} />} />
+              </AutoComplete>
             </Form.Item>
           </Col>
 

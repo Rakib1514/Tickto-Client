@@ -2,9 +2,7 @@ import RecentView from "./RecentView";
 import DataSafe from "./DataSafe";
 import PopularNow from "./PopularNow";
 import Feature from "./Feature";
-
 import Reviews from "./Reviews";
-
 import Events from "./Events";
 import Travel from "./Travel";
 import LgBanner from "./banner/LgBanner";
@@ -23,13 +21,13 @@ const Home = () => {
         </div>
       </>
       <BusTicketSearch/>
-      <RecentView />
-      <Feature />
-      <DataSafe />
-      <PopularNow />
-      <Events />
-      <Travel />
-      <Reviews />
+      {/* <RecentView /> */}
+      {/* <Feature /> */}
+      {/* <DataSafe /> */}
+      {/* <PopularNow /> */}
+      {/* <Events /> */}
+      {/* <Travel /> */}
+      {/* <Reviews /> */}
     </>
   );
 };

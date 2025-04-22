@@ -23,21 +23,21 @@ const CheckoutForm = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (totalPrice > 0) {
-      axios.post('/create-payment-intent', { price: totalPrice })
-        .then(res => {
-          setClientSecret(res.data.clientSecret);
-        })
-        .catch(err => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Payment Intent Error',
-            text: 'Failed to initialize payment. Please try again later.',
-          });
-        });
-    }
-  }, [totalPrice]);
+  // useEffect(() => {
+  //   if (totalPrice > 0) {
+  //     axios.post('/create-payment-intent', { price: totalPrice })
+  //       .then(res => {
+  //         setClientSecret(res.data.clientSecret);
+  //       })
+  //       .catch(err => {
+  //         Swal.fire({
+  //           icon: 'error',
+  //           title: 'Payment Intent Error',
+  //           text: 'Failed to initialize payment. Please try again later.',
+  //         });
+  //       });
+  //   }
+  // }, [totalPrice]);
 
   const resetForm = () => {
     const cardNumber = elements.getElement(CardNumberElement);

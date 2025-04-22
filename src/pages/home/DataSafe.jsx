@@ -2,9 +2,7 @@ import { motion } from "framer-motion";
 import { FaCheck } from "react-icons/fa";
 import shield from "../../Assets/icons/shield.png";
 
-
 const DataSafe = () => {
-
   return (
     <div className="my-32 grid md:grid-cols-2">
       <div className="bg-gradient-to-r from-[#a2b9a7]/50 to-[#317371]/50 py-20 md:p-32 md:py-44 lg:py-48">
