@@ -76,18 +76,18 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full top-0 z-[500] text-white bg-black/20 backdrop-blur-sm">
+      <nav className="fixed w-full top-0 z-[500] text-black bg-white">
       <div>
 
         <div className="container mx-auto px-2">
-          <div className="flex py-3 justify-between">
+          <div className="flex py-2 justify-between">
             {/* logo and primary navigation */}
             <div className="flex">
               <div className="flex flex-shrink-0 items-center">
                 <Link to="/" className="flex gap-2 items-center">
                   <Logo/>
                   <div className="text-2xl md:text-3xl font-bold">
-                    <span className="text-[#317371]">Tick</span>
+                    <span className="text-primary">Tick</span>
                     <span className="">To</span>
                   </div>
                 </Link>
@@ -95,15 +95,15 @@ const Navbar = () => {
             </div>
             <div className="flex">
               {/* desktop navigation */}
-              <div className="hidden sm:space-x-4 lg:ml-8 lg:flex mx-4">
+              <div className="hidden lg:ml-8 lg:flex mx-4">
                 {navLinks.map(({ path, label, icon: Icon }, index) => (
                   <NavLink
                     key={index}
                     to={path}
-                    className={`inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
+                    className={`inline-flex items-center rounded-lg px-3 py-2 text-sm font-semibold transition-colors duration-150 ${
                       isActivePath(path)
-                        ? 'border-b-2 border-[#317371] text-[#317371] rounded-none'
-                        : ' hover:border-b hover:border-[#317371] hover:text-[#317371] transition rounded-none'
+                        ? 'border-b-2 border-primary text-primary rounded-none'
+                        : ' hover:border-b-2 hover:border-primary hover:text-primary transition rounded-none'
                     }`}
                   >
                     <Icon className="mr-2 h-4 w-4" />
@@ -128,7 +128,7 @@ const Navbar = () => {
                       </div>
                       <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 bg-[#41a5a2]/70 p-2 font-bold shadow backdrop-blur-3xl"
+                        className="menu menu-sm dropdown-content rounded-box z-1 text-white w-52 bg-[#41a5a2]/70 p-2 font-bold shadow backdrop-blur-3xl"
                       >
                         <li className="text-center">{user?.displayName}</li>
                         <li>
@@ -145,7 +145,7 @@ const Navbar = () => {
                   ) : (
                     <Link
                       to="/auth/login"
-                      className="rounded-sm border border-[#317371] px-2 py-1 md:px-4 md:py-[6px] text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#4f8886]"
+                      className="rounded-sm border border-primary px-2 py-1 md:px-4 md:py-[6px] text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#4f8886]"
                     >
                       Login
                     </Link>
@@ -154,7 +154,7 @@ const Navbar = () => {
                 {/* theme toggle */}
                 <button
                   onClick={toggleTheme}
-                  className="p-1 rounded-full transition-colors duration-200 hover:text-[#317371]"
+                  className="p-1 rounded-full transition-colors duration-200 hover:text-primary"
                   aria-label="Toggle theme"
                 >
                   {theme === 'dark' ? <Sun className="h-7 w-7" /> : <Moon className="h-7 w-7" />}
