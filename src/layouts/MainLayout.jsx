@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import Lottie from 'lottie-react';
 import loadingAnimation from '../Assets/lotties/loading_ani_light.json'
 import loadingAnimationdark from '../Assets/lotties/loading_ani.json'
-import EidFeature from '../pages/home/EidFeature';
+// import EidFeature from '../pages/home/EidFeature';
 
 const MainLayout = () => {
   // Fetch all categories
@@ -32,7 +32,7 @@ const MainLayout = () => {
 
   return (
     <>
-      <EidFeature />
+      {/* <EidFeature /> */}
       <Navbar />
 
 
