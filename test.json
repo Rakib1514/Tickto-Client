@@ -1,0 +1,231 @@
+{
+  "busId": "BUS_001",
+  "name": "Green Line Express",
+  "registrationNumber": "GL-1234",
+  "brand": "Mercedes",
+  "model": "Sprinter XL",
+  "type": "AC Sleeper",
+  "capacity": 40,
+  "features": [
+    "AC",
+    "WiFi",
+    "Charging Port",
+    "Recliner Seats"
+  ],
+  "images": [
+    "https://plus.unsplash.com/premium_photo-1664302152991-d013ff125f3f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzfGVufDB8fDB8fHww"
+  ],
+  "seatLayout": [
+    {
+      "row": 1,
+      "seats": [
+        {
+          "seatNumber": "1A",
+          "position": "left-window"
+        },
+        {
+          "seatNumber": "1B",
+          "position": "left-aisle"
+        },
+        {
+          "seatNumber": "1C",
+          "position": "right-aisle"
+        },
+        {
+          "seatNumber": "1D",
+          "position": "right-window"
+        }
+      ]
+    },
+    {
+      "row": 2,
+      "seats": [
+        {
+          "seatNumber": "2A",
+          "position": "left-window"
+        },
+        {
+          "seatNumber": "2B",
+          "position": "left-aisle"
+        },
+        {
+          "seatNumber": "2C",
+          "position": "right-aisle"
+        },
+        {
+          "seatNumber": "2D",
+          "position": "right-window"
+        }
+      ]
+    },
+    {
+      "row": 3,
+      "seats": [
+        {
+          "seatNumber": "3A",
+          "position": "left-window"
+        },
+        {
+          "seatNumber": "3B",
+          "position": "left-aisle"
+        },
+        {
+          "seatNumber": "3C",
+          "position": "right-aisle"
+        },
+        {
+          "seatNumber": "3D",
+          "position": "right-window"
+        }
+      ]
+    },
+    {
+      "row": 4,
+      "seats": [
+        {
+          "seatNumber": "4A",
+          "position": "left-window"
+        },
+        {
+          "seatNumber": "4B",
+          "position": "left-aisle"
+        },
+        {
+          "seatNumber": "4C",
+          "position": "right-aisle"
+        },
+        {
+          "seatNumber": "4D",
+          "position": "right-window"
+        }
+      ]
+    },
+    {
+      "row": 5,
+      "seats": [
+        {
+          "seatNumber": "5A",
+          "position": "left-window"
+        },
+        {
+          "seatNumber": "5B",
+          "position": "left-aisle"
+        },
+        {
+          "seatNumber": "5C",
+          "position": "right-aisle"
+        },
+        {
+          "seatNumber": "5D",
+          "position": "right-window"
+        }
+      ]
+    },
+    {
+      "row": 6,
+      "seats": [
+        {
+          "seatNumber": "6A",
+          "position": "left-window"
+        },
+        {
+          "seatNumber": "6B",
+          "position": "left-aisle"
+        },
+        {
+          "seatNumber": "6C",
+          "position": "right-aisle"
+        },
+        {
+          "seatNumber": "6D",
+          "position": "right-window"
+        }
+      ]
+    },
+    {
+      "row": 7,
+      "seats": [
+        {
+          "seatNumber": "7A",
+          "position": "left-window"
+        },
+        {
+          "seatNumber": "7B",
+          "position": "left-aisle"
+        },
+        {
+          "seatNumber": "7C",
+          "position": "right-aisle"
+        },
+        {
+          "seatNumber": "7D",
+          "position": "right-window"
+        }
+      ]
+    },
+    {
+      "row": 8,
+      "seats": [
+        {
+          "seatNumber": "8A",
+          "position": "left-window"
+        },
+        {
+          "seatNumber": "8B",
+          "position": "left-aisle"
+        },
+        {
+          "seatNumber": "8C",
+          "position": "right-aisle"
+        },
+        {
+          "seatNumber": "8D",
+          "position": "right-window"
+        }
+      ]
+    },
+    {
+      "row": 9,
+      "seats": [
+        {
+          "seatNumber": "9A",
+          "position": "left-window"
+        },
+        {
+          "seatNumber": "9B",
+          "position": "left-aisle"
+        },
+        {
+          "seatNumber": "9C",
+          "position": "right-aisle"
+        },
+        {
+          "seatNumber": "9D",
+          "position": "right-window"
+        }
+      ]
+    },
+    {
+      "row": 10,
+      "seats": [
+        {
+          "seatNumber": "10A",
+          "position": "left-window"
+        },
+        {
+          "seatNumber": "10B",
+          "position": "left-aisle"
+        },
+        {
+          "seatNumber": "10C",
+          "position": "right-aisle"
+        },
+        {
+          "seatNumber": "10D",
+          "position": "right-window"
+        }
+      ]
+    }
+  ],
+  "createdAt": "2025-04-20T12:00:00Z"
+}

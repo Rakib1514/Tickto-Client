@@ -14,34 +14,32 @@ const LgBanner = () => {
     <div className="relative h-[60vh] w-full overflow-x-hidden mt-26">
       <motion.div
         onClick={() => handlePanelClick(1)}
-        className="banner__panel flex left-0 z-30 bg-[url('https://i.ibb.co.com/23p3fXB2/concert.jpg')]"
+        className="banner__panel flex left-0 z-30 bg-[url('https://i.ibb.co.com/qM0tJ2JG/side-view-woman-waiting-bus-23-2148753441.jpg')] border-r border-gray-600"
         animate={{ x: activePanel >= 2 ? "-40vw" : "0vw" }}
         transition={{ ease: "circInOut" }}
       >
         <div className="flex flex-col justify-end ml-10 mb-10">
           <div className=" mt-4">
             <p className="text-4xl font-bold text-black p-2 bg-gradient-to-r to-[#6482FE] from-[#FBBFEB] w-fit">
-              Skip the Line
+              Ride Ahead –
             </p>
 
             <p className="text-4xl font-bold text-black p-2 bg-gradient-to-r from-[#6482FE] to-[#FBBFEB] w-fit translate-x-20">
-              Join the Vibe
+              Tickets at Your Fingertips
             </p>
           </div>
           <Link to="/sd">
-            <button className="group px-4 py-2 bg-white/80 mt-4 w-full font-bold cursor-pointer text-black rounded-xs">
-              Concerts, festivals, shows & more —{" "}
-              <span className="bg-primary py-2 px-1 text-white inline-block transition-transform duration-300 ease-in-out group-hover:scale-110">
-                book now
+            <button className="group px-4 py-2 bg-white/80 mt-4 font-bold cursor-pointer text-black rounded-xs">
+              <span className="bg-primary py-2 px-4 text-white inline-block transition-transform duration-300 ease-in-out group-hover:scale-110">
+                Bus
               </span>
-              , vibe later
             </button>
           </Link>
         </div>
       </motion.div>
       <motion.div
         onClick={() => handlePanelClick(2)}
-        className="banner__panel flex left-[20vw] z-20 bg-[url('https://i.ibb.co.com/39MTMrk0/Amusment-park.jpg')]"
+        className="banner__panel flex left-[20vw] z-20 bg-[url('https://i.ibb.co.com/39MTMrk0/Amusment-park.jpg')] border-r border-gray-600"
         animate={{
           x: activePanel >= 3 ? "-40vw" : activePanel === 2 ? "0vw" : "0vw",
         }}

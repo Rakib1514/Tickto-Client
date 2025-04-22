@@ -7,10 +7,10 @@ import { Carousel } from "antd";
 
 const carouselData = [
   {
-    image: "https://i.ibb.co.com/23p3fXB2/concert.jpg",
-    title1: "Skip the Line",
-    title2: "Join the Vibe",
-    btnText: "Book Now",
+    image: "https://i.ibb.co.com/qM0tJ2JG/side-view-woman-waiting-bus-23-2148753441.jpg",
+    title1: "Ride Ahead –",
+    title2: "Tickets at Your Fingertips",
+    btnText: "Bus",
     link: "/sd",
   },
   {

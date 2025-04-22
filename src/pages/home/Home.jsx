@@ -9,6 +9,7 @@ import Events from "./Events";
 import Travel from "./Travel";
 import LgBanner from "./banner/LgBanner";
 import SmMdBanner from "./banner/SmMdBanner";
+import BusTicketSearch from "./bus-ticket-search/BusTicketSearch";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
           <SmMdBanner />
         </div>
       </>
+      <BusTicketSearch/>
       <RecentView />
       <Feature />
       <DataSafe />

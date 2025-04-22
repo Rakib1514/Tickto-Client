@@ -6,37 +6,6 @@
 
 
 
-.logo-name {
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-  font-family: "Limelight", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.hands {
-  background-image: url('./Assets/joinus/team-cover.png');
-  background-size: cover;
-  background-position: center;
-}
-
-.about-info {
-  background-image: url('./Assets/about/about-cover3.png');
-  background-size: cover;
-  background-position: center;
-}
-
-.event-bg {
-  background-image: url('./Assets/covers/event-bg2.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-
 
 
 @plugin "daisyui/theme" {
@@ -80,3 +49,32 @@
   --color-primaryClr: #317371;
   ...
 } */
+
+.top__category__btn {
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all .2s ease-in-out;
+}
+
+.top__category__btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #F05537;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+.top__category__btn:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+
