@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Lottie from "lottie-react";
 import { useEffect } from "react";
+import { FiSearch } from 'react-icons/fi';
 import { useParams } from "react-router";
 import SmallCard from "../../components/Shared/SmallCard";
-import { FiSearch } from 'react-icons/fi';
-import loadingAnimation from '../../Assets/lotties/loading_ani.json'
-import loadingAnimationdark from '../../Assets/lotties/loading_ani.json'
 
 const CategoryWiseEvents = () => {
   const { category } = useParams();
@@ -25,10 +24,7 @@ const CategoryWiseEvents = () => {
   if (isLoading)
     return (
       <div className="flex min-h-screen items-center justify-center text-3xl ">
-        <div className='w-96'>
-        <Lottie animationData={loadingAnimation} ></Lottie>
-        {/* <Lottie animationData={loadingAnimationdark} ></Lottie> */}
-        </div>
+        <p>Loaidng in the categories event</p>
       </div>
     );
 
