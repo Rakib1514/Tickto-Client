@@ -14,6 +14,7 @@ import { EnvironmentOutlined, CalendarOutlined } from "@ant-design/icons";
 import moment from "moment";
 import axios from "axios";
 import debounce from "lodash.debounce";
+import { useNavigate } from "react-router";
 
 const BusTicketSearch = () => {
   const [form] = Form.useForm();
@@ -21,6 +22,8 @@ const BusTicketSearch = () => {
   const [destinationSearchTerm, setDestinationSearchTerm] = useState("");
   const [originOptions, setOriginOptions] = useState([]);
   const [destinationOptions, setDestinationOptions] = useState([]);
+
+  const navigate = useNavigate();
 
   // Fetch origin suggestions
   const { isFetching: isFetchingOrigins } = useQuery({
@@ -64,6 +67,14 @@ const BusTicketSearch = () => {
   const onFinish = (values) => {
     console.log("Search values:", values);
     // TODO: handle search action
+
+    const departure = values.date.format("YYYY-MM-DD");
+
+    const { from: origin, to: destination } = values;
+
+    navigate(
+      `/travel/bus?origin=${origin}&destination=${destination}&departure=${departure}`
+    );
   };
 
   return (
