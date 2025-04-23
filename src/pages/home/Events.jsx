@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import SmallCard from '../../components/Shared/SmallCard.jsx';
-import { GrLinkNext } from 'react-icons/gr';
-import { Link } from 'react-router';
 import CategorySection from '../../components/Shared/CategorySection';
 
 const Events = () => {

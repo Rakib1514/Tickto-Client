@@ -10,7 +10,7 @@ const EventDetails = () => {
     queryFn: async () => {
       // Fetch event details from API
       const res = await axios.get(
-        `https://tickto-server.vercel.app/api/event/${id}`
+        `/api/event/${id}`
       );
       return res.data;
     },

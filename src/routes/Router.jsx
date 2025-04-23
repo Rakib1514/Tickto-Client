@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import App from "../../App";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/home/Home";
@@ -28,6 +28,10 @@ import PaymentHistory from "../pages/payment/PaymentHistory";
 import Auth from "../pages/Auth/Auth";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
+import AddBus from "../dashboard/organizer/AddBus";
+import CreateTrip from "../dashboard/organizer/CreateTrip";
+import Transport from "../pages/Transports/Transport";
+import QueryWiseTransport from "../pages/Transports/QueryWiseTransport";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +51,8 @@ const router = createBrowserRouter([
           { path: "about-us", Component: AboutUs },
           { path: "join-us", Component: JoinUs },
           { path: "terms", Component: TermsAndConditions },
+          {path: 'travel', Component: Transport},
+          {path: 'travel/:vehicle', Component: QueryWiseTransport}
         ],
       },
 
@@ -69,6 +75,8 @@ const router = createBrowserRouter([
           { path: "admin/setting", Component: Setting },
           { path: "my-profile", Component: MyProfile },
           { path: "payments", Component: PaymentHistory },
+          { path: "add-bus", Component: AddBus },
+          { path: "create-trip", Component: CreateTrip },
         ],
       },
 

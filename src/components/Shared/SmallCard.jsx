@@ -1,93 +1,74 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { FaStar } from 'react-icons/fa';
-import theater from '../../Assets/Banner/img3.jpg';
-import { Link } from 'react-router';
+import React from "react";
+import { motion } from "framer-motion";
+import { FaStar } from "react-icons/fa";
+import theater from "../../Assets/Banner/img3.jpg";
+import { Link } from "react-router";
 
 const SmallCard = ({ event, height, titletext, space }) => {
   const { title, image_url, description, rating, date, _id } = event;
-  const cardRef = useRef(null);
-  const titleRef = useRef(null);
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    const card = cardRef.current;
-    const titleEl = titleRef.current;
-    const contentEl = contentRef.current;
-
-    // Set initial states
-    gsap.set(contentEl, { opacity: 0, y: 40 });
-    gsap.set(titleEl, { y: 0 });
-
-    // Hover Animation
-    card.addEventListener('mouseenter', () => {
-      gsap.to(titleEl, { y: -80, duration: 0.3, ease: 'power2.out' }); // Move title up
-      gsap.to(contentEl, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: 'power2.out',
-      }); // Show description & date
-    });
-
-    // Mouse Leave Animation
-    card.addEventListener('mouseleave', () => {
-      gsap.to(titleEl, { y: 0, duration: 0.3, ease: 'power2.inOut' }); // Move title back
-      gsap.to(contentEl, {
-        opacity: 0,
-        y: 40,
-        duration: 0.5,
-        ease: 'power2.inOut',
-      }); // Hide description & date
-    });
-
-    // Cleanup event listeners
-    return () => {
-      card.removeEventListener('mouseenter', () => {});
-      card.removeEventListener('mouseleave', () => {});
-    };
-  }, []);
 
   return (
-    <div ref={cardRef} className="group relative cursor-pointer overflow-hidden rounded-lg">
-      {/* Image with hover dark effect */}
+    <motion.div
+      initial="rest"
+      whileHover="hover"
+      animate="rest"
+      className="group relative cursor-pointer overflow-hidden rounded-lg"
+    >
       <Link to={`/event/${_id}`}>
         <div className={`relative w-full ${height} text-start`}>
-          <img
-            className="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:brightness-50"
+          {/* Background Image */}
+          <motion.img
             src={image_url || theater}
             alt={title}
+            className="h-full w-full object-cover"
+            variants={{
+              rest: { filter: "brightness(1)" },
+              hover: { filter: "brightness(0.5)" },
+            }}
+            transition={{ duration: 0.3 }}
           />
 
-          <div className="absolute top-3 right-3">
+          {/* Rating Top Right */}
+          <div className="absolute top-3 right-3 text-white text-center">
             <FaStar className="mx-auto text-lg text-amber-200" />
-            <span className="font-medium text-white">{rating}</span>
+            <span className="font-medium">{rating}</span>
           </div>
 
-          {/* Dark Gradient Overlay at Bottom */}
+          {/* Gradient Overlay */}
           <div className="absolute bottom-0 h-1/3 w-full bg-gradient-to-b from-black/0 to-black/90"></div>
 
           {/* Title (Always Visible) */}
-          <div
-            ref={titleRef}
+          <motion.div
             className={`absolute bottom-3 left-2 ${space} right-[2px] text-white ${titletext}`}
+            variants={{
+              rest: { y: 0 },
+              hover: { y: -80 },
+            }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             {title}
-          </div>
+          </motion.div>
 
-          {/* Description & Date (Initially Hidden) */}
-          <div ref={contentRef} className={`absolute bottom-3 left-2 ${space} text-white`}>
+          {/* Description & Date (Revealed on Hover) */}
+          <motion.div
+            className={`absolute bottom-3 left-2 ${space} text-white`}
+            variants={{
+              rest: { opacity: 0, y: 40 },
+              hover: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
             <p className="py-1 text-sm">
-              {description ||
-                'description here description here description here description here description here'}
+              {description || "description here description here description here"}
             </p>
             <p className="text-base">
-              Tickets available till <span className="text-green-400">{date || '30-2-2026'}</span>
+              Tickets available till{" "}
+              <span className="text-green-400">{date || "30-2-2026"}</span>
             </p>
-          </div>
+          </motion.div>
         </div>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 
