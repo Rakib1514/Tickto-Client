@@ -54,7 +54,8 @@ const QueryWiseTransport = () => {
       return message.warning("Select at least one seat");
     console.log("Proceeding to checkout with:", selectedSeats);
     message.success("Ready for checkout!");
-    // You can now pass this to a checkout component or navigate
+    // pass this to a checkout component or navigate
+    console.log(selectedSeats)
   };
 
   return (
