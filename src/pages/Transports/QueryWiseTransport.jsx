@@ -1,19 +1,33 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import { Button, Card, Drawer, Tag, message } from "antd";
 import { useState } from "react";
 
 const QueryWiseTransport = () => {
-  const { vehicle } = useParams();
   const [selectedTrip, setSelectedTrip] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const { search } = useLocation();
+  const params = new URLSearchParams(search);
+
+  const { vehicle } = useParams();
+  const origin = params.get("origin");
+  const destination = params.get("destination");
+  const departure = params.get("departure");
+
+  let apiUrl = "";
+
+  if (origin && destination && departure) {
+    apiUrl = `/api/trips/${vehicle}?origin=${origin}&destination=${destination}&departure=${departure}`;
+  } else if (vehicle === "bus") {
+    apiUrl = `/api/trips/${vehicle}`;
+  }
 
   const { data: tripData, isLoading } = useQuery({
     queryKey: ["travel", vehicle],
     queryFn: async () => {
-      const res = await axios.get(`/api/trips/${vehicle}`);
+      const res = await axios.get(`${apiUrl}`);
       return res.data;
     },
   });
@@ -36,7 +50,8 @@ const QueryWiseTransport = () => {
   };
 
   const handleNext = () => {
-    if (!selectedSeats.length) return message.warning("Select at least one seat");
+    if (!selectedSeats.length)
+      return message.warning("Select at least one seat");
     console.log("Proceeding to checkout with:", selectedSeats);
     message.success("Ready for checkout!");
     // You can now pass this to a checkout component or navigate
