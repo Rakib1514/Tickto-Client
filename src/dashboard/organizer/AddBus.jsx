@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Form, Input, InputNumber, Button, Upload, message } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+// import { UploadOutlined } from "@ant-design/icons";
 import axios from "axios";
-import auth from "../../firebase/firebase.init";
+// import auth from "../../firebase/firebase.init";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const AddBus = () => {
