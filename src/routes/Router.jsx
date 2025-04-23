@@ -1,37 +1,37 @@
 import { createBrowserRouter, Navigate } from "react-router";
 import App from "../../App";
 import MainLayout from "../layouts/MainLayout";
-import Home from "../pages/home/Home";
 import AboutUs from "../pages/about-us/AboutUs";
-import JoinUs from "../pages/join-us/JoinUs";
-import TermsAndConditions from "../pages/terms-and-conditions/TermsAndConditions";
-import ErrorPage from "../pages/error-page/ErrorPage";
 import AllEvents from "../pages/all-events/AllEvents";
 import CategoryWiseEvents from "../pages/all-events/CategoryWiseEvents";
+import ErrorPage from "../pages/error-page/ErrorPage";
 import EventDetails from "../pages/event-details/EventDetails";
-import ReserveEvent from "../pages/reserve-event/Example";
+import Home from "../pages/home/Home";
+import JoinUs from "../pages/join-us/JoinUs";
 import Payment from "../pages/payment/Payment";
+// import ReserveEvent from "../pages/reserve-event/Example";
+import TermsAndConditions from "../pages/terms-and-conditions/TermsAndConditions";
 import UpdateProfile from "../pages/update-profile/UpdateProfile";
 
 import DashboardLayout from "../dashboard/Dashboard_layout";
-import AdminDashboard from "../dashboard/admin/Admin_dashboard";
 import AddEvent from "../dashboard/admin/Add_event";
+import AdminDashboard from "../dashboard/admin/Admin_dashboard";
 import BookingReports from "../dashboard/admin/Booking_reports";
 import ManageTickets from "../dashboard/admin/Manage_tickets";
 import ManageUser from "../dashboard/admin/Manage_user";
 import PaymentReports from "../dashboard/admin/Payment_reports";
-import AllPaymentReport from "../pages/payment/AllPaymentReports";
 import Setting from "../dashboard/admin/Setting";
 import MyProfile from "../dashboard/user/My_profile";
+import AllPaymentReport from "../pages/payment/AllPaymentReports";
 import PaymentHistory from "../pages/payment/PaymentHistory";
 
+import AddBus from "../dashboard/organizer/AddBus";
+import CreateTrip from "../dashboard/organizer/CreateTrip";
 import Auth from "../pages/Auth/Auth";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
-import AddBus from "../dashboard/organizer/AddBus";
-import CreateTrip from "../dashboard/organizer/CreateTrip";
-import Transport from "../pages/Transports/Transport";
 import QueryWiseTransport from "../pages/Transports/QueryWiseTransport";
+import Transport from "../pages/Transports/Transport";
 
 const router = createBrowserRouter([
   {
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
           { path: "events", Component: AllEvents },
           { path: "events/:category", Component: CategoryWiseEvents },
           { path: "event/:id", Component: EventDetails },
-          { path: "event/reserve/:id", Component: ReserveEvent },
+          // { path: "event/reserve/:id", Component: ReserveEvent },
           { path: "payment", Component: Payment },
           { path: "about-us", Component: AboutUs },
           { path: "join-us", Component: JoinUs },
