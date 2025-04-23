@@ -1,5 +1,0 @@
-@import "tailwindcss";
-
-.banner__panel {
-  @apply absolute top-0 h-full w-[60vw] bg-cover bg-no-repeat;
-}

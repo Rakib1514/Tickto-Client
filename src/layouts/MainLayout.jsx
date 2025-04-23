@@ -8,24 +8,24 @@ import Navbar from "../components/Shared/Navbar";
 
 const MainLayout = () => {
   // Fetch all categories
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["categories"],
-    queryFn: async () => {
-      const response = await axios.get("/api/categories");
-      return response.data.data || [];
-    },
-  });
+  // const { data, isLoading, error } = useQuery({
+  //   queryKey: ["categories"],
+  //   queryFn: async () => {
+  //     const response = await axios.get("/api/categories");
+  //     return response.data.data || [];
+  //   },
+  // });
 
-  if (isLoading)
-    return (
-      <div className="flex min-h-screen items-center justify-center text-3xl ">
-        <div className="w-96">
-          <Lottie animationData={loadingAnimation}></Lottie>
-        </div>
-      </div>
-    );
+  // if (isLoading)
+  //   return (
+  //     <div className="flex min-h-screen items-center justify-center text-3xl ">
+  //       <div className="w-96">
+  //         <Lottie animationData={loadingAnimation}></Lottie>
+  //       </div>
+  //     </div>
+  //   );
 
-  if (error) return <h1>Error fetching categories</h1>;
+  // if (error) return <h1>Error fetching categories</h1>;
 
   return (
     <>
@@ -33,7 +33,7 @@ const MainLayout = () => {
       <Navbar />
 
       {/* Categories under navbar */}
-      <div className="sticky top-16 py-1  text-black z-[500]  bg-white ">
+      {/* <div className="sticky top-16 py-1  text-black z-[500]  bg-white ">
         <div className="container pb-2 mx-auto flex flex-wrap gap-3 md:gap-5 w-full">
           {data?.map((category, idx) => (
             <Link key={idx} to={`/events/${category.subCategory}`}>
@@ -43,7 +43,7 @@ const MainLayout = () => {
             </Link>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <main className="-mt-18 md:-mt-9 bg-[#fff9f1]">
         <Outlet />

@@ -53,7 +53,7 @@ const ReserveEvent = () => {
   };
 
   return (
-    <div className="w-full min-h-screen p-4">
+    <div className="w-full min-h-screen p-4 mt-28">
       <h2 className="text-2xl font-semibold mb-4">Reserve Your Seat</h2>
 
       {/* Horizontally scrollable container */}
