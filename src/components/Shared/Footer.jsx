@@ -113,81 +113,87 @@ const Footer = () => {
     //   </div>
     // </footer>
     <footer className='bg-[#edf5ff] relative'>
-      
+
       {/* newsletter div */}
       <div className='md:flex gap-4 justify-between w-full max-w-screen-xl mx-auto bg-[#78a6c4] p-6 md:p-10 rounded-2xl absolute -top-20 left-1/2 -translate-x-1/2'>
         <h1 className='text-2xl text-white md:text-4xl lg:text-5xl my-auto font-bold max-sm:py-4'>Sign up for Our Newsletter Today!</h1>
         <div className=''>
           <input type="email" className='input rounded-xl' placeholder='Your Email' />
-          <motion.button 
-          whileHover={{ scale: 1.06 }}
-          className='btn w-full bg-[#274f7a] text-white font-bold text-lg rounded-xl border-none shadow-none px-6 my-2'>Subscribe</motion.button>
+          <motion.button
+            whileHover={{ scale: 1.06 }}
+            className='btn w-full bg-[#274f7a] text-white font-bold text-lg rounded-xl border-none shadow-none px-6 my-2'>Subscribe</motion.button>
         </div>
       </div>
 
       {/* footer div */}
-      <div className='max-w-screen-2xl mx-auto flex justify-between p-10 py-16 pt-34'>
+      <div className='max-w-screen-2xl mx-auto lg:flex justify-between gap-6 p-10 py-16 pt-34'>
 
-        {/* first */}
-        <div>
-          {/* logo */}
+        <div className='grid gap-4 lg:gap-16 md:grid-cols-2'>
+
+          {/* first */}
           <div>
-            <Link to="/" className="flex gap-2 items-center">
-              <Logo />
-              <div className="text-2xl md:text-3xl font-bold">
-                <span className="text-[#274f7a]">Tick</span>
-                <span className="">To</span>
-              </div>
-            </Link>
-            <motion.p
-              whileHover={{ scale: 1.05 }}
-              className='max-w-sm my-2 transition duration-300'>
-              TickTo is your one-stop destination for all things events. From concerts to conferences, we bring you the best experiences in one place. Join us and never miss out on the excitement!
-            </motion.p>
+            {/* logo */}
+            <div>
+              <Link to="/" className="flex gap-2 items-center">
+                <Logo />
+                <div className="text-2xl md:text-3xl font-bold">
+                  <span className="text-[#274f7a]">Tick</span>
+                  <span className="">To</span>
+                </div>
+              </Link>
+              <motion.p
+                whileHover={{ scale: 1.05 }}
+                className='max-w-sm my-2 transition duration-300'>
+                TickTo is your one-stop destination for all things events. From concerts to conferences, we bring you the best experiences in one place. Join us and never miss out on the excitement!
+              </motion.p>
+            </div>
+
+            {/* social Icons */}
+            <div className='my-4'>
+              <h3 className='text-xl font-bold'>Follow Us:</h3>
+              <Socials />
+            </div>
           </div>
 
-          {/* social Icons */}
-          <div className='my-4'>
-            <h3 className='text-xl font-bold'>Follow Us:</h3>
-            <Socials />
+          {/* second */}
+          <div className='lg:max-w-sm '>
+            <div>
+              <h3 className='text-xl font-bold'>Address</h3>
+              <motion.p
+                whileHover={{ scale: 1.05 }}
+                className='py-3 cursor-pointer transition duration-300 hover:text-[#274f7a]'>Plot #15, Road #103, Gulshan Avenue, Gulshan-2, <br /> Dhaka, Bangladesh</motion.p>
+            </div>
+
+
+            <hr className='my-4 hidden lg:block' />
+
+            <div>
+              <h3 className="text-lg font-bold">Services</h3>
+              <ul className="mt-3 space-y-1 text-gray-700">
+                {[
+                  { name: 'Booking', link: '/services/booking' },
+                  { name: 'Event Management', link: '/services/event-management' },
+                  { name: 'Customer Support', link: '/services/customer-support' },
+                  { name: 'Refund Policy', link: '/services/refund-policy' },
+                ].map((service, index) => (
+                  <motion.li
+                    key={index}
+                    whileHover={{ scale: 1.05 }}
+                    className="cursor-pointer transition duration-300 hover:text-[#274f7a]"
+                  >
+                    <Link to={service.link}>{service.name}</Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+
           </div>
+
         </div>
 
-        {/* second */}
-        <div className='max-w-sm'>
-          <div>
-            <h3 className='text-xl font-bold'>Address</h3>
-            <motion.p
-              whileHover={{ scale: 1.05 }}
-              className='py-3 cursor-pointer transition duration-300 hover:text-[#274f7a]'>Plot #15, Road #103, Gulshan Avenue, Gulshan-2, <br /> Dhaka, Bangladesh</motion.p>
-          </div>
-
-
-          <hr className='my-4' />
-
-          <div>
-            <h3 className="text-lg font-bold">Services</h3>
-            <ul className="mt-3 space-y-1 text-gray-700">
-              {[
-                { name: 'Booking', link: '/services/booking' },
-                { name: 'Event Management', link: '/services/event-management' },
-                { name: 'Customer Support', link: '/services/customer-support' },
-                { name: 'Refund Policy', link: '/services/refund-policy' },
-              ].map((service, index) => (
-                <motion.li
-                  key={index}
-                  whileHover={{ scale: 1.05 }}
-                  className="cursor-pointer transition duration-300 hover:text-[#274f7a]"
-                >
-                  <Link to={service.link}>{service.name}</Link>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-        </div>
 
         {/* third */}
-        <div>
+        <div className='mt-16 lg:mt-0'>
           <h3 className='text-xl font-bold'>Mail:</h3>
           <motion.p
             whileHover={{ scale: 1.06 }}
@@ -208,7 +214,7 @@ const Footer = () => {
                     key={index}
                     whileHover={{ scale: 1.08 }}
                     className="flex items-center gap-1 cursor-pointer transition duration-300 hover:text-[#274f7a]"
-                  ><MdCall/> {number}</motion.li>
+                  ><MdCall /> {number}</motion.li>
                 ))}
               </ul>
             </div>
@@ -222,12 +228,12 @@ const Footer = () => {
                   { name: "rocket", icon: rocket },
                   { name: "nagad", icon: nogod },
                 ].map((pay, index) => <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.08 }}
-                      className="cursor-pointer transition duration-300 hover:text-[#274f7a]"
-                    >
-                      <img src={pay.icon} alt={pay.name} className='w-20 h-12' />
-                    </motion.div>
+                  key={index}
+                  whileHover={{ scale: 1.08 }}
+                  className="cursor-pointer transition duration-300 hover:text-[#274f7a]"
+                >
+                  <img src={pay.icon} alt={pay.name} className='w-20 h-12' />
+                </motion.div>
                 )}
               </div>
             </div>
