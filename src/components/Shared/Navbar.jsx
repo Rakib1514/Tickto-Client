@@ -74,7 +74,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full top-0 z-[500] text-black bg-white">
+      <nav className="fixed w-full top-0 z-[500] text-black bg-[#edf5ff]">
         <div>
           <div className="container mx-auto px-2">
             <div className="flex py-2 justify-between">
@@ -90,14 +90,14 @@ const Navbar = () => {
                   </Link>
                 </div>
               </div>
-              <div className="flex">
+              <div className="flex ">
                 {/* desktop navigation */}
                 <div className="hidden lg:ml-8 lg:flex mx-4">
                   {navLinks.map(({ path, label, icon: Icon }, index) => (
                     <NavLink
                       key={index}
                       to={path}
-                      className={`inline-flex items-center rounded-lg px-3 py-2 text-sm font-semibold transition-colors duration-150 ${
+                      className={`inline-flex items-center rounded-lg px-3 py-2 mx-1 text-sm font-semibold transition-colors duration-150 ${
                         isActivePath(path)
                           ? "border-b-2 border-primary text-primary rounded-none"
                           : " hover:border-b-2 hover:border-primary hover:text-primary transition rounded-none"
@@ -121,7 +121,7 @@ const Navbar = () => {
                           <div className="w-10 rounded-full">
                             <img
                               referrerPolicy="no-referrer"
-                              className="rounded-full border-[1px]"
+                              className="rounded-full "
                               alt="Tailwind CSS Navbar component"
                               src={user?.photoURL}
                             />
@@ -129,7 +129,7 @@ const Navbar = () => {
                         </div>
                         <ul
                           tabIndex={0}
-                          className="menu menu-sm dropdown-content rounded-box z-1 text-white w-52 bg-[#41a5a2]/70 p-2 font-bold shadow backdrop-blur-3xl"
+                          className="menu menu-sm dropdown-content rounded-box z-1 text-white w-52 bg-[#78a6c4] p-2 font-bold shadow backdrop-blur-3xl"
                         >
                           <li className="text-center">{user?.displayName}</li>
                           <li>
@@ -146,7 +146,7 @@ const Navbar = () => {
                     ) : (
                       <Link
                         to="/auth/login"
-                        className="rounded-sm border border-primary px-2 py-1 md:px-4 md:py-[6px] text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#4f8886]"
+                        className="rounded-sm border border-primary px-2 py-1 md:px-4 md:py-[6px] text-sm font-medium text-primary shadow-sm transition-colors duration-200 hover:bg-primary hover:text-white"
                       >
                         Login
                       </Link>
@@ -187,8 +187,8 @@ const Navbar = () => {
                       to={path}
                       className={`flex items-center rounded-md px-3 py-2 font-medium transition-colors duration-150 ${
                         isActivePath(path)
-                          ? "bg-teal-50 text-teal-600"
-                          : "hover:bg-gray-50 hover:text-teal-600"
+                          ? "bg-[#78a6c4]/60 text-primary"
+                          : "hover:bg-[#78a6c4]/30 hover:text-primary"
                       }`}
                     >
                       <Icon className="mr-3 h-5 w-5" />

@@ -16,7 +16,7 @@ const QueryWiseTransport = () => {
   const destination = params.get("destination");
   const departure = params.get("departure");
 
-  let apiUrl = "";
+  let apiUrl = "https://tickto-server.vercel.app/api/trips/bus";
 
   if (origin && destination && departure) {
     apiUrl = `/api/trips/${vehicle}?origin=${origin}&destination=${destination}&departure=${departure}`;
@@ -24,15 +24,17 @@ const QueryWiseTransport = () => {
     apiUrl = `/api/trips/${vehicle}`;
   }
 
-  const { data: tripData, isLoading } = useQuery({
+  const { data : tripData, isLoading } = useQuery({
     queryKey: ["travel", vehicle],
     queryFn: async () => {
-      const res = await axios.get(`${apiUrl}`);
-      return res.data;
+      const res = await axios.get(`https://tickto-server.vercel.app/api/trips/bus`);
+      return res.data || [];
     },
   });
 
-  if (isLoading) return <div className="mt-28">Loading trips...</div>;
+  console.log("Trip data:", tripData);
+
+  if (isLoading) return <div className="mt-28 text-2xl">Loading trips...</div>;
 
   const handleSelectSeatClick = (trip) => {
     setSelectedTrip(trip);
@@ -60,7 +62,7 @@ const QueryWiseTransport = () => {
 
   return (
     <div className="mt-28 px-4 space-y-6 max-w-4xl mx-auto">
-      {tripData.map((trip) => {
+      {tripData?.map((trip) => {
         const availableSeats =
           trip.busDetails.capacity - trip.bookedSeats.length;
 

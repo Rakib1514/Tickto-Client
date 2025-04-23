@@ -9,28 +9,28 @@ const Socials = () => {
       <motion.a
         whileHover={{ scale: 1.2 }}
         href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-        <FaFacebookF className=" transition duration-300 hover:text-[#317371]" />
+        <FaFacebookF className=" transition duration-300 hover:text-[#78a6c4]" />
       </motion.a>
 
 
       <motion.a
         whileHover={{ scale: 1.2 }}
         href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-        <FaTwitter className=" transition duration-300 hover:text-[#317371]" />
+        <FaTwitter className=" transition duration-300 hover:text-[#78a6c4]" />
       </motion.a>
 
 
       <motion.a
         whileHover={{ scale: 1.2 }}
         href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-        <FaInstagram className=" transition duration-300 hover:text-[#317371]" />
+        <FaInstagram className=" transition duration-300 hover:text-[#78a6c4]" />
       </motion.a>
 
 
       <motion.a
         whileHover={{ scale: 1.2 }}
         href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-        <FaLinkedinIn className=" transition duration-300 hover:text-[#317371]" />
+        <FaLinkedinIn className=" transition duration-300 hover:text-[#78a6c4]" />
       </motion.a>
     </div>
   );
