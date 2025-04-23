@@ -45,7 +45,7 @@ const MainLayout = () => {
         </div>
       </div> */}
 
-      <main className="-mt-18 md:-mt-9 bg-[#fff9f1]">
+      <main className="-mt-18 md:-mt-9 ">
         <Outlet />
       </main>
       <Footer />

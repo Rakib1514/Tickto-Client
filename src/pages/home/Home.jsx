@@ -1,5 +1,6 @@
 import Banner from "./banner/Banner";
 import RecentView from "./RecentView";
+import Reviews from "./Reviews";
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
       {/* <PopularNow /> */}
       {/* <Events /> */}
       {/* <Travel /> */}
-      {/* <Reviews /> */}
+      <Reviews />
     </>
   );
 };

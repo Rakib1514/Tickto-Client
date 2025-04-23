@@ -21,11 +21,11 @@ const Reviews = () => {
   const loopEnabled = reviews.length > 3;
 
   return (
-    <div id="reviewsection" className="bg-[#317371]/50 py-20 rounded-t-xl mt-32">
-      <h2 className="text-center py-3 text-5xl font-bold text-white">
+    <div id="reviewsection" className="py-20 rounded-t-xl my-32">
+      <h2 className="text-center py-3 text-5xl font-bold ">
         Our Best Reviews
       </h2>
-      <p className="text-white py-3 md:text-lg text-center w-[96%] lg:w-[60%] mx-auto">
+      <p className="py-3 md:text-lg text-center w-[96%] lg:w-[60%] mx-auto">
         Our customers speak for us! From effortless booking to real-time seat
         selection and secure check‑ins, our platform ensures a smooth
         experience every time. See why users trust us for their ticketing
@@ -65,8 +65,8 @@ const Reviews = () => {
           }}
         >
           {reviews.map((review, index) => (
-            <SwiperSlide key={index} className="rounded-lg max-sm:min-h-96">
-              <div className="p-4 flex flex-col h-full">
+            <SwiperSlide key={index} className=" max-sm:min-h-96">
+              <div className="p-4 flex flex-col h-full rounded-2xl bg-[#edf5ff]">
                 <div className="flex gap-1">
                   <img
                     className="rounded-full w-16 h-16 border-2 border-[#317371] p-1"
