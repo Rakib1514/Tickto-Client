@@ -67,9 +67,9 @@ const Reviews = () => {
           {reviews.map((review, index) => (
             <SwiperSlide key={index} className=" max-sm:min-h-96">
               <div className="p-4 flex flex-col h-full rounded-2xl bg-[#edf5ff]">
-                <div className="flex gap-1">
+                <div className="flex gap-4">
                   <img
-                    className="rounded-full w-16 h-16 border-2 border-[#317371] p-1"
+                    className="rounded-full w-16 h-16 border-2 border-[#274f7a] p-1"
                     src={review.user_image}
                     alt={review.user_name}
                   />
