@@ -1,13 +1,17 @@
 import Banner from "./banner/Banner";
+import IntroCard from "./IntroCard";
 import RecentView from "./RecentView";
+import Reviews from "./Reviews";
 
 const Home = () => {
   return (
     <>
       <Banner />
-      <div className="h-screen">
+      {/* <div className="h-screen">
 
-      </div>
+      </div> */}
+
+      <IntroCard/>
       
       {/* <RecentView /> */}
       {/* <Feature /> */}
