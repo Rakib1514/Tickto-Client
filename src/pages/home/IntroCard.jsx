@@ -49,7 +49,7 @@ const IntroCard = () => {
 
 
     return (
-        <div className='max-w-screen-2xl w-[94%] mx-auto my-44'>
+        <div className='max-w-screen-2xl w-[94%] mx-auto mt-56'>
             <div className='text-center'>
                 <h3 className='text-2xl font-medium text-[#78a6c4]'>We got everything you need</h3>
                 <h1 className='text-4xl md:text-5xl font-bold my-2'>Introducing you to TickTo, <span className='text-[#78a6c4]'>make life easy</span></h1>
