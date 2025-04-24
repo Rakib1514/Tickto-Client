@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
-import theater from "../../Assets/Banner/img3.jpg";
+import theater from "../../Assets/covers/event-bg2.jpg";
 import { Link } from "react-router";
 
 const SmallCard = ({ event, height, titletext, space }) => {
