@@ -17,8 +17,10 @@ const RecentView = () => {
 
   return (
     <div className="mx-auto my-28 w-[96%] max-w-screen-2xl">
-      <h1 className="my-14 text-4xl font-bold">Recently Viewed</h1>
-      <div className="grid gap-3 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid gap-3 md:grid-cols-4 lg:grid-cols-5">
+
+        <h1 className="my-auto text-center text-7xl font-bold">Events Viewed Recently</h1>
+
         {events?.map((event) => (
           <SmallCard
             key={event.id}

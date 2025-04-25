@@ -1,6 +1,7 @@
 import React from 'react';
 
-import authbg from '../../Assets/auth/authbg.jpeg'
+
+import authbg from '../../Assets/auth/techBD.png'
 import { Outlet, useNavigate } from 'react-router';
 import { IoIosArrowBack } from 'react-icons/io';
 import './auth.css';
@@ -33,14 +34,7 @@ const Auth = () => {
       >
         <IoIosArrowBack />
       </div>
-      {user && (
-        <button
-          onClick={handleLogout}
-          className="btn absolute top-3 right-2 border-none bg-[#A989B0] p-2 text-white md:top-5 md:right-5"
-        >
-          LogOut
-        </button>
-      )}
+      
     </div>
   );
 };
