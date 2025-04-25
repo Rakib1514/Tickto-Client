@@ -1,16 +1,16 @@
-import React, { useContext, useState } from "react";
-import { Button, Form, Input, Select, DatePicker, InputNumber, message } from "antd";
 import { useQuery } from "@tanstack/react-query";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { Button, DatePicker, Form, Input, InputNumber, message, Select } from "antd";
 import axios from "axios";
 import dayjs from "dayjs";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const { Option } = Select;
 
 const CreateTrip = () => {
   const { user } = useContext(AuthContext);
-  const [form] = Form.useForm(); // Ant form instance to access field values
+  const [form] = Form.useForm(); 
 
   const { data: busesData, isLoading } = useQuery({
     queryKey: ["buses", user?.uid],
@@ -98,6 +98,13 @@ const CreateTrip = () => {
           rules={[{ required: true, message: "Please enter destination" }]}
         >
           <Input />
+        </Form.Item>
+        <Form.Item
+          name="distance"
+          label="Distance (km)"
+          rules={[{ required: true, message: "Please enter distance" }]}
+        >
+          <InputNumber />
         </Form.Item>
 
         <Form.Item
