@@ -17,11 +17,11 @@ const Home = () => {
       
       <RecentView />
       {/* <Feature /> */}
-      {/* <PopularNow /> */}
+      <PopularNow />
       <DataSafe />
       {/* <Events /> */}
       {/* <Travel /> */}
-      {/* <Reviews /> */}
+      <Reviews />
     </>
   );
 };
