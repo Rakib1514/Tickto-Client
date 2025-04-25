@@ -25,7 +25,7 @@ const ChatBox = () => {
             <div
             // style={{backgroundImage: `url("${chatboxbg}")`, backgroundSize: 'cover'}}
             className={`fixed bottom-0 right-2 md:right-5 z-[101] transition-transform duration-300 shadow-2xl rounded-lg ${ishidden ? 'translate-y-full' : '-translate-y-2'}`}>
-                <div className=' border border-gray-300 blur-bg  w-72 md:w-96 h-[480px] rounded-lg shadow-lg z-100'>
+                <div className=' border border-gray-300 bg-[#78a6c4]/10 backdrop-blur-sm w-72 md:w-96 h-[480px] rounded-lg shadow-lg z-100'>
                     <div className='text-[#78a6c4] h-14 rounded-t-lg flex items-center justify-between px-4'>
                         <h1 className='my-auto text-lg font-semibold'>Help Center</h1>
                         <button onClick={() => setIsHidden(!ishidden)} className='text-white border rounded-full p-1'><GrClose /></button>
