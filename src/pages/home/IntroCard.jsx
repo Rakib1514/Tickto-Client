@@ -6,6 +6,7 @@ import { GiCommercialAirplane } from "react-icons/gi";
 import { LuTrainTrack } from "react-icons/lu";
 import { RiMovie2AiLine } from "react-icons/ri";
 import { GiDrumKit } from "react-icons/gi";
+import "../Auth/auth.css"
 
 const IntroCard = () => {
     const data = [

@@ -1,4 +1,5 @@
 import { Handshake, Home, Mail, Menu, Moon, Sun, User } from "lucide-react";
+import { motion } from 'framer-motion';
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -113,10 +114,11 @@ const Navbar = () => {
                   <div className="flex items-center md:space-x-3">
                     {user ? (
                       <div className="dropdown dropdown-end">
-                        <div
+                        <motion.div
+                        whileHover={{scale:1.05}}
                           tabIndex={0}
                           role="button"
-                          className="btn btn-ghost btn-circle avatar"
+                          className="btn-ghost btn-circle avatar"
                         >
                           <div className="w-10 rounded-full">
                             <img
@@ -126,7 +128,7 @@ const Navbar = () => {
                               src={user?.photoURL}
                             />
                           </div>
-                        </div>
+                        </motion.div>
                         <ul
                           tabIndex={0}
                           className="menu menu-sm dropdown-content rounded-box z-1 text-white w-52 bg-[#78a6c4] p-2 font-bold shadow backdrop-blur-3xl"

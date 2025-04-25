@@ -65,22 +65,22 @@ const Reviews = () => {
           }}
         >
           {reviews.map((review, index) => (
-            <SwiperSlide key={index} className=" max-sm:min-h-96">
-              <div className="p-4 flex flex-col h-full rounded-2xl bg-[#edf5ff]">
-                <div className="flex gap-4">
+            <SwiperSlide key={index} className=" max-sm:min-h-40">
+              <div className="p-4 flex flex-col rounded-2xl bg-[#edf5ff]">
+                <div className="flex gap-2 md:gap-4 border-b border-gray-200">
                   <img
-                    className="rounded-full w-16 h-16 border-2 border-[#274f7a] p-1"
+                    className="rounded-full w-14 h-14 md:w-16 md:h-16 border-2 border-[#274f7a] p-1"
                     src={review.user_image}
                     alt={review.user_name}
                   />
                   <div className="text-start my-auto">
-                    <h3 className="font-semibold">{review.user_name}</h3>
-                    <p>{review.user_email}</p>
+                    <h3 className="font-medium md:font-semibold">{review.user_name}</h3>
+                    <p className="text-sm md:text-base">{review.user_email}</p>
                   </div>
                 </div>
 
-                <div className="mt-4 text-start flex-grow">
-                  {review.testimonial.substring(0, 160)}...
+                <div className="mt-4 text-start text-sm md:text-base flex-grow">
+                  {review.testimonial.substring(0, 170)}...
                 </div>
 
                 <div className="py-1.5 text-end">— {review.date}</div>

@@ -4,6 +4,7 @@ import RecentView from "./RecentView";
 import Reviews from "./Reviews";
 import DataSafe from "./DataSafe"
 import PopularNow from "./PopularNow"
+import ChatBox from "./chat/ChatBox";
 
 const Home = () => {
   return (
@@ -21,7 +22,8 @@ const Home = () => {
       <DataSafe />
       {/* <Events /> */}
       {/* <Travel /> */}
-      {/* <Reviews /> */}
+      <Reviews />
+      <ChatBox/>
     </>
   );
 };
