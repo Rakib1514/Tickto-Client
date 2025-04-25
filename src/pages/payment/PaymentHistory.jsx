@@ -3,6 +3,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { FaDownload, FaSpinner } from 'react-icons/fa';
+import PdfTicket from '../../components/PdfTicket';
 
 const PaymentHistory = () => {
   const { user } = useContext(AuthContext);
@@ -62,7 +63,9 @@ const PaymentHistory = () => {
                       : 'None'}</td>
                   <td>
                     
-                    <FaDownload/>
+                    {/* <FaDownload/> */}
+                     {/* Pass payment object to PdfTicket component */}
+                     <PdfTicket payment={payment} />
                   </td>
                 </tr>
               ))}
