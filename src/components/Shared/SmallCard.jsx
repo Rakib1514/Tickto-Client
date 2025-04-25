@@ -20,6 +20,7 @@ const SmallCard = ({ event, height, titletext, space }) => {
           <motion.img
             src={image_url || theater}
             alt={title}
+            loading="lazy"
             className="h-full w-full object-cover"
             variants={{
               rest: { filter: "brightness(1)" },
