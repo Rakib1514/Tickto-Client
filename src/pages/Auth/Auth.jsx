@@ -1,6 +1,4 @@
 import React from 'react';
-
-
 import authbg from '../../Assets/auth/techBD.png'
 import { Outlet, useNavigate } from 'react-router';
 import { IoIosArrowBack } from 'react-icons/io';
@@ -11,11 +9,6 @@ import { logoutUser } from '../../Redux/auth/authSlice';
 const Auth = () => {
   const { user, loading, error } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const handleLogout = () => {
-    dispatch(logoutUser());
-  };
 
   return (
     <div

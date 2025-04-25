@@ -12,7 +12,7 @@ const SmallCard = ({ event, height, titletext, space }) => {
       initial="rest"
       whileHover="hover"
       animate="rest"
-      className="group relative cursor-pointer overflow-hidden rounded-lg"
+      className="group relative cursor-pointer overflow-hidden w-full rounded-lg"
     >
       <Link to={`/event/${_id}`}>
         <div className={`relative w-full ${height} text-start`}>
