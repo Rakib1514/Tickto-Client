@@ -94,8 +94,7 @@ const Register = () => {
             <p className="mx-auto w-[90%]">
               Already have an account?{' '}
               <Link to={'/auth/login'} className="link text-[#67B293]">
-                {' '}
-                Login{' '}
+                Login
               </Link>{' '}
               Now
             </p>
@@ -105,7 +104,7 @@ const Register = () => {
         {/* first part */}
         <div className="md:p-6 md:py-20">
           <div className="">
-            <h3 className="text-center text-2xl font-semibold">Sign In</h3>
+            <h3 className="text-center text-3xl font-semibold">Sign In</h3>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               {/* name */}
               <div className="form-control">
@@ -173,9 +172,9 @@ const Register = () => {
 
               <div className="form-control mt-6">
                 <motion.button
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn w-full border-none bg-[#A989B0] text-white shadow-none"
+                  className="btn w-full border-none bg-[#78a6c4] text-white shadow-none"
                 >
                   Register
                 </motion.button>
@@ -203,17 +202,19 @@ const Register = () => {
           <div className="flex h-full items-center justify-center rounded-r-2xl py-10 text-center md:bg-black/30 md:p-10 md:py-20">
             <div>
               <h1 className="text-3xl font-bold">Wellcome to TickTo</h1>
-              <p className="mx-auto w-[80%] py-6 text-sm">
+              <motion.p 
+              whileHover={{ scale: 1.03}}
+              className="mx-auto w-[80%] py-6 text-sm">
                 Discover trending events and personalized recommendations. From local gatherings to
                 global spectacles, find experiences that match your interests.Book with confidence
                 using our secure payment system. Enjoy a hassle-free ticketing experience with
                 instant confirmation and digital access.
-              </p>
+              </motion.p>
               <p>
                 Already have an account?{' '}
                 <Link to={'/auth/login'} className="link text-[#67B293]">
                   {' '}
-                  Login{' '}
+                 Login
                 </Link>{' '}
                 Now
               </p>

@@ -49,19 +49,19 @@ const IntroCard = () => {
 
 
     return (
-        <div className='max-w-screen-2xl mx-auto my-44'>
+        <div className='max-w-screen-2xl w-[94%] mx-auto mt-56'>
             <div className='text-center'>
                 <h3 className='text-2xl font-medium text-[#78a6c4]'>We got everything you need</h3>
-                <h1 className='text-5xl font-bold my-2'>Introducing you to TickTo, <span className='text-[#78a6c4]'>make life easy</span></h1>
+                <h1 className='text-4xl md:text-5xl font-bold my-2'>Introducing you to TickTo, <span className='text-[#78a6c4]'>make life easy</span></h1>
             </div>
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 my-12'>
+            <div className='grid md:grid-rows-3 lg:grid-rows-2 md:grid-cols-2 lg:grid-cols-3 my-12'>
                 {
                     data.map((item, index) => (
                         <motion.div
                         whileHover={{ y: -14, scale: 1.04}}
                         key={index} >
-                            <div className=' p-6 rounded-lg shadow-xl m-4 bg-[#f7f8fa] hover:bg-[#edf5ff] transition duration-400'>
-                                <div className='text-5xl text-[#274f7a] mb-4'>
+                            <div className='min-h-60 p-6 rounded-lg shadow-xl m-4 bg-[#f7f8fa] hover:bg-[#edf5ff] transition duration-400'>
+                                <div className='text-5xl text-[#78a6c4] mb-4'>
                                     {item.image}
                                 </div>
                                 <h3 className='text-2xl my-4 font-semibold'>{item.title} Tickets</h3>

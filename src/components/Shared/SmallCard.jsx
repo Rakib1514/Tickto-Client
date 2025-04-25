@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
-import theater from "../../Assets/Banner/img3.jpg";
+import theater from "../../Assets/covers/event-bg2.jpg";
 import { Link } from "react-router";
 
 const SmallCard = ({ event, height, titletext, space }) => {
@@ -12,10 +12,10 @@ const SmallCard = ({ event, height, titletext, space }) => {
       initial="rest"
       whileHover="hover"
       animate="rest"
-      className="group relative cursor-pointer overflow-hidden rounded-lg"
+      className="group relative cursor-pointer overflow-hidden w-full rounded-lg"
     >
       <Link to={`/event/${_id}`}>
-        <div className={`relative w-full ${height} text-start`}>
+        <div className={`relative  ${height} text-start`}>
           {/* Background Image */}
           <motion.img
             src={image_url || theater}
@@ -43,7 +43,7 @@ const SmallCard = ({ event, height, titletext, space }) => {
             className={`absolute bottom-3 left-2 ${space} right-[2px] text-white ${titletext}`}
             variants={{
               rest: { y: 0 },
-              hover: { y: -80 },
+              hover: { y: -120 },
             }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >

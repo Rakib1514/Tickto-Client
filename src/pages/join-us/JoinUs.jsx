@@ -70,7 +70,7 @@ const JoinUs = () => {
     {
       title: "Call Us",
       icon: <MdCall />,
-      details: "+880 1234567890",
+      details: <div>+880 1234567890 <br /> +880 1934278963 </div>,
     },
     {
       title: "Opening Hour",
@@ -151,14 +151,15 @@ const JoinUs = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-screen-xl w-[96%] mx-auto -mt-22">
         {cards.map((card, index) => {
           return (
-            <div
+            <motion.div
+              whileHover={{ y: -10 }}
               key={index}
-              className="shadow-xl bg-white rounded-xl gap-2 p-5 md:p-7"
+              className="shadow-xl bg-white rounded-xl hover:bg-secondary transition duration-50 gap-2 p-5 md:p-7"
             >
-              <div className="text-5xl text-[#317371] ">{card.icon}</div>
+              <div className="text-5xl text-[#78a6c4] ">{card.icon}</div>
               <h3 className="text-xl font-bold my-2">{card.title}</h3>
-              <p className="">{card.details}</p>
-            </div>
+              <p className="text-xs md:text-base">{card.details}</p>
+            </motion.div>
           );
         })}
       </div>
@@ -169,17 +170,19 @@ const JoinUs = () => {
           <h2 className="text-3xl font-bold text-center mb-5">
             Office Locaion
           </h2>
-          <iframe
-            className=" inset-0 h-full w-full rounded-xl"
+          <motion.iframe
+          whileHover={{ y:-9}}
+            className="shadow-md inset-0 h-full w-full rounded-xl"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.8326310782483!2d90.41583967519636!3d23.78850327864465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7c7cb2a69cb%3A0x7a6e3e62cccb186e!2sGulshan%20Pink%20City!5e0!3m2!1sen!2sbd!4v1713262201234!5m2!1sen!2sbd"
             allowFullScreen
             loading="lazy"
-          ></iframe>
+          ></motion.iframe>
         </div>
 
         <div className="mt-20 md:mt-0">
           <h2 className="text-3xl font-bold text-center mb-5">Contact Us</h2>
-          <form
+          <motion.form
+          whileHover={{y: -9}}
             ref={form}
             onSubmit={sendEmail}
             className="fieldset mt-5 p-1 space-y-3 md:mt-0 grid grid-cols-2"
@@ -187,42 +190,43 @@ const JoinUs = () => {
             <input
               type="text"
               name="user_name"
-              className="input h-13 w-full rounded-lg"
+              className="input h-13 w-full rounded-lg shadow-md"
               placeholder="Your Name"
             />
 
             <input
               type="email"
               name="user_email"
-              className="input h-13 w-full rounded-lg"
+              className="input h-13 w-full rounded-lg shadow-md"
               placeholder="Your Email"
             />
 
             <input
               type="number"
               name="user_number"
-              className="input h-13 w-full rounded-lg"
+              className="input h-13 w-full rounded-lg shadow-md"
               placeholder="Your Number"
             />
 
             <input
               type="text"
               name="mail_subject"
-              className="input h-13 w-full rounded-lg"
+              className="input h-13 w-full rounded-lg shadow-md"
               placeholder="Subject"
             />
 
-            <input
+            <textarea
+              rows={12}
               type="text"
               name="message"
-              className="textarea h-42 w-full rounded-lg col-span-2"
+              className="textarea p-4 w-full rounded-lg col-span-2 shadow-md"
               placeholder="Enter Your Message"
             />
 
-            <button className="btn h-12 rounded-md border-none bg-gradient-to-br from-[#a2b9a7]/90 to-[#317371]/90 text-white col-span-2">
+            <motion.button whileHover={{ scale: 1.03 }} className="btn h-12 text-lg rounded-md border-none bg-primary/90 text-white col-span-2">
               Send Email
-            </button>
-          </form>
+            </motion.button>
+          </motion.form>
         </div>
       </div>
 
