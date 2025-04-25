@@ -119,16 +119,16 @@ const Footer = () => {
       whileHover={{ scale: 1.02}}
       className='md:flex gap-4 justify-between w-full max-w-screen-xl mx-auto bg-[#78a6c4] p-6 md:p-10 rounded-2xl absolute -top-20 left-1/2 -translate-x-1/2'>
         <h1 className='text-2xl text-white md:text-4xl lg:text-5xl my-auto font-bold max-sm:py-4'>Sign up for Our Newsletter Today!</h1>
-        <div className=''>
-          <input type="email" className='input rounded-xl' placeholder='Your Email' />
+        <div className='space-y-3'>
+          <input type="email" className='input w-full my-2 rounded-xl' placeholder='Your Email' />
           <motion.button
             whileHover={{ scale: 1.06 }}
-            className='btn w-full bg-[#274f7a] text-white font-bold text-lg rounded-xl border-none shadow-none px-6 my-2'>Subscribe</motion.button>
+            className='btn w-full shadow-none px-6 my-2'>Subscribe</motion.button>
         </div>
       </motion.div>
 
       {/* footer div */}
-      <div className='max-w-screen-2xl mx-auto lg:flex justify-between gap-6 p-10 py-16 pt-34'>
+      <div className='max-w-screen-2xl mx-auto lg:flex justify-between gap-6 p-10 py-16 pt-44 md:pt-34'>
 
         <div className='grid gap-4 lg:gap-16 md:grid-cols-2'>
 
@@ -199,7 +199,7 @@ const Footer = () => {
           <h3 className='text-xl font-bold'>Mail:</h3>
           <motion.p
             whileHover={{ scale: 1.06 }}
-            className='text-3xl font-bold text-[#274f7a] transition duration-300'>tickto.help@gmail.com</motion.p>
+            className='text-2xl lg:text-3xl font-bold text-[#274f7a] transition duration-300'>tickto.help@gmail.com</motion.p>
 
           <hr className='my-8' />
 

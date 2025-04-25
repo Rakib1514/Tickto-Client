@@ -154,11 +154,11 @@ const JoinUs = () => {
             <motion.div
               whileHover={{ y: -10 }}
               key={index}
-              className="shadow-xl bg-white rounded-xl gap-2 p-5 md:p-7"
+              className="shadow-xl bg-white rounded-xl hover:bg-secondary transition duration-50 gap-2 p-5 md:p-7"
             >
               <div className="text-5xl text-[#78a6c4] ">{card.icon}</div>
               <h3 className="text-xl font-bold my-2">{card.title}</h3>
-              <p className="">{card.details}</p>
+              <p className="text-xs md:text-base">{card.details}</p>
             </motion.div>
           );
         })}
@@ -216,7 +216,7 @@ const JoinUs = () => {
             />
 
             <textarea
-              rows={7}
+              rows={12}
               type="text"
               name="message"
               className="textarea p-4 w-full rounded-lg col-span-2 shadow-md"
