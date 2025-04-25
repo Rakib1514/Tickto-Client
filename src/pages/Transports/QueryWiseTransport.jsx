@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import { Button, Drawer, message } from "antd";
 import axios from "axios";
-import { useLocation, useParams } from "react-router";
-import { Button, Card, Drawer, Tag, message } from "antd";
 import { useState } from "react";
 import { GoDotFill } from "react-icons/go";
 import { TbCurrencyTaka } from "react-icons/tb";
-import { format } from "prettier";
+import { useLocation, useParams } from "react-router";
 
 const QueryWiseTransport = () => {
   const [selectedTrip, setSelectedTrip] = useState(null);
@@ -19,7 +18,7 @@ const QueryWiseTransport = () => {
   const destination = params.get("destination");
   const departure = params.get("departure");
 
-  let apiUrl = "https://tickto-server.vercel.app/api/trips/bus";
+  let apiUrl = "http://localhost:5000/api/trips/bus";
 
   if (origin && destination && departure) {
     apiUrl = `/api/trips/${vehicle}?origin=${origin}&destination=${destination}&departure=${departure}`;
@@ -30,7 +29,7 @@ const QueryWiseTransport = () => {
   const { data: tripData, isLoading } = useQuery({
     queryKey: ["travel", vehicle],
     queryFn: async () => {
-      const res = await axios.get(`https://tickto-server.vercel.app/api/trips/bus`);
+      const res = await axios.get(`http://localhost:5000/api/trips/bus`);
       return res.data || [];
     },
   });
@@ -102,7 +101,7 @@ const QueryWiseTransport = () => {
               <div className="my-8 md:my-0">
                 <div>
 
-                  <p className="text-center">{'distance'} km</p>
+                  <p className="text-center">{trip.distance} km</p>
                   <div className="flex items-center justify-center text-[#78a6c4] px-8">
                     <GoDotFill /><hr className="text-primary min-w-40 -mx-1" /><GoDotFill />
                   </div>

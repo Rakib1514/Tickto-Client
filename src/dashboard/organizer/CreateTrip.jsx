@@ -99,6 +99,13 @@ const CreateTrip = () => {
         >
           <Input />
         </Form.Item>
+        <Form.Item
+          name="distance"
+          label="Distance (km)"
+          rules={[{ required: true, message: "Please enter distance" }]}
+        >
+          <InputNumber />
+        </Form.Item>
 
         <Form.Item
           name="departureTime"
