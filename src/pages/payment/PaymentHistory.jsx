@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { FaSpinner } from 'react-icons/fa';
+import { FaDownload, FaSpinner } from 'react-icons/fa';
 
 const PaymentHistory = () => {
   const { user } = useContext(AuthContext);
@@ -43,7 +43,8 @@ const PaymentHistory = () => {
                 <th>Email</th>
                 <th>Price</th>
                 <th>Transaction ID</th>
-                <th>Status</th>
+                <th>Selected Seat</th>
+                <th>Download</th>
               </tr>
             </thead>
             <tbody>
@@ -55,16 +56,13 @@ const PaymentHistory = () => {
                     ${payment.price}
                   </td>
                   <td className="break-all text-sm">{payment.transactionId}</td>
+                  <td className="break-all text-sm">{/* Check if selectedSeats exists and is an array */}
+                    {Array.isArray(payment.selectedSeats) && payment.selectedSeats.length > 0
+                      ? payment.selectedSeats.join(', ') 
+                      : 'None'}</td>
                   <td>
-                    <span
-                      className={`badge px-3 py-2 text-white ${
-                        payment.status === 'paid'
-                          ? 'bg-[#317371]'
-                          : 'bg-yellow-500'
-                      }`}
-                    >
-                      {payment.status}
-                    </span>
+                    
+                    <FaDownload/>
                   </td>
                 </tr>
               ))}

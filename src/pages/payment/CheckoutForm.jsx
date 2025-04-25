@@ -108,6 +108,7 @@ const CheckoutForm = ({totalPrice, selectedSeats}) => {
       const payment = {
         email: user?.email,
         price: totalPrice,
+        selectedSeats,
         transactionId: paymentIntent.id,
         date: new Date(),
         status: 'pending',
@@ -158,7 +159,7 @@ const CheckoutForm = ({totalPrice, selectedSeats}) => {
 
   useEffect(() => {
     if (totalPrice > 0) {
-      axios.post('/create-payment-intent', { price: totalPrice })
+      axios.post('/create-payment-intent', { price: totalPrice, selectedSeats })
         .then(res => {
           setClientSecret(res.data.clientSecret);
         })
