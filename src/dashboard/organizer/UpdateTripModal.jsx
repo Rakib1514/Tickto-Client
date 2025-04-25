@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   Button,
   DatePicker,
@@ -13,7 +13,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import dayjs from "dayjs";
 
-const UpdateTripModal = ({ setIsModalOpen, isModalOpen, trip = {} }) => {
+const UpdateTripModal = ({ setIsModalOpen, isModalOpen, trip , refetch }) => {
+  const [updateLoading, setUpdateLoading] = useState(false);
   const { user } = useContext(AuthContext);
   const [form] = Form.useForm();
 
@@ -33,8 +34,23 @@ const UpdateTripModal = ({ setIsModalOpen, isModalOpen, trip = {} }) => {
   });
 
   const onFinish = async (values) => {
-    console.log(values);
-    // Handle form submission logic here
+    try {
+      setUpdateLoading(true);
+      // Prepare the data for the API request
+      const res = await axios.patch(`/api/trips/${trip._id}`, {
+        ...values,
+        departureTime: values.departureTime.toISOString(),
+        arrivalTime: values.arrivalTime.toISOString(),
+      });
+
+      setIsModalOpen(false);
+      refetch(); // Refetch the trips data after updating
+      alert("Trip updated successfully!");
+    } catch (error) {
+      console.error("Failed to update trip:", error);
+    } finally {
+      setUpdateLoading(false);
+    }
   };
 
   // Disables all dates before today
@@ -148,7 +164,7 @@ const UpdateTripModal = ({ setIsModalOpen, isModalOpen, trip = {} }) => {
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
+            <Button loading={updateLoading} type="primary" htmlType="submit">
               Update Trip
             </Button>
           </Form.Item>

@@ -8,13 +8,10 @@ import UpdateTripModal from "./UpdateTripModal";
 const ManageTripsCard = (status) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
 
   const { user } = useContext(AuthContext);
 
-  const { data: trips = [], isLoading } = useQuery({
+  const { data: trips = [], isLoading, refetch } = useQuery({
     queryKey: ["trips", user?.uid, status.status],
     queryFn: async () => {
       const res = await axios.get(
@@ -54,6 +51,7 @@ const ManageTripsCard = (status) => {
         setIsModalOpen={setIsModalOpen}
         isModalOpen={isModalOpen}
         trip={trip}
+        refetch={refetch}
       />
     </div>
   ));
