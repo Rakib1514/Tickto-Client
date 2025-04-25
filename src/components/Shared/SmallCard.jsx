@@ -15,7 +15,7 @@ const SmallCard = ({ event, height, titletext, space }) => {
       className="group relative cursor-pointer overflow-hidden w-full rounded-lg"
     >
       <Link to={`/event/${_id}`}>
-        <div className={`relative w-full ${height} text-start`}>
+        <div className={`relative  ${height} text-start`}>
           {/* Background Image */}
           <motion.img
             src={image_url || theater}
@@ -42,7 +42,7 @@ const SmallCard = ({ event, height, titletext, space }) => {
             className={`absolute bottom-3 left-2 ${space} right-[2px] text-white ${titletext}`}
             variants={{
               rest: { y: 0 },
-              hover: { y: -80 },
+              hover: { y: -120 },
             }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >

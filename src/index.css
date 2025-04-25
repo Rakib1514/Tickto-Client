@@ -50,11 +50,21 @@
   ...
 } */
 
+.btn{
+  color: white;
+  font-weight: 600;
+  background: #274f7a;
+  margin-top: 6px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 0px
+}
+
 .top__category__btn {
   position: relative;
   display: inline-block;
   font-weight: 500;
-  color: black;
+  color: white;
   text-decoration: none;
   border-radius: 5px;
   transition: all .2s ease-in-out;
