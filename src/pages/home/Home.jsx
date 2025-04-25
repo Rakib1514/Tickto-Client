@@ -2,7 +2,8 @@ import { lazy } from 'react';
 import LazyWrapper from '../../components/Shared/LazyWrapper';
 import IntroCard from './IntroCard';
 
-const Banner = lazy(() => import('./Banner'));
+
+const Banner = lazy(() => import('./banner/Banner'));
 const RecentView = lazy(() => import('./RecentView'));
 const Feature = lazy(() => import('./Feature'));
 const DataSafe = lazy(() => import('./DataSafe'));
