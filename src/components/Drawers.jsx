@@ -3,6 +3,7 @@ import { MdEventSeat } from 'react-icons/md';
 import { IoClose } from 'react-icons/io5';
 import React from 'react';
 import Swal from 'sweetalert2';
+import { Link } from "react-router";
 
 const Drawers = ({
   handleNext,
@@ -47,7 +48,6 @@ const Drawers = ({
       open={drawerOpen}
       closeIcon={<IoClose className="text-2xl text-gray-600" />}
       width={400}
-      bodyStyle={{ padding: 0 }}
     >
       <div className="h-full flex flex-col bg-white">
         {/* Header */}
@@ -145,7 +145,8 @@ const Drawers = ({
             <p className="text-primary">{selectedSeats.length} Seat(s) Selected</p>
             <p className="font-bold text-green-600">৳{totalPrice}</p>
           </div>
-          <button
+          {/* <Link
+          to="/payment"
             onClick={handleNext}
             disabled={selectedSeats.length === 0}
             className={`btn w-full ${
@@ -155,7 +156,25 @@ const Drawers = ({
             }`}
           >
             Continue ৳{totalPrice}
-          </button>
+          </Link> */}
+          <Link
+  to="/payment"
+  state={{ selectedSeats, totalPrice }}
+  onClick={(e) => {
+    if (selectedSeats.length === 0) {
+      e.preventDefault();
+      return;
+    }
+    handleNext();
+  }}
+  className={`btn w-full ${
+    selectedSeats.length === 0
+      ? 'btn-disabled bg-gray-400 border-none text-white'
+      : 'bg-primary hover:bg-green-600 text-white border-none'
+  }`}
+>
+  Continue ৳{totalPrice}
+</Link>
         </div>
       </div>
     </Drawer>
