@@ -57,6 +57,7 @@ const SmallCard = ({ event, height, titletext, space }) => {
             className="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:brightness-50"
             src={image_url || theater}
             alt={title}
+            loading="lazy"
           />
 
           <div className="absolute top-3 right-3">

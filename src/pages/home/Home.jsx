@@ -1,28 +1,27 @@
-import Banner from './Banner';
-import RecentView from './RecentView';
-import DataSafe from './DataSafe';
-import PopularNow from './PopularNow';
-import Feature from './Feature';
+import { lazy } from 'react';
+import LazyWrapper from '../../components/Shared/LazyWrapper';
 
-import Reviews from './Reviews';
-
-import Events from './Events';
-import Travel from './Travel';
-
+const Banner = lazy(() => import('./Banner'));
+const RecentView = lazy(() => import('./RecentView'));
+const Feature = lazy(() => import('./Feature'));
+const DataSafe = lazy(() => import('./DataSafe'));
+const PopularNow = lazy(() => import('./PopularNow'));
+const Events = lazy(() => import('./Events'));
+const Travel = lazy(() => import('./Travel'));
+const Reviews = lazy(() => import('./Reviews'));
 
 const Home = () => {
   return (
-    <>
-      <Banner />
-      <RecentView />
-      <Feature />
-      <DataSafe />
-      <PopularNow />
-      <Events />
-      <Travel />
-      <Reviews />
-      
-    </>
+    <div>
+      <LazyWrapper><Banner /></LazyWrapper>
+      <LazyWrapper><RecentView /></LazyWrapper>
+      <LazyWrapper><Feature /></LazyWrapper>
+      <LazyWrapper><DataSafe /></LazyWrapper>
+      <LazyWrapper><PopularNow /></LazyWrapper>
+      <LazyWrapper><Events /></LazyWrapper>
+      <LazyWrapper><Travel /></LazyWrapper>
+      <LazyWrapper><Reviews /></LazyWrapper>
+    </div>
   );
 };
 
