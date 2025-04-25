@@ -49,14 +49,11 @@ const Register = () => {
             created_at: currentDateTime,
             photoURL: imageURL,
           };
-          console.log( " photo is ", photoURL);
+          // console.log( " photo is ", photoURL);
           axiosPublic.post('/api/users', userInfo).then((res) => {
-<<<<<<< HEAD
-            if (res?.data?.insertedId) {
-              console.log('user added');
-=======
+            if (res?.data?.insertedId) { 
+              // console.log('user added');
             if (res.data.insertedId) {
->>>>>>> ce4e8665b47910d73e1947b81ab9ffe805dc0b2c
               reset();
               Swal.fire({
                 title: 'Sign Up Successful',
@@ -78,7 +75,7 @@ const Register = () => {
               });
             }
             navigate('/');
-          });
+          }});
         })
         .catch((error) => console.log(error));
     });
