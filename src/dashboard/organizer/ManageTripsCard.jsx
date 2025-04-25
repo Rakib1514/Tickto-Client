@@ -1,25 +1,30 @@
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
+import { Button } from "antd";
+import UpdateTripModal from "./UpdateTripModal";
 
 const ManageTripsCard = (status) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(status)
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
 
   const { user } = useContext(AuthContext);
 
-  const { data: trips= [], isLoading } = useQuery({
+  const { data: trips = [], isLoading } = useQuery({
     queryKey: ["trips", user?.uid, status.status],
     queryFn: async () => {
-      const res = await axios.get(`/api/trips?userId=${user?.uid}&status=${status.status}`);
+      const res = await axios.get(
+        `/api/trips?userId=${user?.uid}&status=${status.status}`
+      );
       return res.data;
     },
   });
 
-  console.log(trips)
-
-  
+  console.log(trips);
 
   if (isLoading) {
     return (
@@ -28,7 +33,7 @@ const ManageTripsCard = (status) => {
       </div>
     );
   }
-  
+
   return trips.map((trip) => (
     <div key={trip._id} className="border p-4 mb-4 rounded-lg shadow-md">
       <h3 className="text-lg font-bold">
@@ -38,9 +43,18 @@ const ManageTripsCard = (status) => {
       <p>Departure: {new Date(trip.departureTime).toLocaleString()}</p>
       <p>Arrival: {new Date(trip.arrivalTime).toLocaleString()}</p>
       <p>Fare: ${trip.fare}</p>
-      <button className="mt-2 px-4 py-2 bg-blue-500 text-white rounded">
-        Edit Trip
-      </button>
+      <Button
+        type="primary"
+        className={`mt-2 ${trip.status === "completed" || "active" ? "hidden" : ""}`}
+        onClick={() => setIsModalOpen(true)}
+      >
+        Update Trip
+      </Button>
+      <UpdateTripModal
+        setIsModalOpen={setIsModalOpen}
+        isModalOpen={isModalOpen}
+        trip={trip}
+      />
     </div>
   ));
 };
