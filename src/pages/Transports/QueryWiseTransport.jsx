@@ -5,6 +5,7 @@ import { Button, Card, Drawer, Tag, message } from "antd";
 import { useState } from "react";
 import { GoDotFill } from "react-icons/go";
 import { TbCurrencyTaka } from "react-icons/tb";
+import Drawers from "../../components/Drawers";
 
 const QueryWiseTransport = () => {
   const [selectedTrip, setSelectedTrip] = useState(null);
@@ -136,41 +137,16 @@ const QueryWiseTransport = () => {
       })}
 
       {/* Drawer for seat selection */}
-      <Drawer
-        title="Select Your Seat"
-        onClose={() => setDrawerOpen(false)}
-        open={drawerOpen}
-        width={400}
-        footer={
-          <div className="text-right">
-            <Button type="primary" onClick={handleNext}>
-              Next
-            </Button>
-          </div>
-        }
-      >
-        {selectedTrip?.busDetails?.seatLayout.map((row) => (
-          <div key={row.row} className="mb-2 flex gap-2">
-            <span className="w-6 text-right">{row.row}</span>
-            {row.seats.map((seat) => {
-              const seatNum = seat.seatNumber;
-              const isBooked = selectedTrip.bookedSeats.includes(seatNum);
-              const isSelected = selectedSeats.includes(seatNum);
-              return (
-                <Button
-                  key={seatNum}
-                  size="small"
-                  disabled={isBooked}
-                  type={isSelected ? "primary" : "default"}
-                  onClick={() => handleSeatClick(seatNum)}
-                >
-                  {seatNum}
-                </Button>
-              );
-            })}
-          </div>
-        ))}
-      </Drawer>
+      <Drawers 
+  handleNext={handleNext}
+  setDrawerOpen={setDrawerOpen}
+  drawerOpen={drawerOpen}
+  selectedTrip={selectedTrip}
+  handleSeatClick={handleSeatClick}
+  selectedSeats={selectedSeats}
+/>
+
+      
     </div>
   );
 };

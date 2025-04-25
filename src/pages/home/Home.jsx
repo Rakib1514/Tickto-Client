@@ -1,29 +1,28 @@
-import { lazy } from 'react';
-import LazyWrapper from '../../components/Shared/LazyWrapper';
-import IntroCard from './IntroCard';
-
-const Banner = lazy(() => import('./banner/Banner'));
-const RecentView = lazy(() => import('./RecentView'));
-const Feature = lazy(() => import('./Feature'));
-const DataSafe = lazy(() => import('./DataSafe'));
-const PopularNow = lazy(() => import('./PopularNow'));
-const Events = lazy(() => import('./Events'));
-const Travel = lazy(() => import('./Travel'));
-const Reviews = lazy(() => import('./Reviews'));
+import Banner from "./banner/Banner";
+import IntroCard from "./IntroCard";
+import RecentView from "./RecentView";
+import Reviews from "./Reviews";
+import DataSafe from "./DataSafe"
+import PopularNow from "./PopularNow"
 
 const Home = () => {
   return (
-    <div>
-      <LazyWrapper><Banner /></LazyWrapper>
-      <LazyWrapper><RecentView /></LazyWrapper>
-      <LazyWrapper><Feature /></LazyWrapper>
-      <LazyWrapper><DataSafe /></LazyWrapper>
-      <LazyWrapper><PopularNow /></LazyWrapper>
-      <LazyWrapper><Events /></LazyWrapper>
-      <LazyWrapper><Travel /></LazyWrapper>
-      <LazyWrapper><Reviews /></LazyWrapper>
-      <LazyWrapper><IntroCard/> </LazyWrapper>
-    </div>
+    <>
+      <Banner />
+      {/* <div className="h-screen">
+
+      </div> */}
+
+      <IntroCard/>
+      
+      <RecentView />
+      {/* <Feature /> */}
+      <PopularNow />
+      <DataSafe />
+      {/* <Events /> */}
+      {/* <Travel /> */}
+      <Reviews />
+    </>
   );
 };
 
