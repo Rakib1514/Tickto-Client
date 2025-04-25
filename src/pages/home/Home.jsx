@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import LazyWrapper from '../../components/Shared/LazyWrapper';
+import IntroCard from './IntroCard';
 
 const Banner = lazy(() => import('./Banner'));
 const RecentView = lazy(() => import('./RecentView'));
@@ -21,6 +22,7 @@ const Home = () => {
       <LazyWrapper><Events /></LazyWrapper>
       <LazyWrapper><Travel /></LazyWrapper>
       <LazyWrapper><Reviews /></LazyWrapper>
+      <LazyWrapper><IntroCard/> </LazyWrapper>
     </div>
   );
 };

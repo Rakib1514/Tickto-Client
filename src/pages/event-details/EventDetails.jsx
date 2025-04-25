@@ -1,15 +1,17 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import { Link, useParams } from 'react-router';
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { Link, useParams } from "react-router";
 
 const EventDetails = () => {
   const { id } = useParams();
 
   const { data: eventData, isLoading } = useQuery({
-    queryKey: ['Event', id],
+    queryKey: ["Event", id],
     queryFn: async () => {
       // Fetch event details from API
-      const res = await axios.get(`https://tickto-server.vercel.app/api/event/${id}`);
+      const res = await axios.get(
+        `/api/event/${id}`
+      );
       return res.data;
     },
   });
@@ -32,43 +34,44 @@ const EventDetails = () => {
 
   // Destructure with fallback values.
   const {
+    _id,
     title,
     thumbnail,
     category,
     subCategory,
-    Date = '2025-08-15',
-    time = '7:00 PM - 10:00 PM',
-    duration = '3 hours',
-    ageLimit = '18+',
+    Date = "2025-08-15",
+    time = "7:00 PM - 10:00 PM",
+    duration = "3 hours",
+    ageLimit = "18+",
     vanue = {
-      locationName: 'FunLand Park',
-      fullAddress: '456 Adventure Road, Playtown',
-      googlemapsLink: 'https://maps.google.com/?q=456+Adventure+Road+Playtown',
+      locationName: "FunLand Park",
+      fullAddress: "456 Adventure Road, Playtown",
+      googlemapsLink: "https://maps.google.com/?q=456+Adventure+Road+Playtown",
     },
-    description = 'Experience the thrill at FunLand Park with exhilarating rides, vibrant attractions, and magical entertainment all night long.',
+    description = "Experience the thrill at FunLand Park with exhilarating rides, vibrant attractions, and magical entertainment all night long.",
     ticketInfo = {
-      ticketPrice: '$50',
-      availableSeat: '120 seats available',
-      ticketType: 'General admission',
-      refundPolicy: 'Refundable within 24 hrs',
+      ticketPrice: "$50",
+      availableSeat: "120 seats available",
+      ticketType: "General admission",
+      refundPolicy: "Refundable within 24 hrs",
     },
     Organizer = {
-      name: 'EventMaster Ltd',
-      contactInfo: 'contact@rmail.com',
+      name: "EventMaster Ltd",
+      contactInfo: "contact@rmail.com",
     },
     specialFeatures = [
-      'Live Performances',
-      'Interactive Games',
-      'Parade Shows',
-      'Firework Display',
-      'Food Stalls',
+      "Live Performances",
+      "Interactive Games",
+      "Parade Shows",
+      "Firework Display",
+      "Food Stalls",
     ],
     imageGallery = [
-      'https://i.ibb.co.com/k2j56Z0G/prop-image.jpg',
-      'https://i.ibb.co.com/k2j56Z0G/prop-image.jpg',
-      'https://i.ibb.co.com/k2j56Z0G/prop-image.jpg',
+      "https://i.ibb.co.com/k2j56Z0G/prop-image.jpg",
+      "https://i.ibb.co.com/k2j56Z0G/prop-image.jpg",
+      "https://i.ibb.co.com/k2j56Z0G/prop-image.jpg",
     ],
-    Celebrity = ['Alice Star', 'Bob Fame', 'Charlie Vision'],
+    Celebrity = ["Alice Star", "Bob Fame", "Charlie Vision"],
   } = eventData.data;
 
   return (
@@ -76,7 +79,11 @@ const EventDetails = () => {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* Left Side: Event Image */}
         <div>
-          <img src={thumbnail} alt={title} className="h-80 w-full rounded-lg object-cover shadow" />
+          <img
+            src={thumbnail}
+            alt={title}
+            className="h-80 w-full rounded-lg object-cover shadow"
+          />
         </div>
 
         {/* Right Side: Main Event Data */}
@@ -90,12 +97,12 @@ const EventDetails = () => {
 
             {/* Call-to-Action Buttons */}
             <div className="mt-4 flex flex-col gap-4 sm:flex-row">
-              <Link to={'/payment'}>
+              <Link to={`/event/reserve/${id}`}>
                 <button className="bg-primary cursor-pointer rounded px-6 py-2 text-white hover:opacity-90">
-                  Buy Ticket Now
+                  Reserve Your Spot
                 </button>
               </Link>
-              <Link to={'/'}>
+              <Link to={"/"}>
                 <button className="border-primary text-primary hover:bg-primary cursor-pointer rounded border px-6 py-2 hover:text-white">
                   Share Event
                 </button>
