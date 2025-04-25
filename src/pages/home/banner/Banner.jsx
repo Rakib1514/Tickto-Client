@@ -3,7 +3,7 @@ import BusTicketSearch from '../bus-ticket-search/BusTicketSearch';
 
 const Banner = () => {
   return (
-    <div className='w-full mt-28 relative'>
+    <div className='w-full mt-16 relative'>
       <div className="h-[40vh] w-full">
         <img src="https://i.ibb.co.com/SXXrP05N/tickto-hero.jpg" alt="" className='h-full w-full object-cover'/>
       </div>

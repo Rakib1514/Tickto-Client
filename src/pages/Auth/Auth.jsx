@@ -1,7 +1,7 @@
 import React from 'react';
-import authbg from '../../Assets/auth/authanimate.jpg';
-// import authbg from '../../Assets/auth/northern_lights.jpg'
-// import authbg from '../../Assets/auth/Norway.jpg'
+// import authbg from '../../Assets/auth/authanimate.jpg';
+// import authbg from '../../Assets/auth/login_bg.jpeg'
+import authbg from '../../Assets/auth/loginbg-run.jpeg'
 import { Outlet, useNavigate } from 'react-router';
 import { IoIosArrowBack } from 'react-icons/io';
 import './auth.css';
