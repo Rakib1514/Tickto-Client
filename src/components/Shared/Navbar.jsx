@@ -131,9 +131,9 @@ const Navbar = () => {
                         </motion.div>
                         <ul
                           tabIndex={0}
-                          className="menu menu-sm dropdown-content rounded-box z-1 text-white w-52 bg-[#78a6c4] p-2 font-bold shadow backdrop-blur-3xl"
+                          className="menu menu-sm dropdown-content rounded-box z-1 text-white w-52 bg-[#78a6c4]/40 p-2 font-bold shadow backdrop-blur-3xl"
                         >
-                          <li className="text-center">{user?.displayName}</li>
+                          <li className="text-center my-2">{user?.displayName}</li>
                           <li>
                             <Link to="/updateprofile">Update Profile</Link>
                           </li>

@@ -15,6 +15,7 @@ import moment from "moment";
 import axios from "axios";
 import debounce from "lodash.debounce";
 import { useNavigate } from "react-router";
+import "../../Auth/auth.css"
 
 const BusTicketSearch = () => {
   const [form] = Form.useForm();
@@ -79,8 +80,8 @@ const BusTicketSearch = () => {
 
   return (
     <div
-      className=" "
-      style={{ backgroundSize: "cover", backgroundPosition: "center" }}
+      className=""
+      // style={{ backgroundSize: "cover", backgroundPosition: "center" }}
     >
       {/* Search Form */}
       <Form
@@ -95,9 +96,9 @@ const BusTicketSearch = () => {
           maxWidth: 1200,
           margin: "0 auto",
         }}
-        className="shadow-2xl"
+        className="shadow-2xl !bg-white/60 !backdrop-blur-[6px]"
       >
-        <Row gutter={[16, 16]} align="middle">
+        <Row gutter={[16, 16]} align="middle" className="">
           <Col xs={24} sm={8}>
             <Form.Item
               name="from"
@@ -156,7 +157,7 @@ const BusTicketSearch = () => {
           </Col>
         </Row>
 
-        <Form.Item>
+        <Form.Item >
           <Button
             type="primary"
             htmlType="submit"
