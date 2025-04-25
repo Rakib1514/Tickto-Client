@@ -61,7 +61,7 @@ const IntroCard = () => {
                         whileHover={{ y: -14, scale: 1.04}}
                         key={index} >
                             <div className='min-h-60 p-6 rounded-lg shadow-xl m-4 bg-[#f7f8fa] hover:bg-[#edf5ff] transition duration-400'>
-                                <div className='text-5xl text-[#274f7a] mb-4'>
+                                <div className='text-5xl text-[#78a6c4] mb-4'>
                                     {item.image}
                                 </div>
                                 <h3 className='text-2xl my-4 font-semibold'>{item.title} Tickets</h3>
