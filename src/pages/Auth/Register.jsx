@@ -26,7 +26,6 @@ const Register = () => {
   // const dispatch = useDispatch()
 
   const onSubmit = async (data) => {
-    console.log(data);
     // dispatch(registerUser(data))
 
     const imageFile = { image: data.image[0] };
@@ -41,7 +40,6 @@ const Register = () => {
       const loggedUser = result.user;
       const imageURL = res.data.data.display_url;
       const currentDateTime = new Date().toUTCString();
-      console.log(loggedUser);
       updateUserProfile(data.name, data.number, imageURL)
         .then(() => {
           const userInfo = {
@@ -53,8 +51,12 @@ const Register = () => {
           };
           console.log( " photo is ", photoURL);
           axiosPublic.post('/api/users', userInfo).then((res) => {
+<<<<<<< HEAD
             if (res?.data?.insertedId) {
               console.log('user added');
+=======
+            if (res.data.insertedId) {
+>>>>>>> ce4e8665b47910d73e1947b81ab9ffe805dc0b2c
               reset();
               Swal.fire({
                 title: 'Sign Up Successful',

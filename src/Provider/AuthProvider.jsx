@@ -67,7 +67,6 @@ const AuthProvider = ({ children }) => {
       }
 
       setLoading(false);
-      console.log(currentUser);
     });
     return () => unSubscribe();
   }, [auth], [axiosPublic]);

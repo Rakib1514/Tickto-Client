@@ -1,39 +1,43 @@
-import { Link, Outlet } from 'react-router';
-import Navbar from '../components/Shared/Navbar';
-import Footer from '../components/Shared/Footer';
-import axios from 'axios';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import Lottie from "lottie-react";
+import { Link, Outlet } from "react-router";
+import loadingAnimation from "../Assets/lotties/loading_ani_light.json";
+import Footer from "../components/Shared/Footer";
+import Navbar from "../components/Shared/Navbar";
 
 const MainLayout = () => {
   // Fetch all categories
-  const { data, isLoading, error } = useQuery({
-    queryKey: ['categories'],
-    queryFn: async () => {
-      const response = await axios.get('https://tickto-server.vercel.app/api/categories');
-      return response.data.data || [];
-    },
-  });
+  // const { data, isLoading, error } = useQuery({
+  //   queryKey: ["categories"],
+  //   queryFn: async () => {
+  //     const response = await axios.get("/api/categories");
+  //     return response.data.data || [];
+  //   },
+  // });
 
-  if (isLoading)
-    return (
-      <div className="flex min-h-screen items-center justify-center text-3xl">
-        <span>Loading...</span>
-      </div>
-    );
-  if (error) return <h1>Error fetching categories</h1>;
+  // if (isLoading)
+  //   return (
+  //     <div className="flex min-h-screen items-center justify-center text-3xl ">
+  //       <div className="w-96">
+  //         <Lottie animationData={loadingAnimation}></Lottie>
+  //       </div>
+  //     </div>
+  //   );
+
+  // if (error) return <h1>Error fetching categories</h1>;
 
   return (
-    <div className=''>
+    <>
+      {/* <EidFeature /> */}
       <Navbar />
 
-
       {/* Categories under navbar */}
-      {/* <div className="sticky top-16 py-[6px] font-semibold text-base z-10 bg-base-100 backdrop-blur-2xl opacity-80 flex-wrap">
-
-        <div className="container mx-auto flex flex-wrap gap-3 md:gap-5 w-full">
+      {/* <div className="sticky top-16 py-1  text-black z-[500]  bg-white ">
+        <div className="container pb-2 mx-auto flex flex-wrap gap-3 md:gap-5 w-full">
           {data?.map((category, idx) => (
-            <Link to={`/events/${category.subCategory}`}>
-              <button key={idx} className="top__category__btn underline underline-offset-1 underline-gray-400">
+            <Link key={idx} to={`/events/${category.subCategory}`}>
+              <button className="top__category__btn capitalize cursor-pointer">
                 {category.subCategory}
               </button>
             </Link>
@@ -41,12 +45,11 @@ const MainLayout = () => {
         </div>
       </div> */}
 
-
-      <main>
+      <main className="-mt-18 md:-mt-9 bg-[#fff9f1]">
         <Outlet />
       </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -1,27 +1,21 @@
-import Banner from './Banner';
-import RecentView from './RecentView';
-import DataSafe from './DataSafe';
-import PopularNow from './PopularNow';
-import Feature from './Feature';
-
-import Reviews from './Reviews';
-
-import Events from './Events';
-import Travel from './Travel';
-import EidFeature from './EidFeature';
+import Banner from "./banner/Banner";
+import RecentView from "./RecentView";
 
 const Home = () => {
   return (
     <>
       <Banner />
-      <RecentView />
-      <Feature />
-      <DataSafe />
-      <PopularNow />
-      <Events />
-      <Travel />
-      <Reviews />
-      <EidFeature />
+      <div className="h-screen">
+
+      </div>
+      
+      {/* <RecentView /> */}
+      {/* <Feature /> */}
+      {/* <DataSafe /> */}
+      {/* <PopularNow /> */}
+      {/* <Events /> */}
+      {/* <Travel /> */}
+      {/* <Reviews /> */}
     </>
   );
 };

@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Lottie from "lottie-react";
 import { useEffect } from "react";
+import { FiSearch } from 'react-icons/fi';
 import { useParams } from "react-router";
 import SmallCard from "../../components/Shared/SmallCard";
-import { FiSearch } from 'react-icons/fi';
 
 const CategoryWiseEvents = () => {
   const { category } = useParams();
@@ -22,8 +23,8 @@ const CategoryWiseEvents = () => {
 
   if (isLoading)
     return (
-      <div className="flex min-h-screen items-center justify-center text-3xl">
-        <span>Loading...</span>
+      <div className="flex min-h-screen items-center justify-center text-3xl ">
+        <p>Loaidng in the categories event</p>
       </div>
     );
 

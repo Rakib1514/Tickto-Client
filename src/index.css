@@ -1,6 +1,11 @@
 @import 'tailwindcss';
+
+
 @plugin "daisyui";
-/* @import "./node_modules/preline/variants.css"; */
+
+
+
+
 
 
 @plugin "daisyui/theme" {
@@ -12,9 +17,9 @@
   --color-base-200: oklch(98% 0 0);
   --color-base-300: oklch(95% 0 0);
   --color-base-content: oklch(21% 0.006 285.885);
-  --color-primary: #317371;
-  --color-primary-content: oklch(93% 0.034 272.788);
-  --color-secondary: oklch(65% 0.241 354.308);
+  --color-primary: #F05537;
+  --color-primary-content: #0F0000;
+  --color-secondary: #9F2C15;
   --color-secondary-content: oklch(94% 0.028 342.258);
   --color-accent: oklch(77% 0.152 181.912);
   --color-accent-content: oklch(38% 0.063 188.416);
@@ -44,5 +49,32 @@
   --color-primaryClr: #317371;
   ...
 } */
+
+.top__category__btn {
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all .2s ease-in-out;
+}
+
+.top__category__btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #F05537;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+.top__category__btn:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
 
 
