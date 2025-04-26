@@ -8,6 +8,7 @@ import Logo from "./Logo";
 const Navbar = () => {
   const dispatch = useDispatch();
   const { isLoading, user } = useSelector((state) => state.auth);
+  console.log(user)
 
   const location = useLocation();
   const [theme, setTheme] = useState("light");
@@ -115,7 +116,7 @@ const Navbar = () => {
                           tabIndex={0}
                           className="menu menu-sm dropdown-content rounded-box z-1 text-white w-52 bg-[#78a6c4] p-2 font-bold shadow backdrop-blur-3xl"
                         >
-                          <li className="text-center">{user?.displayName}</li>
+                          <li className="text-center">{user?.name}</li>
 
                           <li>
                             <Link to="/dashboard">Dashboard</Link>

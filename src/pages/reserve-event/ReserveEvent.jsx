@@ -73,7 +73,7 @@ const ReserveEvent = () => {
           {/* Greeting & Checkbox selection */}
           <div className="space-y-2">
             <p>
-              Hello <span className="italic">{user?.displayName}</span>, please follow the steps below to complete your reservation.
+              Hello <span className="italic">{user?.name}</span>, please follow the steps below to complete your reservation.
             </p>
             <div className="flex justify-between">
               <span className="font-semibold">Is anyone coming with you?</span>

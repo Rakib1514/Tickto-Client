@@ -9,24 +9,25 @@ const AuthObserver = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setLoading(true));
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      dispatch(setLoading(true));
 
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        dispatch(
-          setUser({
+        try {
+          const response = await axios.post("/jwt", {
             email: currentUser.email,
-            displayName: currentUser.displayName,
-            photoURL: currentUser.photoURL,
-            uid: currentUser.uid,
-          })
-        );
-        const userInfo = { email: currentUser.email };
-        axios.post("/jwt", userInfo).then((res) => {
-          if (res.data.token) {
-            localStorage.setItem("access-token", res.data.token);
-          }
-        });
+          });
+          localStorage.setItem("access-token", response.data.token);
+
+          const res = await axios.get(`/api/users/${currentUser.uid}`);
+
+          dispatch(setUser(res.data.data));
+        } catch (err) {
+          console.error("AuthObserver error:", err);
+
+          localStorage.removeItem("access-token");
+          dispatch(setUser(null));
+        }
       } else {
         localStorage.removeItem("access-token");
         dispatch(setUser(null));

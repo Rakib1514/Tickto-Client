@@ -64,7 +64,7 @@ const CheckoutForm = ({totalPrice, selectedSeats}) => {
       card: cardNumber,
       billing_details: {
         email: user?.email || 'anonymous',
-        name: user?.displayName || 'anonymous',
+        name: user?.name || 'anonymous',
         address: { postal_code: null }
       }
     });
@@ -86,7 +86,7 @@ const CheckoutForm = ({totalPrice, selectedSeats}) => {
         card: cardNumber,
         billing_details: {
           email: user?.email || 'anonymous',
-          name: user?.displayName || 'anonymous',
+          name: user?.name || 'anonymous',
           address: { postal_code: null }
         }
       }
@@ -208,7 +208,7 @@ const CheckoutForm = ({totalPrice, selectedSeats}) => {
           <div className="flex justify-between mt-2 sm:mt-3 text-[10px] sm:text-xs md:text-sm">
             <div>
               <p className="text-[10px] sm:text-xs">CARDHOLDER</p>
-              <p>{user?.displayName}</p>
+              <p>{user?.name}</p>
             </div>
             <div>
               <p className="text-[10px] sm:text-xs">EXPIRES</p>

@@ -62,7 +62,7 @@ export default function Dashboard() {
               alt="User Avatar"
             />
             <div className="text-sm font-medium text-gray-900">
-              {user?.displayName || "Anonymous"}
+              {user?.name || "Anonymous"}
             </div>
           </div>
         </div>

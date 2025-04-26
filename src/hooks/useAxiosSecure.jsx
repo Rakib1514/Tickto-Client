@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { userSignOut } from "../Redux/authSlice";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: "http://localhost:5000",
 });
 
 const useAxiosSecure = () => {
