@@ -1,13 +1,12 @@
 import { getAuth, updateProfile } from 'firebase/auth';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
-import loadingAnimation from '../../Assets/lotties/loading_ani_light.json'
-import loadingAnimationdark from '../../Assets/lotties/loading_ani.json'
+import loadingAnimation from '../../Assets/lotties/loading_ani_light.json';
 
 const UpdateProfile = () => {
-  const { user } = useContext(AuthContext);
+  const {user} = useSelector((state) => state.auth);
   const [name, setName] = useState('');
   const [photoURL, setPhotoURL] = useState('');
   const [error, setError] = useState('');
