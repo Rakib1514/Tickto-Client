@@ -1,8 +1,8 @@
-import { useContext } from 'react';
-import { AuthContext } from '../Provider/AuthProvider';
+import { useSelector } from "react-redux";
 
 const useAuth = () => {
-  const auth = useContext(AuthContext);
+  const auth = useSelector((state) => state.auth);
+
   return auth;
 };
 

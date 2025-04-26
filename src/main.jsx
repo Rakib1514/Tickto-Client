@@ -5,10 +5,9 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { RouterProvider } from "react-router";
 import "./index.css";
-import AuthProvider from "./Provider/AuthProvider";
-import store from "./Redux/store";
-import router from "./routes/Router";
 
+import { store } from "./App/store";
+import router from "./routes/Router";
 
 const queryClient = new QueryClient();
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -17,11 +16,9 @@ axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-      <AuthProvider>
         <QueryClientProvider client={queryClient}>
           <RouterProvider router={router} />
         </QueryClientProvider>
-      </AuthProvider>
     </Provider>
   </StrictMode>
 );

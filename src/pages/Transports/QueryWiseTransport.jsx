@@ -35,8 +35,6 @@ const QueryWiseTransport = () => {
     },
   });
 
-  console.log(tripData);
-
   if (isLoading)
     return (
       <div className="text-2xl min-h-[calc(100vh-500px)] flex justify-center items-center">

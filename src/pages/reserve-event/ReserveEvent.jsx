@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { useContext, useState } from "react";
-import { useParams } from "react-router";
-import { AuthContext } from "../../Provider/AuthProvider";
 import { Button, Checkbox, Form, Input, InputNumber, message } from "antd";
+import axios from "axios";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router";
 
 const ReserveEvent = () => {
   const { id } = useParams();
-  const { user, loading } = useContext(AuthContext);
+  const {user, isLoading: loading} = useSelector((state) => state.auth);
+
 
   // State for tracking checkbox selection, step, person count, and guest details
   const [selected, setSelected] = useState(null); // "yes" or "no"
@@ -72,7 +73,7 @@ const ReserveEvent = () => {
           {/* Greeting & Checkbox selection */}
           <div className="space-y-2">
             <p>
-              Hello <span className="italic">{user?.displayName}</span>, please follow the steps below to complete your reservation.
+              Hello <span className="italic">{user?.name}</span>, please follow the steps below to complete your reservation.
             </p>
             <div className="flex justify-between">
               <span className="font-semibold">Is anyone coming with you?</span>

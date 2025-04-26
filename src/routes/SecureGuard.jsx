@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
+import { useSelector } from "react-redux";
 
 const SecureGuard = ({ children }) => {
-  const { user, loading } = useContext(AuthContext);
+  const { user, isLoading } = useSelector((state) => state.auth);
 
-  if (loading) {
+  if (isLoading) {
     return <h2>Loading in secure guard</h2>;
   }
 

@@ -7,7 +7,7 @@ const LazyLoad = (Component) => (props) => (
   </Suspense>
 );
 
-const App = lazy(() => import("../../App"));
+const App = lazy(() => import("../App/App"));
 const MainLayout = lazy(() => import("../layouts/MainLayout"));
 const AboutUs = lazy(() => import("../pages/about-us/AboutUs"));
 const AllEvents = lazy(() => import("../pages/all-events/AllEvents"));
