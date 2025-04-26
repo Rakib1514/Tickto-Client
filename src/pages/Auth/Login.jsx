@@ -26,7 +26,6 @@ const Login = () => {
   // const { user, loading, error } = useSelector(state => state.auth)
 
   const onSubmit = async (data) => {
-    console.log(data);
     dispatch(loginUser(data));
   };
 
