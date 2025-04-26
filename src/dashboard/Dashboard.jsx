@@ -1,22 +1,20 @@
-import React, { useContext } from 'react';
-import { Link, Outlet } from 'react-router';
-import { AuthContext } from '../Provider/AuthProvider';
-import { FaMoneyBillAlt, FaTicketAlt, FaRegCalendarAlt, FaHistory } from 'react-icons/fa';
+import React, { useContext, useState } from "react";
+import { Link, Outlet } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
 // React Icons
-import { FaUserCircle, FaSignOutAlt, FaCreditCard } from 'react-icons/fa';
-import { MdDashboard, MdLocalActivity, MdSettings } from 'react-icons/md';
-import { AiOutlineProfile } from 'react-icons/ai';
-import { RiSecurePaymentLine, RiUserSettingsLine } from 'react-icons/ri';
-import { HiOutlineShieldCheck } from 'react-icons/hi'; // For admin icon
-import { IoTicketOutline } from 'react-icons/io5';
-import { BsBookmarkCheck, BsCardChecklist } from 'react-icons/bs';
-import Chart from './Chart';
-import TotalRevenue from './TotalRevenue';
-import Logo from '../components/Shared/Logo';
-import useAdmin from '../hooks/useAdmin';
+import { AiOutlineProfile } from "react-icons/ai";
+import { BsBookmarkCheck } from "react-icons/bs";
+import { FaCreditCard } from "react-icons/fa";
+import { HiOutlineShieldCheck } from "react-icons/hi"; // For admin icon
+import { IoTicketOutline } from "react-icons/io5";
+import { MdDashboard, MdLocalActivity, MdSettings } from "react-icons/md";
+import { RiSecurePaymentLine, RiUserSettingsLine } from "react-icons/ri";
+import Logo from "../components/Shared/Logo";
+import useAdmin from "../hooks/useAdmin";
 
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
+  const [isBusExpanded, setIsBusExpanded] = useState(false); // State for expandable button
 
   // Conditionally render admin routes if the user is an admin
   // const isAdmin = user?.role === 'user';
@@ -57,28 +55,21 @@ export default function Dashboard() {
               className="h-10 w-10 rounded-full"
               src={
                 user?.photoURL ||
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtnvAOajH9gS4C30cRF7rD_voaTAKly2Ntaw&s'
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtnvAOajH9gS4C30cRF7rD_voaTAKly2Ntaw&s"
               }
               alt="User Avatar"
             />
             <div className="text-sm font-medium text-gray-900">
-              {user?.displayName || 'Anonymous'}
+              {user?.displayName || "Anonymous"}
             </div>
           </div>
-          {/* <button
-            onClick={logOut}
-            className="mt-2 flex items-center gap-1 text-sm text-blue-600 hover:underline dark:text-blue-900 font-semibold"
-          >
-            <FaSignOutAlt /> Sign out
-          </button> */}
         </div>
 
         {/* Nav */}
         <nav className="overflow-y-auto p-4">
           <ul className="space-y-2">
             {/* User Routes */}
-            {
-            isAdmin ? (
+            {isAdmin ? (
               <>
                 <li>
                   <Link
@@ -116,33 +107,57 @@ export default function Dashboard() {
                     Add Event
                   </Link>
                 </li>
+
+                {/* Expandable Bus Section */}
                 <li>
-                  <Link
-                    to="/dashboard/add-bus"
-                    className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                  <button
+                    onClick={() => setIsBusExpanded(!isBusExpanded)}
+                    className="flex w-full items-center justify-between gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
                   >
                     <IoTicketOutline className="text-lg" />
-                    Add Bus
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/dashboard/create-trip"
-                    className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                    <span>Bus</span>
+                    <span>{isBusExpanded ? "▲" : "▼"}</span>
+                  </button>
+
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      isBusExpanded
+                        ? "max-h-60 opacity-100"
+                        : "max-h-0 opacity-0"
+                    }`}
                   >
-                    <IoTicketOutline className="text-lg" />
-                    Create Trip
-                  </Link>
+                    <ul className="ml-6 space-y-2 py-2">
+                      <li>
+                        <Link
+                          to="/dashboard/add-bus"
+                          className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                        >
+                          <IoTicketOutline className="text-lg" />
+                          Add Bus
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/dashboard/create-trip"
+                          className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                        >
+                          <IoTicketOutline className="text-lg" />
+                          Create Trip
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/dashboard/manage-trip"
+                          className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                        >
+                          <IoTicketOutline className="text-lg" />
+                          Manage Trip
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li>
-                  <Link
-                    to="/dashboard/manage-trip"
-                    className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
-                  >
-                    <IoTicketOutline className="text-lg" />
-                    Manage Trip
-                  </Link>
-                </li>
+             
 
                 <li>
                   <Link
@@ -248,8 +263,7 @@ export default function Dashboard() {
                   </Link>
                 </li>
               </>
-            )
-            }
+            )}
 
             <></>
 

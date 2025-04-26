@@ -9,7 +9,7 @@ export default function Dashboard_layout() {
         {/* <h1>Hrllo</h1> */}
         <Dashboard />
       </div>
-      <div></div>
+      
     </div>
   );
 }
