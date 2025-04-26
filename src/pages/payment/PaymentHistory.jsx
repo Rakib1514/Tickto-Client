@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../Provider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { FaDownload, FaSpinner } from 'react-icons/fa';
+import React from 'react';
+import { FaSpinner } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 import PdfTicket from '../../components/PdfTicket';
 
 const PaymentHistory = () => {
-  const { user } = useContext(AuthContext);
+  const {user} = useSelector((state) => state.auth);
+
 
   const { data: payments = [], isLoading } = useQuery({
     queryKey: ['payments', user?.email],

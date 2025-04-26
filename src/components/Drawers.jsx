@@ -19,6 +19,8 @@ const Drawers = ({
   
   const seatCol = selectedTrip?.busDetails?.seatLayout[0].seats.length
 
+  console.log(seatCol)
+
   const handleClickSeat = (seatNum) => {
     if (selectedSeats.includes(seatNum)) {
       handleSeatClick(seatNum); // deselect allowed
@@ -124,7 +126,7 @@ const Drawers = ({
             
             <div key={row.row} className="flex gap-2 items-center mb-3">
               
-              <div className={`grid grid-cols-${seatCol+1} gap-2`}>
+              <div className={`grid grid-cols-5 gap-2`}>
                 {row.seats.map((seat, idx) => {
                   const seatNum = seat.seatNumber;
                   const isBooked = bookedSeats.includes(seatNum);
@@ -142,7 +144,7 @@ const Drawers = ({
                             : isSelected
                               ? "bg-green-500 text-white"
                               : "bg-white hover:bg-green-100 text-black"
-                        } ${seatCol > 3 ? idx=== 1 && "col-span-2" : idx === 0 && "col-span-2" } `}
+                        } ${seatCol > 3 ? idx === 1 && "col-span-2" : "" } ${seatCol === 3 && idx === 0 ? "col-span-2":""} `}
                       disabled={isBooked}
                       onClick={() => handleClickSeat(seatNum)}
                     >

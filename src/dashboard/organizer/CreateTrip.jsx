@@ -1,16 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
-import { Button, DatePicker, Form, Input, InputNumber, message, Select } from "antd";
+import {
+  Button,
+  DatePicker,
+  Form,
+  Input,
+  InputNumber,
+  message,
+  Select,
+} from "antd";
 import axios from "axios";
 import dayjs from "dayjs";
-import React, { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
-
+import React from "react";
+import { useSelector } from "react-redux";
 
 const { Option } = Select;
 
 const CreateTrip = () => {
-  const { user } = useContext(AuthContext);
-  const [form] = Form.useForm(); 
+  const { user } = useSelector((state) => state.auth);
+
+  const [form] = Form.useForm();
 
   const { data: busesData, isLoading } = useQuery({
     queryKey: ["buses", user?.uid],
@@ -30,7 +38,6 @@ const CreateTrip = () => {
       bookedSeats: [],
       createdAt: new Date().toISOString(),
     };
-    
 
     try {
       const res = await axios.post("/api/trips", tripData);
@@ -54,7 +61,9 @@ const CreateTrip = () => {
     if (!value || !departure || value.isAfter(departure)) {
       return Promise.resolve();
     }
-    return Promise.reject(new Error("Arrival time must be after departure time"));
+    return Promise.reject(
+      new Error("Arrival time must be after departure time")
+    );
   };
 
   if (isLoading) return <div>Loading...</div>;

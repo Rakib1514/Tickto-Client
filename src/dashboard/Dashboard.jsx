@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router";
-import { AuthContext } from "../Provider/AuthProvider";
 // React Icons
 import { AiOutlineProfile } from "react-icons/ai";
 import { BsBookmarkCheck } from "react-icons/bs";
@@ -9,11 +8,14 @@ import { HiOutlineShieldCheck } from "react-icons/hi"; // For admin icon
 import { IoTicketOutline } from "react-icons/io5";
 import { MdDashboard, MdLocalActivity, MdSettings } from "react-icons/md";
 import { RiSecurePaymentLine, RiUserSettingsLine } from "react-icons/ri";
+import { useSelector } from "react-redux";
 import Logo from "../components/Shared/Logo";
 import useAdmin from "../hooks/useAdmin";
 
 export default function Dashboard() {
-  const { user } = useContext(AuthContext);
+
+  const {user} = useSelector((state) => state.auth); 
+  
   const [isBusExpanded, setIsBusExpanded] = useState(false); // State for expandable button
 
   // Conditionally render admin routes if the user is an admin
@@ -157,7 +159,6 @@ export default function Dashboard() {
                     </ul>
                   </div>
                 </li>
-             
 
                 <li>
                   <Link

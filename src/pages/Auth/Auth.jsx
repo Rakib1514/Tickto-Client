@@ -1,20 +1,18 @@
 import React from 'react';
-import authbg from '../../Assets/auth/techBD.png'
-import { Outlet, useNavigate } from 'react-router';
 import { IoIosArrowBack } from 'react-icons/io';
+import { useSelector } from 'react-redux';
+import { Outlet, useNavigate } from 'react-router';
+import authBg from '../../Assets/auth/techBD.png';
 import './auth.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { logoutUser } from '../../Redux/auth/authSlice';
 
 const Auth = () => {
-  const { user, loading, error } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   return (
     <div
       className="flex min-h-screen items-center justify-center"
       style={{
-        background: `url("${authbg}")`,
+        background: `url("${authBg}")`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

@@ -1,18 +1,17 @@
 /* eslint-disable no-unused-vars */
-import { 
-  CardNumberElement, 
-  CardExpiryElement, 
-  CardCvcElement, 
-  useElements, 
-  useStripe 
+import {
+  CardCvcElement,
+  CardExpiryElement,
+  CardNumberElement,
+  useElements,
+  useStripe
 } from "@stripe/react-stripe-js";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
-import Swal from "sweetalert2";
-import { FaCcVisa } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { FaCcVisa, FaChair, FaMoneyBillWave } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { FaChair, FaMoneyBillWave } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const CheckoutForm = ({totalPrice, selectedSeats}) => {
 
@@ -21,8 +20,9 @@ const CheckoutForm = ({totalPrice, selectedSeats}) => {
   const [transactionId, setTransactionId] = useState('');
   const stripe = useStripe();
   const elements = useElements();
-  // const totalPrice = totalPrice; // dynamic
-  const { user } = useContext(AuthContext);
+  
+  const {user} = useSelector((state) => state.auth);
+
   const navigate = useNavigate();
 
   const resetForm = () => {
