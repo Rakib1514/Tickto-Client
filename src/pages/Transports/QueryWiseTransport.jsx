@@ -19,7 +19,7 @@ const QueryWiseTransport = () => {
   const destination = params.get("destination");
   const departure = params.get("departure");
 
-  let apiUrl = "http://localhost:5000/api/trips/bus";
+  let apiUrl = "";
 
   if (origin && destination && departure) {
     apiUrl = `/api/trips/${vehicle}?origin=${origin}&destination=${destination}&departure=${departure}`;
@@ -30,10 +30,12 @@ const QueryWiseTransport = () => {
   const { data: tripData, isLoading } = useQuery({
     queryKey: ["travel", vehicle],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:5000/api/trips/bus`);
+      const res = await axios.get(apiUrl);
       return res.data || [];
     },
   });
+
+  console.log(tripData);
 
   if (isLoading)
     return (
