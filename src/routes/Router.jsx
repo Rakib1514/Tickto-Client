@@ -32,6 +32,7 @@ import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import QueryWiseTransport from "../pages/Transports/QueryWiseTransport";
 import Transport from "../pages/Transports/Transport";
+import ManageTrip from "../dashboard/organizer/ManageTrip";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,7 @@ const router = createBrowserRouter([
           { path: "payments", Component: PaymentHistory },
           { path: "add-bus", Component: AddBus },
           { path: "create-trip", Component: CreateTrip },
+          { path: "manage-trip", Component: ManageTrip },
         ],
       },
 

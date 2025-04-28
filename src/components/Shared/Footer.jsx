@@ -115,7 +115,9 @@ const Footer = () => {
     <footer className='bg-[#edf5ff] relative'>
 
       {/* newsletter div */}
-      <div className='md:flex gap-4 justify-between w-full max-w-screen-xl mx-auto bg-[#78a6c4] p-6 md:p-10 rounded-2xl absolute -top-20 left-1/2 -translate-x-1/2'>
+      <motion.div 
+      whileHover={{ scale: 1.02}}
+      className='md:flex gap-4 justify-between w-full max-w-screen-xl mx-auto bg-[#78a6c4] p-6 md:p-10 rounded-2xl absolute -top-20 left-1/2 -translate-x-1/2'>
         <h1 className='text-2xl text-white md:text-4xl lg:text-5xl my-auto font-bold max-sm:py-4'>Sign up for Our Newsletter Today!</h1>
         <div className=''>
           <input type="email" className='input rounded-xl' placeholder='Your Email' />
@@ -123,7 +125,7 @@ const Footer = () => {
             whileHover={{ scale: 1.06 }}
             className='btn w-full bg-[#274f7a] text-white font-bold text-lg rounded-xl border-none shadow-none px-6 my-2'>Subscribe</motion.button>
         </div>
-      </div>
+      </motion.div>
 
       {/* footer div */}
       <div className='max-w-screen-2xl mx-auto lg:flex justify-between gap-6 p-10 py-16 pt-34'>
