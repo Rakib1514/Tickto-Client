@@ -32,6 +32,47 @@ const Register = () => {
       });
       const imageUrl = res.data.data.display_url;
       const currentDateTime = new Date().toUTCString();
+<<<<<<< HEAD
+      updateUserProfile(data.name, data.number, imageURL)
+        .then(() => {
+          const userInfo = {
+            name: data?.name,
+            email: data?.email,
+            number: data.number,
+            created_at: currentDateTime,
+            photoURL: imageURL,
+          };
+          // console.log( " photo is ", photoURL);
+          axiosPublic.post('/api/users', userInfo).then((res) => {
+            if (res?.data?.insertedId) { 
+              // console.log('user added');
+            if (res.data.insertedId) {
+              reset();
+              Swal.fire({
+                title: 'Sign Up Successful',
+                icon: 'success',
+                showClass: {
+                  popup: `
+                      animate__animated
+                      animate__fadeInUp
+                      animate__faster
+                      `,
+                },
+                hideClass: {
+                  popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                    `,
+                },
+              });
+            }
+            navigate('/');
+          }});
+        })
+        .catch((error) => console.log(error));
+    });
+=======
 
       const result = await userSignUp(data.email, data.password);
 
@@ -65,6 +106,7 @@ const Register = () => {
     } finally {
       dispatch(setLoading(false));
     }
+>>>>>>> ef20605701b0f867fb2ce3305b75af023c2fe345
   };
 
   return (

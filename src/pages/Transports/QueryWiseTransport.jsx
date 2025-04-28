@@ -180,6 +180,7 @@ const QueryWiseTransport = () => {
         selectedSeats={selectedSeats}
       />
     </div>
+    
   );
 };
 

@@ -21,45 +21,54 @@ export default function Dashboard() {
   // Conditionally render admin routes if the user is an admin
   // const isAdmin = user?.role === 'user';
   const [isAdmin] = useAdmin();
+  const location = useLocation();
+
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
+  // Auto-close sidebar on route change (mobile only)
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [location.pathname]);
 
   return (
     <div className="flex min-h-screen">
+      {/* Overlay for mobile */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"
+          onClick={toggleSidebar}
+        />
+      )}
+
       {/* Sidebar */}
       <aside
-        id="hs-sidebar-header"
-        className="fixed top-0 left-0 z-50 h-full w-64 -translate-x-full transform bg-gray-100 text-gray-900 transition-transform lg:translate-x-0"
+        className={`fixed top-0 left-0 z-50 h-full w-64 transform bg-white shadow-lg transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
       >
         {/* Sidebar Header */}
-        <header className="flex items-center justify-between p-4">
-          <span className="w-full border-b-2 border-gray-300 pb-2 text-xl font-bold text-gray-900">
-            <Link to="/" className="flex gap-2 items-center">
-              <Logo />
-              <div className="text-2xl md:text-3xl font-bold">
-                <span className="text-[#317371]">Tick</span>
-                <span className="">To</span>
-              </div>
-            </Link>
-          </span>
-
-          <button
-            type="button"
-            className="text-gray-900 lg:hidden dark:text-gray-900"
-            data-hs-overlay="#hs-sidebar-header"
-          >
-            ✕
+        <div className="flex items-center justify-between px-4 py-3 border-b">
+          <Link to="/" className="flex items-center gap-2">
+            <Logo />
+            <div className="text-xl font-bold">
+              <span className="text-[#317371]">Tick</span>To
+            </div>
+          </Link>
+          <button className="lg:hidden text-xl" onClick={toggleSidebar}>
+            <HiOutlineX />
           </button>
-        </header>
+        </div>
 
         {/* User Info */}
-        <div className="p-4">
+        <div className="p-4 border-b">
           <div className="flex items-center gap-2">
             <img
-              className="h-10 w-10 rounded-full"
+              className="w-10 h-10 rounded-full"
               src={
                 user?.photoURL ||
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtnvAOajH9gS4C30cRF7rD_voaTAKly2Ntaw&s"
               }
-              alt="User Avatar"
+              alt="User"
             />
             <div className="text-sm font-medium text-gray-900">
               {user?.name || "Anonymous"}
@@ -67,7 +76,33 @@ export default function Dashboard() {
           </div>
         </div>
 
+        {/* Nav Links */}
+        <nav className="p-4 space-y-2 overflow-y-auto">
+          {isAdmin ? (
+            <>
+              <SidebarLink to="/dashboard/admin-dashboard" icon={<HiOutlineShieldCheck />} label="Admin Dashboard" />
+              <SidebarLink to="/dashboard/admin/manage-user" icon={<RiUserSettingsLine />} label="Manage Users" />
+              <SidebarLink to="/dashboard/admin/qr-scanner" icon={<RiUserSettingsLine />} label="QR Scanner" />
+              <SidebarLink to="/dashboard/admin/manage-tickets" icon={<MdSettings />} label="Manage Tickets" />
+              <SidebarLink to="/dashboard/admin/add-event" icon={<IoTicketOutline />} label="Add Event" />
+              <SidebarLink to="/dashboard/admin/booking-reports" icon={<MdLocalActivity />} label="Booking Reports" />
+              <SidebarLink to="/dashboard/admin/payment-reports" icon={<FaCreditCard />} label="Payment Reports" />
+              <SidebarLink to="/dashboard/admin/setting" icon={<MdSettings />} label="Settings" />
+              <SidebarLink to="/" icon={<RiSecurePaymentLine />} label="Back to Home" />
+            </>
+          ) : (
+            <>
+              <SidebarLink to="/dashboard" icon={<MdDashboard />} label="User Dashboard" />
+              <SidebarLink to="/dashboard/bookings" icon={<BsBookmarkCheck />} label="My Bookings" />
+              <SidebarLink to="/dashboard/my-profile" icon={<AiOutlineProfile />} label="My Profile" />
+              <SidebarLink to="/dashboard/payments" icon={<FaCreditCard />} label="My Payment History" />
+              <SidebarLink to="/dashboard/checkout" icon={<MdSettings />} label="Ticket Checkout" />
+              <SidebarLink to="/dashboard/confirmation" icon={<RiSecurePaymentLine />} label="Payment Confirmation" />
+              <SidebarLink to="/" icon={<RiSecurePaymentLine />} label="Back to Home" />
+            </>
+          )}
         {/* Nav */}
+        </nav>
         <nav className="overflow-y-auto p-4">
           <ul className="space-y-2">
             {/* User Routes */}
@@ -274,10 +309,32 @@ export default function Dashboard() {
         </nav>
       </aside>
 
-      {/* Page Content */}
-      <main className="ml-0 min-h-screen flex-1 bg-gray-50 p-4 lg:ml-64">
-        <Outlet />
-      </main>
+      {/* Main Content */}
+      <div className="flex flex-col flex-1 min-h-screen bg-gray-50">
+        {/* Topbar for mobile */}
+        <header className="flex items-center justify-between bg-white px-4 py-3 shadow-md lg:hidden">
+          <button onClick={toggleSidebar} className="text-xl text-gray-700">
+            <HiOutlineMenu />
+          </button>
+          <span className="text-lg font-semibold">Dashboard</span>
+        </header>
+
+        <main className="flex flex-1 flex-col p-4 sm:ml-0 lg:ml-64 mt-16 lg:mt-0">
+          <Outlet />
+        </main>
+      </div>
     </div>
+  );
+}
+
+function SidebarLink({ to, icon, label }) {
+  return (
+    <Link
+      to={to}
+      className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6] transition"
+    >
+      <span className="text-lg">{icon}</span>
+      <span>{label}</span>
+    </Link>
   );
 }
