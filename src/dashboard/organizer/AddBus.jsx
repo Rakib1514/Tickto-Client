@@ -1,15 +1,13 @@
-import React, { useContext, useState } from "react";
-import { Form, Input, InputNumber, Button, Upload, message } from "antd";
-// import { UploadOutlined } from "@ant-design/icons";
+import { Button, Form, Input, InputNumber, message } from "antd";
 import axios from "axios";
-// import auth from "../../firebase/firebase.init";
-import { AuthContext } from "../../Provider/AuthProvider";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const AddBus = () => {
   const [form] = Form.useForm();
   const [seatLayout, setSeatLayout] = useState([]);
-  const { user } = useContext(AuthContext);
-  
+
+  const { user } = useSelector((state) => state.auth);
 
   // Function to generate seat layout
   const generateSeatLayout = (rows, cols) => {

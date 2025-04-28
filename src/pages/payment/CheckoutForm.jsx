@@ -1,43 +1,29 @@
 /* eslint-disable no-unused-vars */
-import { 
-  CardNumberElement, 
-  CardExpiryElement, 
-  CardCvcElement, 
-  useElements, 
-  useStripe 
+import {
+  CardCvcElement,
+  CardExpiryElement,
+  CardNumberElement,
+  useElements,
+  useStripe
 } from "@stripe/react-stripe-js";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
-import Swal from "sweetalert2";
-import { FaCcVisa } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { FaCcVisa, FaChair, FaMoneyBillWave } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({totalPrice, selectedSeats}) => {
+
   const [error, setError] = useState('');
   const [clientSecret, setClientSecret] = useState('');
   const [transactionId, setTransactionId] = useState('');
   const stripe = useStripe();
   const elements = useElements();
-  const totalPrice = 10; // dynamic
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  
+  const {user} = useSelector((state) => state.auth);
 
-  // useEffect(() => {
-  //   if (totalPrice > 0) {
-  //     axios.post('/create-payment-intent', { price: totalPrice })
-  //       .then(res => {
-  //         setClientSecret(res.data.clientSecret);
-  //       })
-  //       .catch(err => {
-  //         Swal.fire({
-  //           icon: 'error',
-  //           title: 'Payment Intent Error',
-  //           text: 'Failed to initialize payment. Please try again later.',
-  //         });
-  //       });
-  //   }
-  // }, [totalPrice]);
+  const navigate = useNavigate();
 
   const resetForm = () => {
     const cardNumber = elements.getElement(CardNumberElement);
@@ -78,7 +64,7 @@ const CheckoutForm = () => {
       card: cardNumber,
       billing_details: {
         email: user?.email || 'anonymous',
-        name: user?.displayName || 'anonymous',
+        name: user?.name || 'anonymous',
         address: { postal_code: null }
       }
     });
@@ -100,7 +86,7 @@ const CheckoutForm = () => {
         card: cardNumber,
         billing_details: {
           email: user?.email || 'anonymous',
-          name: user?.displayName || 'anonymous',
+          name: user?.name || 'anonymous',
           address: { postal_code: null }
         }
       }
@@ -120,8 +106,10 @@ const CheckoutForm = () => {
       setTransactionId(paymentIntent.id);
 
       const payment = {
+        name: user?.displayName,
         email: user?.email,
         price: totalPrice,
+        selectedSeats,
         transactionId: paymentIntent.id,
         date: new Date(),
         status: 'pending',
@@ -144,7 +132,7 @@ const CheckoutForm = () => {
             timerProgressBar: true,
           }).then(() => {
             resetForm();
-            navigate('/dashboard/admin/payment-reports')
+            navigate('/dashboard/payments')
           });
         }
       } catch (err) {
@@ -170,9 +158,45 @@ const CheckoutForm = () => {
     },
   };
 
+  useEffect(() => {
+    if (totalPrice > 0) {
+      axios.post('/create-payment-intent', { price: totalPrice, selectedSeats })
+        .then(res => {
+          setClientSecret(res.data.clientSecret);
+        })
+        .catch(err => {
+          console.error('Error creating payment intent:', err);
+          Swal.fire({
+            icon: 'error',
+            title: 'Payment Initialization Error',
+            text: 'Failed to initialize payment. Please try again.',
+          });
+        });
+    }
+  }, [totalPrice]);
+  
+
   return (
     <div className="w-11/12 mx-auto max-w-xs sm:max-w-sm md:max-w-md py-4 px-2 sm:px-4 lg:px-6 ">
       <div className="bg-base-100 shadow-xl rounded-xl p-3 sm:p-4 md:p-6 space-y-4 sm:space-y-6">
+        {/* Display selected seats and total price */}
+              <div className="w-full  max-w-md text-center bg-gradient-to-r from-teal-900 to-teal-400 text-white rounded-xl p-3 sm:p-4">
+                <h2 className="sm:text-xl md:text-2xl lg:text-2xl font-bold mb-4 text-white flex justify-center items-center gap-2">
+                <FaMoneyBillWave className="text-white" /> Payment Summary
+                </h2>
+                
+                <p className="text-white text-sm sm:text-base mb-2 flex justify-center items-start sm:items-center gap-2 flex-wrap">
+                <FaChair className="text-white mt-1 sm:mt-0" />
+                <span className="font-semibold">Selected Seats:</span> 
+                <span className="ml-1 text-white font-medium break-words">{selectedSeats.join(', ') || 'None'}</span>
+                </p>
+                
+                <p className="text-white text-sm sm:text-base flex justify-center items-center gap-2">
+                <FaMoneyBillWave className="text-white" />
+                <span className="font-semibold">Total Price:</span> 
+                <span className="ml-1 text-white font-medium">৳ {totalPrice}</span>
+                </p>
+              </div>
         {/* Card Preview */}
         <div className="bg-gradient-to-r from-teal-900 to-teal-400 text-white rounded-xl p-3 sm:p-4">
           <div className="flex items-center justify-between">
@@ -185,7 +209,7 @@ const CheckoutForm = () => {
           <div className="flex justify-between mt-2 sm:mt-3 text-[10px] sm:text-xs md:text-sm">
             <div>
               <p className="text-[10px] sm:text-xs">CARDHOLDER</p>
-              <p>{user?.displayName}</p>
+              <p>{user?.name}</p>
             </div>
             <div>
               <p className="text-[10px] sm:text-xs">EXPIRES</p>
@@ -221,7 +245,7 @@ const CheckoutForm = () => {
             type="submit"
             disabled={!stripe || !clientSecret}
           >
-            Pay Now: {totalPrice}$
+            Pay Now: ৳ {totalPrice} 
           </button>
 
           {error && <p className="text-red-500 text-[10px] sm:text-xs md:text-sm">{error}</p>}

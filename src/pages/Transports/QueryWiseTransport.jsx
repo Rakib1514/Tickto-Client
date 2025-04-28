@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { GoDotFill } from "react-icons/go";
 import { TbCurrencyTaka } from "react-icons/tb";
+import Drawers from "../../components/Drawers";
 import { useLocation, useParams } from "react-router";
 
 const QueryWiseTransport = () => {
@@ -18,7 +19,7 @@ const QueryWiseTransport = () => {
   const destination = params.get("destination");
   const departure = params.get("departure");
 
-  let apiUrl = "http://localhost:5000/api/trips/bus";
+  let apiUrl = "";
 
   if (origin && destination && departure) {
     apiUrl = `/api/trips/${vehicle}?origin=${origin}&destination=${destination}&departure=${departure}`;
@@ -29,18 +30,17 @@ const QueryWiseTransport = () => {
   const { data: tripData, isLoading } = useQuery({
     queryKey: ["travel", vehicle],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:5000/api/trips/bus`);
+      const res = await axios.get(apiUrl);
       return res.data || [];
     },
   });
 
-  console.log("Trip data:", tripData);
-
-  if (isLoading) return <div className="text-2xl min-h-[calc(100vh-500px)] flex justify-center items-center">
-    <div>
-      Loading trips...
-    </div>
-  </div>;
+  if (isLoading)
+    return (
+      <div className="text-2xl min-h-[calc(100vh-500px)] flex justify-center items-center">
+        <div>Loading trips...</div>
+      </div>
+    );
 
   const handleSelectSeatClick = (trip) => {
     setSelectedTrip(trip);
@@ -63,7 +63,7 @@ const QueryWiseTransport = () => {
     console.log("Proceeding to checkout with:", selectedSeats);
     message.success("Ready for checkout!");
     // pass this to a checkout component or navigate
-    console.log(selectedSeats)
+    console.log(selectedSeats);
   };
 
   return (
@@ -74,22 +74,30 @@ const QueryWiseTransport = () => {
 
         return (
           <div key={trip._id} className=" rounded-xl shadow-lg">
-
             <div
-
               // title={`${trip.origin} → ${trip.destination}`}
               // extra={<Tag color="blue">{trip.busDetails.name}</Tag>}
               className="md:flex gap-4 justify-between bg-secondary p-5 rounded-t-xl"
             >
               <div className="flex gap-4 my-auto">
-                <img className="w-16 h-16 my-auto rounded-lg border border-gray-300" src={trip.busDetails.images[0]} alt="Logo" />
+                <img
+                  className="w-16 h-16 my-auto rounded-lg border border-gray-300"
+                  src={trip.busDetails.images[0]}
+                  alt="Logo"
+                />
                 <div className="md:max-w-40">
-                  <h3 className="text-xl font-medium">{trip.busDetails.name}</h3>
+                  <h3 className="text-xl font-medium">
+                    {trip.busDetails.name}
+                  </h3>
                   <p className="text-gray-600 text-sm">
                     {trip.busDetails.brand} {trip.busDetails.model} | &nbsp;
-                    {trip.busDetails.features[0]} bus
-                    | Free {trip.busDetails.features[1]}
-                    {trip.busDetails.features[2] == 'Charger' ? <span> | charging system</span> : ''}
+                    {trip.busDetails.features[0]} bus | Free{" "}
+                    {trip.busDetails.features[1]}
+                    {trip.busDetails.features[2] == "Charger" ? (
+                      <span> | charging system</span>
+                    ) : (
+                      ""
+                    )}
                   </p>
                   {/* Departure: {new Date(trip.departureTime).toLocaleString()} <br />
                 Arrival: {new Date(trip.arrivalTime).toLocaleString()} <br />
@@ -100,12 +108,12 @@ const QueryWiseTransport = () => {
               {/* line route */}
               <div className="my-8 md:my-0">
                 <div>
-
                   <p className="text-center">{trip.distance} km</p>
                   <div className="flex items-center justify-center text-[#78a6c4] px-8">
-                    <GoDotFill /><hr className="text-primary min-w-40 -mx-1" /><GoDotFill />
+                    <GoDotFill />
+                    <hr className="text-primary min-w-40 -mx-1" />
+                    <GoDotFill />
                   </div>
-
                 </div>
                 <div className="flex justify-between text-sm text-center">
                   <div className="text-star">
@@ -121,77 +129,56 @@ const QueryWiseTransport = () => {
                       {new Date(trip.arrivalTime).toLocaleString()}
                     </p>
                   </div>
-
                 </div>
               </div>
 
               <div className="flex justify-between md:min-w-70 gap-4">
                 {/* price */}
-                <div className="flex items-center justify-center text-2xl font-medium"><TbCurrencyTaka />{trip.fare}</div>
+                <div className="flex items-center justify-center text-2xl font-medium">
+                  <TbCurrencyTaka />
+                  {trip.fare}
+                </div>
 
                 {/* button & seat */}
                 <div className="my-10 md:my-auto text-center">
-                  <Button className=" w-full bg-[#274f7a]" onClick={() => handleSelectSeatClick(trip)}>
+                  <Button
+                    className=" w-full bg-[#274f7a]"
+                    onClick={() => handleSelectSeatClick(trip)}
+                  >
                     Select Seat
                   </Button>
-                  <p className="text-sm my-2">Only <span className="text-red-500">{availableSeats}</span> seats available</p>
+                  <p className="text-sm my-2">
+                    Only <span className="text-red-500">{availableSeats}</span>{" "}
+                    seats available
+                  </p>
                 </div>
               </div>
-
             </div>
-
 
             <div className="flex flex-wrap px-4 py-4 md:py-3 gap-3 bg-secondary/30 rounded-b-xl">
-              <p className="bg-green-200 rounded-2xl p-1 px-4 text-sm text-green-800">Refund Policy</p>
-              <p className="bg-green-200 rounded-2xl p-1 px-4 text-sm text-green-800">Refund Policy</p>
-              <p className="bg-green-200 rounded-2xl p-1 px-4 text-sm text-green-800">Refund Policy</p>
+              <p className="bg-green-200 rounded-2xl p-1 px-4 text-sm text-green-800">
+                Refund Policy
+              </p>
+              <p className="bg-green-200 rounded-2xl p-1 px-4 text-sm text-green-800">
+                Refund Policy
+              </p>
+              <p className="bg-green-200 rounded-2xl p-1 px-4 text-sm text-green-800">
+                Refund Policy
+              </p>
             </div>
-
-
           </div>
         );
       })}
 
-
-
-
-
       {/* Drawer for seat selection */}
-      <Drawer
-        title="Select Your Seat"
-        onClose={() => setDrawerOpen(false)}
-        open={drawerOpen}
-        width={400}
-        footer={
-          <div className="text-right">
-            <Button type="primary" onClick={handleNext}>
-              Next
-            </Button>
-          </div>
-        }
-      >
-        {selectedTrip?.busDetails?.seatLayout.map((row) => (
-          <div key={row.row} className="mb-2 flex gap-2">
-            <span className="w-6 text-right">{row.row}</span>
-            {row.seats.map((seat) => {
-              const seatNum = seat.seatNumber;
-              const isBooked = selectedTrip.bookedSeats.includes(seatNum);
-              const isSelected = selectedSeats.includes(seatNum);
-              return (
-                <Button
-                  key={seatNum}
-                  size="small"
-                  disabled={isBooked}
-                  type={isSelected ? "primary" : "default"}
-                  onClick={() => handleSeatClick(seatNum)}
-                >
-                  {seatNum}
-                </Button>
-              );
-            })}
-          </div>
-        ))}
-      </Drawer>
+      <Drawers
+        handleNext={handleNext}
+        setDrawerOpen={setDrawerOpen}
+        drawerOpen={drawerOpen}
+        selectedTrip={selectedTrip}
+        handleSeatClick={handleSeatClick}
+        selectedSeats={selectedSeats}
+      />
     </div>
     
   );

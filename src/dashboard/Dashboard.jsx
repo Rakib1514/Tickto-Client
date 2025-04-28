@@ -1,19 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
-import { AuthContext } from '../Provider/AuthProvider';
-import { HiOutlineMenu, HiOutlineX, HiOutlineShieldCheck } from 'react-icons/hi';
-import { FaCreditCard } from 'react-icons/fa';
-import { MdDashboard, MdSettings, MdLocalActivity } from 'react-icons/md';
-import { RiSecurePaymentLine, RiUserSettingsLine } from 'react-icons/ri';
-import { AiOutlineProfile } from 'react-icons/ai';
-import { IoTicketOutline } from 'react-icons/io5';
-import { BsBookmarkCheck } from 'react-icons/bs';
-import Logo from '../components/Shared/Logo';
-import useAdmin from '../hooks/useAdmin';
+import React, { useState } from "react";
+import { Link, Outlet } from "react-router";
+// React Icons
+import { AiOutlineProfile } from "react-icons/ai";
+import { BsBookmarkCheck } from "react-icons/bs";
+import { FaCreditCard } from "react-icons/fa";
+import { HiOutlineShieldCheck } from "react-icons/hi"; // For admin icon
+import { IoTicketOutline } from "react-icons/io5";
+import { MdDashboard, MdLocalActivity, MdSettings } from "react-icons/md";
+import { RiSecurePaymentLine, RiUserSettingsLine } from "react-icons/ri";
+import { useSelector } from "react-redux";
+import Logo from "../components/Shared/Logo";
+import useAdmin from "../hooks/useAdmin";
 
 export default function Dashboard() {
-  const { user } = useContext(AuthContext);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const {user} = useSelector((state) => state.auth); 
+  
+  const [isBusExpanded, setIsBusExpanded] = useState(false); // State for expandable button
+
+  // Conditionally render admin routes if the user is an admin
+  // const isAdmin = user?.role === 'user';
   const [isAdmin] = useAdmin();
   const location = useLocation();
 
@@ -60,13 +66,13 @@ export default function Dashboard() {
               className="w-10 h-10 rounded-full"
               src={
                 user?.photoURL ||
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtnvAOajH9gS4C30cRF7rD_voaTAKly2Ntaw&s'
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtnvAOajH9gS4C30cRF7rD_voaTAKly2Ntaw&s"
               }
               alt="User"
             />
-            <span className="font-medium text-gray-800">
-              {user?.displayName || 'Anonymous'}
-            </span>
+            <div className="text-sm font-medium text-gray-900">
+              {user?.name || "Anonymous"}
+            </div>
           </div>
         </div>
 
@@ -100,8 +106,7 @@ export default function Dashboard() {
         <nav className="overflow-y-auto p-4">
           <ul className="space-y-2">
             {/* User Routes */}
-            {
-            isAdmin ? (
+            {isAdmin ? (
               <>
                 <li>
                   <Link
@@ -139,32 +144,55 @@ export default function Dashboard() {
                     Add Event
                   </Link>
                 </li>
+
+                {/* Expandable Bus Section */}
                 <li>
-                  <Link
-                    to="/dashboard/add-bus"
-                    className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                  <button
+                    onClick={() => setIsBusExpanded(!isBusExpanded)}
+                    className="flex w-full items-center justify-between gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
                   >
                     <IoTicketOutline className="text-lg" />
-                    Add Bus
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/dashboard/create-trip"
-                    className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                    <span>Bus</span>
+                    <span>{isBusExpanded ? "▲" : "▼"}</span>
+                  </button>
+
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      isBusExpanded
+                        ? "max-h-60 opacity-100"
+                        : "max-h-0 opacity-0"
+                    }`}
                   >
-                    <IoTicketOutline className="text-lg" />
-                    Create Trip
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/dashboard/manage-trip"
-                    className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
-                  >
-                    <IoTicketOutline className="text-lg" />
-                    Manage Trip
-                  </Link>
+                    <ul className="ml-6 space-y-2 py-2">
+                      <li>
+                        <Link
+                          to="/dashboard/add-bus"
+                          className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                        >
+                          <IoTicketOutline className="text-lg" />
+                          Add Bus
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/dashboard/create-trip"
+                          className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                        >
+                          <IoTicketOutline className="text-lg" />
+                          Create Trip
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/dashboard/manage-trip"
+                          className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                        >
+                          <IoTicketOutline className="text-lg" />
+                          Manage Trip
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
 
                 <li>
@@ -271,8 +299,7 @@ export default function Dashboard() {
                   </Link>
                 </li>
               </>
-            )
-            }
+            )}
 
             <></>
 

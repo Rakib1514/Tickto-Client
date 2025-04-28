@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import {
   Button,
   DatePicker,
@@ -8,14 +8,15 @@ import {
   Modal,
   Select,
 } from "antd";
-import { AuthContext } from "../../Provider/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import dayjs from "dayjs";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
-const UpdateTripModal = ({ setIsModalOpen, isModalOpen, trip , refetch }) => {
+const UpdateTripModal = ({ setIsModalOpen, isModalOpen, trip, refetch }) => {
   const [updateLoading, setUpdateLoading] = useState(false);
-  const { user } = useContext(AuthContext);
+  const { user } = useSelector((state) => state.auth);
+
   const [form] = Form.useForm();
 
   // Convert departureTime and arrivalTime to dayjs objects
