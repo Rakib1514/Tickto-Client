@@ -79,7 +79,7 @@ const BusTicketSearch = () => {
 
   return (
     <div
-      className="py-12 px-4 mt-28 "
+      className=" "
       style={{ backgroundSize: "cover", backgroundPosition: "center" }}
     >
       {/* Search Form */}
@@ -90,8 +90,9 @@ const BusTicketSearch = () => {
         style={{
           background: "white",
           borderRadius: 8,
-          padding: 24,
-          maxWidth: 1100,
+          padding: 20,
+          minWidth: 250,
+          maxWidth: 1200,
           margin: "0 auto",
         }}
         className="shadow-2xl"
@@ -106,12 +107,13 @@ const BusTicketSearch = () => {
               <AutoComplete
                 options={originOptions}
                 onSearch={handleOriginSearch}
-                placeholder="From"
+                placeholder={'From'}
+                
                 notFoundContent={
                   isFetchingOrigins ? "Searching..." : "No suggestions found"
                 }
               >
-                <Input prefix={<EnvironmentOutlined />} />
+                <Input className="relative" prefix={<EnvironmentOutlined  className="absolute right-2 "/>} />
               </AutoComplete>
             </Form.Item>
           </Col>
@@ -132,7 +134,7 @@ const BusTicketSearch = () => {
                     : "No suggestions found"
                 }
               >
-                <Input prefix={<EnvironmentOutlined rotate={180} />} />
+                <Input className="relative" prefix={<EnvironmentOutlined rotate={180} className="absolute right-2 "/>} />
               </AutoComplete>
             </Form.Item>
           </Col>
@@ -160,7 +162,7 @@ const BusTicketSearch = () => {
             htmlType="submit"
             size="large"
             block
-            className="!bg-primary hover:!bg-primary/90"
+            className="!bg-primary hover:!bg-primary/75"
           >
             SEARCH
           </Button>

@@ -44,12 +44,15 @@ const Register = () => {
         .then(() => {
           const userInfo = {
             name: data?.name,
-            email: data.email,
+            email: data?.email,
             number: data.number,
             created_at: currentDateTime,
             photoURL: imageURL,
           };
+          // console.log( " photo is ", photoURL);
           axiosPublic.post('/api/users', userInfo).then((res) => {
+            if (res?.data?.insertedId) { 
+              // console.log('user added');
             if (res.data.insertedId) {
               reset();
               Swal.fire({
@@ -72,7 +75,7 @@ const Register = () => {
               });
             }
             navigate('/');
-          });
+          }});
         })
         .catch((error) => console.log(error));
     });
