@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Link, Outlet } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Link, Outlet, useLocation } from "react-router";
 // React Icons
 import { AiOutlineProfile } from "react-icons/ai";
 import { BsBookmarkCheck } from "react-icons/bs";
 import { FaCreditCard } from "react-icons/fa";
-import { HiOutlineShieldCheck } from "react-icons/hi"; // For admin icon
+import { HiOutlineMenu, HiOutlineShieldCheck, HiOutlineX } from "react-icons/hi"; // For admin icon
 import { IoTicketOutline } from "react-icons/io5";
 import { MdDashboard, MdLocalActivity, MdSettings } from "react-icons/md";
 import { RiSecurePaymentLine, RiUserSettingsLine } from "react-icons/ri";
@@ -15,6 +15,7 @@ import useAdmin from "../hooks/useAdmin";
 export default function Dashboard() {
 
   const {user} = useSelector((state) => state.auth); 
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   
   const [isBusExpanded, setIsBusExpanded] = useState(false); // State for expandable button
 
