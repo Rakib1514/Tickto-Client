@@ -28,7 +28,7 @@ const PaymentHistory = () => {
   return (
     <div className="my-16 px-4 md:px-10">
       <h2 className="text-2xl md:text-3xl font-bold text-center text-[#317371] mb-6">
-        Your Payment History
+        My Payment History
       </h2>
 
       {payments.length === 0 ? (
@@ -55,7 +55,7 @@ const PaymentHistory = () => {
                   <td>{index + 1}</td>
                   <td>{payment.email}</td>
                   <td className="text-[#F67E04] font-semibold">
-                    ${payment.price}
+                    {payment.price} Tk.
                   </td>
                   <td className="break-all text-sm">{payment.transactionId}</td>
                   <td className="break-all text-sm">{/* Check if selectedSeats exists and is an array */}

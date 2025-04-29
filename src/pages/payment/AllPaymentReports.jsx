@@ -43,7 +43,7 @@ const AllPaymentReport = () => {
               <tr key={payment.transactionId}>
                 <td>{index + 1}</td>
                 <td>{payment.email}</td>
-                <td>${payment.price}</td>
+                <td>{payment.price} Tk.</td>
                 <td className="break-all">{payment.transactionId}</td>
                 <td>
                   <span

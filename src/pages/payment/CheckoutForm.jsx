@@ -123,7 +123,7 @@ const CheckoutForm = ({totalPrice, selectedSeats}) => {
             icon: 'success',
             title: 'Payment Successful',
             html: `
-              <p>Amount: $${totalPrice}</p>
+              <p>Amount: ${totalPrice} Tk.</p>
               <p>Transaction ID: ${paymentIntent.id}</p>
             `,
             showConfirmButton: true,
