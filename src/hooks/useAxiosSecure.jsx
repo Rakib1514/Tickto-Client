@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-import axios from 'axios';
-import { useNavigate } from 'react-router';
+// import axios from 'axios';
+// import { useNavigate } from 'react-router';
 import useAuth from './useAuth';
-=======
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { userSignOut } from "../Redux/authSlice";
->>>>>>> ef20605701b0f867fb2ce3305b75af023c2fe345
 
 const axiosSecure = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
