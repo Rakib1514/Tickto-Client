@@ -30,10 +30,11 @@ const QueryWiseTransport = () => {
   const { data: tripData, isLoading } = useQuery({
     queryKey: ["travel", vehicle],
     queryFn: async () => {
-      const res = await axios.get(apiUrl);
+      const {res} = await axios.get(apiUrl);
       return res.data || [];
     },
   });
+  console.log('trip data --> ',tripData)
 
   if (isLoading)
     return (
@@ -180,7 +181,6 @@ const QueryWiseTransport = () => {
         selectedSeats={selectedSeats}
       />
     </div>
-    
   );
 };
 
