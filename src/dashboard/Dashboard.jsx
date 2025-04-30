@@ -83,9 +83,56 @@ export default function Dashboard() {
             <>
               <SidebarLink to="/dashboard/admin-dashboard" icon={<HiOutlineShieldCheck />} label="Admin Dashboard" />
               <SidebarLink to="/dashboard/admin/manage-user" icon={<RiUserSettingsLine />} label="Manage Users" />
-              <SidebarLink to="/dashboard/admin/qr-scanner" icon={<RiUserSettingsLine />} label="QR Scanner" />
+              {/* <SidebarLink to="/dashboard/admin/qr-scanner" icon={<RiUserSettingsLine />} label="QR Scanner" /> */}
               {/* <SidebarLink to="/dashboard/admin/manage-tickets" icon={<MdSettings />} label="Manage Tickets" /> */}
               <SidebarLink to="/dashboard/admin/add-event" icon={<IoTicketOutline />} label="Add Event" />
+              {/* Expandable Bus Section */}
+              <li className="list-none">
+                <button
+                  onClick={() => setIsBusExpanded(!isBusExpanded)}
+                  className="flex w-full items-center justify-between gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                >
+                  <IoTicketOutline className="text-lg" />
+                  <span>Bus</span>
+                  <span>{isBusExpanded ? "▲" : "▼"}</span>
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isBusExpanded ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <ul className="ml-6 space-y-2 py-2">
+                    <li>
+                      <Link
+                        to="/dashboard/add-bus"
+                        className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                      >
+                        <IoTicketOutline className="text-lg" />
+                        Add Bus
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/dashboard/create-trip"
+                        className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                      >
+                        <IoTicketOutline className="text-lg" />
+                        Create Trip
+                      </Link>
+                    </li>
+                    {/* <li>
+                      <Link
+                        to="/dashboard/manage-trip"
+                        className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                      >
+                        <IoTicketOutline className="text-lg" />
+                        Manage Trip
+                      </Link>
+                    </li> */}
+                  </ul>
+                </div>
+              </li>
               {/* <SidebarLink to="/dashboard/admin/booking-reports" icon={<MdLocalActivity />} label="Booking Reports" /> */}
               <SidebarLink to="/dashboard/admin/payment-reports" icon={<FaCreditCard />} label="Payment Reports" />
               {/* <SidebarLink to="/dashboard/admin/setting" icon={<MdSettings />} label="Settings" /> */}
