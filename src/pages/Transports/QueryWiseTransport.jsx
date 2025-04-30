@@ -19,7 +19,7 @@ const QueryWiseTransport = () => {
   const destination = params.get("destination");
   const departure = params.get("departure");
 
-  let apiUrl = "";
+  let apiUrl = "http://localhost:5000";
 
   if (origin && destination && departure) {
     apiUrl = `/api/trips/${vehicle}?origin=${origin}&destination=${destination}&departure=${departure}`;

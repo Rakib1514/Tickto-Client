@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Lock, CreditCard, Truck, Cloud, User, Clipboard, CheckCircle, Activity, HelpCircle } from "lucide-react"; // Icons for new events
 import Card from "../components/ui/Card";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 
 const Dashboard = () => {
@@ -13,6 +15,8 @@ const Dashboard = () => {
   const [supportTickets, setSupportTickets] = useState(2);
   const [completedOrders, setCompletedOrders] = useState(180);
   const [activeSessions, setActiveSessions] = useState(25);
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     // Simulating data changes with animation effect
@@ -31,9 +35,27 @@ const Dashboard = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleViewAll = (section) => {
-    alert(`View All clicked for ${section}`);
-    // You can redirect to a detailed page or show a modal here.
+  const handleViewAll = (title) => {
+    // Map title to route (example)
+    const routes = {
+      "Successful Payments": "/dashboard/admin/payment-reports",
+      "Pending Payments": "",
+      "Total Vehicles": "",
+      "AC Vehicles": "",
+      "Failed Payments": "",
+      "New Users": "/dashboard/admin/manage-user",
+      "Support Tickets": "",
+      "Completed Orders": "",
+      "Active Sessions": ""
+    };
+  
+    const route = routes[title];
+  
+    if (route) {
+      navigate(route);
+    } else {
+      console.warn("No route defined for:", title);
+    }
   };
 
   return (

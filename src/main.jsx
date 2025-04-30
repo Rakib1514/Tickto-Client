@@ -5,7 +5,7 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { RouterProvider } from "react-router";
 import "./index.css";
-
+import  { Toaster } from 'react-hot-toast';
 import { store } from "./App/store";
 import router from "./routes/Router";
 
@@ -18,6 +18,7 @@ createRoot(document.getElementById("root")).render(
     <Provider store={store}>
         <QueryClientProvider client={queryClient}>
           <RouterProvider router={router} />
+          <Toaster />
         </QueryClientProvider>
     </Provider>
   </StrictMode>
