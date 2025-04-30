@@ -55,7 +55,7 @@ const Register = () => {
         throw new Error("User not created in database");
       }
 
-      reset();
+      reset();  
       toast.success("User created Successfully");
       navigate("/");
     } catch (error) {
