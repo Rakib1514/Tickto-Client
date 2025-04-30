@@ -1,13 +1,14 @@
 import { Handshake, Home, Mail, Menu, Moon, Sun, User } from "lucide-react";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useLocation } from "react-router";
-import { AuthContext } from "../../Provider/AuthProvider";
-import Swal from "sweetalert2";
-import { GrDashboard } from "react-icons/gr";
+import { setLoading, userSignOut } from "../../Redux/authSlice";
 import Logo from "./Logo";
 
 const Navbar = () => {
-  const { user, logOut, setLoading } = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const { isLoading, user } = useSelector((state) => state.auth);
+  console.log(user)
 
   const location = useLocation();
   const [theme, setTheme] = useState("light");
@@ -18,33 +19,18 @@ const Navbar = () => {
     { path: "/travel/bus", label: "Buses", icon: User },
     { path: "/events", label: "Events", icon: Handshake },
     { path: "/join-us", label: "Join Us", icon: Mail },
-    
   ];
 
-  const handleLogout = () => {
-    logOut()
-      .then((res) => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "Logged out successfully",
-        });
-        setLoading(false);
-      })
-
-      .catch((err) => {
-        console.log(err);
-      });
+  const handleLogout = async () => {
+    try {
+      dispatch(setLoading(true));
+      const res = await userSignOut();
+      console.log(res)
+    } catch (error) {
+      console.error("Error logging out:", error);
+    } finally {
+      dispatch(setLoading(false));
+    }
   };
 
   const isActivePath = (path) => {
@@ -55,7 +41,6 @@ const Navbar = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
-  // Close dropdowns when clicking outside
   useEffect(() => {
     const closeDropdowns = (e) => {
       if (!e.target.closest(".mobile-menu")) {
@@ -72,7 +57,7 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [location]);
 
-  return (
+  return (           
     <>
       <nav className="fixed w-full top-0 z-[500] text-black bg-secondary/70">
         <div>
@@ -131,15 +116,26 @@ const Navbar = () => {
                           tabIndex={0}
                           className="menu menu-sm dropdown-content rounded-box z-1 text-white w-52 bg-[#78a6c4] p-2 font-bold shadow backdrop-blur-3xl"
                         >
-                          <li className="text-center">{user?.displayName}</li>
-                          <li>
-                            <Link to="/updateprofile">Update Profile</Link>
-                          </li>
+                          <li className="text-center">{user?.name}</li>
+
                           <li>
                             <Link to="/dashboard">Dashboard</Link>
                           </li>
-                          <li onClick={handleLogout}>
-                            <a>Logout</a>
+                          <li>
+                            <button
+                              onClick={handleLogout}
+                              disabled={isLoading}
+                              className="flex items-center justify-center gap-2"
+                            >
+                              {isLoading ? (
+                                <>
+                                  <span className="loading loading-spinner loading-sm"></span>{" "}
+                                  Logging out...
+                                </>
+                              ) : (
+                                "Logout"
+                              )}
+                            </button>
                           </li>
                         </ul>
                       </div>

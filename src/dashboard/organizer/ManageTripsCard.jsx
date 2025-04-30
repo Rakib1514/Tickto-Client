@@ -1,15 +1,15 @@
-import axios from "axios";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "antd";
+import axios from "axios";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import UpdateTripModal from "./UpdateTripModal";
 
 const ManageTripsCard = (status) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 
-  const { user } = useContext(AuthContext);
+  const {user} = useSelector((state) => state.auth);
 
   const { data: trips = [], isLoading, refetch } = useQuery({
     queryKey: ["trips", user?.uid, status.status],

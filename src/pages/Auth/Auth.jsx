@@ -1,27 +1,18 @@
 import React from 'react';
-// import authbg from '../../Assets/auth/authanimate.jpg';
-// import authbg from '../../Assets/auth/login_bg.jpeg'
-import authbg from '../../Assets/auth/loginbg-run.jpeg'
-import { Outlet, useNavigate } from 'react-router';
 import { IoIosArrowBack } from 'react-icons/io';
+import { useSelector } from 'react-redux';
+import { Outlet, useNavigate } from 'react-router';
+import authBg from '../../Assets/auth/techBD.png';
 import './auth.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { logoutUser } from '../../Redux/auth/authSlice';
 
 const Auth = () => {
-  const { user, loading, error } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const handleLogout = () => {
-    dispatch(logoutUser());
-  };
 
   return (
     <div
       className="flex min-h-screen items-center justify-center"
       style={{
-        background: `url("${authbg}")`,
+        background: `url("${authBg}")`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -34,14 +25,7 @@ const Auth = () => {
       >
         <IoIosArrowBack />
       </div>
-      {user && (
-        <button
-          onClick={handleLogout}
-          className="btn absolute top-3 right-2 border-none bg-[#A989B0] p-2 text-white md:top-5 md:right-5"
-        >
-          LogOut
-        </button>
-      )}
+      
     </div>
   );
 };
