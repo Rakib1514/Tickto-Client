@@ -82,10 +82,11 @@ export default function Dashboard() {
           {isAdmin ? (
             <>
               <SidebarLink to="/dashboard/admin-dashboard" icon={<HiOutlineShieldCheck />} label="Admin Dashboard" />
+           
               <SidebarLink to="/dashboard/admin/manage-user" icon={<RiUserSettingsLine />} label="Manage Users" />
-              <SidebarLink to="/dashboard/admin/qr-scanner" icon={<RiUserSettingsLine />} label="QR Scanner" />
+              {/* <SidebarLink to="/dashboard/admin/qr_scanner" icon={< />} label="" /> */}
               <SidebarLink to="/dashboard/admin/manage-tickets" icon={<MdSettings />} label="Manage Tickets" />
-              <SidebarLink to="/dashboard/admin/add-event" icon={<IoTicketOutline />} label="Add Event" />
+              <SidebarLink to="/dashboard/admin/add-event" icon={<RiUserSettingsLine />} label="QR Scanner" />
               <SidebarLink to="/dashboard/admin/booking-reports" icon={<MdLocalActivity />} label="Booking Reports" />
               <SidebarLink to="/dashboard/admin/payment-reports" icon={<FaCreditCard />} label="Payment Reports" />
               <SidebarLink to="/dashboard/admin/setting" icon={<MdSettings />} label="Settings" />
