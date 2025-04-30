@@ -57,7 +57,7 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [location]);
 
-  return (
+  return (           
     <>
       <nav className="fixed w-full top-0 z-[500] text-black bg-secondary/70">
         <div>

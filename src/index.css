@@ -88,3 +88,83 @@
 }
 
 
+.tabs-root {
+  padding: 1rem;
+}
+
+.tabs-list {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.tab-trigger {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-trigger[data-state="active"] {
+  border-color: #000;
+}
+
+.tab-content {
+  padding: 1rem 0;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+/* Add this to your global styles or in your Tailwind configuration file */
+.card {
+  width: 250px;
+  height: 180px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* makes room for "View All" */
+  align-items: flex-end;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.card-body {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.card-footer {
+  margin-top: auto;
+}
+
+.card-footer button {
+  font-size: 14px;
+  font-weight: 400;
+  
+  margin-bottom: 5px;
+}
+
+.card-footer button:hover {
+  color: #e0e0e0;
+}
+
