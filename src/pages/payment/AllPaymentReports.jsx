@@ -36,6 +36,7 @@ const AllPaymentReport = () => {
               <th>Price</th>
               <th>Transaction ID</th>
               <th>Refund</th>
+              <th>Refunded At</th>
             </tr>
           </thead>
           <tbody>
@@ -57,6 +58,13 @@ const AllPaymentReport = () => {
                   >
                     {payment.status}
                   </span>
+                </td>
+                <td>
+                  {payment.status === 'refunded' ? (
+                    new Date(payment.refundedAt).toLocaleString()
+                  ) : (
+                    '-'
+                  )}
                 </td>
               </tr>
             ))}
