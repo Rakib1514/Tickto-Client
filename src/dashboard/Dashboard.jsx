@@ -82,29 +82,29 @@ export default function Dashboard() {
           {isAdmin ? (
             <>
               <SidebarLink to="/dashboard/admin-dashboard" icon={<HiOutlineShieldCheck />} label="Admin Dashboard" />
-           
               <SidebarLink to="/dashboard/admin/manage-user" icon={<RiUserSettingsLine />} label="Manage Users" />
-              {/* <SidebarLink to="/dashboard/admin/qr_scanner" icon={< />} label="" /> */}
-              <SidebarLink to="/dashboard/admin/manage-tickets" icon={<MdSettings />} label="Manage Tickets" />
-              <SidebarLink to="/dashboard/admin/add-event" icon={<RiUserSettingsLine />} label="QR Scanner" />
-              <SidebarLink to="/dashboard/admin/booking-reports" icon={<MdLocalActivity />} label="Booking Reports" />
+              <SidebarLink to="/dashboard/admin/qr-scanner" icon={<RiUserSettingsLine />} label="QR Scanner" />
+              {/* <SidebarLink to="/dashboard/admin/manage-tickets" icon={<MdSettings />} label="Manage Tickets" /> */}
+              <SidebarLink to="/dashboard/admin/add-event" icon={<IoTicketOutline />} label="Add Event" />
+              {/* <SidebarLink to="/dashboard/admin/booking-reports" icon={<MdLocalActivity />} label="Booking Reports" /> */}
               <SidebarLink to="/dashboard/admin/payment-reports" icon={<FaCreditCard />} label="Payment Reports" />
-              <SidebarLink to="/dashboard/admin/setting" icon={<MdSettings />} label="Settings" />
+              {/* <SidebarLink to="/dashboard/admin/setting" icon={<MdSettings />} label="Settings" /> */}
               <SidebarLink to="/" icon={<RiSecurePaymentLine />} label="Back to Home" />
             </>
           ) : (
             <>
               <SidebarLink to="/dashboard" icon={<MdDashboard />} label="User Dashboard" />
               <SidebarLink to="/dashboard/bookings" icon={<BsBookmarkCheck />} label="My Bookings" />
-              <SidebarLink to="/dashboard/my-profile" icon={<AiOutlineProfile />} label="My Profile" />
+              {/* <SidebarLink to="/dashboard/my-profile" icon={<AiOutlineProfile />} label="My Profile" /> */}
               <SidebarLink to="/dashboard/payments" icon={<FaCreditCard />} label="My Payment History" />
-              <SidebarLink to="/dashboard/checkout" icon={<MdSettings />} label="Ticket Checkout" />
-              <SidebarLink to="/dashboard/confirmation" icon={<RiSecurePaymentLine />} label="Payment Confirmation" />
+              {/* <SidebarLink to="/dashboard/checkout" icon={<MdSettings />} label="Ticket Checkout" /> */}
+              {/* <SidebarLink to="/dashboard/confirmation" icon={<RiSecurePaymentLine />} label="Payment Confirmation" /> */}
               <SidebarLink to="/" icon={<RiSecurePaymentLine />} label="Back to Home" />
             </>
           )}
         {/* Nav */}
-        </nav> 
+        </nav>
+       
       </aside>
 
       {/* Main Content */}

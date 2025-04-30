@@ -133,7 +133,7 @@ const JoinUs = () => {
       <div className="hands min-h-[480px]">
         <div className="h-[480px] w-full bg-black/45 flex items-center justify-center">
           <div className="text-center text-white space-y-3 md:w-1/2 mx-auto">
-            <h1 className="text-4xl lg:text-6xl font-bold ">Join Our Team</h1>
+            <h1 className="text-4xl lg:text-6xl font-bold ">Contact With Us</h1>
             <p className="w-[96%] mx-auto">
               We're always looking for passionate, creative, and driven
               individuals to join our growing team. Whether you're a developer,
