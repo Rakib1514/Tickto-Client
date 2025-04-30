@@ -53,10 +53,10 @@ const Register = () => {
 
       if (!resUser.data.insertedId) {
         throw new Error("User not created in database");
-      }
-
+      }  
+     
       reset();  
-      toast.success("User created Successfully");
+      toast.success("User created Successfully!");
       navigate("/");
     } catch (error) {
       console.error("Error creating user:", error.message);
