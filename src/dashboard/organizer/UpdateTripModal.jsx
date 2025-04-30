@@ -11,6 +11,7 @@ import {
 import axios from "axios";
 import dayjs from "dayjs";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 
 const UpdateTripModal = ({ setIsModalOpen, isModalOpen, trip, refetch }) => {
@@ -46,7 +47,7 @@ const UpdateTripModal = ({ setIsModalOpen, isModalOpen, trip, refetch }) => {
 
       setIsModalOpen(false);
       refetch(); // Refetch the trips data after updating
-      alert("Trip updated successfully!");
+      toast("Trip updated successfully!")
     } catch (error) {
       console.error("Failed to update trip:", error);
     } finally {

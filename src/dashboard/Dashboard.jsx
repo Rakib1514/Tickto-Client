@@ -168,7 +168,7 @@ export default function Dashboard() {
                 label="User Dashboard"
               />
               <SidebarLink
-                to="/dashboard/bookings"
+                to="/dashboard/user/bookings"
                 icon={<BsBookmarkCheck />}
                 label="My Bookings"
               />
@@ -177,6 +177,7 @@ export default function Dashboard() {
                 icon={<AiOutlineProfile />}
                 label="My Profile"
               />
+            
               <SidebarLink
                 to="/dashboard/payments"
                 icon={<FaCreditCard />}

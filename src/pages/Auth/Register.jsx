@@ -5,6 +5,7 @@ import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { setLoading, userSignUp } from "../../Redux/authSlice";
+import toast from "react-hot-toast";
 
 const userImage_hosting_key = import.meta.env.VITE_USERIMAGE_KEY;
 const userImage_hosting_api = `https://api.imgbb.com/1/upload?key=${userImage_hosting_key}`;
@@ -55,13 +56,13 @@ const Register = () => {
       }
 
       reset();
-      alert("User created successfully");
+      toast.success("User created Successfully");
       navigate("/");
     } catch (error) {
       console.error("Error creating user:", error.message);
-      alert(
-        "User not created. Please try again. (We will change this alert to toast later.)"
-      );
+    
+        toast("User not created. Please try again. (We will change this alert to toast later")
+      
     } finally {
       dispatch(setLoading(false));
     }
@@ -70,17 +71,23 @@ const Register = () => {
   return (
     <div className="flex min-h-screen items-center justify-center">
       <div className="blur-bg grid min-h-screen max-w-screen-xl rounded-2xl border border-gray-400 text-white md:min-h-fit md:w-[96%] md:grid-cols-2">
-        
         {/* second part (mobile view) */}
         <div className="flex items-center justify-center rounded-r-2xl py-10 text-center md:hidden md:bg-black/30 md:p-10 md:py-20">
           <div>
             <h1 className="text-2xl font-bold">Welcome to TickTo</h1>
             <p className="mx-auto w-[80%] py-6 text-sm">
-              Discover trending events and personalized recommendations. From local gatherings to global spectacles, find experiences that match your interests. Book with confidence using our secure payment system. Enjoy a hassle-free ticketing experience with instant confirmation and digital access.
+              Discover trending events and personalized recommendations. From
+              local gatherings to global spectacles, find experiences that match
+              your interests. Book with confidence using our secure payment
+              system. Enjoy a hassle-free ticketing experience with instant
+              confirmation and digital access.
             </p>
             <p className="mx-auto w-[90%]">
               Already have an account?{" "}
-              <Link to={"/auth/login"} className="link text-[#67B293]">Login</Link> Now
+              <Link to={"/auth/login"} className="link text-[#67B293]">
+                Login
+              </Link>{" "}
+              Now
             </p>
           </div>
         </div>
@@ -88,8 +95,13 @@ const Register = () => {
         {/* first part (form) */}
         <div className="md:p-6 md:py-20">
           <div>
-            <h3 className="text-center text-3xl font-semibold">Create an Account</h3>
-            <form onSubmit={handleSubmit(handleUserSignUp)} className="card-body">
+            <h3 className="text-center text-3xl font-semibold">
+              Create an Account
+            </h3>
+            <form
+              onSubmit={handleSubmit(handleUserSignUp)}
+              className="card-body"
+            >
               {/* Name */}
               <div className="form-control">
                 <label className="label">
@@ -102,7 +114,9 @@ const Register = () => {
                   className="input input-bordered w-full bg-gray-200 text-gray-900"
                 />
                 {errors.name && (
-                  <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.name.message}
+                  </p>
                 )}
               </div>
 
@@ -124,7 +138,9 @@ const Register = () => {
                   className="input input-bordered w-full bg-gray-200 text-gray-900"
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.email.message}
+                  </p>
                 )}
               </div>
 
@@ -139,7 +155,9 @@ const Register = () => {
                   className="file-input file-input-ghost file-input-bordered mx-auto w-full bg-gray-200 text-gray-500"
                 />
                 {errors.image && (
-                  <p className="text-red-500 text-sm mt-1">{errors.image.message}</p>
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.image.message}
+                  </p>
                 )}
               </div>
 
@@ -161,7 +179,9 @@ const Register = () => {
                   className="input input-bordered w-full bg-gray-200 text-gray-900"
                 />
                 {errors.password && (
-                  <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.password.message}
+                  </p>
                 )}
               </div>
 
@@ -196,16 +216,23 @@ const Register = () => {
             <div>
               <h1 className="text-3xl font-bold">Welcome to TickTo</h1>
               <p className="mx-auto w-[80%] py-6 text-sm">
-                Discover trending events and personalized recommendations. From local gatherings to global spectacles, find experiences that match your interests. Book with confidence using our secure payment system. Enjoy a hassle-free ticketing experience with instant confirmation and digital access.
+                Discover trending events and personalized recommendations. From
+                local gatherings to global spectacles, find experiences that
+                match your interests. Book with confidence using our secure
+                payment system. Enjoy a hassle-free ticketing experience with
+                instant confirmation and digital access.
               </p>
               <p>
                 Already have an account?
-                <Link to={"/auth/login"} className="link text-[#67B293]"> Login</Link> Now
+                <Link to={"/auth/login"} className="link text-[#67B293]">
+                  {" "}
+                  Login
+                </Link>{" "}
+                Now
               </p>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

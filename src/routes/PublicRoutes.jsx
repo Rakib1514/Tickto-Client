@@ -55,6 +55,7 @@ import AllPaymentReport from "../pages/payment/AllPaymentReports";
 import ReserveEvent from "../pages/reserve-event/Example";
 import QrCode_scanner from "../dashboard/admin/QrCode_scanner";
 import QrCodeScanner from "../dashboard/admin/QrCodeScanner";
+import My_bookings from "../dashboard/user/My_bookings";
 
 const PublicRoutes = () => {
   return (
@@ -94,16 +95,10 @@ const PublicRoutes = () => {
           path="/dashboard/admin-dashboard"
           element={<Admin_dashboard />}
         />
-        <Route
-          path="admin/qr_scanner"
-          element={<QrCode_scanner />}
-        />
+        <Route path="admin/qr_scanner" element={<QrCode_scanner />} />
         <Route path="/dashboard/admin/add-event" element={<Add_event />} />
         {/* <Route path="/dashboard/admin/qrcodescanner" element={<QrCodeScanner />} /> */}
-        <Route
-          path="admin/booking-reports"
-          element={<Booking_reports />}
-        />
+        <Route path="admin/booking-reports" element={<Booking_reports />} />
         <Route
           path="/dashboard/admin/manage-tickets"
           element={<Manage_tickets />}
@@ -116,12 +111,12 @@ const PublicRoutes = () => {
         <Route
           path="/dashboard/admin/payment-reports"
           element={<AllPaymentReport />}
-      
         />
-         
 
         <Route path="/dashboard/admin/setting" element={<Setting />} />
 
+
+        <Route path="/dashboard/user/bookings" element={<My_bookings />} />
         <Route path="/dashboard/my-profile" element={<My_profile />} />
         <Route path="/dashboard/payments" element={<PaymentHistory />} />
       </Route>

@@ -9,6 +9,7 @@ import {
   signInWithGoogle,
   userSignIn,
 } from "../../Redux/authSlice";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,7 +34,8 @@ const Login = () => {
       navigate("/");
     } catch (error) {
       console.error("Error signing in:", error);
-      alert("Invalid email or password. Please try again.");
+ 
+      toast("Invalid email or password. Please try again.")
     } finally {
       dispatch(setLoading(false));
     }
@@ -44,14 +46,17 @@ const Login = () => {
       dispatch(setLoading(true));
       const result = await signInWithGoogle();
       if (!result.user) {
-        alert("Something went wrong. Please try again.");
+
+        toast("Something went wrong. Please try again.")
         throw new Error("User not found");
       }
-      alert("Login successful with Google!");
+
+      toast("Login successful with Google!")
       navigate("/");
     } catch (error) {
       console.error("Error signing in with Google:", error);
-      alert("Something went wrong. Please try again.");
+ 
+      toast("Something went wrong. Please try again.")
     } finally {
       dispatch(setLoading(false));
     }
