@@ -3,8 +3,12 @@ import { Link, Outlet, useLocation } from "react-router";
 // React Icons
 import { AiOutlineProfile } from "react-icons/ai";
 import { BsBookmarkCheck } from "react-icons/bs";
-import { FaCreditCard } from "react-icons/fa";
-import { HiOutlineMenu, HiOutlineShieldCheck, HiOutlineX } from "react-icons/hi"; // For admin icon
+import { FaAngleDown, FaAngleUp, FaCreditCard } from "react-icons/fa";
+import {
+  HiOutlineMenu,
+  HiOutlineShieldCheck,
+  HiOutlineX,
+} from "react-icons/hi"; // For admin icon
 import { IoTicketOutline } from "react-icons/io5";
 import { MdDashboard, MdLocalActivity, MdSettings } from "react-icons/md";
 import { RiSecurePaymentLine, RiUserSettingsLine } from "react-icons/ri";
@@ -13,16 +17,16 @@ import Logo from "../components/Shared/Logo";
 import useAdmin from "../hooks/useAdmin";
 
 export default function Dashboard() {
-
-  const {user} = useSelector((state) => state.auth); 
+  const { user } = useSelector((state) => state.auth);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  
+
   const [isBusExpanded, setIsBusExpanded] = useState(false); // State for expandable button
 
   // Conditionally render admin routes if the user is an admin
   // const isAdmin = user?.role === 'user';
   const [isAdmin] = useAdmin();
   const location = useLocation();
+  const [isBusOpen, setIsBusOpen] = useState(false);
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
@@ -44,7 +48,7 @@ export default function Dashboard() {
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 z-50 h-full w-64 transform bg-white shadow-lg transition-transform duration-300 ease-in-out lg:translate-x-0 ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Sidebar Header */}
@@ -81,30 +85,122 @@ export default function Dashboard() {
         <nav className="p-4 space-y-2 overflow-y-auto">
           {isAdmin ? (
             <>
-              <SidebarLink to="/dashboard/admin-dashboard" icon={<HiOutlineShieldCheck />} label="Admin Dashboard" />
-           
-              <SidebarLink to="/dashboard/admin/manage-user" icon={<RiUserSettingsLine />} label="Manage Users" />
+              <SidebarLink
+                to="/dashboard/admin-dashboard"
+                icon={<HiOutlineShieldCheck />}
+                label="Admin Dashboard"
+              />
+
+              <SidebarLink
+                to="/dashboard/admin/manage-user"
+                icon={<RiUserSettingsLine />}
+                label="Manage Users"
+              />
               {/* <SidebarLink to="/dashboard/admin/qr_scanner" icon={< />} label="" /> */}
-              <SidebarLink to="/dashboard/admin/manage-tickets" icon={<MdSettings />} label="Manage Tickets" />
-              <SidebarLink to="/dashboard/admin/add-event" icon={<RiUserSettingsLine />} label="QR Scanner" />
-              <SidebarLink to="/dashboard/admin/booking-reports" icon={<MdLocalActivity />} label="Booking Reports" />
-              <SidebarLink to="/dashboard/admin/payment-reports" icon={<FaCreditCard />} label="Payment Reports" />
-              <SidebarLink to="/dashboard/admin/setting" icon={<MdSettings />} label="Settings" />
-              <SidebarLink to="/" icon={<RiSecurePaymentLine />} label="Back to Home" />
+              <SidebarLink
+                to="/dashboard/admin/manage-tickets"
+                icon={<MdSettings />}
+                label="Manage Tickets"
+              />
+              {/* Bus Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsBusOpen(!isBusOpen)}
+                  className="flex items-center justify-between w-full gap-2"
+                >
+                  <span className="flex items-center gap-2 lg:ml-3">🎫 Bus</span>
+                  {isBusOpen ? <FaAngleUp /> : <FaAngleDown />}
+                </button>
+                {isBusOpen && (
+                  <div className="pl-6 space-y-1 mt-1">
+                    <Link
+                      to="/dashboard/admin/add-bus"
+                      className="flex items-center gap-2"
+                    >
+                      🎫 Add Bus
+                    </Link>
+                    <Link
+                      to="/dashboard/admin/create-trip"
+                      className="flex items-center gap-2"
+                    >
+                      🎫 Create Trip
+                    </Link>
+                    <Link
+                      to="/dashboard/admin/manage-trip"
+                      className="flex items-center gap-2"
+                    >
+                      🎫 Manage Trip
+                    </Link>
+                  </div>
+                )}
+              </div>
+              <SidebarLink
+                to="/dashboard/admin/add-event"
+                icon={<RiUserSettingsLine />}
+                label="QR Scanner"
+              />
+              <SidebarLink
+                to="/dashboard/admin/booking-reports"
+                icon={<MdLocalActivity />}
+                label="Booking Reports"
+              />
+              <SidebarLink
+                to="/dashboard/admin/payment-reports"
+                icon={<FaCreditCard />}
+                label="Payment Reports"
+              />
+              <SidebarLink
+                to="/dashboard/admin/setting"
+                icon={<MdSettings />}
+                label="Settings"
+              />
+              <SidebarLink
+                to="/"
+                icon={<RiSecurePaymentLine />}
+                label="Back to Home"
+              />
             </>
           ) : (
             <>
-              <SidebarLink to="/dashboard" icon={<MdDashboard />} label="User Dashboard" />
-              <SidebarLink to="/dashboard/bookings" icon={<BsBookmarkCheck />} label="My Bookings" />
-              <SidebarLink to="/dashboard/my-profile" icon={<AiOutlineProfile />} label="My Profile" />
-              <SidebarLink to="/dashboard/payments" icon={<FaCreditCard />} label="My Payment History" />
-              <SidebarLink to="/dashboard/checkout" icon={<MdSettings />} label="Ticket Checkout" />
-              <SidebarLink to="/dashboard/confirmation" icon={<RiSecurePaymentLine />} label="Payment Confirmation" />
-              <SidebarLink to="/" icon={<RiSecurePaymentLine />} label="Back to Home" />
+              <SidebarLink
+                to="/dashboard"
+                icon={<MdDashboard />}
+                label="User Dashboard"
+              />
+              <SidebarLink
+                to="/dashboard/bookings"
+                icon={<BsBookmarkCheck />}
+                label="My Bookings"
+              />
+              <SidebarLink
+                to="/dashboard/my-profile"
+                icon={<AiOutlineProfile />}
+                label="My Profile"
+              />
+              <SidebarLink
+                to="/dashboard/payments"
+                icon={<FaCreditCard />}
+                label="My Payment History"
+              />
+              <SidebarLink
+                to="/dashboard/checkout"
+                icon={<MdSettings />}
+                label="Ticket Checkout"
+              />
+              <SidebarLink
+                to="/dashboard/confirmation"
+                icon={<RiSecurePaymentLine />}
+                label="Payment Confirmation"
+              />
+              <SidebarLink
+                to="/"
+                icon={<RiSecurePaymentLine />}
+                label="Back to Home"
+              />
             </>
           )}
-        {/* Nav */}
-        </nav> 
+          {/* Nav */}
+        </nav>
       </aside>
 
       {/* Main Content */}

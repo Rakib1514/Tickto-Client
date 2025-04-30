@@ -116,7 +116,10 @@ const PublicRoutes = () => {
         <Route
           path="/dashboard/admin/payment-reports"
           element={<AllPaymentReport />}
+      
         />
+         
+
         <Route path="/dashboard/admin/setting" element={<Setting />} />
 
         <Route path="/dashboard/my-profile" element={<My_profile />} />
