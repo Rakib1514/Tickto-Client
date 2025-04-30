@@ -4,6 +4,7 @@ import React from 'react';
 import { FaSpinner } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import PdfTicket from '../../components/PdfTicket';
+import Swal from 'sweetalert2';
 
 const PaymentHistory = () => {
   const {user} = useSelector((state) => state.auth);
@@ -16,6 +17,31 @@ const PaymentHistory = () => {
       return res.data;
     },
   });
+
+  const handleRefund = async (paymentId) => {
+    const confirm = await Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to refund this ticket?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#317371',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, refund it!',
+    });
+  
+    if (confirm.isConfirmed) {
+      try {
+        const res = await axios.patch(`/payments/${paymentId}/refund`);
+        if (res.data.success) {
+          Swal.fire('Refunded!', 'Your ticket has been refunded.', 'success');
+          refetch(); // Refetch payment data
+        }
+      } catch (err) {
+        Swal.fire('Error', err.response?.data || 'Something went wrong', 'error');
+      }
+    }
+  };
+  
 
   if (isLoading) {
     return (
@@ -46,6 +72,7 @@ const PaymentHistory = () => {
                 <th>Price</th>
                 <th>Transaction ID</th>
                 <th>Selected Seat</th>
+                <th>Refund</th>
                 <th>Download</th>
               </tr>
             </thead>
@@ -62,6 +89,22 @@ const PaymentHistory = () => {
                     {Array.isArray(payment.selectedSeats) && payment.selectedSeats.length > 0
                       ? payment.selectedSeats.join(', ') 
                       : 'None'}</td>
+                      <td>
+                        {payment.status === "paid" &&
+                        new Date(payment.tripInfo.departureTime) - new Date() > 60 * 60 * 1000 ? (
+                          <button
+                            onClick={() => handleRefund(payment._id)}
+                            className="btn btn-sm bg-red-500 hover:bg-red-600 text-white"
+                          >
+                            Refund
+                          </button>
+                        ) : payment.status === "refunded" ? (
+                          <span className="text-red-500 font-semibold">Refunded</span>
+                        ) : (
+                          <span className="text-gray-400 text-sm">Not eligible</span>
+                        )}
+                      </td>
+
                   <td>
                     
                     {/* <FaDownload/> */}

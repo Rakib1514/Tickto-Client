@@ -35,7 +35,7 @@ const AllPaymentReport = () => {
               <th>Email</th>
               <th>Price</th>
               <th>Transaction ID</th>
-              <th>Status</th>
+              <th>Refund</th>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +50,8 @@ const AllPaymentReport = () => {
                     className={`badge ${
                       payment.status === 'paid'
                         ? 'badge-success'
+                        : payment.status === 'refunded'
+                        ? 'badge-error'
                         : 'badge-warning'
                     }`}
                   >
