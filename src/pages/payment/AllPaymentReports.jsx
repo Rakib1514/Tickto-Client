@@ -35,7 +35,8 @@ const AllPaymentReport = () => {
               <th>Email</th>
               <th>Price</th>
               <th>Transaction ID</th>
-              <th>Status</th>
+              <th>Refund</th>
+              <th>Refunded At</th>
             </tr>
           </thead>
           <tbody>
@@ -50,11 +51,20 @@ const AllPaymentReport = () => {
                     className={`badge ${
                       payment.status === 'paid'
                         ? 'badge-success'
+                        : payment.status === 'refunded'
+                        ? 'badge-error'
                         : 'badge-warning'
                     }`}
                   >
                     {payment.status}
                   </span>
+                </td>
+                <td>
+                  {payment.status === 'refunded' ? (
+                    new Date(payment.refundedAt).toLocaleString()
+                  ) : (
+                    '-'
+                  )}
                 </td>
               </tr>
             ))}
