@@ -17,8 +17,8 @@ const Navbar = () => {
   const navLinks = [
     { path: "/", label: "Home", icon: Home },
     { path: "/travel/bus", label: "Buses", icon: User },
-    { path: "/events", label: "Events", icon: Handshake },
-    { path: "/join-us", label: "Join Us", icon: Mail },
+    // { path: "/events", label: "Events", icon: Handshake },
+    { path: "/join-us", label: "Contact Us", icon: Mail },
   ];
 
   const handleLogout = async () => {
@@ -149,7 +149,7 @@ const Navbar = () => {
                     )}
                   </div>
                   {/* theme toggle */}
-                  <button
+                  {/* <button
                     onClick={toggleTheme}
                     className="p-1 rounded-full transition-colors duration-200 hover:text-primary"
                     aria-label="Toggle theme"
@@ -159,7 +159,7 @@ const Navbar = () => {
                     ) : (
                       <Moon className="h-7 w-7" />
                     )}
-                  </button>
+                  </button> */}
 
                   {/* Mobile menu button */}
                   <div className="mobile-menu flex items-center lg:hidden">
