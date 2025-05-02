@@ -3,8 +3,12 @@ import { Link, Outlet, useLocation } from "react-router";
 // React Icons
 import { AiOutlineProfile } from "react-icons/ai";
 import { BsBookmarkCheck } from "react-icons/bs";
-import { FaCreditCard } from "react-icons/fa";
-import { HiOutlineMenu, HiOutlineShieldCheck, HiOutlineX } from "react-icons/hi"; // For admin icon
+import { FaAngleDown, FaAngleUp, FaCreditCard } from "react-icons/fa";
+import {
+  HiOutlineMenu,
+  HiOutlineShieldCheck,
+  HiOutlineX,
+} from "react-icons/hi"; // For admin icon
 import { IoTicketOutline } from "react-icons/io5";
 import { MdDashboard, MdLocalActivity, MdSettings } from "react-icons/md";
 import { RiSecurePaymentLine, RiUserSettingsLine } from "react-icons/ri";
@@ -13,16 +17,16 @@ import Logo from "../components/Shared/Logo";
 import useAdmin from "../hooks/useAdmin";
 
 export default function Dashboard() {
-
-  const {user} = useSelector((state) => state.auth); 
+  const { user } = useSelector((state) => state.auth);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  
+
   const [isBusExpanded, setIsBusExpanded] = useState(false); // State for expandable button
 
   // Conditionally render admin routes if the user is an admin
   // const isAdmin = user?.role === 'user';
   const [isAdmin] = useAdmin();
   const location = useLocation();
+  const [isBusOpen, setIsBusOpen] = useState(false);
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
@@ -44,7 +48,7 @@ export default function Dashboard() {
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 z-50 h-full w-64 transform bg-white shadow-lg transition-transform duration-300 ease-in-out lg:translate-x-0 ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Sidebar Header */}
@@ -83,9 +87,56 @@ export default function Dashboard() {
             <>
               <SidebarLink to="/dashboard/admin-dashboard" icon={<HiOutlineShieldCheck />} label="Admin Dashboard" />
               <SidebarLink to="/dashboard/admin/manage-user" icon={<RiUserSettingsLine />} label="Manage Users" />
-              <SidebarLink to="/dashboard/admin/qr-scanner" icon={<RiUserSettingsLine />} label="QR Scanner" />
+              {/* <SidebarLink to="/dashboard/admin/qr-scanner" icon={<RiUserSettingsLine />} label="QR Scanner" /> */}
               {/* <SidebarLink to="/dashboard/admin/manage-tickets" icon={<MdSettings />} label="Manage Tickets" /> */}
               <SidebarLink to="/dashboard/admin/add-event" icon={<IoTicketOutline />} label="Add Event" />
+              {/* Expandable Bus Section */}
+              <li className="list-none">
+                <button
+                  onClick={() => setIsBusExpanded(!isBusExpanded)}
+                  className="flex w-full items-center justify-between gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                >
+                  <IoTicketOutline className="text-lg" />
+                  <span>Bus</span>
+                  <span>{isBusExpanded ? "▲" : "▼"}</span>
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isBusExpanded ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <ul className="ml-6 space-y-2 py-2">
+                    <li>
+                      <Link
+                        to="/dashboard/add-bus"
+                        className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                      >
+                        <IoTicketOutline className="text-lg" />
+                        Add Bus
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/dashboard/create-trip"
+                        className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                      >
+                        <IoTicketOutline className="text-lg" />
+                        Create Trip
+                      </Link>
+                    </li>
+                    {/* <li>
+                      <Link
+                        to="/dashboard/manage-trip"
+                        className="flex items-center gap-2 rounded px-3 py-2 text-gray-800 hover:bg-[#C2D1C6]"
+                      >
+                        <IoTicketOutline className="text-lg" />
+                        Manage Trip
+                      </Link>
+                    </li> */}
+                  </ul>
+                </div>
+              </li>
               {/* <SidebarLink to="/dashboard/admin/booking-reports" icon={<MdLocalActivity />} label="Booking Reports" /> */}
               <SidebarLink to="/dashboard/admin/payment-reports" icon={<FaCreditCard />} label="Payment Reports" />
               {/* <SidebarLink to="/dashboard/admin/setting" icon={<MdSettings />} label="Settings" /> */}

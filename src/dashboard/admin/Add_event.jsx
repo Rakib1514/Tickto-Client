@@ -25,7 +25,7 @@ export default function Add_event() {
 
   return (
     <div>
-      <h1>Qr Code Scanner</h1>
+      {/* <h1>Qr Code Scanner</h1>
       {scanResult ? (
         <div>
           {' '}
@@ -33,7 +33,7 @@ export default function Add_event() {
         </div>
       ) : (
         <div id="reader"></div>
-      )}
+      )} */}
     </div>
   );
 }
