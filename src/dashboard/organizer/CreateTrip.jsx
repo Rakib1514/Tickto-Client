@@ -69,7 +69,8 @@ const CreateTrip = () => {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <div className="p-4">
+    <div className="p-4 max-w-4xl mx-auto w-full border border-gray-300 rounded-xl bg-white">
+      <h1 className="text-center py-3 text-2xl font-bold">Create Trip</h1>
       <Form
         form={form}
         name="createTrip"
@@ -152,7 +153,7 @@ const CreateTrip = () => {
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
+          <Button className="w-full" type="primary" htmlType="submit">
             Create Trip
           </Button>
         </Form.Item>

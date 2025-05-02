@@ -52,7 +52,7 @@ const AddBus = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md mt-10">
+    <div className="max-w-4xl w-full mx-auto p-6 bg-white rounded-xl shadow-md mt-10">
       <h2 className="text-2xl font-semibold mb-4 text-center">Add New Bus</h2>
       <Form form={form} layout="vertical" onFinish={onFinish}>
         <Form.Item name="busId" label="Bus ID" rules={[{ required: true }]}>
