@@ -35,7 +35,7 @@ const AllPaymentReport = () => {
               <th>Email</th>
               <th>Price</th>
               <th>Transaction ID</th>
-              <th>Refund</th>
+              <th>Status</th>
               <th>Refunded At</th>
             </tr>
           </thead>
