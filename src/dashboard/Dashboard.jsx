@@ -3,8 +3,12 @@ import { Link, Outlet, useLocation } from "react-router";
 // React Icons
 import { AiOutlineProfile } from "react-icons/ai";
 import { BsBookmarkCheck } from "react-icons/bs";
-import { FaCreditCard } from "react-icons/fa";
-import { HiOutlineMenu, HiOutlineShieldCheck, HiOutlineX } from "react-icons/hi"; // For admin icon
+import { FaAngleDown, FaAngleUp, FaCreditCard } from "react-icons/fa";
+import {
+  HiOutlineMenu,
+  HiOutlineShieldCheck,
+  HiOutlineX,
+} from "react-icons/hi"; // For admin icon
 import { IoTicketOutline } from "react-icons/io5";
 import { MdDashboard, MdLocalActivity, MdSettings } from "react-icons/md";
 import { RiSecurePaymentLine, RiUserSettingsLine } from "react-icons/ri";
@@ -13,16 +17,16 @@ import Logo from "../components/Shared/Logo";
 import useAdmin from "../hooks/useAdmin";
 
 export default function Dashboard() {
-
-  const {user} = useSelector((state) => state.auth); 
+  const { user } = useSelector((state) => state.auth);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  
+
   const [isBusExpanded, setIsBusExpanded] = useState(false); // State for expandable button
 
   // Conditionally render admin routes if the user is an admin
   // const isAdmin = user?.role === 'user';
   const [isAdmin] = useAdmin();
   const location = useLocation();
+  const [isBusOpen, setIsBusOpen] = useState(false);
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
@@ -44,7 +48,7 @@ export default function Dashboard() {
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 z-50 h-full w-64 transform bg-white shadow-lg transition-transform duration-300 ease-in-out lg:translate-x-0 ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Sidebar Header */}

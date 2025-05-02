@@ -48,6 +48,7 @@ const QueryWiseTransport = () => {
     setSelectedSeats([]);
   };
 
+  
   const handleSeatClick = (seatNum) => {
     if (selectedTrip.bookedSeats.includes(seatNum)) return;
     setSelectedSeats((prev) =>
