@@ -12,6 +12,7 @@ import axios from "axios";
 import dayjs from "dayjs";
 import React from "react";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const { Option } = Select;
 
@@ -39,9 +40,25 @@ const CreateTrip = () => {
       createdAt: new Date().toISOString(),
     };
 
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+      }
+      });
+
     try {
       const res = await axios.post("/api/trips", tripData);
       console.log("Trip created:", res.data);
+      Toast.fire({
+        icon: "success",
+        title: "Trip created successfully!"
+      });
       message.success("Trip created successfully!");
       form.resetFields();
     } catch (err) {
@@ -69,8 +86,8 @@ const CreateTrip = () => {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <div className="p-4 max-w-4xl mx-auto w-full border border-gray-300 rounded-xl bg-white">
-      <h1 className="text-center py-3 text-2xl font-bold">Create Trip</h1>
+    <div className="p-4 max-w-3xl mx-auto w-full border border-gray-300 rounded-xl bg-white">
+      <h1 className="text-center py-3 text-2xl font-bold">Create New Trip</h1>
       <Form
         form={form}
         name="createTrip"
@@ -114,24 +131,27 @@ const CreateTrip = () => {
           label="Distance (km)"
           rules={[{ required: true, message: "Please enter distance" }]}
         >
-          <InputNumber />
+          <InputNumber style={{width: '100%'}} />
         </Form.Item>
 
         <Form.Item
           name="departureTime"
           label="Departure"
+          className="w-full"
           rules={[{ required: true, message: "Please select departure time" }]}
         >
           <DatePicker
             showTime
             format="YYYY-MM-DD HH:mm"
             disabledDate={disablePastDates}
+            className="w-full"
           />
         </Form.Item>
 
         <Form.Item
           name="arrivalTime"
           label="Arrival"
+          className="w-full"
           rules={[
             { required: true, message: "Please select arrival time" },
             { validator: validateArrival },
@@ -141,6 +161,7 @@ const CreateTrip = () => {
             showTime
             format="YYYY-MM-DD HH:mm"
             disabledDate={disablePastDates}
+            className="w-full"
           />
         </Form.Item>
 
@@ -149,11 +170,12 @@ const CreateTrip = () => {
           label="Fare (৳)"
           rules={[{ required: true, message: "Please enter fare" }]}
         >
-          <InputNumber min={0} className="w-full" />
+          <InputNumber min={0} style={{width: '100%'}} />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button className="w-full" type="primary" htmlType="submit">
+          <Button className="!bg-primary hover:!bg-primary/75 w-full"
+           type="primary" htmlType="submit" size="large">
             Create Trip
           </Button>
         </Form.Item>

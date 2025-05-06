@@ -2,6 +2,7 @@ import { Button, Form, Input, InputNumber, message } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const AddBus = () => {
   const [form] = Form.useForm();
@@ -41,8 +42,24 @@ const AddBus = () => {
       organizerID: user?.uid,
     };
 
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+      }
+      });
+
     try {
       const res = await axios.post("/api/buses", busData);
+      Toast.fire({
+        icon: "success",
+        title: "Bus added successfully!"
+      });
       message.success("Bus added successfully!");
       form.resetFields();
     } catch (err) {
@@ -101,7 +118,7 @@ const AddBus = () => {
             label="Total Rows"
             rules={[{ required: true }]}
           >
-            <InputNumber min={1} className="w-full" />
+            <InputNumber min={1} style={{width: '100%'}} />
           </Form.Item>
 
           <Form.Item
@@ -109,7 +126,7 @@ const AddBus = () => {
             label="Seats Per Row"
             rules={[{ required: true }]}
           >
-            <InputNumber min={1} max={6} className="w-full" />
+            <InputNumber min={1} max={6} style={{width: '100%'}} />
           </Form.Item>
         </div>
 
