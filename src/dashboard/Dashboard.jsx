@@ -89,7 +89,7 @@ export default function Dashboard() {
               <SidebarLink to="/dashboard/admin/manage-user" icon={<RiUserSettingsLine />} label="Manage Users" />
               {/* <SidebarLink to="/dashboard/admin/qr-scanner" icon={<RiUserSettingsLine />} label="QR Scanner" /> */}
               {/* <SidebarLink to="/dashboard/admin/manage-tickets" icon={<MdSettings />} label="Manage Tickets" /> */}
-              <SidebarLink to="/dashboard/admin/add-event" icon={<IoTicketOutline />} label="Add Event" />
+              {/* <SidebarLink to="/dashboard/admin/add-event" icon={<IoTicketOutline />} label="Add Event" /> */}
               {/* Expandable Bus Section */}
               <li className="list-none">
                 <button

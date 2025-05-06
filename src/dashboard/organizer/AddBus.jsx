@@ -52,7 +52,7 @@ const AddBus = () => {
   };
 
   return (
-    <div className="max-w-4xl w-full mx-auto p-6 bg-white rounded-xl shadow-md mt-10">
+    <div className="max-w-3xl w-full mx-auto p-6 bg-white rounded-xl shadow-md mt-10">
       <h2 className="text-2xl font-semibold mb-4 text-center">Add New Bus</h2>
       <Form form={form} layout="vertical" onFinish={onFinish}>
         <Form.Item name="busId" label="Bus ID" rules={[{ required: true }]}>
@@ -71,47 +71,55 @@ const AddBus = () => {
           <Input />
         </Form.Item>
 
-        <Form.Item name="brand" label="Brand" rules={[{ required: true }]}>
-          <Input />
-        </Form.Item>
-
-        <Form.Item name="model" label="Model" rules={[{ required: true }]}>
-          <Input />
-        </Form.Item>
-
-        <Form.Item name="type" label="Bus Type" rules={[{ required: true }]}>
-          <Input placeholder="AC, Non-AC, Sleeper, etc." />
-        </Form.Item>
-
-        <Form.Item name="features" label="Features (comma separated)">
-          <Input placeholder="AC, WiFi, Charging Port, etc." />
-        </Form.Item>
-
         <Form.Item name="image" label="Image URL" rules={[{ required: true }]}>
           <Input placeholder="https://example.com/bus.jpg" />
         </Form.Item>
 
-        <Form.Item
-          name="totalRows"
-          label="Total Rows"
-          rules={[{ required: true }]}
-        >
-          <InputNumber min={1} className="w-full" />
-        </Form.Item>
+        <div className="grid grid-cols-2 gap-3">
+          <Form.Item name="brand" label="Brand" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
 
-        <Form.Item
-          name="seatsPerRow"
-          label="Seats Per Row"
-          rules={[{ required: true }]}
-        >
-          <InputNumber min={1} max={6} className="w-full" />
-        </Form.Item>
+          <Form.Item name="model" label="Model" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-3">
+          <Form.Item name="type" label="Bus Type" rules={[{ required: true }]}>
+            <Input placeholder="AC, Non-AC, Sleeper, etc." />
+          </Form.Item>
+
+          <Form.Item name="features" label="Features (comma separated)">
+            <Input placeholder="AC, WiFi, Charging Port, etc." />
+          </Form.Item>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-3">
+          <Form.Item
+            name="totalRows"
+            label="Total Rows"
+            rules={[{ required: true }]}
+          >
+            <InputNumber min={1} className="w-full" />
+          </Form.Item>
+
+          <Form.Item
+            name="seatsPerRow"
+            label="Seats Per Row"
+            rules={[{ required: true }]}
+          >
+            <InputNumber min={1} max={6} className="w-full" />
+          </Form.Item>
+        </div>
+
 
         <Form.Item>
           <Button
             type="primary"
             htmlType="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700"
+            size="large"
+            className="!bg-primary hover:!bg-primary/75 w-full"
           >
             Add Bus
           </Button>
